@@ -3,7 +3,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 import org.junit.jupiter.api.Test;
 
-import prep.Definendum;
+import prep.Definiendum;
 import prep.Graph;
 
 public class GraphTests {
@@ -30,10 +30,10 @@ public class GraphTests {
         Graph graph = new Graph();
         graph.addModel("../resources/WN_DSR_model_XML.rdf");
 
-        Definendum apple = graph.findDefinendum("apple");
+        Definiendum apple = graph.findDefinendum("apple");
         assertEquals(apple.toString, "Apple");
 
-        Definendum PAGAD = graph.findDefinendum("People_against_Gangsterism_and_Drugs__PAGAD");
+        Definiendum PAGAD = graph.findDefinendum("People_against_Gangsterism_and_Drugs__PAGAD");
         assertEquals(PAGAD.toString(), "People_against_Gangsterism_and_Drugs__PAGAD");
     }
 }
