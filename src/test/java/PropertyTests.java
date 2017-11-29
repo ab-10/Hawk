@@ -31,7 +31,7 @@ public class PropertyTests {
 
     @Test
     public static void canBeRepresentedAsString(){
-        assertEquals(appleProperties[0].toString(), "with red or yellow or green skin and sweet to tart crisp whitish flesh");
-        assertEquals(PAGADProperties[0].toString(), "to fight drug lords");
+        assertEquals(appleProperties.get(0).toString(), "with red or yellow or green skin and sweet to tart crisp whitish flesh");
+        assertEquals(PAGADProperties.get(0).toString(), "to fight drug lords");
     }
 }
