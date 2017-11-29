@@ -21,13 +21,13 @@ public class DefiniendumTests {
     }
 
     @Test
-    public static void canBeRepresentedAsString(){
+    public void canBeRepresentedAsString(){
         assertEquals(apple.toString(), "apple");
         assertEquals(PAGAD.toString(), "People_against_Gangsterism_and_Drugs__PAGAD");
     }
 
     @Test
-    public static void findsProperties(){
+    public void findsProperties(){
         ArrayList<Property> appleProperties = apple.findProperties();
         assertEquals(appleProperties.size(), 1);
 

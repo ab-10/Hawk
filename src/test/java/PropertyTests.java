@@ -11,6 +11,8 @@ import java.util.ArrayList;
 public class PropertyTests {
     private static ArrayList<Property> appleProperties;
     private static ArrayList<Property> PAGADProperties;
+
+
     @BeforeAll
     public static void initialise(){
         Graph graph = new Graph();
@@ -24,13 +26,13 @@ public class PropertyTests {
     }
 
     @Test
-    public static void canFindRoles(){
+    public void canFindRoles(){
         assertEquals(appleProperties.get(0).getRole(), "has_diff_qual");
         assertEquals(PAGADProperties.get(0).getRole(), "has_purpose");
     }
 
     @Test
-    public static void canBeRepresentedAsString(){
+    public void canBeRepresentedAsString(){
         assertEquals(appleProperties.get(0).toString(), "with red or yellow or green skin and sweet to tart crisp whitish flesh");
         assertEquals(PAGADProperties.get(0).toString(), "to fight drug lords");
     }
