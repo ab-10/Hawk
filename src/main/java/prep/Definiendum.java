@@ -20,7 +20,7 @@ public class Definiendum {
         StmtIterator propertyIterator = this.resource.listProperties();
         while(propertyIterator.hasNext()){
             try {
-                Statement currentStatement = propertyIterator.nextStatement().getProperty(RDF.object);
+                Statement currentStatement = propertyIterator.nextStatement();
                 properties.add(new Property(currentStatement));
             }catch (PropertyNotFoundException e) {
                 ;
