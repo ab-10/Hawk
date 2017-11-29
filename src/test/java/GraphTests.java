@@ -31,7 +31,7 @@ public class GraphTests {
         graph.addModel("../resources/WN_DSR_model_XML.rdf");
 
         Definiendum apple = graph.findDefiniendum("apple");
-        assertEquals(apple.toString, "Apple");
+        assertEquals(apple.toString(), "Apple");
 
         Definiendum PAGAD = graph.findDefiniendum("People_against_Gangsterism_and_Drugs__PAGAD");
         assertEquals(PAGAD.toString(), "People_against_Gangsterism_and_Drugs__PAGAD");
