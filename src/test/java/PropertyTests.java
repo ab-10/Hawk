@@ -16,8 +16,8 @@ public class PropertyTests {
         Graph graph = new Graph();
         graph.addModel("../resources/WN_DSR_model_XML.rdf");
 
-        Definiendum apple = graph.findDefinendum("apple");
-        Definiendum PAGAD = graph.findDefinendum("People_against_Gangsterism_and_Drugs__PAGAD");
+        Definiendum apple = graph.findDefiniendum("apple");
+        Definiendum PAGAD = graph.findDefiniendum("People_against_Gangsterism_and_Drugs__PAGAD");
 
         appleProperties = apple.findProperties();
         PAGADProperties = PAGAD.findProperties();
