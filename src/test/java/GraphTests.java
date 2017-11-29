@@ -14,8 +14,8 @@ public class GraphTests {
        try{
            graph.addModel("../resources/non_existent_model.rdf");
            fail("Exception should be thrown");
-       } catch (Exception e){
-           ;
+       } catch (IllegalArgumentException exception){
+           assertEquals(exception.getMessage(), "File: ../resources/non_existent_model.rdf not found");
        }
 
        try {
