@@ -25,8 +25,8 @@ public class PropertyTests {
 
     @Test
     public static void canFindRoles(){
-        assertEquals(appleProperties[0].getRole(), "has_diff_qual");
-        assertEquals(PAGADProperties[0].getRole(), "has_purpose");
+        assertEquals(appleProperties.get(0).getRole(), "has_diff_qual");
+        assertEquals(PAGADProperties.get(0).getRole(), "has_purpose");
     }
 
     @Test
