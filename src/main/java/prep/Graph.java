@@ -21,7 +21,7 @@ public class Graph {
         this.model.read(graphLocation);
     }
 
-    public Definendum findDefindendum(String definendumName){
-        return new Definendum(this.model.getResource(this.resourceURIStart + definendumName))
+    public Definiendum findDefiniendum(String definendumName){
+        return new Definiendum(this.model.getResource(this.resourceURIStart + definendumName));
     }
 }
