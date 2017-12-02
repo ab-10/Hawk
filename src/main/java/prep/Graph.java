@@ -14,7 +14,9 @@ public class Graph {
     }
 
     public void addModel(String graphLocation){
-        InputStream graphFile = FileManager.get().open(graphLocation);
+        ClassLoader loader = Thread.currentThread().getContextClassLoader();
+        InputStream graphFile = loader.getResourceAsStream(graphLocation);
+        // InputStream graphFile = FileManager.get().open(graphLocation);
         if (graphFile == null){
             throw new IllegalArgumentException("File: " + graphLocation + " not found");
         }

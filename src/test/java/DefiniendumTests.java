@@ -14,7 +14,7 @@ public class DefiniendumTests {
     private static Definiendum PAGAD;
     @BeforeAll public static void initialise(){
         Graph graph = new Graph();
-        graph.addModel("../resources/WN_DSR_model_XML.rdf");
+        graph.addModel("WN_DSR_model_XML.rdf");
 
         apple = graph.findDefiniendum("apple");
         PAGAD = graph.findDefiniendum("People_against_Gangsterism_and_Drugs__PAGAD");

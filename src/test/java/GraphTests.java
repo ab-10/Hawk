@@ -12,14 +12,14 @@ public class GraphTests {
        Graph graph = new Graph();
 
        try{
-           graph.addModel("../resources/non_existent_model.rdf");
+           graph.addModel("non_existent_model.rdf");
            fail("Exception should be thrown");
        } catch (IllegalArgumentException exception){
-           assertEquals(exception.getMessage(), "File: ../resources/non_existent_model.rdf not found");
+           assertEquals(exception.getMessage(), "File: non_existent_model.rdf not found");
        }
 
        try {
-           graph.addModel("../resources/WN_DSR_model_XML.rdf");
+           graph.addModel("WN_DSR_model_XML.rdf");
        } catch (Exception e){
            fail("No exception should be thrown");
        }
@@ -28,7 +28,7 @@ public class GraphTests {
     @Test
     public void findsDefinendum() {
         Graph graph = new Graph();
-        graph.addModel("../resources/WN_DSR_model_XML.rdf");
+        graph.addModel("WN_DSR_model_XML.rdf");
 
         Definiendum apple = graph.findDefiniendum("apple");
         assertEquals(apple.toString(), "Apple");

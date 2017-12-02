@@ -16,7 +16,7 @@ public class PropertyTests {
     @BeforeAll
     public static void initialise(){
         Graph graph = new Graph();
-        graph.addModel("../resources/WN_DSR_model_XML.rdf");
+        graph.addModel("WN_DSR_model_XML.rdf");
 
         Definiendum apple = graph.findDefiniendum("apple");
         Definiendum PAGAD = graph.findDefiniendum("People_against_Gangsterism_and_Drugs__PAGAD");
