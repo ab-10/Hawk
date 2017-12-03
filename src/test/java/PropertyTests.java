@@ -27,13 +27,17 @@ public class PropertyTests {
 
     @Test
     public void canFindRoles(){
-        assertEquals(appleProperties.get(0).getRole(), "has_diff_qual");
-        assertEquals(PAGADProperties.get(0).getRole(), "has_purpose");
+        assertEquals("has_diff_qual", appleProperties.get(0).getRole()
+                , "Fails to identify the correct role for apple's properties");
+        assertEquals("has_purpose", PAGADProperties.get(0).getRole()
+                , "Fails to identify the correct role for PAGAD's properties");
     }
 
     @Test
     public void canBeRepresentedAsString(){
-        assertEquals(appleProperties.get(0).toString(), "with red or yellow or green skin and sweet to tart crisp whitish flesh");
-        assertEquals(PAGADProperties.get(0).toString(), "to fight drug lords");
+        assertEquals("with red or yellow or green skin and sweet to tart crisp whitish flesh", appleProperties.get(0).toString()
+                , "Property of Apple number 0 is not correctly represented as a String");
+        assertEquals("to fight drug lords", PAGADProperties.get(0).toString()
+                , "Property of PAGAD number 0 is not correctly represented as a String");
     }
 }

@@ -1,5 +1,7 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.apache.jena.vocabulary.*;
+
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -22,16 +24,20 @@ public class DefiniendumTests {
 
     @Test
     public void canBeRepresentedAsString(){
-        assertEquals(apple.toString(), "apple");
-        assertEquals(PAGAD.toString(), "People_against_Gangsterism_and_Drugs__PAGAD");
+        assertEquals("apple", apple.toString()
+                , "Definiendum apple is not correctly represented as a String");
+        assertEquals("People_against_Gangsterism_and_Drugs__PAGAD", PAGAD.toString()
+                , "Definiendum PAGAD is not correctly represented as a String");
     }
 
     @Test
     public void findsProperties(){
         ArrayList<Property> appleProperties = apple.findProperties();
-        assertEquals(appleProperties.size(), 1);
+        assertEquals(1, appleProperties.size()
+                , "findProperties() does not find the correct number of properties for the definition of apple");
 
         ArrayList<Property> PAGADProperties = PAGAD.findProperties();
-        assertEquals(PAGADProperties.size(), 3);
+        assertEquals(3, PAGADProperties.size()
+                , "findProperties() does not find the correct number of properties for the definition of PAGAD");
     }
 }

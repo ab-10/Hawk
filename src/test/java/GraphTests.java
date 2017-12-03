@@ -31,9 +31,11 @@ public class GraphTests {
         graph.addModel("WN_DSR_model_XML.rdf");
 
         Definiendum apple = graph.findDefiniendum("apple");
-        assertEquals(apple.toString(), "Apple");
+        assertEquals("apple", apple.toString()
+                , "Definiendum of apple hasn't been found or is not correctly represented as a String");
 
         Definiendum PAGAD = graph.findDefiniendum("People_against_Gangsterism_and_Drugs__PAGAD");
-        assertEquals(PAGAD.toString(), "People_against_Gangsterism_and_Drugs__PAGAD");
+        assertEquals("People_against_Gangsterism_and_Drugs__PAGAD", PAGAD.toString()
+                , "Definiendum of PAGAD hasn't been found or is not correctly represented as a String");
     }
 }
