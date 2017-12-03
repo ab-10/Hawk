@@ -1,26 +1,18 @@
 package prep;
 
-
-import org.apache.jena.rdf.model.Statement;
-import org.apache.jena.rdf.model.impl.LiteralImpl;
-import org.apache.jena.vocabulary.RDF;
-
 public class Property {
-    private final Statement statement;
+    private final String value, role;
 
-    public Property(Statement statement){
-        this.statement = statement;
+    public Property(String value, String role){
+        this.value = value;
+        this.role = role;
     }
 
     public String toString(){
-        if(this.statement.getObject() instanceof LiteralImpl){
-            return this.statement.getProperty(RDF.object).getObject().toString();
-        }else{
-            return this.statement.getProperty(RDF.object).getProperty(RDF.object).getObject().toString();
-        }
+        return this.value;
     }
 
     public String getRole(){
-        return this.statement.getProperty(RDF.predicate).getResource().getLocalName();
+        return this.role;
     }
 }
