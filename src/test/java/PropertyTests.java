@@ -37,7 +37,7 @@ public class PropertyTests {
     public void canBeRepresentedAsString(){
         assertEquals("with red or yellow or green skin and sweet to tart crisp whitish flesh", appleProperties.get(0).toString()
                 , "Property of Apple number 0 is not correctly represented as a String");
-        assertEquals("to fight drug lords", PAGADProperties.get(0).toString()
+        assertEquals("in South Africa", PAGADProperties.get(0).toString()
                 , "Property of PAGAD number 0 is not correctly represented as a String");
     }
 }
