@@ -7,10 +7,11 @@ import prep.Graph;
 import prep.Property;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class PropertyTests {
-    private static ArrayList<Property> appleProperties;
-    private static ArrayList<Property> PAGADProperties;
+    private static List<Property> appleProperties;
+    private static List<Property> PAGADProperties;
 
 
     @BeforeAll
@@ -21,8 +22,8 @@ public class PropertyTests {
         Definition apple = graph.findDefinition("apple");
         Definition PAGAD = graph.findDefinition("People_against_Gangsterism_and_Drugs__PAGAD");
 
-        appleProperties = apple.findProperties();
-        PAGADProperties = PAGAD.findProperties();
+        appleProperties = apple.listProperties();
+        PAGADProperties = PAGAD.listProperties();
     }
 
     @Test

@@ -8,6 +8,7 @@ import prep.Graph;
 import prep.Property;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DefinitionTests {
     private static Definition apple;
@@ -29,13 +30,13 @@ public class DefinitionTests {
     }
 
     @Test
-    public void findsProperties(){
-        ArrayList<Property> appleProperties = apple.findProperties();
+    public void listsProperties(){
+        List<Property> appleProperties = apple.listProperties();
         assertEquals(1, appleProperties.size()
-                , "findProperties() does not find the correct number of properties for the definition of apple");
+                , "listProperties() does not find the correct number of properties for the definition of apple");
 
-        ArrayList<Property> PAGADProperties = PAGAD.findProperties();
+        List<Property> PAGADProperties = PAGAD.listProperties();
         assertEquals(3, PAGADProperties.size()
-                , "findProperties() does not find the correct number of properties for the definition of PAGAD");
+                , "listProperties() does not find the correct number of properties for the definition of PAGAD");
     }
 }

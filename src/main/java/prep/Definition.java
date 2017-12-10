@@ -6,6 +6,7 @@ import org.apache.jena.rdf.model.StmtIterator;
 import org.apache.jena.vocabulary.RDF;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Definition {
     private final Resource resource;
@@ -14,7 +15,7 @@ public class Definition {
         this.resource = resource;
     }
 
-    public ArrayList<Property> findProperties(){
+    public List<Property> listProperties(){
         ArrayList<Property> properties = new ArrayList<>();
         StmtIterator propertyIterator = this.resource.listProperties(RDF.type);
 
