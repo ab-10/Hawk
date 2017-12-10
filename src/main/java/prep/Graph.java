@@ -1,7 +1,6 @@
 package prep;
 
 import org.apache.jena.rdf.model.*;
-import org.apache.jena.util.FileManager;
 
 import java.io.InputStream;
 
@@ -23,7 +22,7 @@ public class Graph {
         this.model.read(graphLocation);
     }
 
-    public Definiendum findDefiniendum(String definendumName){
-        return new Definiendum(this.model.getResource(this.resourceURIStart + definendumName));
+    public Definition findDefinition(String definendumName){
+        return new Definition(this.model.getResource(this.resourceURIStart + definendumName));
     }
 }

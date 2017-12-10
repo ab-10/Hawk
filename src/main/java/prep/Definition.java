@@ -7,10 +7,10 @@ import org.apache.jena.vocabulary.RDF;
 
 import java.util.ArrayList;
 
-public class Definiendum {
+public class Definition {
     private final Resource resource;
 
-    public Definiendum(Resource resource){
+    public Definition(Resource resource){
         this.resource = resource;
     }
 

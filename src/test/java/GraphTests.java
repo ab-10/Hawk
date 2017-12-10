@@ -3,7 +3,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 import org.junit.jupiter.api.Test;
 
-import prep.Definiendum;
+import prep.Definition;
 import prep.Graph;
 
 public class GraphTests {
@@ -26,16 +26,16 @@ public class GraphTests {
     }
 
     @Test
-    public void findsDefinendum() {
+    public void findsDefinition() {
         Graph graph = new Graph();
         graph.addModel("WN_DSR_model_XML.rdf");
 
-        Definiendum apple = graph.findDefiniendum("apple");
+        Definition apple = graph.findDefinition("apple");
         assertEquals("apple", apple.toString()
-                , "Definiendum of apple hasn't been found or is not correctly represented as a String");
+                , "Definition of apple hasn't been found or is not correctly represented as a String");
 
-        Definiendum PAGAD = graph.findDefiniendum("People_against_Gangsterism_and_Drugs__PAGAD");
+        Definition PAGAD = graph.findDefinition("People_against_Gangsterism_and_Drugs__PAGAD");
         assertEquals("People_against_Gangsterism_and_Drugs__PAGAD", PAGAD.toString()
-                , "Definiendum of PAGAD hasn't been found or is not correctly represented as a String");
+                , "Definition of PAGAD hasn't been found or is not correctly represented as a String");
     }
 }

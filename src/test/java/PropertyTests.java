@@ -2,7 +2,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import prep.Definiendum;
+import prep.Definition;
 import prep.Graph;
 import prep.Property;
 
@@ -18,8 +18,8 @@ public class PropertyTests {
         Graph graph = new Graph();
         graph.addModel("WN_DSR_model_XML.rdf");
 
-        Definiendum apple = graph.findDefiniendum("apple");
-        Definiendum PAGAD = graph.findDefiniendum("People_against_Gangsterism_and_Drugs__PAGAD");
+        Definition apple = graph.findDefinition("apple");
+        Definition PAGAD = graph.findDefinition("People_against_Gangsterism_and_Drugs__PAGAD");
 
         appleProperties = apple.findProperties();
         PAGADProperties = PAGAD.findProperties();
