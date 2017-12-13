@@ -1,41 +1,41 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.fail;
-
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import prep.Definition;
 import prep.Graph;
 
 public class GraphTests {
-    @Test
-    public void readsAnRDFModel() {
-       Graph graph = new Graph();
+    private Graph graph;
 
-       try{
-           graph.addModel("non_existent_model.rdf");
-           fail("Exception should be thrown");
-       } catch (IllegalArgumentException exception){
-           assertEquals(exception.getMessage(), "File: non_existent_model.rdf not found");
-       }
-
-       try {
-           graph.addModel("WN_DSR_model_XML.rdf");
-       } catch (Exception e){
-           fail("No exception should be thrown");
-       }
+    @BeforeAll
+    public void initialize() {
+        graph = new Graph("reduced_WN_model.rdf");
     }
 
     @Test
-    public void findsDefinition() {
-        Graph graph = new Graph();
-        graph.addModel("WN_DSR_model_XML.rdf");
+    public void findsIndividualDefinitions() {
+        assertEquals(graph.findDefinition("gun_trigger__trigger").getValue()
+                , "gun_trigger__trigger", "Graph does not create a definition with correct value");
 
-        Definition apple = graph.findDefinition("apple");
-        assertEquals("apple", apple.toString()
-                , "Definition of apple hasn't been found or is not correctly represented as a String");
+        assertEquals(graph.findDefinition("Centrocercus__genus_Centrocercus").getValue()
+                , "Centrocercus__genus_Centrocercus", "Graph does not create a definition with correct value");
 
-        Definition PAGAD = graph.findDefinition("People_against_Gangsterism_and_Drugs__PAGAD");
-        assertEquals("People_against_Gangsterism_and_Drugs__PAGAD", PAGAD.toString()
-                , "Definition of PAGAD hasn't been found or is not correctly represented as a String");
+    }
+
+    @Test void listsPropertiesOfDefinitions(){
+        Definition trigger = graph.findDefinition("gun_trigger__trigger");
+        Definition centrocerus = graph.findDefinition("Centrocercus__genus_Centrocercus");
+
+        assertEquals(1, trigger.listProperties().size(),
+                "Graph does not populate the definition with the correct number of properties");
+        assertEquals(3, centrocerus.listProperties().size(),
+                "Graph does not populate the definition with the correct number of properties");
+
+    }
+
+    @Test void getsAllDefinitions(){
+        assertEquals(2, graph.getAllDefinitions().size(),
+                "Graph doesn't retrieve all of the definitions");
     }
 }
