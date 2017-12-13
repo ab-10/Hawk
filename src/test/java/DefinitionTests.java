@@ -21,8 +21,8 @@ public class DefinitionTests {
     private static String anotherPropertyValue = "Property(\"baked\", \"has_diff_event\", \"beans\")";
 
     @BeforeAll public static void initialise(){
-       oneDefinition = new Definition("foo_bar");
-       anotherDefinition = new Definition("eggs_n_ham");
+       oneDefinition = new Definition("<http://nlp/resources/synsets/WordNetNounSynset#foo_bar>");
+       anotherDefinition = new Definition("<http://nlp/resources/synsets/WordNetNounSynset#eggs_n_ham>");
 
        oneProperty = mock(Property);
        anotherProperty = mock(Property);
@@ -37,10 +37,6 @@ public class DefinitionTests {
        anotherDefinition.addProperty(anotherProperty);
     }
 
-    /*
-    generatesValue() would be useful in case Definition would be constructed from URI rather than value
-    which is a design choice I considered, however I believe that keeping the original RDF graph separate from
-    Definition and Property is a better design choice
     @Test
     public void generatesValue() throws InvocationTargetException, IllegalAccessException {
         Method generateValue = Definition.class.getDeclaredMethod("generateValue");
@@ -48,7 +44,6 @@ public class DefinitionTests {
         assertEquals("foo_bar", generateValue.invoke(oneDefinition));
         assertEquals("eggs_n_ham", generateValue.invoke(anotherDefinition));
     }
-    */
 
     @Test
     public void canBeRepresentedAsString(){
