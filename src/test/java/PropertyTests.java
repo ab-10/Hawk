@@ -2,12 +2,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import prep.Definition;
-import prep.Graph;
 import prep.Property;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class PropertyTests {
     private static Property someProperty;
