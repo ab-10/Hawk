@@ -6,6 +6,9 @@ import org.junit.jupiter.api.Test;
 import static org.mockito.Mockito.*;
 import prep.Definition;
 import prep.Property;
+
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +35,14 @@ public class DefinitionTests {
        oneDefinition.addProperty(anotherProperty);
        anotherDefinition.addProperty(oneProperty);
        anotherDefinition.addProperty(anotherProperty);
+    }
+
+    @Test
+    public void generatesValue() throws InvocationTargetException, IllegalAccessException {
+        Method generateValue = Definition.class.getDeclaredMethod("generateValue");
+        generateValue.setAccessible(true);
+        assertEquals("foo_bar", generateValue.invoke(oneDefinition));
+        assertEquals("eggs_n_ham", generateValue.invoke(anotherDefinition));
     }
 
     @Test
