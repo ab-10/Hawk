@@ -3,40 +3,54 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import static org.mockito.Mockito.*;
 import prep.Definition;
-import prep.Graph;
 import prep.Property;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class DefinitionTests {
-    private static Definition apple;
-    private static Definition PAGAD;
-    @BeforeAll public static void initialise(){
-        Graph graph = new Graph();
-        graph.addModel("WN_DSR_model_XML.rdf");
+    private static Definition oneDefinition;
+    private static Definition anotherDefinition;
+    private static Property oneProperty;
+    private static Property anotherProperty;
+    private static String onePropertyValue = "Property(\"for solo voice\", \"has_diff_qual\", \"song\")";
+    private static String anotherPropertyValue = "Property(\"baked\", \"has_diff_event\", \"beans\")";
 
-        apple = graph.findDefinition("apple");
-        PAGAD = graph.findDefinition("People_against_Gangsterism_and_Drugs__PAGAD");
+    @BeforeAll public static void initialise(){
+       oneDefinition = new Definition("<http://nlp/resources/synsets/WordNetNounSynset#foo_bar>");
+       anotherDefinition = new Definition("<http://nlp/resources/synsets/WordNetNounSynset#eggs_n_ham>");
+
+       oneProperty = mock(Property);
+       anotherProperty = mock(Property);
+       when(oneProperty.toString())
+               .thenReturn(onePropertyValue);
+       when(anotherProperty.toString()).
+               thenReturn(anotherPropertyValue);
+
+       oneDefinition.addProperty(oneProperty);
+       oneDefinition.addProperty(anotherProperty);
+       anotherDefinition.addProperty(oneProperty);
+       anotherDefinition.addProperty(anotherProperty);
     }
 
     @Test
     public void canBeRepresentedAsString(){
-        assertEquals("apple", apple.toString()
-                , "Definition apple is not correctly represented as a String");
-        assertEquals("People_against_Gangsterism_and_Drugs__PAGAD", PAGAD.toString()
-                , "Definition PAGAD is not correctly represented as a String");
+        assertEquals("Definition(\"foo_bar\", " + oneProperty + " " + anotherProperty + ")"
+                    , oneDefinition.toString(), "Definition is incorrectly represented as String");
+        assertEquals("Definition(\"foo_bar\", " + oneProperty + " " + anotherProperty + ")"
+                    , anotherDefinition.toString(), "Definition is incorrectly represented as String");
     }
 
     @Test
     public void listsProperties(){
-        List<Property> appleProperties = apple.listProperties();
-        assertEquals(1, appleProperties.size()
-                , "listProperties() does not find the correct number of properties for the definition of apple");
+        List<Property> expectedProperties = new ArrayList<>();
+        expectedProperties.add(oneProperty);
+        expectedProperties.add(anotherProperty);
+        assertEquals(expectedProperties, oneDefinition.listProperties()
+                    , "Unable to list the correct properties");
+        assertEquals(expectedProperties, anotherDefinition.listProperties()
+                    , "Unable to list the correct properties");
 
-        List<Property> PAGADProperties = PAGAD.listProperties();
-        assertEquals(3, PAGADProperties.size()
-                , "listProperties() does not find the correct number of properties for the definition of PAGAD");
     }
 }
