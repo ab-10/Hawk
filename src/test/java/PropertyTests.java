@@ -1,5 +1,6 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import com.sun.java.swing.plaf.windows.TMSchema;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import prep.Definition;
@@ -10,35 +11,45 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PropertyTests {
-    private static List<Property> appleProperties;
-    private static List<Property> PAGADProperties;
+    private static Property someProperty;
+    private static Property anotherProperty;
 
 
     @BeforeAll
     public static void initialise(){
-        Graph graph = new Graph();
-        graph.addModel("WN_DSR_model_XML.rdf");
-
-        Definition apple = graph.findDefinition("apple");
-        Definition PAGAD = graph.findDefinition("People_against_Gangsterism_and_Drugs__PAGAD");
-
-        appleProperties = apple.listProperties();
-        PAGADProperties = PAGAD.listProperties();
+        someProperty = new Property("for solo voice", "has_diff_qual", "song");
+        anotherProperty = new Property("baked", "has_diff_event", "beans");
     }
 
     @Test
     public void canFindRoles(){
-        assertEquals("has_diff_qual", appleProperties.get(0).getRole()
-                , "Fails to identify the correct role for apple's properties");
-        assertEquals("has_purpose", PAGADProperties.get(0).getRole()
-                , "Fails to identify the correct role for PAGAD's properties");
+        assertEquals("has_diff_qual", someProperty.getRole()
+                , "Fails to identify the correct role for a property");
+        assertEquals("has_diff_event", anotherProperty.getRole()
+                , "Fails to identify the correct role for a property");
+    }
+
+    @Test
+    public void canFindValue(){
+        assertEquals("for solo voice", someProperty.getValue()
+                , "Fails to identify the correct value of a property");
+        assertEquals("baked", anotherProperty.getValue()
+                , "Fails to identify the correct value of a property");
+    }
+
+    @Test
+    public void canFindSubject(){
+        assertEquals("song", someProperty.getSubject()
+                    , "Fails to identify the correct subject of a property");
+        assertEquals("beans", anotherProperty.getSubject()
+                    , "Fails to identify the correct subject of a property");
     }
 
     @Test
     public void canBeRepresentedAsString(){
-        assertEquals("with red or yellow or green skin and sweet to tart crisp whitish flesh", appleProperties.get(0).toString()
-                , "Property of Apple number 0 is not correctly represented as a String");
-        assertEquals("in South Africa", PAGADProperties.get(0).toString()
-                , "Property of PAGAD number 0 is not correctly represented as a String");
+        assertEquals("Property(\"for solo voice\", \"has_diff_qual\", \"song\")", someProperty.toString()
+                    , "Fails to represent a property as a String");
+        assertEquals("Property(\"baked\", \"has_diff_event\", \"beans\")", anotherProperty.toString()
+                    , "Fails to represent a property as a String");
     }
 }
