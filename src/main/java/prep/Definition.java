@@ -22,6 +22,10 @@ public class Definition {
         this.properties = new ArrayList<>();
     }
 
+    public String getURI() {
+        return URI;
+    }
+
     public void addProperty(Property propertyToAdd){
         properties.add(propertyToAdd);
     }
