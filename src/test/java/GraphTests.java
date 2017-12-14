@@ -9,7 +9,7 @@ public class GraphTests {
     private Graph graph;
 
     @BeforeAll
-    public void initialize() {
+    public static void initialize() {
         graph = new Graph("reduced_WN_model.rdf");
     }
 
