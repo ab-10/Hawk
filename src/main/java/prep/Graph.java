@@ -8,13 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Graph {
-    private final Model model;
     private List<Definition> definitions;
-    private final String resourceURIStart = "http://nlp/resources/synsets/WordNetNounSynset#";
 
     public Graph(String graphLocation){
-        model = createPopulatedModel(graphLocation);
-        definitions = findAllDefinitions();
+        Model model = createPopulatedModel(graphLocation);
+        definitions = findAllDefinitions(model);
         populateAllDefinitions(definitions, model);
     }
 
@@ -77,7 +75,16 @@ public class Graph {
         }
     }
 
-    public Definition findDefinition(String definendumName){
-        return new Definition(this.model.getResource(this.resourceURIStart + definendumName));
+    public Definition getDefinition(String definiendum){
+        for(Definition currentDefinition: definitions){
+            if(currentDefinition.getDefiniendum().equals(definiendum)){
+                return currentDefinition;
+            }
+        }
+        return null;
+    }
+
+    public List<Definition> getAllDefinitions(){
+        return definitions;
     }
 }
