@@ -53,9 +53,9 @@ public class DefinitionTests {
 
     @Test
     public void canBeRepresentedAsString(){
-        assertEquals("Definition(\"foo_bar\", " + oneProperty + " " + anotherProperty + ")"
+        assertEquals("Definition(\"foo_bar\", " + oneProperty + ", " + anotherProperty + ")"
                     , oneDefinition.toString(), "Definition is incorrectly represented as String");
-        assertEquals("Definition(\"foo_bar\", " + oneProperty + " " + anotherProperty + ")"
+        assertEquals("Definition(\"foo_bar\", " + oneProperty + ", " + anotherProperty + ")"
                     , anotherDefinition.toString(), "Definition is incorrectly represented as String");
     }
 
