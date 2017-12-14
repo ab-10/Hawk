@@ -64,9 +64,9 @@ public class DefinitionTests {
         List<Property> expectedProperties = new ArrayList<>();
         expectedProperties.add(oneProperty);
         expectedProperties.add(anotherProperty);
-        assertEquals(expectedProperties, oneDefinition.listProperties()
+        assertEquals(expectedProperties, oneDefinition.getProperties()
                     , "Unable to list the correct properties");
-        assertEquals(expectedProperties, anotherDefinition.listProperties()
+        assertEquals(expectedProperties, anotherDefinition.getProperties()
                     , "Unable to list the correct properties");
 
     }
