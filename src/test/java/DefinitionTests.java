@@ -17,12 +17,16 @@ public class DefinitionTests {
     private static Definition anotherDefinition;
     private static Property oneProperty;
     private static Property anotherProperty;
+    private static String oneDefinitionURI = "<http://nlp/resources/synsets/WordNetNounSynset#foo_bar>";
+    private static String anotherDefinitionURI = "<http://nlp/resources/synsets/WordNetNounSynset#eggs_n_ham>";
+    private static String oneDefinitionValue = "foo_bar";
+    private static String anotherDefinitionValue = "eggs_n_ham";
     private static String onePropertyValue = "Property(\"for solo voice\", \"has_diff_qual\", \"song\")";
     private static String anotherPropertyValue = "Property(\"baked\", \"has_diff_event\", \"beans\")";
 
     @BeforeAll public static void initialise(){
-       oneDefinition = new Definition("<http://nlp/resources/synsets/WordNetNounSynset#foo_bar>");
-       anotherDefinition = new Definition("<http://nlp/resources/synsets/WordNetNounSynset#eggs_n_ham>");
+       oneDefinition = new Definition(oneDefinitionURI);
+       anotherDefinition = new Definition(anotherDefinitionURI);
 
        oneProperty = mock(Property);
        anotherProperty = mock(Property);
@@ -41,8 +45,10 @@ public class DefinitionTests {
     public void generatesValue() throws InvocationTargetException, IllegalAccessException {
         Method generateValue = Definition.class.getDeclaredMethod("generateValue");
         generateValue.setAccessible(true);
-        assertEquals("foo_bar", generateValue.invoke(oneDefinition));
-        assertEquals("eggs_n_ham", generateValue.invoke(anotherDefinition));
+        assertEquals(oneDefinitionValue, generateValue.invoke(null, oneDefinitionURI),
+                "generateValue() incorrectly extracts the local name from definition's URI");
+        assertEquals(anotherDefinitionValue, generateValue.invoke(null, anotherDefinitionURI),
+                "generateValue() incorrectly extracts the local name from definition's URI");
     }
 
     @Test
