@@ -15,17 +15,17 @@ public class GraphTests {
 
     @Test
     public void findsIndividualDefinitions() {
-        assertEquals(graph.findDefinition("gun_trigger__trigger").getValue()
+        assertEquals(graph.getDefinition("gun_trigger__trigger").getValue()
                 , "gun_trigger__trigger", "Graph does not create a definition with correct value");
 
-        assertEquals(graph.findDefinition("Centrocercus__genus_Centrocercus").getValue()
+        assertEquals(graph.getDefinition("Centrocercus__genus_Centrocercus").getValue()
                 , "Centrocercus__genus_Centrocercus", "Graph does not create a definition with correct value");
 
     }
 
     @Test void listsPropertiesOfDefinitions(){
-        Definition trigger = graph.findDefinition("gun_trigger__trigger");
-        Definition centrocerus = graph.findDefinition("Centrocercus__genus_Centrocercus");
+        Definition trigger = graph.getDefinition("gun_trigger__trigger");
+        Definition centrocerus = graph.getDefinition("Centrocercus__genus_Centrocercus");
 
         assertEquals(1, trigger.listProperties().size(),
                 "Graph does not populate the definition with the correct number of properties");
