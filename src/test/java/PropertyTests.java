@@ -41,9 +41,9 @@ public class PropertyTests {
 
     @Test
     public void canBeRepresentedAsString(){
-        assertEquals("Property(\"for solo voice\", \"has_diff_qual\", \"song\")", someProperty.toString()
+        assertEquals("Property(for solo voice, has_diff_qual, song)", someProperty.toString()
                     , "Fails to represent a property as a String");
-        assertEquals("Property(\"baked\", \"has_diff_event\", \"beans\")", anotherProperty.toString()
+        assertEquals("Property(baked, has_diff_event, beans)", anotherProperty.toString()
                     , "Fails to represent a property as a String");
     }
 }
