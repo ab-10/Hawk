@@ -24,12 +24,12 @@ public class DefinitionTests {
     private static String onePropertyValue = "Property(\"for solo voice\", \"has_diff_qual\", \"song\")";
     private static String anotherPropertyValue = "Property(\"baked\", \"has_diff_event\", \"beans\")";
 
-    @BeforeAll public static void initialise(){
+    @BeforeAll public static void initialise() throws NoSuchMethodException{
        oneDefinition = new Definition(oneDefinitionURI);
        anotherDefinition = new Definition(anotherDefinitionURI);
 
-       oneProperty = mock(Property);
-       anotherProperty = mock(Property);
+       oneProperty = mock(Property.class);
+       anotherProperty = mock(Property.class);
        when(oneProperty.toString())
                .thenReturn(onePropertyValue);
        when(anotherProperty.toString()).
@@ -42,7 +42,7 @@ public class DefinitionTests {
     }
 
     @Test
-    public void generatesValue() throws InvocationTargetException, IllegalAccessException {
+    public void generatesValue() throws Exception{
         Method generateValue = Definition.class.getDeclaredMethod("generateValue");
         generateValue.setAccessible(true);
         assertEquals(oneDefinitionValue, generateValue.invoke(null, oneDefinitionURI),
