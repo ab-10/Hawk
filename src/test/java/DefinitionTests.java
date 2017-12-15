@@ -43,7 +43,7 @@ public class DefinitionTests {
 
     @Test
     public void generatesValue() throws Exception{
-        Method generateValue = Definition.class.getDeclaredMethod("generateValue");
+        Method generateValue = Definition.class.getDeclaredMethod("generateValue", String.class);
         generateValue.setAccessible(true);
         assertEquals(oneDefinitionValue, generateValue.invoke(null, oneDefinitionURI),
                 "generateValue() incorrectly extracts the local name from definition's URI");
