@@ -48,7 +48,6 @@ public class Definition {
 
     // Extracts the local name from the URI, for use as the Definition's definiendum
     private static String generateValue(String URI){
-        System.out.println(URI);
         Pattern regExPattern = Pattern.compile("(?<=#).*");
         Matcher matcherForURI = regExPattern.matcher(URI);
         matcherForURI.find();
