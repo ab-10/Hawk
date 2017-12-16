@@ -25,7 +25,8 @@ public class Graph {
         if (graphFile == null){
             throw new IllegalArgumentException("File: " + modelLocation + " not found");
         }
-        modelCreated.read(modelLocation);
+        // base URI is null because graphs are assumed to not use relative URIs
+        modelCreated.read(graphFile, null);
         return modelCreated;
     }
 
@@ -54,7 +55,7 @@ public class Graph {
         String queryTemplate = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> " +
                 "SELECT ?value ?role ?subject" +
                 "WHERE{" +
-                "%s        rdf:type      ?property ." +
+                "<%s>        rdf:type      ?property ." +
                 "?property rdf:object    ?value ." +
                 "?property rdf:predicate ?role ." +
                 "?property rdf:subject   ?subject" +
