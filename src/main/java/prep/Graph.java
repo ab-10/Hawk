@@ -53,7 +53,7 @@ public class Graph {
 
     private static void populateAllDefinitions(List<Definition> definitions, Model model){
         String queryTemplate = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> " +
-                "SELECT ?value ?role ?subject" +
+                "SELECT ?value ?role ?subject " +
                 "WHERE{" +
                 "<%s>        rdf:type      ?property ." +
                 "?property rdf:object    ?value ." +
@@ -67,7 +67,7 @@ public class Graph {
                 ResultSet properties = qexec.execSelect();
                 while(properties.hasNext()){
                     QuerySolution currentProperty = properties.nextSolution();
-                    String currentValue = currentProperty.getResource("value").getLocalName();
+                    String currentValue = currentProperty.getLiteral("value").toString();
                     String currentRole = currentProperty.getResource("role").getLocalName();
                     String currentSubject = currentProperty.getResource("subject").getLocalName();
                     currentDefinition.addProperty(new Property(currentValue, currentRole, currentSubject));
