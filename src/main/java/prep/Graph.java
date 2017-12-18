@@ -55,7 +55,7 @@ public class Graph {
         String queryTemplate = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> " +
                 "SELECT ?value ?role ?subject " +
                 "WHERE{" +
-                "<%s>        rdf:type      ?property ." +
+                "<%s>      rdf:type      ?property ." +
                 "?property rdf:object    ?value ." +
                 "?property rdf:predicate ?role ." +
                 "?property rdf:subject   ?subject" +
@@ -65,12 +65,51 @@ public class Graph {
             Query currentQuery = QueryFactory.create(currentQueryString);
             try(QueryExecution qexec = QueryExecutionFactory.create(currentQuery, model)){
                 ResultSet properties = qexec.execSelect();
+                Boolean hasReifiedProperties = false;
                 while(properties.hasNext()){
                     QuerySolution currentProperty = properties.nextSolution();
-                    String currentValue = currentProperty.getLiteral("value").toString();
+                    String currentValue;
+                    // in case an attempt of obtaining a literal of value fails it means that the value is reified
+                    try {
+                        currentValue = currentProperty.getLiteral("value").toString();
+                    } catch (ClassCastException exception){
+                        hasReifiedProperties = true;
+                        break;
+
+                    }
+
                     String currentRole = currentProperty.getResource("role").getLocalName();
                     String currentSubject = currentProperty.getResource("subject").getLocalName();
+                    // it is safe to use currentValue despite it being initialized only within the try block
+                    // because the catch clause breaks the iteration of the loop
                     currentDefinition.addProperty(new Property(currentValue, currentRole, currentSubject));
+                }
+                // finds all the reified values for the definition and creates properties representing them
+                if(hasReifiedProperties) {
+                    String reifiedQueryTemplate = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> " +
+                            "SELECT ?role ?subject ?subValue ?subRole ?subSubject " +
+                            "WHERE{ " +
+                            "<%s>             rdf:type      ?property ." +
+                            "?property        rdf:object    ?subProperty ." +
+                            "?property        rdf:predicate ?role ." +
+                            "?property        rdf:subject   ?subject ." +
+                            "?subProperty     rdf:object    ?subValue ." +
+                            "?subProperty     rdf:predicate ?subRole ." +
+                            "?subProperty     rdf:subject   ?subSubject" +
+                            "}";
+                    String reifiedQueryString = String.format(reifiedQueryTemplate, currentDefinition.getURI());
+                    Query reifiedQuery = QueryFactory.create(reifiedQueryString);
+                    try (QueryExecution reifiedQueryExec = QueryExecutionFactory.create(reifiedQuery, model)) {
+                        ResultSet reifiedProperties = reifiedQueryExec.execSelect();
+                        while (reifiedProperties.hasNext()) {
+                            QuerySolution reifiedProperty = reifiedProperties.nextSolution();
+                            String currentValue = reifiedProperty.getLiteral("subValue").toString() + " "
+                                    + reifiedProperty.getResource("subSubject").getLocalName();
+                            String currentRole = reifiedProperty.getResource("role").getLocalName();
+                            String currentSubject = reifiedProperty.getResource("subject").getLocalName();
+                            currentDefinition.addProperty(new Property(currentValue, currentRole, currentSubject));
+                        }
+                    }
                 }
             }
         }
