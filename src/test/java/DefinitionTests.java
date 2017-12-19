@@ -17,8 +17,8 @@ public class DefinitionTests {
     private static Definition anotherDefinition;
     private static Property oneProperty;
     private static Property anotherProperty;
-    private static String oneDefinitionURI = "<http://nlp/resources/synsets/WordNetNounSynset#foo_bar>";
-    private static String anotherDefinitionURI = "<http://nlp/resources/synsets/WordNetNounSynset#eggs_n_ham>";
+    private static String oneDefinitionURI = "http://nlp/resources/synsets/WordNetNounSynset#foo_bar";
+    private static String anotherDefinitionURI = "http://nlp/resources/synsets/WordNetNounSynset#eggs_n_ham";
     private static String oneDefinitionValue = "foo_bar";
     private static String anotherDefinitionValue = "eggs_n_ham";
     private static String onePropertyValue = "Property(for solo voice, has_diff_qual, song)";
@@ -53,9 +53,9 @@ public class DefinitionTests {
 
     @Test
     public void canBeRepresentedAsString(){
-        assertEquals("Definition(foo_bar, " + oneProperty + ", " + anotherProperty + ")"
+        assertEquals("Definition(foo_bar, Property(for solo voice, has_diff_qual, song), Property(baked, has_diff_event, beans))"
                     , oneDefinition.toString(), "Definition is incorrectly represented as String");
-        assertEquals("Definition(eggs_n_ham, " + oneProperty + ", " + anotherProperty + ")"
+        assertEquals("Definition(eggs_n_ham, Property(for solo voice, has_diff_qual, song), Property(baked, has_diff_event, beans))"
                     , anotherDefinition.toString(), "Definition is incorrectly represented as String");
     }
 
