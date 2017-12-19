@@ -6,7 +6,7 @@ import prep.Definition;
 import prep.Graph;
 
 public class GraphTests {
-    private Graph graph;
+    private static Graph graph;
 
     @BeforeAll
     public static void initialize() {
@@ -29,13 +29,13 @@ public class GraphTests {
 
         assertEquals(1, trigger.getProperties().size(),
                 "Graph does not populate the definition with the correct number of properties");
-        assertEquals(3, centrocerus.getProperties().size(),
+        assertEquals(1, centrocerus.getProperties().size(),
                 "Graph does not populate the definition with the correct number of properties");
 
     }
 
     @Test void getsAllDefinitions(){
-        assertEquals(2, graph.getAllDefinitions().size(),
+        assertEquals(3, graph.getAllDefinitions().size(),
                 "Graph doesn't retrieve all of the definitions");
     }
 }
