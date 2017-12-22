@@ -47,7 +47,7 @@ public class GraphIndexer {
             for(Property currentProperty : currentDefinition.getProperties()){
                 // StringField allows for comparisons in between substrings of the field,
                 // while TextField treats the entire field as single value
-                currentDocument.add(new StringField(currentProperty.getRole(), currentProperty.getValue(), Field.Store.YES));
+                currentDocument.add(new StringField("property", currentProperty.getValue(), Field.Store.YES));
             }
             writer.addDocument(currentDocument);
 
