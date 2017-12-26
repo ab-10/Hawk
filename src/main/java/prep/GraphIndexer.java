@@ -43,7 +43,14 @@ public class GraphIndexer {
 
         for(Definition currentDefinition : graph.getAllDefinitions()){
             Document currentDocument = new Document();
-            currentDocument.add(new StringField("definiendum", currentDefinition.getDefiniendum(), Field.Store.YES));
+            // Ensures that definitions consisting of multiple synonymous definienda
+            // have all definienda recorded in separate fields
+            String[] definienda = currentDefinition.getDefiniendum().split("__");
+            for(String currentDefiniendum : definienda){
+                currentDocument.add(new StringField("definiendum",
+                        currentDefiniendum.replace("_", " "), Field.Store.YES));
+            }
+
             for(Property currentProperty : currentDefinition.getProperties()){
                 // StringField allows for comparisons in between substrings of the field,
                 // while TextField treats the entire field as single value
