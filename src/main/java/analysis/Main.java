@@ -32,6 +32,10 @@ public class Main {
     }
 
     public static int compare(String pivot, String comparison, String feature) throws Exception{
+        pivot = pivot.toLowerCase();
+        comparison = comparison.toLowerCase();
+        feature = feature.toLowerCase();
+
         BooleanQuery.Builder builderPivot = new BooleanQuery.Builder();
         BooleanQuery.Builder builderComparison = new BooleanQuery.Builder();
         builderPivot.add(new TermQuery(new Term("definiendum", pivot)), BooleanClause.Occur.MUST);

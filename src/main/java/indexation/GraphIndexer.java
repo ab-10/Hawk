@@ -46,62 +46,27 @@ public class GraphIndexer {
             return;
         }
 
-        FileWriter fileWriter = new FileWriter("src/main/resources/tokenizerTest.txt");
-
-        int definitionsParsed = 0;
         for(Definition currentDefinition : graph.getAllDefinitions()){
             Document currentDocument = new Document();
             // Ensures that definitions consisting of multiple synonymous definienda
             // have all definienda recorded in separate fields
 
-            /*
-            if(definitionsParsed < 10) {
-                fileWriter.write("For definition of " + currentDefinition.getDefiniendum() + "\n");
-                fileWriter.write("Following definiendum tokens were made:\n");
-                TokenStream currentTk = analyzer.tokenStream("definiendum", currentDefinition.getDefiniendum());
-                OffsetAttribute currentOa = currentTk.addAttribute(OffsetAttribute.class);
-                parseTS(fileWriter, currentTk, currentOa);
+            for(String definiendum : currentDefinition.getDefiniendum().split("_+")) {
+                currentDocument.add(new StringField("definiendum", definiendum.toLowerCase(), Field.Store.YES));
             }
-            */
-
-            currentDocument.add(new StringField("definiendum", currentDefinition.getDefiniendum(), Field.Store.YES));
 
             for(Property currentProperty : currentDefinition.getProperties()){
                 // StringField allows for comparisons in between substrings of the field,
                 // while TextField treats the entire field as single value
-                currentDocument.add(new StringField("property", currentProperty.toString(), Field.Store.YES));
-
-                /*
-                if(definitionsParsed < 10) {
-                    fileWriter.write("\n");
-                    fileWriter.write("and following property tokens were made\n");
-                    TokenStream currentTk = analyzer.tokenStream("property", currentProperty.getValue());
-                    OffsetAttribute currentOa = currentTk.addAttribute(OffsetAttribute.class);
-                    parseTS(fileWriter, currentTk, currentOa);
-                    fileWriter.write("\n");
+                for(String term : currentProperty.toString().split(" ")) {
+                    currentDocument.add(new StringField("property", term.toLowerCase(), Field.Store.YES));
                 }
-                */
+
             }
-            definitionsParsed++;
             writer.addDocument(currentDocument);
 
         }
         writer.close();
 
-
-    }
-
-    private static void parseTS(FileWriter fileWriter, TokenStream currentTk, OffsetAttribute currentOa) throws IOException {
-        try{
-            currentTk.reset();
-            while (currentTk.incrementToken()){
-                fileWriter.write("token: " + currentTk.reflectAsString(true) + "\n");
-                fileWriter.write("token start offset: " + currentOa.startOffset() + "\n");
-                fileWriter.write("token start offset: " + currentOa.endOffset() + "\n");
-            }
-            currentTk.end();
-        }finally {
-            currentTk.close();
-        }
     }
 }
