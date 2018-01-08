@@ -2,7 +2,6 @@ package indexation;
 
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.TokenStream;
-import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.analysis.tokenattributes.OffsetAttribute;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
@@ -10,6 +9,7 @@ import org.apache.lucene.document.StringField;
 import org.apache.lucene.document.TextField;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
+import org.apache.lucene.index.IndexableField;
 import org.apache.lucene.store.Directory;
 import prep.Definition;
 import prep.Graph;
@@ -17,7 +17,6 @@ import prep.Property;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 
 /**
  * Functionality for creating a <code>Lucene Index</code> from <code>Graph</code> and writing it to disk.
@@ -36,7 +35,7 @@ public class GraphIndexer {
     public static void indexGraph(Graph graph, Directory directory) throws IOException{
 
 
-        Analyzer analyzer = new StandardAnalyzer();
+        Analyzer analyzer = new DefinitionAnalyzer();
         IndexWriterConfig config = new IndexWriterConfig(analyzer);
 
         IndexWriter writer;
@@ -54,26 +53,25 @@ public class GraphIndexer {
             Document currentDocument = new Document();
             // Ensures that definitions consisting of multiple synonymous definienda
             // have all definienda recorded in separate fields
-            String[] definienda = currentDefinition.getDefiniendum().split("__");
-            for(String currentDefiniendum : definienda){
 
-                if(definitionsParsed < 10) {
-                    fileWriter.write("For definition of " + currentDefiniendum + "\n");
-                    fileWriter.write("Following definiendum tokens were made:\n");
-                    TokenStream currentTk = analyzer.tokenStream("definiendum", currentDefiniendum);
-                    OffsetAttribute currentOa = currentTk.addAttribute(OffsetAttribute.class);
-                    parseTS(fileWriter, currentTk, currentOa);
-                }
-
-                currentDocument.add(new StringField("definiendum",
-                        currentDefiniendum.replace("_", " ").toLowerCase(), Field.Store.YES));
+            /*
+            if(definitionsParsed < 10) {
+                fileWriter.write("For definition of " + currentDefinition.getDefiniendum() + "\n");
+                fileWriter.write("Following definiendum tokens were made:\n");
+                TokenStream currentTk = analyzer.tokenStream("definiendum", currentDefinition.getDefiniendum());
+                OffsetAttribute currentOa = currentTk.addAttribute(OffsetAttribute.class);
+                parseTS(fileWriter, currentTk, currentOa);
             }
+            */
+
+            currentDocument.add(new StringField("definiendum", currentDefinition.getDefiniendum(), Field.Store.YES));
 
             for(Property currentProperty : currentDefinition.getProperties()){
                 // StringField allows for comparisons in between substrings of the field,
                 // while TextField treats the entire field as single value
-                currentDocument.add(new StringField("property", currentProperty.getValue().toLowerCase(), Field.Store.YES));
+                currentDocument.add(new StringField("property", currentProperty.toString(), Field.Store.YES));
 
+                /*
                 if(definitionsParsed < 10) {
                     fileWriter.write("\n");
                     fileWriter.write("and following property tokens were made\n");
@@ -82,6 +80,7 @@ public class GraphIndexer {
                     parseTS(fileWriter, currentTk, currentOa);
                     fileWriter.write("\n");
                 }
+                */
             }
             definitionsParsed++;
             writer.addDocument(currentDocument);
