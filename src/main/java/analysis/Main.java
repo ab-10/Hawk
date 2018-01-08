@@ -42,7 +42,7 @@ public class Main {
         builderPivot.add(new WildcardQuery(new Term("property", "*" + feature + "*")), BooleanClause.Occur.MUST);
 
         builderComparison.add(new TermQuery(new Term("definiendum", comparison)), BooleanClause.Occur.MUST);
-        builderComparison.add(new WildcardQuery(new Term("property", "*" + feature + "*")), BooleanClause.Occur.MUST);
+        builderComparison.add(new WildcardQuery(new Term("property", feature + "*")), BooleanClause.Occur.MUST);
 
         BooleanQuery queryPivot = builderPivot.build();
         BooleanQuery queryComparison = builderComparison.build();
