@@ -39,10 +39,10 @@ public class Main {
         BooleanQuery.Builder builderPivot = new BooleanQuery.Builder();
         BooleanQuery.Builder builderComparison = new BooleanQuery.Builder();
         builderPivot.add(new TermQuery(new Term("definiendum", pivot)), BooleanClause.Occur.MUST);
-        builderPivot.add(new TermQuery(new Term("property", feature)), BooleanClause.Occur.MUST);
+        builderPivot.add(new WildcardQuery(new Term("property", "*" + feature + "*")), BooleanClause.Occur.MUST);
 
         builderComparison.add(new TermQuery(new Term("definiendum", comparison)), BooleanClause.Occur.MUST);
-        builderComparison.add(new TermQuery(new Term("property", feature)), BooleanClause.Occur.MUST);
+        builderComparison.add(new WildcardQuery(new Term("property", "*" + feature + "*")), BooleanClause.Occur.MUST);
 
         BooleanQuery queryPivot = builderPivot.build();
         BooleanQuery queryComparison = builderComparison.build();
