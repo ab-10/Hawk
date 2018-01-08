@@ -17,7 +17,9 @@
 
 package indexation;
 
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Reader;
 
 import org.apache.lucene.analysis.Tokenizer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
@@ -28,156 +30,153 @@ import org.apache.lucene.analysis.tokenattributes.PositionIncrementAttribute;
 import org.apache.lucene.analysis.tokenattributes.TypeAttribute;
 import org.apache.lucene.util.AttributeFactory;
 
+import static org.apache.lucene.analysis.standard.StandardTokenizer.MAX_TOKEN_LENGTH_LIMIT;
+
 /**
  * A modification of Lucene's StandardTokenizer,
  * that tokenizes based on space and underscore characters
  */
 
-public final class DefinitionTokenizer extends Tokenizer {
-  /** A private instance of the JFlex-constructed scanner */
-  private DefinitionTokenizerImpl scanner;
-  /** Alpha/numeric token type */
-  public static final int ALPHANUM = 0;
-  /** Numeric token type */
-  public static final int NUM = 1;
-  /** Southeast Asian token type */
-  public static final int SOUTHEAST_ASIAN = 2;
-  /** Ideographic token type */
-  public static final int IDEOGRAPHIC = 3;
-  /** Hiragana token type */
-  public static final int HIRAGANA = 4;
-  /** Katakana token type */
-  public static final int KATAKANA = 5;
-  /** Hangul token type */
-  public static final int HANGUL = 6;
-  
-  /** String token types that correspond to token type int constants */
-  public static final String [] TOKEN_TYPES = new String [] {
-    "<ALPHANUM>",
-    "<NUM>",
-    "<SOUTHEAST_ASIAN>",
-    "<IDEOGRAPHIC>",
-    "<HIRAGANA>",
-    "<KATAKANA>",
-    "<HANGUL>"
-  };
-  
-  /** Absolute maximum sized token */
-  public static final int MAX_TOKEN_LENGTH_LIMIT = 1024 * 1024;
-  
-  private int skippedPositions;
 
-  private int maxTokenLength = StandardAnalyzer.DEFAULT_MAX_TOKEN_LENGTH;
+public class DefinitionTokenizer extends Tokenizer {
+    private int maxTokenLength = StandardAnalyzer.DEFAULT_MAX_TOKEN_LENGTH;
+    // stores whether the reader has been read
+    private boolean notRead;
 
-  /**
-   * Set the max allowed token length.  Tokens larger than this will be chopped
-   * up at this token length and emitted as multiple tokens.  If you need to
-   * skip such large tokens, you could increase this max length, and then
-   * use {@code LengthFilter} to remove long tokens.  The default is
-   * {@link StandardAnalyzer#DEFAULT_MAX_TOKEN_LENGTH}.
-   * 
-   * @throws IllegalArgumentException if the given length is outside of the
-   *  range [1, {@value #MAX_TOKEN_LENGTH_LIMIT}].
-   */ 
-  public void setMaxTokenLength(int length) {
-    if (length < 1) {
-      throw new IllegalArgumentException("maxTokenLength must be greater than zero");
-    } else if (length > MAX_TOKEN_LENGTH_LIMIT) {
-      throw new IllegalArgumentException("maxTokenLength may not exceed " + MAX_TOKEN_LENGTH_LIMIT);
+    /* Lucene uses attributes to store information about a single token. For
+     * this tokenizer, the only attribute that we are going to use is the
+     * CharTermAttribute, which can store the text for the token that is
+     * generated. Other types of attributes exist (see interfaces and classes
+     * derived from org.apache.lucene.util.Attribute); we will use some of
+     * these other attributes when we build our custom token filter. It is
+     * important that you register attributes, whatever their type, using the
+     * addAttribute() function.
+     */
+    protected CharTermAttribute charTermAttribute =
+            addAttribute(CharTermAttribute.class);
+
+    public DefinitionTokenizer() {
+        System.out.println("DefinitionTokenizer() called");
     }
-    if (length != maxTokenLength) {
-      maxTokenLength = length;
-      scanner.setBufferSize(length);
+
+    /**
+     * Reads the <code>input</code> if it hasn't been read before and find the next token.
+     * <p>
+     * Creates a token from <code>position</code> up to the closest underscore or space character
+     * if neither of those characters are remaining creates a token up to the end of the <code>input</code>.
+     * </p>
+     *
+     * @return <code>true</code> iff the token was successfully incremented <code>false</code> otherwise.
+     * @throws IOException
+     */
+    @Override
+    public boolean incrementToken() throws IOException {
+        if (notRead) {
+            int numChars;
+            char[] buffer = new char[1024];
+            StringBuilder stringBuilder = new StringBuilder();
+            try {
+                while ((numChars =
+                        input.read(buffer, 0, buffer.length)) != -1) {
+                    stringBuilder.append(buffer, 0, numChars);
+                }
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            notRead = false;
+            this.stringToTokenize = stringBuilder.toString();
+        }
+
+        System.out.println("incrementToken() called");
+        this.charTermAttribute.setEmpty();
+        clearAttributes();
+
+        int nextSpaceIndex = this.stringToTokenize.indexOf(' ', this.position);
+        int nextUnderscoreIndex = this.stringToTokenize.indexOf('_', this.position);
+        /* finds the closest symbol at which to tokenize
+           by finding the smallest index which is not -1
+           sets nextIndex to -1 in case nextSpaceIndex and nextUnderscoreIndex are equal,
+           which can only occur if both of them are -1
+         */
+        int nextIndex = -1;
+        if(nextSpaceIndex < nextUnderscoreIndex){
+           nextIndex = nextSpaceIndex != -1 ? nextSpaceIndex : nextUnderscoreIndex;
+        }
+        if(nextUnderscoreIndex < nextSpaceIndex){
+            nextIndex = nextUnderscoreIndex != -1 ? nextUnderscoreIndex : nextSpaceIndex;
+        }
+
+
+        // Execute this block if a plus symbol was found. Save the token
+        // and the position to start at when incrementToken() is next
+        // called.
+        if (nextIndex != -1) {
+            String nextToken = this.stringToTokenize.substring(
+                    this.position, nextIndex);
+            this.position = nextIndex + 1;
+            this.charTermAttribute.append(nextToken);
+            System.out.println(nextToken);
+            return true;
+        }
+
+        // Execute this block if no more + signs are found, but there is
+        // still some text remaining in the string. For example, this saves
+        // “text" in "This+is++some+text".
+        else if (this.position < this.stringToTokenize.length()) {
+            String nextToken =
+                    this.stringToTokenize.substring(this.position);
+            this.charTermAttribute.append(nextToken);
+            this.position = this.stringToTokenize.length();
+            System.out.println(nextToken);
+            return true;
+        }
+
+        // Execute this block if no more tokens exist in the string.
+        else {
+            return false;
+        }
     }
-  }
 
-  /** Returns the current maximum token length
-   * 
-   *  @see #setMaxTokenLength */
-  public int getMaxTokenLength() {
-    return maxTokenLength;
-  }
 
-  /**
-   * Creates a new instance of the {@link DefinitionTokenizer}.  Attaches
-   * the <code>input</code> to the newly created JFlex scanner.
-
-   * See http://issues.apache.org/jira/browse/LUCENE-1068
-   */
-  public DefinitionTokenizer() {
-    init();
-  }
-
-  /**
-   * Creates a new DefinitionTokenizer with a given {@link org.apache.lucene.util.AttributeFactory}
-   */
-  public DefinitionTokenizer(AttributeFactory factory) {
-    super(factory);
-    init();
-  }
-
-  private void init() {
-    this.scanner = new DefinitionTokenizerImpl(input);
-  }
-
-  // this tokenizer generates three attributes:
-  // term offset, positionIncrement and type
-  private final CharTermAttribute termAtt = addAttribute(CharTermAttribute.class);
-  private final OffsetAttribute offsetAtt = addAttribute(OffsetAttribute.class);
-  private final PositionIncrementAttribute posIncrAtt = addAttribute(PositionIncrementAttribute.class);
-  private final TypeAttribute typeAtt = addAttribute(TypeAttribute.class);
-
-  /*
-   * (non-Javadoc)
-   *
-   * @see org.apache.lucene.analysis.TokenStream#next()
-   */
-  @Override
-  public final boolean incrementToken() throws IOException {
-    clearAttributes();
-    skippedPositions = 0;
-
-    while(true) {
-      int tokenType = scanner.getNextToken();
-
-      if (tokenType == DefinitionTokenizerImpl.YYEOF) {
-        return false;
-      }
-
-      if (scanner.yylength() <= maxTokenLength) {
-        posIncrAtt.setPositionIncrement(skippedPositions+1);
-        scanner.getText(termAtt);
-        final int start = scanner.yychar();
-        offsetAtt.setOffset(correctOffset(start), correctOffset(start+termAtt.length()));
-        typeAtt.setType(DefinitionTokenizer.TOKEN_TYPES[tokenType]);
-        return true;
-      } else
-        // When we skip a too-long term, we still increment the
-        // position increment
-        skippedPositions++;
+    public void setMaxTokenLength(int length) {
+        if (length < 1) {
+            throw new IllegalArgumentException("maxTokenLength must be greater than zero");
+        } else if (length > MAX_TOKEN_LENGTH_LIMIT) {
+            throw new IllegalArgumentException("maxTokenLength may not exceed " + MAX_TOKEN_LENGTH_LIMIT);
+        }
+        if (length != maxTokenLength) {
+            maxTokenLength = length;
+        }
     }
-  }
-  
-  @Override
-  public final void end() throws IOException {
-    super.end();
-    // set final offset
-    int finalOffset = correctOffset(scanner.yychar() + scanner.yylength());
-    offsetAtt.setOffset(finalOffset, finalOffset);
-    // adjust any skipped tokens
-    posIncrAtt.setPositionIncrement(posIncrAtt.getPositionIncrement()+skippedPositions);
-  }
 
-  @Override
-  public void close() throws IOException {
-    super.close();
-    scanner.yyreset(input);
-  }
+    /**
+     * Sets the <code>tokenizer</code> to state where it's ready to create new tokens.
+     *
+     * <p>
+     * Although unread <code>input</code> hasn't been given, <code>notRead</code> is set to <code>true</code>
+     * because this is supposed to be called before giving new <code>input</code>.
+     * </p>
+     */
+    @Override
+    public void reset() throws IOException {
+        super.reset();
+        notRead = true;
+        this.position = 0;
+    }
 
-  @Override
-  public void reset() throws IOException {
-    super.reset();
-    scanner.yyreset(input);
-    skippedPositions = 0;
-  }
+    @Override
+    public void close() throws IOException {
+        super.close();
+    }
+
+
+    /* This object stores the string that we are turning into tokens. We will
+     * process its content as we call the incrementToken() function.
+     */
+    protected String stringToTokenize;
+
+    /* This stores the current position in this.stringToTokenize. We will
+     * increment its value as we call the incrementToken() function.
+     */
+    protected int position = 0;
 }

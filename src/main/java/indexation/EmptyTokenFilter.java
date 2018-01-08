@@ -27,13 +27,15 @@ import org.apache.lucene.analysis.TokenStream;
  */
 public class EmptyTokenFilter extends TokenFilter {
 
-  /** Sole constructor */
-  public EmptyTokenFilter(TokenStream in) {
-    super(in);
-  }
-  
-  @Override
-  public final boolean incrementToken() throws IOException {
-    return input.incrementToken(); // TODO: add some niceties for the new grammar
-  }
+    /**
+     * Sole constructor
+     */
+    public EmptyTokenFilter(TokenStream in) {
+        super(in);
+    }
+
+    @Override
+    public final boolean incrementToken() throws IOException {
+        return input.incrementToken(); // TODO: add some niceties for the new grammar
+    }
 }
