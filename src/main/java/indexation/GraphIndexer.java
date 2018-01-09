@@ -1,21 +1,16 @@
 package indexation;
 
 import org.apache.lucene.analysis.Analyzer;
-import org.apache.lucene.analysis.TokenStream;
-import org.apache.lucene.analysis.tokenattributes.OffsetAttribute;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
-import org.apache.lucene.document.StringField;
 import org.apache.lucene.document.TextField;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
-import org.apache.lucene.index.IndexableField;
 import org.apache.lucene.store.Directory;
 import prep.Definition;
 import prep.Graph;
 import prep.Property;
 
-import java.io.FileWriter;
 import java.io.IOException;
 
 /**
@@ -29,10 +24,11 @@ import java.io.IOException;
 public class GraphIndexer {
     /**
      * Creates <code>Index</code> from <code>graph</code> and writes it to <code>directory</code>.
-     * @param graph
-     * @param directory
+     *
+     * @param graph Graph to index
+     * @param directory Directory where index should be stored
      */
-    public static void indexGraph(Graph graph, Directory directory) throws IOException{
+    public static void indexGraph(Graph graph, Directory directory) throws IOException {
 
 
         Analyzer analyzer = new DefinitionAnalyzer();
@@ -41,67 +37,25 @@ public class GraphIndexer {
         IndexWriter writer;
         try {
             writer = new IndexWriter(directory, config);
-        }catch (IOException exception){
+        } catch (IOException exception) {
             System.out.println("Invalid graph location");
             return;
         }
 
-        FileWriter fileWriter = new FileWriter("src/main/resources/tokenizerTest.txt");
-
-        int definitionsParsed = 0;
-        for(Definition currentDefinition : graph.getAllDefinitions()){
+        for (Definition currentDefinition : graph.getAllDefinitions()) {
             Document currentDocument = new Document();
-            // Ensures that definitions consisting of multiple synonymous definienda
-            // have all definienda recorded in separate fields
 
-            /*
-            if(definitionsParsed < 10) {
-                fileWriter.write("For definition of " + currentDefinition.getDefiniendum() + "\n");
-                fileWriter.write("Following definiendum tokens were made:\n");
-                TokenStream currentTk = analyzer.tokenStream("definiendum", currentDefinition.getDefiniendum());
-                OffsetAttribute currentOa = currentTk.addAttribute(OffsetAttribute.class);
-                parseTS(fileWriter, currentTk, currentOa);
+            currentDocument.add(new TextField("definiendum", currentDefinition.getDefiniendum(), Field.Store.YES));
+
+            for (Property currentProperty : currentDefinition.getProperties()) {
+                currentDocument.add(new TextField("property", currentProperty.toString(), Field.Store.YES));
+
             }
-            */
-
-            currentDocument.add(new StringField("definiendum", currentDefinition.getDefiniendum(), Field.Store.YES));
-
-            for(Property currentProperty : currentDefinition.getProperties()){
-                // StringField allows for comparisons in between substrings of the field,
-                // while TextField treats the entire field as single value
-                currentDocument.add(new StringField("property", currentProperty.toString(), Field.Store.YES));
-
-                /*
-                if(definitionsParsed < 10) {
-                    fileWriter.write("\n");
-                    fileWriter.write("and following property tokens were made\n");
-                    TokenStream currentTk = analyzer.tokenStream("property", currentProperty.getValue());
-                    OffsetAttribute currentOa = currentTk.addAttribute(OffsetAttribute.class);
-                    parseTS(fileWriter, currentTk, currentOa);
-                    fileWriter.write("\n");
-                }
-                */
-            }
-            definitionsParsed++;
             writer.addDocument(currentDocument);
 
         }
         writer.close();
 
 
-    }
-
-    private static void parseTS(FileWriter fileWriter, TokenStream currentTk, OffsetAttribute currentOa) throws IOException {
-        try{
-            currentTk.reset();
-            while (currentTk.incrementToken()){
-                fileWriter.write("token: " + currentTk.reflectAsString(true) + "\n");
-                fileWriter.write("token start offset: " + currentOa.startOffset() + "\n");
-                fileWriter.write("token start offset: " + currentOa.endOffset() + "\n");
-            }
-            currentTk.end();
-        }finally {
-            currentTk.close();
-        }
     }
 }

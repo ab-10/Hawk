@@ -18,11 +18,15 @@ package indexation;
 
 
 import org.apache.lucene.analysis.*;
+import org.apache.lucene.analysis.hunspell.Dictionary;
+import org.apache.lucene.analysis.hunspell.HunspellStemFilter;
+import org.apache.lucene.analysis.standard.StandardFilter;
 import org.apache.lucene.analysis.standard.StandardTokenizer;
 import org.apache.lucene.analysis.util.CharTokenizer;
+import org.apache.lucene.store.Directory;
+import org.apache.lucene.store.RAMDirectory;
 
-import java.io.IOException;
-import java.io.Reader;
+import java.io.*;
 import java.util.Arrays;
 import java.util.List;
 
@@ -109,21 +113,23 @@ public final class DefinitionAnalyzer extends StopwordAnalyzerBase {
     }
     @Override
     protected TokenStreamComponents createComponents(final String fieldName) {
-        // final DefinitionTokenizer src = new DefinitionTokenizer();
         Tokenizer src = CharTokenizer.fromSeparatorCharPredicate(ch -> Character.isWhitespace(ch) || ch == '_');
-        // src.setMaxTokenLength(maxTokenLength);
-        TokenStream tok = new EmptyTokenFilter(src);
-        tok = new LowerCaseFilter(tok);
-        tok = new StopFilter(tok, stopwords);
-        return new TokenStreamComponents(src, tok);
-        /* {
-            @Override
-            protected void setReader(final Reader reader)
-                // So that if maxTokenLength was changed, the change takes
-                // effect next time tokenStream is called:
-                src.setMaxTokenLength(DefinitionAnalyzer.this.maxTokenLength);
-                super.setReader(reader);
-            }*/
+
+        try {
+            InputStream dictionaryStream = new FileInputStream(new File("src/main/resources/index.dic"));
+            InputStream affixStream = new FileInputStream(new File("src/main/resources/index.aff"));
+            Directory tempDir = new RAMDirectory();
+
+            Dictionary dictionary = new Dictionary(tempDir, "tmp", affixStream, dictionaryStream);
+            TokenStream tok = new HunspellStemFilter(src, dictionary);
+            tok = new LowerCaseFilter(tok);
+            tok = new StopFilter(tok, stopwords);
+            return new TokenStreamComponents(src, tok);
+
+        } catch (Exception e){
+            System.out.println("An error occurred");
+            return new TokenStreamComponents(src, new StandardTokenizer());
+        }
     }
 
     @Override

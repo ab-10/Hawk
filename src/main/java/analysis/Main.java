@@ -55,23 +55,5 @@ public class Main {
             return 0;
         }
 
-        /*
-        System.out.println("Results for " + word1);
-        for(ScoreDoc result : resultsPivot){
-            Document currentDocument = searcher.doc(result.doc);
-            System.out.println("Definition: " + currentDocument.get("definiendum"));
-            System.out.println(currentDocument);
-            System.out.println(result);
-        }
-
-        System.out.println("Results for " + word2);
-        for(ScoreDoc result : resultsComparison){
-            Document currentDocument = searcher.doc(result.doc);
-            System.out.println("Definition: " + currentDocument.getField("definiendum"));
-            System.out.println(currentDocument);
-            System.out.println(result);
-        }
-        */
-
     }
 }
