@@ -32,6 +32,22 @@ public class Definition {
         return properties;
     }
 
+    // todo: write tests for getPropertiesWithRole(String role)
+    /**
+     * Lists properties with the desired <code>role</code>.
+     * @param role desired role.
+     * @return returns a list of properties matching the <code>role</code>.
+     */
+    public List<Property> getPropertiesWithRole(String role){
+        List<Property> result = new ArrayList<>();
+        for(Property currentProperty : properties){
+            if(currentProperty.getRole() == role){
+                result.add(currentProperty);
+            }
+        }
+        return result;
+    }
+
     public String getDefiniendum() {
 
         return definiendum;
