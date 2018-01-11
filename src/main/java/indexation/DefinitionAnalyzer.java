@@ -111,25 +111,16 @@ public final class DefinitionAnalyzer extends StopwordAnalyzerBase {
     public int getMaxTokenLength() {
         return maxTokenLength;
     }
+
     @Override
     protected TokenStreamComponents createComponents(final String fieldName) {
         Tokenizer src = CharTokenizer.fromSeparatorCharPredicate(ch -> Character.isWhitespace(ch) || ch == '_');
 
-        try {
-            InputStream dictionaryStream = new FileInputStream(new File("src/main/resources/index.dic"));
-            InputStream affixStream = new FileInputStream(new File("src/main/resources/index.aff"));
-            Directory tempDir = new RAMDirectory();
+        TokenStream tok = new StandardFilter(src);
+        tok = new LowerCaseFilter(tok);
+        tok = new StopFilter(tok, stopwords);
+        return new TokenStreamComponents(src, tok);
 
-            Dictionary dictionary = new Dictionary(tempDir, "tmp", affixStream, dictionaryStream);
-            TokenStream tok = new HunspellStemFilter(src, dictionary);
-            tok = new LowerCaseFilter(tok);
-            tok = new StopFilter(tok, stopwords);
-            return new TokenStreamComponents(src, tok);
-
-        } catch (Exception e){
-            System.out.println("An error occurred");
-            return new TokenStreamComponents(src, new StandardTokenizer());
-        }
     }
 
     @Override
