@@ -49,13 +49,10 @@ public class GraphIndexer {
 
             for (Property currentProperty : currentDefinition.getProperties()) {
                 currentDocument.add(new TextField("property", currentProperty.toString(), Field.Store.YES));
-
             }
             writer.addDocument(currentDocument);
 
         }
         writer.close();
-
-
     }
 }
