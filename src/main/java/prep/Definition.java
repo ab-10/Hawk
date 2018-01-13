@@ -10,11 +10,13 @@ public class Definition {
     private final String URI;
     private final List<String> definienda;
     private List<Property> properties;
+    private List<Property> bufferProperties;
 
     public Definition(String URI){
         this.URI = URI;
         this.definienda = generateValue(this.URI);
         this.properties = new ArrayList<>();
+        this.bufferProperties = new ArrayList<>();
     }
 
     public String getURI() {
@@ -50,8 +52,15 @@ public class Definition {
     }
 
     public List<String> getDefinienda() {
-
         return definienda;
+    }
+
+    public void addBufferProperty(Property propertyToAdd){
+        bufferProperties.add(propertyToAdd);
+    }
+
+    public void addPropertiesFromBuffer(){
+        properties.addAll(bufferProperties);
     }
 
     public String toString(){

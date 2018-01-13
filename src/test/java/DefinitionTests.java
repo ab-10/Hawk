@@ -1,9 +1,11 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.mockito.Mockito.*;
+
 import prep.Definition;
 import prep.Property;
 
@@ -17,6 +19,8 @@ public class DefinitionTests {
     private static Definition anotherDefinition;
     private static Property oneProperty;
     private static Property anotherProperty;
+    private static Property thirdProperty;
+
     private static String oneDefinitionURI = "http://nlp/resources/synsets/WordNetNounSynset#foo_bar";
     private static String anotherDefinitionURI = "http://nlp/resources/synsets/WordNetNounSynset#eggs_n_ham";
     private static String oneDefinitionValue = "foo bar";
@@ -30,29 +34,31 @@ public class DefinitionTests {
     private static String onePropertyValue = "Property(for solo voice, has_diff_qual, song)";
     private static String anotherPropertyValue = "Property(baked, has_diff_event, beans)";
 
-    @BeforeAll public static void initialise() throws NoSuchMethodException{
-       oneDefinition = new Definition(oneDefinitionURI);
-       anotherDefinition = new Definition(anotherDefinitionURI);
+    @BeforeEach
+    public void initialise() throws NoSuchMethodException {
+        oneDefinition = new Definition(oneDefinitionURI);
+        anotherDefinition = new Definition(anotherDefinitionURI);
 
-       oneDefiniendum.add(oneDefinitionValue);
-       anotherDefiniendum.add(anotherDefinitionValue);
-       complexDefiniendum.add(firstComplexVal);
-       complexDefiniendum.add(secondComplexVal);
-       oneProperty = mock(Property.class);
-       anotherProperty = mock(Property.class);
-       when(oneProperty.toString())
-               .thenReturn(onePropertyValue);
-       when(anotherProperty.toString()).
-               thenReturn(anotherPropertyValue);
+        oneDefiniendum.add(oneDefinitionValue);
+        anotherDefiniendum.add(anotherDefinitionValue);
+        complexDefiniendum.add(firstComplexVal);
+        complexDefiniendum.add(secondComplexVal);
+        oneProperty = mock(Property.class);
+        anotherProperty = mock(Property.class);
+        thirdProperty = mock(Property.class);
+        when(oneProperty.toString())
+                .thenReturn(onePropertyValue);
+        when(anotherProperty.toString()).
+                thenReturn(anotherPropertyValue);
 
-       oneDefinition.addProperty(oneProperty);
-       oneDefinition.addProperty(anotherProperty);
-       anotherDefinition.addProperty(oneProperty);
-       anotherDefinition.addProperty(anotherProperty);
+        oneDefinition.addProperty(oneProperty);
+        oneDefinition.addProperty(anotherProperty);
+        anotherDefinition.addProperty(oneProperty);
+        anotherDefinition.addProperty(anotherProperty);
     }
 
     @Test
-    public void generatesValue() throws Exception{
+    public void generatesValue() throws Exception {
         Method generateValue = Definition.class.getDeclaredMethod("generateValue", String.class);
         generateValue.setAccessible(true);
         assertEquals(oneDefiniendum, generateValue.invoke(null, oneDefinitionURI),
@@ -64,22 +70,36 @@ public class DefinitionTests {
     }
 
     @Test
-    public void canBeRepresentedAsString(){
+    public void canBeRepresentedAsString() {
         assertEquals("Definition(foo bar, Property(for solo voice, has_diff_qual, song), Property(baked, has_diff_event, beans))"
-                    , oneDefinition.toString(), "Definition is incorrectly represented as String");
+                , oneDefinition.toString(), "Definition is incorrectly represented as String");
         assertEquals("Definition(eggs n ham, Property(for solo voice, has_diff_qual, song), Property(baked, has_diff_event, beans))"
-                    , anotherDefinition.toString(), "Definition is incorrectly represented as String");
+                , anotherDefinition.toString(), "Definition is incorrectly represented as String");
     }
 
     @Test
-    public void listsProperties(){
+    public void listsProperties() {
         List<Property> expectedProperties = new ArrayList<>();
         expectedProperties.add(oneProperty);
         expectedProperties.add(anotherProperty);
         assertEquals(expectedProperties, oneDefinition.getProperties()
-                    , "Unable to list the correct properties");
+                , "Unable to list the correct properties");
         assertEquals(expectedProperties, anotherDefinition.getProperties()
-                    , "Unable to list the correct properties");
+                , "Unable to list the correct properties");
 
+    }
+
+    @Test
+    public void addsPropertiesFromBuffer() {
+        oneDefinition.addBufferProperty(thirdProperty);
+        List<Property> expectedProperties = new ArrayList<>();
+        expectedProperties.add(oneProperty);
+        expectedProperties.add(anotherProperty);
+        assertEquals(expectedProperties, oneDefinition.getProperties(),
+                "addBufferProperty adds properties directly to the Property list");
+        oneDefinition.addPropertiesFromBuffer();
+        expectedProperties.add(thirdProperty);
+        assertEquals(expectedProperties, oneDefinition.getProperties(),
+                "addBufferProperty does not add properties directly to the Property list");
     }
 }
