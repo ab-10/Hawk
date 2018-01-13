@@ -117,7 +117,7 @@ public class Graph {
 
     public Definition getDefinition(String definiendum){
         for(Definition currentDefinition: definitions){
-            if(currentDefinition.getDefiniendum().equals(definiendum)){
+            if(currentDefinition.getDefinienda().contains(definiendum)){
                 return currentDefinition;
             }
         }

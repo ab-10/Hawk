@@ -3,6 +3,7 @@ package indexation;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
+import org.apache.lucene.document.StringField;
 import org.apache.lucene.document.TextField;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
@@ -45,7 +46,9 @@ public class GraphIndexer {
         for (Definition currentDefinition : graph.getAllDefinitions()) {
             Document currentDocument = new Document();
 
-            currentDocument.add(new TextField("definiendum", currentDefinition.getDefiniendum(), Field.Store.YES));
+            for(String currentDefiniendum : currentDefinition.getDefinienda()){
+                currentDocument.add(new StringField("definiendum", currentDefiniendum, Field.Store.YES));
+            }
 
             for (Property currentProperty : currentDefinition.getProperties()) {
                 currentDocument.add(new TextField("property", currentProperty.toString(), Field.Store.YES));

@@ -19,8 +19,14 @@ public class DefinitionTests {
     private static Property anotherProperty;
     private static String oneDefinitionURI = "http://nlp/resources/synsets/WordNetNounSynset#foo_bar";
     private static String anotherDefinitionURI = "http://nlp/resources/synsets/WordNetNounSynset#eggs_n_ham";
-    private static String oneDefinitionValue = "foo_bar";
-    private static String anotherDefinitionValue = "eggs_n_ham";
+    private static String oneDefinitionValue = "foo bar";
+    private static String anotherDefinitionValue = "eggs n ham";
+    private static String complexDefinitionURI = "http://nlp/resources/synsets/WordNetNounSynset#spar_var__with_tar";
+    private static String firstComplexVal = "spar var";
+    private static String secondComplexVal = "with tar";
+    private static List<String> oneDefiniendum = new ArrayList<>();
+    private static List<String> anotherDefiniendum = new ArrayList<>();
+    private static List<String> complexDefiniendum = new ArrayList<>();
     private static String onePropertyValue = "Property(for solo voice, has_diff_qual, song)";
     private static String anotherPropertyValue = "Property(baked, has_diff_event, beans)";
 
@@ -28,6 +34,10 @@ public class DefinitionTests {
        oneDefinition = new Definition(oneDefinitionURI);
        anotherDefinition = new Definition(anotherDefinitionURI);
 
+       oneDefiniendum.add(oneDefinitionValue);
+       anotherDefiniendum.add(anotherDefinitionValue);
+       complexDefiniendum.add(firstComplexVal);
+       complexDefiniendum.add(secondComplexVal);
        oneProperty = mock(Property.class);
        anotherProperty = mock(Property.class);
        when(oneProperty.toString())
@@ -45,17 +55,19 @@ public class DefinitionTests {
     public void generatesValue() throws Exception{
         Method generateValue = Definition.class.getDeclaredMethod("generateValue", String.class);
         generateValue.setAccessible(true);
-        assertEquals(oneDefinitionValue, generateValue.invoke(null, oneDefinitionURI),
+        assertEquals(oneDefiniendum, generateValue.invoke(null, oneDefinitionURI),
                 "generateValue() incorrectly extracts the local name from definition's URI");
-        assertEquals(anotherDefinitionValue, generateValue.invoke(null, anotherDefinitionURI),
+        assertEquals(anotherDefiniendum, generateValue.invoke(null, anotherDefinitionURI),
                 "generateValue() incorrectly extracts the local name from definition's URI");
+        assertEquals(complexDefiniendum, generateValue.invoke(null, complexDefinitionURI),
+                "generateValue() incorrectly extracts definienda for definitions with multiple definienda");
     }
 
     @Test
     public void canBeRepresentedAsString(){
-        assertEquals("Definition(foo_bar, Property(for solo voice, has_diff_qual, song), Property(baked, has_diff_event, beans))"
+        assertEquals("Definition(foo bar, Property(for solo voice, has_diff_qual, song), Property(baked, has_diff_event, beans))"
                     , oneDefinition.toString(), "Definition is incorrectly represented as String");
-        assertEquals("Definition(eggs_n_ham, Property(for solo voice, has_diff_qual, song), Property(baked, has_diff_event, beans))"
+        assertEquals("Definition(eggs n ham, Property(for solo voice, has_diff_qual, song), Property(baked, has_diff_event, beans))"
                     , anotherDefinition.toString(), "Definition is incorrectly represented as String");
     }
 

@@ -50,6 +50,8 @@ public class Main {
         DirectoryReader reader = DirectoryReader.open(graphDirectory);
         IndexSearcher searcher = new IndexSearcher(reader);
 
+        ScoreDoc[] results = searcher.search(queryPivot, 10).scoreDocs;
+
         ScoreDoc[] resultsPivot = searcher.search(queryPivot, 10).scoreDocs;
         ScoreDoc[] resultsComparison = searcher.search(queryComparison, 10).scoreDocs;
 
