@@ -9,6 +9,12 @@ public class Property {
         this.subject = subject;
     }
 
+    public Property(String value, String role){
+        this.value = value;
+        this.role = role;
+        subject = "";
+    }
+
     public String toString(){
         return "Property(" + value + ", " + role + ", " + subject + ")";
     }
