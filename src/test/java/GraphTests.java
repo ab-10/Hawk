@@ -26,10 +26,9 @@ public class GraphTests {
     @Test void listsPropertiesOfDefinitions(){
         Definition trigger = graph.getDefinition("trigger");
         Definition centrocerus = graph.getDefinition("genus Centrocercus");
-
-        assertEquals(1, trigger.getProperties().size(),
+        assertEquals(2, trigger.getProperties().size(),
                 "Graph does not populate the definition with the correct number of properties");
-        assertEquals(1, centrocerus.getProperties().size(),
+        assertEquals(2, centrocerus.getProperties().size(),
                 "Graph does not populate the definition with the correct number of properties");
 
     }

@@ -59,6 +59,10 @@ public class Definition {
         bufferProperties.add(propertyToAdd);
     }
 
+    public void addBufferProperty(List<Property> propertiesToAdd){
+        bufferProperties.addAll(propertiesToAdd);
+    }
+
     public void addPropertiesFromBuffer(){
         properties.addAll(bufferProperties);
     }
