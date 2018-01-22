@@ -1,5 +1,7 @@
 package analysis;
 
+import org.apache.lucene.document.Document;
+import org.apache.lucene.document.Field;
 import org.apache.lucene.index.*;
 import org.apache.lucene.search.*;
 import org.apache.lucene.store.Directory;
@@ -15,6 +17,8 @@ import static indexation.GraphIndexer.indexGraph;
 public class Main {
     private static Directory graphDirectory;
     public static void main(String[] args) throws Exception{
+
+
         graphDirectory = FSDirectory.open(Paths.get("src", "main", "resources", "index"));
         Graph graph = new Graph("WN_DSR_model_XML.rdf");
         indexGraph(graph, graphDirectory);
@@ -29,6 +33,20 @@ public class Main {
         }
         resultWriter.close();
 
+        DirectoryReader wikiReader = DirectoryReader.open(FSDirectory.open(Paths.get("src",
+                "main", "resources", "index")));
+        Document sample = wikiReader.document(30);
+        System.out.println("Field names for the first sample");
+        for(IndexableField field: sample.getFields()){
+            System.out.println("Name: " + field.name());
+            System.out.println("Value: " + field.stringValue());
+        }
+        System.out.println("Field names for the second sample");
+        sample = wikiReader.document(3820);
+        for(IndexableField field : sample.getFields()){
+            System.out.println("Name: " + field.name());
+            System.out.println("Value: " + field.stringValue());
+        }
     }
 
     public static int compare(String pivot, String comparison, String feature) throws Exception{
