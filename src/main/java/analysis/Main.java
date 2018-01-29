@@ -15,6 +15,7 @@ import org.apache.lucene.index.*;
 import org.apache.lucene.search.*;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
+import prep.Definition;
 import prep.Graph;
 
 import java.io.*;
@@ -32,54 +33,37 @@ import static indexation.GraphIndexer.indexGraph;
 public class Main {
     private static Directory graphDirectory;
     public static void main(String[] args) throws Exception{
-        /*
-        graphDirectory = FSDirectory.open(Paths.get("src", "main", "resources", "index"));
+        // graphDirectory = FSDirectory.open(Paths.get("src", "main", "resources", "index"));
         Graph graph = new Graph("WN_DSR_model_XML.rdf");
-        indexGraph(graph, graphDirectory);
-        */
-        Scanner fileScanner = new Scanner(new File("src/main/resources/validation.txt"));
-        FileWriter[] writers = new FileWriter[8];
-        writers[0] = new FileWriter("src/main/resources/LSA10Results.txt");
-        writers[1] = new FileWriter("src/main/resources/LSA20Results.txt");
+        // indexGraph(graph, graphDirectory);
 
-        writers[2] = new FileWriter("src/main/resources/ESA10Results.txt");
-        writers[3] = new FileWriter("src/main/resources/ESA20Results.txt");
+        Scanner fileScanner = new Scanner(new File("src/main/resources/test.txt"));
 
-        writers[4] = new FileWriter("src/main/resources/W2V10Results.txt");
-        writers[5] = new FileWriter("src/main/resources/W2V20Results.txt");
-
-        writers[6] = new FileWriter("src/main/resources/GloVe10Results.txt");
-        writers[7] = new FileWriter("src/main/resources/GloVe20Results.txt");
-
-        String[] models = new String[]{"LSA", "LSA", "ESA", "ESA", "W2V", "W2V", "GloVe", "GloVe"};
-
-        int[] coef = new int[]{10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20, 10, 20};
+        FileWriter writer = new FileWriter("src/main/resources/subSim5.txt");
 
         while(fileScanner.hasNext()){
             String[] currentLine = fileScanner.nextLine().split(",");
-            for(int i = 4; i < 8; i++) {
-                writers[i].write(currentLine[0] + "," + currentLine[1] + "," + currentLine[2]
-                        + "," + compare(currentLine[0], currentLine[1], currentLine[2], models[i], coef[i])
-                        + System.getProperty("line.separator"));
-                Thread.sleep(500);
-            }
+            writer.write(currentLine[0] + "," + currentLine[1] + "," + currentLine[2]
+                    + "," + compare(currentLine[0], currentLine[1], currentLine[2], graph)
+                    + System.getProperty("line.separator"));
+            Thread.sleep(500);
 
         }
-        for(int i = 4; i<8; i++){
-            writers[i].close();
-        }
+        writer.close();
+
 
     }
 
-    public static int compare(String pivot, String comparison, String feature, String model, int k) throws Exception{
+    public static int compare(String pivot, String comparison, String feature, Graph graph) throws Exception{
         pivot = pivot.toLowerCase();
         comparison = comparison.toLowerCase();
         feature = feature.toLowerCase();
 
-        if(isFoundInKNN(pivot, feature, model, k) & !isFoundInKNN(comparison, feature, model, k)){
-            return 1;
+        double similarity = hypernymSimilarityDiff(pivot, comparison, feature, graph);
+        if(Double.compare(similarity, 0.08) < 0){
+            return 0;
         }
-        return 0;
+        return 1;
 
         /*
         BooleanQuery.Builder builderPivot = new BooleanQuery.Builder();
@@ -107,6 +91,78 @@ public class Main {
             return 0;
         }
         */
+    }
+
+    private static double hypernymSimilarityDiff(String pivot, String comparison, String feature, Graph graph) throws IOException{
+        Definition pivotDefinition = graph.getDefinition(pivot);
+        Definition comparisonDefinition = graph.getDefinition(comparison);
+
+        String pivotHypernym,comparisonHypernym;
+        try {
+            pivotHypernym = pivotDefinition.getPropertiesWithRole("has_supertype").get(0).getValue();
+            comparisonHypernym = comparisonDefinition.getPropertiesWithRole("has_supertype").get(0).getValue();
+        } catch (NullPointerException e){
+            return similarityDiff(pivot, comparison, feature);
+        }
+        Double hypernymDiff = similarityDiff(pivotHypernym, comparisonHypernym, feature);
+        Double diff = similarityDiff(pivot, comparison, feature);
+        if(Double.compare(hypernymDiff, diff) > 0){
+            return hypernymDiff;
+        }else{
+            return diff;
+        }
+    }
+
+    private static double similarityDiff(String pivot, String comparison, String feature) throws IOException{
+         HttpClient httpclient = HttpClients.createDefault();
+        HttpPost httppost = new HttpPost("http://indra.lambda3.org/relatedness");
+        httppost.setHeader("Content-Type", "application/json");
+
+// Request parameters and other properties.
+        String params = "{\n" +
+                "\t\"corpus\": \"googlenews300neg\",\n" +
+                "\t\"model\": \"W2V\",\n" +
+                "\t\"language\": \"EN\",\n" +
+                "\t\"scoreFunction\": \"COSINE\",\n" +
+                "\t\"pairs\": [{\n" +
+                "\t\t\"t1\": \"" + pivot + "\",\n" +
+                "\t\t\"t2\": \"" + feature + "\"\n" +
+                "\t},\n" +
+                "\t{\n" +
+                "\t\t\"t1\": \"" + comparison + "\",\n" +
+                "\t\t\"t2\": \"" + feature + "\"\n" +
+                "\t}]\n" +
+                "}";
+
+
+        httppost.setEntity(new ByteArrayEntity(params.getBytes("UTF-8")));
+
+//Execute and get the response.
+        HttpResponse response = httpclient.execute(httppost);
+        StatusLine status = response.getStatusLine();
+        HttpEntity entity = response.getEntity();
+
+        if (entity != null) {
+            InputStream instream = entity.getContent();
+            try {
+                StringWriter writer = new StringWriter();
+                IOUtils.copy(instream, writer, "UTF-8");
+                String theString = writer.toString();
+                Double similarity1 = new JSONObject(theString).getJSONArray("pairs").getJSONObject(0).getDouble("score");
+                Double similarity2 = new JSONObject(theString).getJSONArray("pairs").getJSONObject(1).getDouble("score");
+                return Math.abs(similarity1 - similarity2);
+
+            }catch (Exception e){
+                System.out.println(status);
+                System.out.println(e);
+                System.out.println(pivot + " " + comparison + " " + feature);
+            } finally {
+                instream.close();
+            }
+        }
+
+        return 0;
+
     }
 
     /**
