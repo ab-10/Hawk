@@ -1,0 +1,2166 @@
+Log for W2VGNewsImprovedHypernym8 of discriminative attribute detection model
+logged on 30/01/2018 04:10:00
+-------------------------------------------------------------------------------
+surfboard,raft,water,0:1
+Similarity score between surfboard and water is 0.20621560489563517
+Similarity score between raft and water is 0.1964522350917005
+The difference between similarity scores is 0.009763369803934663
+Pivot Hypernym: [board] Comparison Hypernym: [float, large, indefinite, quantity, amount, foundation, base, fundament, foot, groundwork, substructure, understructure]
+Hypernym with the highest similarity to feature: board(0.13555917792780808)
+Hypernym with the highest similarity to feature: understructure(0.23466343930890904)
+Difference between hypernyms: 0.09910426138110096
+-------------------------------------------------------------------------------
+lambs,cattle,wool,1:0
+Similarity score between lambs and wool is 0.4405668618678399
+Similarity score between cattle and wool is 0.36511527283622486
+The difference between similarity scores is 0.07545158903161503
+java.lang.NullPointerException
+-------------------------------------------------------------------------------
+polyurethane,polyester,material,0:1
+Similarity score between polyurethane and material is 0.2780146380020954
+Similarity score between polyester and material is 0.270449263381121
+The difference between similarity scores is 0.007565374620974397
+Pivot Hypernym: [polymer] Comparison Hypernym: [synthetic, resin, ester, plastic, fabric, cloth, material, textile]
+Hypernym with the highest similarity to feature: polymer(0.33015858910668433)
+Hypernym with the highest similarity to feature: material(1.0000000000000002)
+Difference between hypernyms: 0.669841410893316
+-------------------------------------------------------------------------------
+machete,razor,long,1:0
+Similarity score between razor and long is 0.09775047334022989
+Similarity score between machete and long is 0.060864868623929494
+The difference between similarity scores is 0.036885604716300396
+Pivot Hypernym: [knife] Comparison Hypernym: [edge, tool]
+Hypernym with the highest similarity to feature: knife(0.04013251666222264)
+Hypernym with the highest similarity to feature: edge(0.10893323134719148)
+Difference between hypernyms: 0.06880071468496884
+-------------------------------------------------------------------------------
+woman,doctor,talk,0:1
+Similarity score between doctor and talk is 0.12220419469694027
+Similarity score between woman and talk is 0.02424342703879049
+The difference between similarity scores is 0.09796076765814979
+Pivot Hypernym: [female, person, adult, grownup, cleaner, class, stratum, social, socio-economic] Comparison Hypernym: [medical, practitioner, man, theologian, theologist, theologizer, theologiser, play, child's, scholar, scholarly, person, bookman, student]
+Hypernym with the highest similarity to feature: social(0.16918363704894582)
+Hypernym with the highest similarity to feature: play(0.3133305124393087)
+Difference between hypernyms: 0.1441468753903629
+-------------------------------------------------------------------------------
+broom,peacock,long,0:1
+Similarity score between peacock and long is 0.12097206553255367
+Similarity score between broom and long is 0.10822224993722086
+The difference between similarity scores is 0.012749815595332809
+Pivot Hypernym: [cleaning, implement, device, equipment, shrub, bush, heath] Comparison Hypernym: [nymphalid, butterfly, brush-footed, four-footed, peafowl, bird, of, Juno]
+Hypernym with the highest similarity to feature: heath(0.1180370418018531)
+Hypernym with the highest similarity to feature: four-footed(0.21282321809455557)
+Difference between hypernyms: 0.09478617629270247
+-------------------------------------------------------------------------------
+owl,buzzard,eyes,0:1
+Similarity score between buzzard and eyes is 0.1335025215706713
+Similarity score between owl and eyes is 0.15714855767025834
+The difference between similarity scores is 0.023646036099587042
+Pivot Hypernym: [bird, of, prey, raptor, raptorial] Comparison Hypernym: [New, World, vulture, cathartid, hawk]
+Hypernym with the highest similarity to feature: raptorial(0.2589993703588305)
+Hypernym with the highest similarity to feature: hawk(0.14339734884002506)
+Difference between hypernyms: 0.11560202151880547
+-------------------------------------------------------------------------------
+crocodile,turtle,long,1:0
+Similarity score between crocodile and long is 0.11110181533713312
+Similarity score between turtle and long is 0.11104012971290496
+The difference between similarity scores is 6.168562422816104E-5
+Pivot Hypernym: [crocodilian, reptile] Comparison Hypernym: [sweater, jumper, jersey, T-shirt, tee, shirt, chelonian, reptile]
+Hypernym with the highest similarity to feature: reptile(0.11233590019453694)
+Hypernym with the highest similarity to feature: reptile(0.11233590019453694)
+Difference between hypernyms: 0.0
+-------------------------------------------------------------------------------
+adults,child,grownup,1:0
+Similarity score between child and grownup is 0.36797920994127276
+Similarity score between adults and grownup is 0.38704625721476066
+The difference between similarity scores is 0.019067047273487903
+java.lang.NullPointerException
+-------------------------------------------------------------------------------
+herbs,root,green,1:0
+Similarity score between herbs and green is 0.15372259901699797
+Similarity score between root and green is 0.1509143020487477
+The difference between similarity scores is 0.0028082969682502734
+java.lang.NullPointerException
+-------------------------------------------------------------------------------
+stork,dove,large,1:0
+Similarity score between stork and large is 0.09979224813394771
+Similarity score between dove and large is 0.08588271120474172
+The difference between similarity scores is 0.01390953692920599
+Pivot Hypernym: [wading, bird, wader] Comparison Hypernym: [pigeon, pacifist, pacificist, disarmer, constellation, poultry, emblem, allegory]
+Hypernym with the highest similarity to feature: bird(0.11252675888761428)
+Hypernym with the highest similarity to feature: pigeon(0.13712298367794773)
+Difference between hypernyms: 0.02459622479033345
+-------------------------------------------------------------------------------
+sledgehammer,axe,long,0:1
+Similarity score between sledgehammer and long is 0.04734504272432226
+Similarity score between axe and long is 0.0
+The difference between similarity scores is 0.04734504272432226
+Pivot Hypernym: [hammer] Comparison Hypernym: [edge, tool]
+Hypernym with the highest similarity to feature: hammer(0.021798163032738554)
+Hypernym with the highest similarity to feature: edge(0.10893323134719148)
+Difference between hypernyms: 0.08713506831445292
+-------------------------------------------------------------------------------
+canyon,valley,deep,0:1
+Similarity score between valley and deep is 0.1306122047192561
+Similarity score between canyon and deep is 0.23591841414074072
+The difference between similarity scores is 0.10530620942148461
+Pivot Hypernym: [ravine] Comparison Hypernym: [natural, depression]
+Hypernym with the highest similarity to feature: ravine(0.27156156861411773)
+Hypernym with the highest similarity to feature: natural(0.17269894446049827)
+Difference between hypernyms: 0.09886262415361946
+-------------------------------------------------------------------------------
+cheetah,lion,legs,0:1
+Similarity score between lion and legs is 0.12248961203014475
+Similarity score between cheetah and legs is 0.24459806001732493
+The difference between similarity scores is 0.12210844798718018
+Pivot Hypernym: [big, cat] Comparison Hypernym: [big, cat, celebrity, famous, person, individual, someone, somebody, mortal, soul, sign, of, the, zodiac, star, mansion, house, planetary]
+Hypernym with the highest similarity to feature: cat(0.19304207332380202)
+Hypernym with the highest similarity to feature: cat(0.19304207332380202)
+Difference between hypernyms: 0.0
+-------------------------------------------------------------------------------
+air,paediatrician,customers,0:1
+Similarity score between paediatrician and customers is 0.0
+Similarity score between air and customers is 0.029735309643537478
+The difference between similarity scores is 0.029735309643537478
+Pivot Hypernym: [gas, region, part, quality, wind, air, current, of, element, music, medium, travel, traveling, travelling] Comparison Hypernym: [specialist, medical]
+Hypernym with the highest similarity to feature: quality(0.2130447396651346)
+Hypernym with the highest similarity to feature: specialist(0.033497238186724565)
+Difference between hypernyms: 0.17954750147841003
+-------------------------------------------------------------------------------
+rum,liquor,alcohol,0:1
+Similarity score between rum and alcohol is 0.327857649068644
+Similarity score between liquor and alcohol is 0.624607938858238
+The difference between similarity scores is 0.29675028978959395
+Pivot Hypernym: [liquor, spirits, booze, hard, drink, John, Barleycorn, strong, card, game, cards] Comparison Hypernym: [alcohol, alcoholic, drink, beverage, intoxicant, inebriant, liquid, broth, stock]
+Hypernym with the highest similarity to feature: booze(0.6564055524150338)
+Hypernym with the highest similarity to feature: alcohol(1.0)
+Difference between hypernyms: 0.34359444758496616
+-------------------------------------------------------------------------------
+shoulder,leg,arm,1:0
+Similarity score between leg and arm is 0.5505544358637441
+Similarity score between shoulder and arm is 0.5259955250932896
+The difference between similarity scores is 0.024558910770454467
+Pivot Hypernym: [body, part, cut, of, meat, ball-and-socket, joint, spheroid, cotyloid, enarthrodial, enarthrosis, articulatio, spheroidea, cloth, covering, edge] Comparison Hypernym: [limb, support, subfigure, cut, of, meat, prosthesis, prosthetic, device, cloth, covering, distance, length, travel, traveling, travelling]
+Hypernym with the highest similarity to feature: body(0.3339854329625507)
+Hypernym with the highest similarity to feature: limb(0.366530166304908)
+Difference between hypernyms: 0.0325447333423573
+-------------------------------------------------------------------------------
+train,subway,rails,0:1
+Similarity score between subway and rails is 0.3301560491273518
+Similarity score between train and rails is 0.44942893693999963
+The difference between similarity scores is 0.11927288781264783
+Pivot Hypernym: [public, transport, series, procession, consequence, aftermath, piece, of, cloth, material, wheelwork] Comparison Hypernym: [railway, railroad, line, system, tunnel]
+Hypernym with the highest similarity to feature: transport(0.21369798720488764)
+Hypernym with the highest similarity to feature: railroad(0.4565514890373796)
+Difference between hypernyms: 0.24285350183249194
+-------------------------------------------------------------------------------
+beaver,mink,wood,1:0
+Similarity score between beaver and wood is 0.2030099234619774
+Similarity score between mink and wood is 0.15089508178789382
+The difference between similarity scores is 0.05211484167408359
+Pivot Hypernym: [fur, pelt, American, beard, face, fungus, whiskers, hat, chapeau, lid, man's, clothing, armor, plate, armour, plating, rodent, gnawer] Comparison Hypernym: [fur, pelt, coat, musteline, mammal, mustelid]
+Hypernym with the highest similarity to feature: fur(0.33160243789048394)
+Hypernym with the highest similarity to feature: fur(0.33160243789048394)
+Difference between hypernyms: 0.0
+-------------------------------------------------------------------------------
+daughters,girl,female,0:1
+Similarity score between daughters and female is 0.18779509818171172
+Similarity score between girl and female is 0.3468012534633346
+The difference between similarity scores is 0.1590061552816229
+java.lang.NullPointerException
+-------------------------------------------------------------------------------
+pipe,barrel,long,1:0
+Similarity score between barrel and long is 0.1268287144837091
+Similarity score between pipe and long is 0.11862755213322394
+The difference between similarity scores is 0.008201162350485167
+Pivot Hypernym: [tube, tubing, cylinder, wind, instrument] Comparison Hypernym: [tube, tubing, vessel, cylinder, containerful, United, States, liquid, unit, British, capacity, Imperial]
+Hypernym with the highest similarity to feature: wind(0.11257089360898002)
+Hypernym with the highest similarity to feature: liquid(0.1292082318390213)
+Difference between hypernyms: 0.01663733823004128
+-------------------------------------------------------------------------------
+girlfriend,mother,female,0:1
+Similarity score between mother and female is 0.18754738560877895
+Similarity score between girlfriend and female is 0.15418161334410502
+The difference between similarity scores is 0.03336577226467394
+Pivot Hypernym: [woman, adult, female, friend, lover] Comparison Hypernym: [parent, yeast, barm, old, woman, abbess, mother, superior, prioress, inspiration]
+Hypernym with the highest similarity to feature: female(1.0)
+Hypernym with the highest similarity to feature: woman(0.4969047285638524)
+Difference between hypernyms: 0.5030952714361476
+-------------------------------------------------------------------------------
+fog,snow,weather,0:1
+Similarity score between fog and weather is 0.41371597610389804
+Similarity score between snow and weather is 0.5175461496713658
+The difference between similarity scores is 0.10383017356746777
+Pivot Hypernym: [aerosol, atmosphere, atmospheric, state, confusion, mental, confusedness, muddiness, disarray] Comparison Hypernym: [precipitation, downfall, layer, writer, author, cocaine, cocain]
+Hypernym with the highest similarity to feature: atmospheric(0.3458270479226392)
+Hypernym with the highest similarity to feature: precipitation(0.4670225439390373)
+Difference between hypernyms: 0.12119549601639812
+-------------------------------------------------------------------------------
+orthodontist,gynaecologist,profession,0:1
+Similarity score between gynaecologist and profession is 0.0
+Similarity score between orthodontist and profession is 0.1702909001897728
+The difference between similarity scores is 0.1702909001897728
+Pivot Hypernym: [dentist, tooth, doctor, dental, practitioner] Comparison Hypernym: [specialist, medical]
+Hypernym with the highest similarity to feature: practitioner(0.45507939293664024)
+Hypernym with the highest similarity to feature: medical(0.21908114438780296)
+Difference between hypernyms: 0.23599824854883727
+-------------------------------------------------------------------------------
+basket,bag,wicker,1:0
+Similarity score between basket and wicker is 0.2395293348466646
+Similarity score between bag and wicker is 0.2155466809695416
+The difference between similarity scores is 0.023982653877123006
+Pivot Hypernym: [container, containerful, goal, basketball, equipment, score] Comparison Hypernym: [container, indefinite, quantity, baseball, equipment, containerful, baggage, luggage, unpleasant, woman, disagreeable, mammary, gland, mamma, activity]
+Hypernym with the highest similarity to feature: container(0.2672330609144761)
+Hypernym with the highest similarity to feature: container(0.2672330609144761)
+Difference between hypernyms: 0.0
+-------------------------------------------------------------------------------
+vine,cabbage,long,1:0
+Similarity score between cabbage and long is 0.047597380836936404
+Similarity score between vine and long is 0.10970539619072031
+The difference between similarity scores is 0.06210801535378391
+Pivot Hypernym: [vascular, plant, tracheophyte] Comparison Hypernym: [cruciferous, vegetable, money, crucifer, plant]
+Hypernym with the highest similarity to feature: plant(0.06764345526881843)
+Hypernym with the highest similarity to feature: crucifer(0.13342192219593538)
+Difference between hypernyms: 0.06577846692711695
+-------------------------------------------------------------------------------
+frog,snail,legs,1:0
+Similarity score between snail and legs is 0.16177179893470583
+Similarity score between frog and legs is 0.20048803665198592
+The difference between similarity scores is 0.03871623771728008
+Pivot Hypernym: [amphibian, Frenchman, Frenchwoman, French, person, adornment] Comparison Hypernym: [gastropod, univalve, meat]
+Hypernym with the highest similarity to feature: Frenchwoman(0.15886460687790022)
+Hypernym with the highest similarity to feature: gastropod(0.1991611870547054)
+Difference between hypernyms: 0.04029658017680518
+-------------------------------------------------------------------------------
+borzoi,archduchess,state,0:1
+Similarity score between archduchess and state is 0.0
+Similarity score between borzoi and state is -0.019737806968567605
+The difference between similarity scores is 0.019737806968567605
+Pivot Hypernym: [wolfhound] Comparison Hypernym: [princess]
+Hypernym with the highest similarity to feature: wolfhound(0.001873014676151515)
+Hypernym with the highest similarity to feature: princess(0.11811120710220072)
+Difference between hypernyms: 0.1162381924260492
+-------------------------------------------------------------------------------
+daughters,princess,poor,1:0
+Similarity score between princess and poor is 0.0301556536634076
+Similarity score between daughters and poor is 0.059293154562249636
+The difference between similarity scores is 0.029137500898842036
+java.lang.NullPointerException
+-------------------------------------------------------------------------------
+skyscraper,apartment,large,1:0
+Similarity score between apartment and large is 0.06819025763791604
+Similarity score between skyscraper and large is 0.039380336619967364
+The difference between similarity scores is 0.02880992101794868
+Pivot Hypernym: [building, edifice] Comparison Hypernym: [housing, lodging, living, accommodations]
+Hypernym with the highest similarity to feature: building(0.1496390779394413)
+Hypernym with the highest similarity to feature: housing(0.11960838434420723)
+Difference between hypernyms: 0.03003069359523408
+-------------------------------------------------------------------------------
+lacrosse,basketball,players,0:1
+Similarity score between lacrosse and players is 0.2955117043038738
+Similarity score between basketball and players is 0.37970492793170235
+The difference between similarity scores is 0.08419322362782855
+Pivot Hypernym: [field, game] Comparison Hypernym: [court, game, ball, basketball, equipment]
+Hypernym with the highest similarity to feature: game(0.5201698004659079)
+Hypernym with the highest similarity to feature: game(0.5201698004659079)
+Difference between hypernyms: 0.0
+-------------------------------------------------------------------------------
+eyebrow,brow,hair,1:0
+Similarity score between eyebrow and hair is 0.40576339772360837
+Similarity score between brow and hair is 0.42233150556327187
+The difference between similarity scores is 0.016568107839663504
+Pivot Hypernym: [hair] Comparison Hypernym: [feature, lineament, hair, peak, crown, crest, top, tip, summit]
+Hypernym with the highest similarity to feature: hair(1.0)
+Hypernym with the highest similarity to feature: hair(1.0)
+Difference between hypernyms: 0.0
+-------------------------------------------------------------------------------
+angle,curve,line,0:1
+Similarity score between angle and line is 0.22066491995423795
+Similarity score between curve and line is 0.20372650506999695
+The difference between similarity scores is 0.016938414884241
+Pivot Hypernym: [space, point, of, view, viewpoint, stand, standpoint, European] Comparison Hypernym: [line, pitch, delivery, shape, form, configuration, contour, conformation, section, segment]
+Hypernym with the highest similarity to feature: stand(0.25160654504559044)
+Hypernym with the highest similarity to feature: line(0.9999999999999998)
+Difference between hypernyms: 0.7483934549544093
+-------------------------------------------------------------------------------
+emerald,necklace,shiny,0:1
+Similarity score between necklace and shiny is 0.2965873550395755
+Similarity score between emerald and shiny is 0.27688121066258053
+The difference between similarity scores is 0.019706144376994972
+Pivot Hypernym: [transparent, gem, beryl, jewel, precious, stone, green, greenness, viridity] Comparison Hypernym: [jewelry, jewellery]
+Hypernym with the highest similarity to feature: jewel(0.3354632495358056)
+Hypernym with the highest similarity to feature: jewelry(0.23939503135420057)
+Difference between hypernyms: 0.09606821818160502
+-------------------------------------------------------------------------------
+zebra,bison,hooves,0:1
+Similarity score between bison and hooves is 0.31359227140432777
+Similarity score between zebra and hooves is 0.35336429156938864
+The difference between similarity scores is 0.03977202016506087
+Pivot Hypernym: [equine, equid] Comparison Hypernym: [bovid]
+Hypernym with the highest similarity to feature: equine(0.4038884741895568)
+Hypernym with the highest similarity to feature: bovid(0.0)
+Difference between hypernyms: 0.4038884741895568
+-------------------------------------------------------------------------------
+jazz,music,listen,0:1
+Similarity score between jazz and listen is 0.21326090370757045
+Similarity score between music and listen is 0.35209350696648334
+The difference between similarity scores is 0.1388326032589129
+Pivot Hypernym: [talk, talking, popular, music, genre, dance] Comparison Hypernym: [auditory, communication, sound, sensation, activity, punishment, penalty, penalization, penalisation]
+Hypernym with the highest similarity to feature: talk(0.44544125298790227)
+Hypernym with the highest similarity to feature: sound(0.31727797553014464)
+Difference between hypernyms: 0.12816327745775763
+-------------------------------------------------------------------------------
+chicken,bread,legs,1:0
+Similarity score between chicken and legs is 0.21619217053052536
+Similarity score between bread and legs is 0.16944840439208148
+The difference between similarity scores is 0.04674376613844389
+Pivot Hypernym: [poultry, domestic, fowl, weakling, doormat, wuss, contest, competition] Comparison Hypernym: [baked, goods, starches, money]
+Hypernym with the highest similarity to feature: wuss(0.16221667522124855)
+Hypernym with the highest similarity to feature: starches(0.1739619842864006)
+Difference between hypernyms: 0.01174530906515206
+-------------------------------------------------------------------------------
+mother,woman,female,0:1
+Similarity score between mother and female is 0.18754738560877895
+Similarity score between woman and female is 0.4969047285638524
+The difference between similarity scores is 0.30935734295507344
+Pivot Hypernym: [parent, yeast, barm, old, woman, abbess, mother, superior, prioress, inspiration] Comparison Hypernym: [female, person, adult, grownup, cleaner, class, stratum, social, socio-economic]
+Hypernym with the highest similarity to feature: woman(0.4969047285638524)
+Hypernym with the highest similarity to feature: female(1.0)
+Difference between hypernyms: 0.5030952714361476
+-------------------------------------------------------------------------------
+shrimp,asparagus,swims,1:0
+Similarity score between asparagus and swims is 0.11161908478977467
+Similarity score between shrimp and swims is 0.18360412436546944
+The difference between similarity scores is 0.07198503957569477
+Pivot Hypernym: [small, person, seafood, decapod, crustacean] Comparison Hypernym: [herb, herbaceous, plant, vegetable, veggie, veg]
+Hypernym with the highest similarity to feature: crustacean(0.23729557620239758)
+Hypernym with the highest similarity to feature: veggie(0.17501133639871205)
+Difference between hypernyms: 0.062284239803685526
+-------------------------------------------------------------------------------
+ox,hyena,large,1:0
+Similarity score between hyena and large is 0.035999451936937564
+Similarity score between ox and large is 0.06312775501593035
+The difference between similarity scores is 0.027128303078992784
+Pivot Hypernym: [cattle, cows, kine, oxen, Bos, taurus, bovine] Comparison Hypernym: [canine, canid]
+Hypernym with the highest similarity to feature: taurus(0.12307312913623461)
+Hypernym with the highest similarity to feature: canid(0.16068547911564168)
+Difference between hypernyms: 0.03761234997940707
+-------------------------------------------------------------------------------
+zucchini,tomato,green,1:0
+Similarity score between tomato and green is 0.20206310333351157
+Similarity score between zucchini and green is 0.16122465586704507
+The difference between similarity scores is 0.040838447466466504
+Pivot Hypernym: [marrow, squash, vegetable, summer] Comparison Hypernym: [solanaceous, vegetable, herb, herbaceous, plant]
+Hypernym with the highest similarity to feature: vegetable(0.2138715873435324)
+Hypernym with the highest similarity to feature: herbaceous(0.23190343404209496)
+Difference between hypernyms: 0.01803184669856256
+-------------------------------------------------------------------------------
+basket,tray,wicker,1:0
+Similarity score between tray and wicker is 0.2939198002654916
+Similarity score between basket and wicker is 0.2395293348466646
+The difference between similarity scores is 0.05439046541882697
+Pivot Hypernym: [container, containerful, goal, basketball, equipment, score] Comparison Hypernym: [receptacle]
+Hypernym with the highest similarity to feature: container(0.2672330609144761)
+Hypernym with the highest similarity to feature: receptacle(0.2332022451557595)
+Difference between hypernyms: 0.03403081575871658
+-------------------------------------------------------------------------------
+whip,brush,long,1:0
+Similarity score between whip and long is 0.0599527471267223
+Similarity score between brush and long is 0.04187319174733539
+The difference between similarity scores is 0.018079555379386908
+Pivot Hypernym: [instrument, legislator, dessert, sweet, afters, flexibility, flexibleness, blow] Comparison Hypernym: [vegetation, flora, botany, implement, touch, touching, electrical, device, tail, fight, fighting, combat, scrap, dental, care, hair, haircare, hairdressing, contact]
+Hypernym with the highest similarity to feature: sweet(0.1967853436889991)
+Hypernym with the highest similarity to feature: care(0.24384967693085857)
+Difference between hypernyms: 0.04706433324185946
+-------------------------------------------------------------------------------
+co-star,actress,movie,0:1
+Similarity score between actress and movie is 0.43471902201246293
+Similarity score between co-star and movie is 0.21243900170821486
+The difference between similarity scores is 0.22228002030424807
+Pivot Hypernym: [star, principal, lead] Comparison Hypernym: [actor, histrion, player, thespian, role]
+Hypernym with the highest similarity to feature: star(0.2641988556755832)
+Hypernym with the highest similarity to feature: actor(0.5244623838998049)
+Difference between hypernyms: 0.2602635282242217
+-------------------------------------------------------------------------------
+politician,nationalist,politics,0:1
+Similarity score between politician and politics is 0.5695299975125239
+Similarity score between nationalist and politics is 0.3769359813433908
+The difference between similarity scores is 0.19259401616913308
+Pivot Hypernym: [leader, schemer, plotter] Comparison Hypernym: [national, subject, advocate, advocator, proponent, exponent]
+Hypernym with the highest similarity to feature: schemer(0.19450359179806972)
+Hypernym with the highest similarity to feature: advocator(0.22541323540513086)
+Difference between hypernyms: 0.030909643607061138
+-------------------------------------------------------------------------------
+forearm,elbow,arm,0:1
+Similarity score between elbow and arm is 0.4934525760842969
+Similarity score between forearm and arm is 0.5707207310194969
+The difference between similarity scores is 0.07726815493520006
+Pivot Hypernym: [limb] Comparison Hypernym: [hinge, joint, ginglymus, ginglymoid, bend, curve, pipe, pipage, piping, cloth, covering, articulation, articulatio]
+Hypernym with the highest similarity to feature: limb(0.366530166304908)
+Hypernym with the highest similarity to feature: curve(0.26081217907196613)
+Difference between hypernyms: 0.10571798723294185
+-------------------------------------------------------------------------------
+turnip,pumpkin,white,1:0
+Similarity score between pumpkin and white is 0.1373993394522739
+Similarity score between turnip and white is 0.1973025150322914
+The difference between similarity scores is 0.05990317558001751
+Pivot Hypernym: [turnip, plant, root, vegetable, cruciferous] Comparison Hypernym: [squash, vine, vegetable, veggie, veg]
+Hypernym with the highest similarity to feature: turnip(0.1973025150322914)
+Hypernym with the highest similarity to feature: squash(0.1205260649873742)
+Difference between hypernyms: 0.0767764500449172
+-------------------------------------------------------------------------------
+muscle,body,anatomy,0:1
+Similarity score between body and anatomy is 0.3042526914214904
+Similarity score between muscle and anatomy is 0.2575650888354217
+The difference between similarity scores is 0.046687602586068744
+Pivot Hypernym: [contractile, organ, contractor, animal, tissue, bully, tough, hooligan, ruffian, roughneck, rowdy, yob, yobo, yobbo, authority, authorization, authorisation, potency, dominance, say-so, strength] Comparison Hypernym: [natural, object, social, group, body, part, system, scheme, property, message, content, subject, matter, substance, mass, resonator, cavity, resonating, chamber, structure, construction]
+Hypernym with the highest similarity to feature: tissue(0.3857606002821377)
+Hypernym with the highest similarity to feature: body(0.3042526914214904)
+Difference between hypernyms: 0.0815079088606473
+-------------------------------------------------------------------------------
+chest,neck,large,1:0
+Similarity score between chest and large is 0.028453304773688435
+Similarity score between neck and large is 0.056540149638236205
+The difference between similarity scores is 0.02808684486454777
+Pivot Hypernym: [body, part, box, external, furniture, piece, of, article] Comparison Hypernym: [external, body, part, land, dry, earth, ground, solid, terra, firma, cut, of, meat, portion, opening]
+Hypernym with the highest similarity to feature: external(0.2088823137026048)
+Hypernym with the highest similarity to feature: portion(0.2822584130859687)
+Difference between hypernyms: 0.07337609938336392
+-------------------------------------------------------------------------------
+plate,gynaecologist,act,0:1
+Similarity score between plate and act is 0.04516882952458948
+Similarity score between gynaecologist and act is 0.0
+The difference between similarity scores is 0.04516882952458948
+Pivot Hypernym: [base, bag, sheet, flat, solid, illustration, flatware, containerful, crust, Earth's, cut, of, beef, entree, main, course, structure, anatomical, complex, body, part, bodily, anode, structural, member, receptacle, shield, dental, appliance] Comparison Hypernym: [specialist, medical]
+Hypernym with the highest similarity to feature: shield(0.2016665082919494)
+Hypernym with the highest similarity to feature: medical(0.015232122621587681)
+Difference between hypernyms: 0.18643438567036172
+-------------------------------------------------------------------------------
+umbrella,scarf,round,1:0
+Similarity score between umbrella and round is 0.07264332705509902
+Similarity score between scarf and round is 0.06923503637458914
+The difference between similarity scores is 0.003408290680509879
+Pivot Hypernym: [canopy, defense, defence, defensive, measure, union, unification, uniting, conjugation, jointure] Comparison Hypernym: [garment, joint]
+Hypernym with the highest similarity to feature: defensive(0.11663347556571958)
+Hypernym with the highest similarity to feature: joint(0.12006845172995297)
+Difference between hypernyms: 0.003434976164233383
+-------------------------------------------------------------------------------
+oven,freezer,kitchen,0:1
+Similarity score between freezer and kitchen is 0.4848973797063587
+Similarity score between oven and kitchen is 0.5447718520260227
+The difference between similarity scores is 0.05987447231966403
+Pivot Hypernym: [kitchen, appliance] Comparison Hypernym: [electric, refrigerator, fridge]
+Hypernym with the highest similarity to feature: kitchen(1.0)
+Hypernym with the highest similarity to feature: fridge(0.5874144735693094)
+Difference between hypernyms: 0.4125855264306906
+-------------------------------------------------------------------------------
+troops,army,armed,0:1
+Similarity score between troops and armed is 0.2729043363358355
+Similarity score between army and armed is 0.38747946235299624
+The difference between similarity scores is 0.11457512601716074
+Pivot Hypernym: [force, personnel] Comparison Hypernym: [military, service, armed, crowd, agency, federal, government, bureau, office, authority]
+Hypernym with the highest similarity to feature: personnel(0.23681281010252198)
+Hypernym with the highest similarity to feature: armed(0.9999999999999999)
+Difference between hypernyms: 0.7631871898974779
+-------------------------------------------------------------------------------
+widow,aunt,female,0:1
+Similarity score between widow and female is 0.158583365762544
+Similarity score between aunt and female is 0.0826869322521262
+The difference between similarity scores is 0.0758964335104178
+Pivot Hypernym: [woman, adult, female] Comparison Hypernym: [kinswoman]
+Hypernym with the highest similarity to feature: female(1.0)
+Hypernym with the highest similarity to feature: kinswoman(0.0)
+Difference between hypernyms: 1.0
+-------------------------------------------------------------------------------
+desk,toilet,legs,1:0
+Similarity score between desk and legs is 0.17676242369520354
+Similarity score between toilet and legs is 0.14488026498407558
+The difference between similarity scores is 0.031882158711127956
+Pivot Hypernym: [table] Comparison Hypernym: [room, plumbing, fixture, misfortune, bad, luck, tough, ill, dressing, grooming]
+Hypernym with the highest similarity to feature: table(0.13548493059637556)
+Hypernym with the highest similarity to feature: luck(0.19473292365190478)
+Difference between hypernyms: 0.05924799305552922
+-------------------------------------------------------------------------------
+face,body,hair,0:1
+Similarity score between body and hair is 0.3083358686234022
+Similarity score between face and hair is 0.2174153280833692
+The difference between similarity scores is 0.09092054054003298
+Pivot Hypernym: [external, body, part, countenance, visage, appearance, visual, aspect, surface, person, individual, someone, somebody, mortal, soul, front, facial, expression, gesture, type, status, position, aggressiveness, vertical] Comparison Hypernym: [natural, object, social, group, body, part, system, scheme, property, message, content, subject, matter, substance, mass, resonator, cavity, resonating, chamber, structure, construction]
+Hypernym with the highest similarity to feature: facial(0.4937423600062654)
+Hypernym with the highest similarity to feature: body(0.3083358686234022)
+Difference between hypernyms: 0.18540649138286325
+-------------------------------------------------------------------------------
+butterfly,spider,wings,1:0
+Similarity score between butterfly and wings is 0.2813837286089872
+Similarity score between spider and wings is 0.2460039919980184
+The difference between similarity scores is 0.0353797366109688
+Pivot Hypernym: [lepidopterous, insect, lepidopteron, lepidopteran, swimming, stroke] Comparison Hypernym: [arachnid, arachnoid, program, programme, computer, frying, pan, frypan, skillet]
+Hypernym with the highest similarity to feature: insect(0.24881378313157748)
+Hypernym with the highest similarity to feature: arachnid(0.23268344673643448)
+Difference between hypernyms: 0.016130336395142997
+-------------------------------------------------------------------------------
+cow,chicken,large,1:0
+Similarity score between chicken and large is 0.120261211695878
+Similarity score between cow and large is 0.09087465445383344
+The difference between similarity scores is 0.02938655724204456
+Pivot Hypernym: [cattle, cows, kine, oxen, Bos, taurus, placental, mammal, eutherian, unpleasant, woman, disagreeable] Comparison Hypernym: [poultry, domestic, fowl, weakling, doormat, wuss, contest, competition]
+Hypernym with the highest similarity to feature: placental(0.15102073106100172)
+Hypernym with the highest similarity to feature: domestic(0.10116234503857563)
+Difference between hypernyms: 0.04985838602242609
+-------------------------------------------------------------------------------
+father,king,male,0:1
+Similarity score between father and male is 0.13270693384652407
+Similarity score between king and male is 0.13960423844879408
+The difference between similarity scores is 0.006897304602270005
+Pivot Hypernym: [parent, ancestor, ascendant, ascendent, antecedent, root, priest, title, of, respect, form, address, theologian, theologist, theologizer, theologiser, leader, hypostasis, Christ, originator, conceiver, mastermind, head, chief, top, dog] Comparison Hypernym: [sovereign, crowned, head, monarch, rival, challenger, competitor, competition, contender, businessman, man, of, affairs, eminence, distinction, preeminence, note, tennis, player, singer, vocalist, vocalizer, vocaliser, guitarist, guitar, clergyman, reverend, the, cloth, civil, rights, leader, worker, activist, checker, chequer, face, card, picture, court, chessman, chess, piece]
+Hypernym with the highest similarity to feature: dog(0.2139786235006385)
+Hypernym with the highest similarity to feature: man(0.3696291616671033)
+Difference between hypernyms: 0.1556505381664648
+-------------------------------------------------------------------------------
+maid,bride,female,0:1
+Similarity score between bride and female is 0.15967274170470153
+Similarity score between maid and female is 0.25602456695755427
+The difference between similarity scores is 0.09635182525285274
+Pivot Hypernym: [domestic, help, house, servant, girl, miss, missy, young, lady, woman, fille] Comparison Hypernym: [newlywed, honeymooner, abbess, mother, superior, prioress, saint, participant, player]
+Hypernym with the highest similarity to feature: woman(0.4969047285638524)
+Hypernym with the highest similarity to feature: newlywed(0.2238103228783095)
+Difference between hypernyms: 0.27309440568554294
+-------------------------------------------------------------------------------
+frog,cow,jumps,1:0
+Similarity score between cow and jumps is 0.11753209012902346
+Similarity score between frog and jumps is 0.1731174370669658
+The difference between similarity scores is 0.05558534693794234
+Pivot Hypernym: [amphibian, Frenchman, Frenchwoman, French, person, adornment] Comparison Hypernym: [cattle, cows, kine, oxen, Bos, taurus, placental, mammal, eutherian, unpleasant, woman, disagreeable]
+Hypernym with the highest similarity to feature: amphibian(0.10212787437119981)
+Hypernym with the highest similarity to feature: taurus(0.15390463724677844)
+Difference between hypernyms: 0.05177676287557863
+-------------------------------------------------------------------------------
+lung,liver,transplant,0:1
+Similarity score between lung and transplant is 0.3700495389723035
+Similarity score between liver and transplant is 0.4706959586646759
+The difference between similarity scores is 0.10064641969237237
+Pivot Hypernym: [respiratory, organ] Comparison Hypernym: [internal, organ, viscus, variety, meat, organs, person, individual, someone, somebody, mortal, soul, inhabitant, habitant, dweller, denizen, indweller]
+Hypernym with the highest similarity to feature: organ(0.4340315298991138)
+Hypernym with the highest similarity to feature: organs(0.4618141245532001)
+Difference between hypernyms: 0.02778259465408628
+-------------------------------------------------------------------------------
+chicken,cucumber,legs,1:0
+Similarity score between cucumber and legs is 0.2125619079121129
+Similarity score between chicken and legs is 0.21619217053052536
+The difference between similarity scores is 0.0036302626184124553
+Pivot Hypernym: [poultry, domestic, fowl, weakling, doormat, wuss, contest, competition] Comparison Hypernym: [melon, vine, vegetable, veggie, veg]
+Hypernym with the highest similarity to feature: wuss(0.16221667522124855)
+Hypernym with the highest similarity to feature: melon(0.22264814969393273)
+Difference between hypernyms: 0.06043147447268418
+-------------------------------------------------------------------------------
+osteopath,dentist,bones,1:0
+Similarity score between dentist and bones is 0.12355460353045312
+Similarity score between osteopath and bones is 0.12522871221684134
+The difference between similarity scores is 0.0016741086863882176
+Pivot Hypernym: [therapist, healer] Comparison Hypernym: [medical, practitioner, man]
+Hypernym with the highest similarity to feature: healer(0.1671382423744172)
+Hypernym with the highest similarity to feature: man(0.1242756052646195)
+Difference between hypernyms: 0.04286263710979771
+-------------------------------------------------------------------------------
+beets,garlic,round,1:0
+Similarity score between garlic and round is -0.023584391933145425
+Similarity score between beets and round is 0.02569497755542915
+The difference between similarity scores is 0.04927936948857457
+java.lang.NullPointerException
+-------------------------------------------------------------------------------
+copper,slingshot,skin,0:1
+Similarity score between copper and skin is 0.08255699186751757
+Similarity score between slingshot and skin is 0.04125412316467285
+The difference between similarity scores is 0.04130286870284472
+Pivot Hypernym: [metallic, element, metal, conductor, penny, cent, centime, policeman, police, officer, reddish, brown, sepia, burnt, sienna, Venetian, red, mahogany, lycaenid, butterfly] Comparison Hypernym: [plaything, toy]
+Hypernym with the highest similarity to feature: reddish(0.3931316340231725)
+Hypernym with the highest similarity to feature: toy(0.08400276340193047)
+Difference between hypernyms: 0.30912887062124206
+-------------------------------------------------------------------------------
+father,prince,man,0:1
+Similarity score between father and man is 0.4201099119121219
+Similarity score between prince and man is 0.28102203428983075
+The difference between similarity scores is 0.13908787762229113
+Pivot Hypernym: [parent, ancestor, ascendant, ascendent, antecedent, root, priest, title, of, respect, form, address, theologian, theologist, theologizer, theologiser, leader, hypostasis, Christ, originator, conceiver, mastermind, head, chief, top, dog] Comparison Hypernym: [aristocrat, blue, blood, patrician]
+Hypernym with the highest similarity to feature: priest(0.40034434510470607)
+Hypernym with the highest similarity to feature: aristocrat(0.33484061495637757)
+Difference between hypernyms: 0.0655037301483285
+-------------------------------------------------------------------------------
+arcades,alley,walk,0:1
+Similarity score between alley and walk is 0.24841898554667577
+Similarity score between arcades and walk is 0.06746484968991366
+The difference between similarity scores is 0.18095413585676212
+java.lang.NullPointerException
+-------------------------------------------------------------------------------
+computers,machine,keyboard,1:0
+Similarity score between computers and keyboard is 0.2741275945223517
+Similarity score between machine and keyboard is 0.26093172162254125
+The difference between similarity scores is 0.013195872899810446
+java.lang.NullPointerException
+-------------------------------------------------------------------------------
+rooms,bar,inside,0:1
+Similarity score between rooms and inside is 0.21804557792153959
+Similarity score between bar and inside is 0.15865741859167576
+The difference between similarity scores is 0.05938815932986383
+Pivot Hypernym: [apartment, flat] Comparison Hypernym: [room, counter, implement, musical, notation, obstruction, obstructor, obstructer, impediment, impedimenta, hindrance, hinderance, interference, pressure, unit, ridge, barrier, profession, marking, block, automatic, rifle, machine, support, heating, element, railing, rail]
+Hypernym with the highest similarity to feature: apartment(0.1986293095954622)
+Hypernym with the highest similarity to feature: room(0.3432466397195907)
+Difference between hypernyms: 0.14461733012412847
+-------------------------------------------------------------------------------
+lawyer,tv,vinegar,0:1
+Similarity score between tv and vinegar is 0.08183055818699678
+Similarity score between lawyer and vinegar is 0.06874903434460004
+The difference between similarity scores is 0.013081523842396733
+Pivot Hypernym: [professional, person] Comparison Hypernym: [broadcasting, receiver, receiving, system]
+Hypernym with the highest similarity to feature: person(0.12677387305575719)
+Hypernym with the highest similarity to feature: broadcasting(0.014953284812730411)
+Difference between hypernyms: 0.11182058824302678
+-------------------------------------------------------------------------------
+cucumber,eggplant,long,0:1
+Similarity score between cucumber and long is 2.0729917797228457E-4
+Similarity score between eggplant and long is 0.0823161644489076
+The difference between similarity scores is 0.08210886527093532
+Pivot Hypernym: [melon, vine, vegetable, veggie, veg] Comparison Hypernym: [solanaceous, vegetable, herb, herbaceous, plant]
+Hypernym with the highest similarity to feature: vine(0.10970539619072031)
+Hypernym with the highest similarity to feature: herb(0.09108725897227073)
+Difference between hypernyms: 0.018618137218449585
+-------------------------------------------------------------------------------
+wrists,ankle,arm,1:0
+Similarity score between wrists and arm is 0.4340756835664008
+Similarity score between ankle and arm is 0.39494410777691075
+The difference between similarity scores is 0.03913157578949006
+java.lang.NullPointerException
+-------------------------------------------------------------------------------
+nightclub,motel,customer,0:1
+Similarity score between nightclub and customer is 0.04335297806255704
+Similarity score between motel and customer is 0.08758507633336123
+The difference between similarity scores is 0.04423209827080418
+Pivot Hypernym: [spot] Comparison Hypernym: [motor, hotel, inn, lodge, tourist, court]
+Hypernym with the highest similarity to feature: spot(0.028027763545695288)
+Hypernym with the highest similarity to feature: tourist(0.15342614069327848)
+Difference between hypernyms: 0.1253983771475832
+-------------------------------------------------------------------------------
+dagger,oak,bones,0:1
+Similarity score between oak and bones is 0.18835893017031816
+Similarity score between dagger and bones is 0.10316379197246618
+The difference between similarity scores is 0.08519513819785197
+Pivot Hypernym: [knife, character, graph, grapheme, graphic, symbol] Comparison Hypernym: [wood, tree]
+Hypernym with the highest similarity to feature: knife(0.21857048987787)
+Hypernym with the highest similarity to feature: wood(0.2511350233259972)
+Difference between hypernyms: 0.03256453344812718
+-------------------------------------------------------------------------------
+seabirds,bird,fly,0:1
+Similarity score between seabirds and fly is 0.18941029005636345
+Similarity score between bird and fly is 0.27877750338425167
+The difference between similarity scores is 0.08936721332788822
+java.lang.NullPointerException
+-------------------------------------------------------------------------------
+tortoise,alligator,water,0:1
+Similarity score between tortoise and water is 0.12371455670431258
+Similarity score between alligator and water is 0.2668766698996543
+The difference between similarity scores is 0.14316211319534172
+Pivot Hypernym: [turtle] Comparison Hypernym: [leather, crocodilian, reptile]
+Hypernym with the highest similarity to feature: turtle(0.2639730311934699)
+Hypernym with the highest similarity to feature: reptile(0.2432475000385275)
+Difference between hypernyms: 0.020725531154942384
+-------------------------------------------------------------------------------
+beaver,squirrel,swims,1:0
+Similarity score between squirrel and swims is 0.12403099137230923
+Similarity score between beaver and swims is 0.1909133484563249
+The difference between similarity scores is 0.06688235708401567
+Pivot Hypernym: [fur, pelt, American, beard, face, fungus, whiskers, hat, chapeau, lid, man's, clothing, armor, plate, armour, plating, rodent, gnawer] Comparison Hypernym: [rodent, gnawer, fur, pelt]
+Hypernym with the highest similarity to feature: whiskers(0.13898719317197777)
+Hypernym with the highest similarity to feature: pelt(0.09091898137585085)
+Difference between hypernyms: 0.04806821179612693
+-------------------------------------------------------------------------------
+tomato,broccoli,round,1:0
+Similarity score between tomato and round is 0.09271005608468291
+Similarity score between broccoli and round is 0.013840427923836031
+The difference between similarity scores is 0.07886962816084689
+Pivot Hypernym: [solanaceous, vegetable, herb, herbaceous, plant] Comparison Hypernym: [crucifer, cruciferous, plant, vegetable]
+Hypernym with the highest similarity to feature: plant(0.1073878743459799)
+Hypernym with the highest similarity to feature: plant(0.1073878743459799)
+Difference between hypernyms: 0.0
+-------------------------------------------------------------------------------
+ankle,elbow,bend,0:1
+Similarity score between elbow and bend is 0.20326040691414735
+Similarity score between ankle and bend is 0.16402352975837206
+The difference between similarity scores is 0.039236877155775285
+Pivot Hypernym: [gliding, joint, articulatio, plana] Comparison Hypernym: [hinge, joint, ginglymus, ginglymoid, bend, curve, pipe, pipage, piping, cloth, covering, articulation, articulatio]
+Hypernym with the highest similarity to feature: gliding(0.2925915061466478)
+Hypernym with the highest similarity to feature: bend(0.9999999999999998)
+Difference between hypernyms: 0.707408493853352
+-------------------------------------------------------------------------------
+moose,mink,legs,0:1
+Similarity score between moose and legs is 0.19859677674575546
+Similarity score between mink and legs is 0.07431345584921727
+The difference between similarity scores is 0.1242833208965382
+Pivot Hypernym: [deer, cervid] Comparison Hypernym: [fur, pelt, coat, musteline, mammal, mustelid]
+Hypernym with the highest similarity to feature: deer(0.15816774350411414)
+Hypernym with the highest similarity to feature: coat(0.2969473425789812)
+Difference between hypernyms: 0.13877959907486706
+-------------------------------------------------------------------------------
+neck,finger,bones,0:1
+Similarity score between finger and bones is 0.2699795236153537
+Similarity score between neck and bones is 0.3546251630372418
+The difference between similarity scores is 0.08464563942188807
+Pivot Hypernym: [external, body, part, land, dry, earth, ground, solid, terra, firma, cut, of, meat, portion, opening] Comparison Hypernym: [digit, dactyl, extremity, linear, unit, measure, covering]
+Hypernym with the highest similarity to feature: body(0.4620616412898917)
+Hypernym with the highest similarity to feature: extremity(0.20384801768263852)
+Difference between hypernyms: 0.2582136236072532
+-------------------------------------------------------------------------------
+truck,wagon,wheels,0:1
+Similarity score between wagon and wheels is 0.44057565508376206
+Similarity score between truck and wheels is 0.3429454240764102
+The difference between similarity scores is 0.09763023100735185
+Pivot Hypernym: [motor, vehicle, automotive, handcart, pushcart, cart, go-cart] Comparison Hypernym: [wheeled, vehicle, van, asterism, car, auto, automobile, machine, motorcar]
+Hypernym with the highest similarity to feature: motor(0.38404242616056095)
+Hypernym with the highest similarity to feature: wheeled(0.4128749058900376)
+Difference between hypernyms: 0.028832479729476668
+-------------------------------------------------------------------------------
+marble,brick,round,1:0
+Similarity score between brick and round is -0.012997955423589015
+Similarity score between marble and round is 0.030335455846620257
+The difference between similarity scores is 0.043333411270209274
+Pivot Hypernym: [rock, stone, ball, sculpture] Comparison Hypernym: [ceramic, building, material, good, person]
+Hypernym with the highest similarity to feature: ball(0.16823224328600359)
+Hypernym with the highest similarity to feature: good(0.13131364585158908)
+Difference between hypernyms: 0.0369185974344145
+-------------------------------------------------------------------------------
+husband,dad,male,0:1
+Similarity score between husband and male is 0.11559765941811624
+Similarity score between dad and male is 0.10858941147796221
+The difference between similarity scores is 0.007008247940154033
+Pivot Hypernym: [spouse, partner, married, person, mate, better, half] Comparison Hypernym: [father, male, parent, begetter]
+Hypernym with the highest similarity to feature: person(0.24954651850532475)
+Hypernym with the highest similarity to feature: male(1.0)
+Difference between hypernyms: 0.7504534814946753
+-------------------------------------------------------------------------------
+actress,girl,female,0:1
+Similarity score between actress and female is 0.2425817720078394
+Similarity score between girl and female is 0.3468012534633346
+The difference between similarity scores is 0.10421948145549523
+Pivot Hypernym: [actor, histrion, player, thespian, role] Comparison Hypernym: [woman, adult, female, person, offspring, lover]
+Hypernym with the highest similarity to feature: actor(0.15475863124128397)
+Hypernym with the highest similarity to feature: female(1.0)
+Difference between hypernyms: 0.845241368758716
+-------------------------------------------------------------------------------
+rifle,gun,shoot,0:1
+Similarity score between gun and shoot is 0.3492179936172907
+Similarity score between rifle and shoot is 0.37371158925114445
+The difference between similarity scores is 0.024493595633853726
+Pivot Hypernym: [firearm, piece, small-arm] Comparison Hypernym: [weapon, arm, system, armament, shot, shooter, murderer, liquidator, manslayer, pump, pedal, treadle, foot, lever, discharge, firing, off]
+Hypernym with the highest similarity to feature: firearm(0.2757399733945227)
+Hypernym with the highest similarity to feature: shot(0.6021238332640606)
+Difference between hypernyms: 0.3263838598695379
+-------------------------------------------------------------------------------
+groin,ankle,thigh,1:0
+Similarity score between groin and thigh is 0.7739625098355191
+Similarity score between ankle and thigh is 0.7549459655266307
+The difference between similarity scores is 0.019016544308888328
+Pivot Hypernym: [area, region, edge, barrier] Comparison Hypernym: [gliding, joint, articulatio, plana]
+Hypernym with the highest similarity to feature: edge(0.1429141500241451)
+Hypernym with the highest similarity to feature: gliding(0.21575153716923534)
+Difference between hypernyms: 0.07283738714509025
+-------------------------------------------------------------------------------
+charcoal,chalk,write,0:1
+Similarity score between charcoal and write is -0.011491185132778045
+Similarity score between chalk and write is 0.21639533827579915
+The difference between similarity scores is 0.2278865234085772
+Pivot Hypernym: [fuel, carbon, C, atomic, number, 6, writing, implement, gray, grayness, grey, greyness, drawing] Comparison Hypernym: [calcite, white, whiteness, amphetamine, pep, pill, upper, speed, controlled, substance, writing, implement]
+Hypernym with the highest similarity to feature: writing(0.6930697452506531)
+Hypernym with the highest similarity to feature: writing(0.6930697452506531)
+Difference between hypernyms: 0.0
+-------------------------------------------------------------------------------
+car,taxi,wheels,0:1
+Similarity score between car and wheels is 0.385584283327174
+Similarity score between taxi and wheels is 0.12747742785537314
+The difference between similarity scores is 0.25810685547180084
+Pivot Hypernym: [motor, vehicle, automotive, wheeled, compartment] Comparison Hypernym: [car, auto, automobile, machine, motorcar]
+Hypernym with the highest similarity to feature: wheeled(0.4128749058900376)
+Hypernym with the highest similarity to feature: car(0.385584283327174)
+Difference between hypernyms: 0.02729062256286363
+-------------------------------------------------------------------------------
+orange,pear,round,1:0
+Similarity score between orange and round is 0.08671081606349977
+Similarity score between pear and round is 0.11972913304891326
+The difference between similarity scores is 0.03301831698541349
+Pivot Hypernym: [citrus, fruit, citrous, chromatic, color, colour, spectral, tree, pigment, river] Comparison Hypernym: [edible, fruit, pome, false, tree]
+Hypernym with the highest similarity to feature: fruit(0.15433019325375333)
+Hypernym with the highest similarity to feature: fruit(0.15433019325375333)
+Difference between hypernyms: 0.0
+-------------------------------------------------------------------------------
+giraffe,lion,legs,0:1
+Similarity score between lion and legs is 0.12248961203014475
+Similarity score between giraffe and legs is 0.34245748955552374
+The difference between similarity scores is 0.219967877525379
+Pivot Hypernym: [ruminant] Comparison Hypernym: [big, cat, celebrity, famous, person, individual, someone, somebody, mortal, soul, sign, of, the, zodiac, star, mansion, house, planetary]
+Hypernym with the highest similarity to feature: ruminant(0.08759533512630033)
+Hypernym with the highest similarity to feature: cat(0.19304207332380202)
+Difference between hypernyms: 0.1054467381975017
+-------------------------------------------------------------------------------
+foxhound,hound,hunt,0:1
+Similarity score between foxhound and hunt is 0.273003330154883
+Similarity score between hound and hunt is 0.3552354520282158
+The difference between similarity scores is 0.08223212187333284
+Pivot Hypernym: [hound, dog] Comparison Hypernym: [hunting, dog, villain, scoundrel]
+Hypernym with the highest similarity to feature: hound(0.3552354520282158)
+Hypernym with the highest similarity to feature: hunting(0.7046801549394631)
+Difference between hypernyms: 0.3494447029112473
+-------------------------------------------------------------------------------
+wife,woman,female,0:1
+Similarity score between wife and female is 0.10107607164339268
+Similarity score between woman and female is 0.4969047285638524
+The difference between similarity scores is 0.39582865692045976
+Pivot Hypernym: [woman, adult, female, spouse, partner, married, person, mate, better, half] Comparison Hypernym: [female, person, adult, grownup, cleaner, class, stratum, social, socio-economic]
+Hypernym with the highest similarity to feature: female(1.0)
+Hypernym with the highest similarity to feature: female(1.0)
+Difference between hypernyms: 0.0
+-------------------------------------------------------------------------------
+crocodile,eel,legs,1:0
+Similarity score between crocodile and legs is 0.16243668089051774
+Similarity score between eel and legs is 0.12065731245396136
+The difference between similarity scores is 0.041779368436556386
+Pivot Hypernym: [crocodilian, reptile] Comparison Hypernym: [fish, soft-finned, malacopterygian]
+Hypernym with the highest similarity to feature: crocodilian(0.21130433413957703)
+Hypernym with the highest similarity to feature: soft-finned(0.1441897642877037)
+Difference between hypernyms: 0.06711456985187333
+-------------------------------------------------------------------------------
+nostrils,mouth,hair,1:0
+Similarity score between mouth and hair is 0.25116661617409186
+Similarity score between nostrils and hair is 0.3055271962664397
+The difference between similarity scores is 0.05436058009234784
+java.lang.NullPointerException
+-------------------------------------------------------------------------------
+governor,attorney,state,0:1
+Similarity score between governor and state is 0.49885997493187384
+Similarity score between attorney and state is 0.17336693734470637
+The difference between similarity scores is 0.32549303758716747
+Pivot Hypernym: [politician, control, controller] Comparison Hypernym: [professional, person]
+Hypernym with the highest similarity to feature: politician(0.22412867952117838)
+Hypernym with the highest similarity to feature: person(0.18571109788713513)
+Difference between hypernyms: 0.03841758163404324
+-------------------------------------------------------------------------------
+drizzle,rain,light,1:0
+Similarity score between drizzle and light is 0.2197889276190108
+Similarity score between rain and light is 0.21868767212516055
+The difference between similarity scores is 0.0011012554938502617
+Pivot Hypernym: [rain, rainfall] Comparison Hypernym: [precipitation, downfall, fresh, water, freshwater, sequence, chronological, succession, successiveness]
+Hypernym with the highest similarity to feature: rain(0.21868767212516055)
+Hypernym with the highest similarity to feature: precipitation(0.20668621435372003)
+Difference between hypernyms: 0.012001457771440516
+-------------------------------------------------------------------------------
+marble,brick,white,1:0
+Similarity score between marble and white is 0.25606445522126464
+Similarity score between brick and white is 0.24084660191530077
+The difference between similarity scores is 0.015217853305963869
+Pivot Hypernym: [rock, stone, ball, sculpture] Comparison Hypernym: [ceramic, building, material, good, person]
+Hypernym with the highest similarity to feature: stone(0.17057745071671895)
+Hypernym with the highest similarity to feature: ceramic(0.19905934061590502)
+Difference between hypernyms: 0.02848188989918607
+-------------------------------------------------------------------------------
+garlic,potato,white,1:0
+Similarity score between garlic and white is 0.16718840904573132
+Similarity score between potato and white is 0.116849210934119
+The difference between similarity scores is 0.05033919811161232
+Pivot Hypernym: [alliaceous, plant, flavorer, flavourer, flavoring, flavouring, seasoner, seasoning] Comparison Hypernym: [root, vegetable, starches, solanaceous, vine]
+Hypernym with the highest similarity to feature: plant(0.09299472817675489)
+Hypernym with the highest similarity to feature: vegetable(0.0833287567949236)
+Difference between hypernyms: 0.009665971381831284
+-------------------------------------------------------------------------------
+banjo,tuba,wood,1:0
+Similarity score between tuba and wood is 0.18077868056433632
+Similarity score between banjo and wood is 0.2293125554649257
+The difference between similarity scores is 0.048533874900589385
+Pivot Hypernym: [stringed, instrument] Comparison Hypernym: [brass, instrument, bass]
+Hypernym with the highest similarity to feature: stringed(0.2082685573775138)
+Hypernym with the highest similarity to feature: brass(0.21648174659098593)
+Difference between hypernyms: 0.008213189213472138
+-------------------------------------------------------------------------------
+toad,owl,swims,1:0
+Similarity score between toad and swims is 0.21918695286303672
+Similarity score between owl and swims is 0.14043728097681313
+The difference between similarity scores is 0.07874967188622359
+Pivot Hypernym: [amphibian] Comparison Hypernym: [bird, of, prey, raptor, raptorial]
+Hypernym with the highest similarity to feature: amphibian(0.2214671690735995)
+Hypernym with the highest similarity to feature: raptor(0.21661674751193083)
+Difference between hypernyms: 0.0048504215616686774
+-------------------------------------------------------------------------------
+spider,ant,eyes,0:1
+Similarity score between spider and eyes is 0.1493169724319445
+Similarity score between ant and eyes is 0.07290461905741773
+The difference between similarity scores is 0.07641235337452677
+Pivot Hypernym: [arachnid, arachnoid, program, programme, computer, frying, pan, frypan, skillet] Comparison Hypernym: [hymenopterous, insect, hymenopteran, hymenopteron, hymenopter]
+Hypernym with the highest similarity to feature: pan(0.18936931264388382)
+Hypernym with the highest similarity to feature: insect(0.09164187780488114)
+Difference between hypernyms: 0.09772743483900267
+-------------------------------------------------------------------------------
+alligator,otter,long,1:0
+Similarity score between alligator and long is 0.11611860582713508
+Similarity score between otter and long is 0.07453180999597811
+The difference between similarity scores is 0.04158679583115697
+Pivot Hypernym: [leather, crocodilian, reptile] Comparison Hypernym: [fur, pelt, musteline, mammal, mustelid]
+Hypernym with the highest similarity to feature: reptile(0.11233590019453694)
+Hypernym with the highest similarity to feature: mammal(0.07975144808573247)
+Difference between hypernyms: 0.03258445210880448
+-------------------------------------------------------------------------------
+lamb,machinery,royal,0:1
+Similarity score between machinery and royal is 0.07497871052349817
+Similarity score between lamb and royal is 0.12468839203971273
+The difference between similarity scores is 0.04970968151621456
+Pivot Hypernym: [young, mammal, essayist, litterateur, victim, dupe, innocent, inexperienced, person, meat] Comparison Hypernym: [machine, system, scheme]
+Hypernym with the highest similarity to feature: victim(0.15846695235627256)
+Hypernym with the highest similarity to feature: scheme(0.0755488570616905)
+Difference between hypernyms: 0.08291809529458206
+-------------------------------------------------------------------------------
+oak,cherry,wood,0:1
+Similarity score between oak and wood is 0.5848642532766601
+Similarity score between cherry and wood is 0.2598181053082252
+The difference between similarity scores is 0.32504614796843495
+Pivot Hypernym: [wood, tree] Comparison Hypernym: [wood, fruit, tree, edible, drupe, stone, red, redness]
+Hypernym with the highest similarity to feature: wood(1.0)
+Hypernym with the highest similarity to feature: wood(1.0)
+Difference between hypernyms: 0.0
+-------------------------------------------------------------------------------
+gown,veil,long,0:1
+Similarity score between veil and long is 0.020472330025903766
+Similarity score between gown and long is 0.048815951422168054
+The difference between similarity scores is 0.028343621396264288
+Pivot Hypernym: [dress, frock, university, lingerie, intimate, apparel, nightwear, sleepwear, nightclothes, garment, outerwear, overclothes] Comparison Hypernym: [garment, plant, part, structure, fetal, membrane, vestment]
+Hypernym with the highest similarity to feature: nightclothes(0.07015552571849717)
+Hypernym with the highest similarity to feature: part(0.24461982506692226)
+Difference between hypernyms: 0.17446429934842508
+-------------------------------------------------------------------------------
+mists,cloud,light,1:0
+Similarity score between mists and light is 0.23945094671614175
+Similarity score between cloud and light is 0.24338913220413208
+The difference between similarity scores is 0.0039381854879903255
+java.lang.NullPointerException
+-------------------------------------------------------------------------------
+knee,ankle,bend,1:0
+Similarity score between ankle and bend is 0.16402352975837206
+Similarity score between knee and bend is 0.17144492395230718
+The difference between similarity scores is 0.007421394193935116
+Pivot Hypernym: [hinge, joint, ginglymus, ginglymoid, articulation, articulatio, cloth, covering] Comparison Hypernym: [gliding, joint, articulatio, plana]
+Hypernym with the highest similarity to feature: articulation(0.2888431624820792)
+Hypernym with the highest similarity to feature: gliding(0.2925915061466478)
+Difference between hypernyms: 0.0037483436645686097
+-------------------------------------------------------------------------------
+anchor,bolts,large,1:0
+Similarity score between anchor and large is 0.04158786742777445
+Similarity score between bolts and large is 0.0439223356142062
+The difference between similarity scores is 0.0023344681864317512
+java.lang.NullPointerException
+-------------------------------------------------------------------------------
+throat,nose,cartilage,0:1
+Similarity score between nose and cartilage is 0.33550148127515955
+Similarity score between throat and cartilage is 0.28101895961555057
+The difference between similarity scores is 0.054482521659608985
+Pivot Hypernym: [tubular, cavity, opening, passage, external, body, part] Comparison Hypernym: [chemoreceptor, front, small, indefinite, quantity, amount, symbol, smell, sense, of, olfaction, olfactory, modality, skill, science, spout]
+Hypernym with the highest similarity to feature: cavity(0.3470443694706786)
+Hypernym with the highest similarity to feature: olfactory(0.14969144240648216)
+Difference between hypernyms: 0.19735292706419647
+-------------------------------------------------------------------------------
+pig,lamb,legs,0:1
+Similarity score between pig and legs is 0.2082501227144247
+Similarity score between lamb and legs is 0.202332137505911
+The difference between similarity scores is 0.005917985208513693
+Pivot Hypernym: [swine, vulgarian, selfish, person, policeman, police, officer, mold, mould, cast, ingot] Comparison Hypernym: [young, mammal, essayist, litterateur, victim, dupe, innocent, inexperienced, person, meat]
+Hypernym with the highest similarity to feature: mold(0.12738714867656917)
+Hypernym with the highest similarity to feature: mammal(0.21941796732083343)
+Difference between hypernyms: 0.09203081864426427
+-------------------------------------------------------------------------------
+tuna,cucumber,large,1:0
+Similarity score between tuna and large is 0.12553160427709129
+Similarity score between cucumber and large is 0.04792533995815237
+The difference between similarity scores is 0.07760626431893891
+Pivot Hypernym: [prickly, pear, cactus, saltwater, fish, scombroid, food, eel] Comparison Hypernym: [melon, vine, vegetable, veggie, veg]
+Hypernym with the highest similarity to feature: fish(0.15853277163680493)
+Hypernym with the highest similarity to feature: melon(0.12925709551832557)
+Difference between hypernyms: 0.029275676118479366
+-------------------------------------------------------------------------------
+cabbage,parsley,white,1:0
+Similarity score between cabbage and white is 0.17304232844356254
+Similarity score between parsley and white is 0.18726684377514163
+The difference between similarity scores is 0.01422451533157909
+Pivot Hypernym: [cruciferous, vegetable, money, crucifer, plant] Comparison Hypernym: [herb, herbaceous, plant]
+Hypernym with the highest similarity to feature: crucifer(0.2841393395130107)
+Hypernym with the highest similarity to feature: herbaceous(0.20962678877633714)
+Difference between hypernyms: 0.07451255073667354
+-------------------------------------------------------------------------------
+honey,sugar,sweet,0:1
+Similarity score between sugar and sweet is 0.29781426239309544
+Similarity score between honey and sweet is 0.40374958523708027
+The difference between similarity scores is 0.10593532284398482
+Pivot Hypernym: [sweetening, sweetener, lover] Comparison Hypernym: [sweetening, sweetener, macromolecule, supermolecule, money]
+Hypernym with the highest similarity to feature: sweetening(0.3100117180836399)
+Hypernym with the highest similarity to feature: sweetening(0.3100117180836399)
+Difference between hypernyms: 0.0
+-------------------------------------------------------------------------------
+giraffe,elephant,legs,0:1
+Similarity score between elephant and legs is 0.1275066335205334
+Similarity score between giraffe and legs is 0.34245748955552374
+The difference between similarity scores is 0.21495085603499034
+Pivot Hypernym: [ruminant] Comparison Hypernym: [proboscidean, proboscidian, pachyderm, emblem, allegory]
+Hypernym with the highest similarity to feature: ruminant(0.08759533512630033)
+Hypernym with the highest similarity to feature: pachyderm(0.16772891058902112)
+Difference between hypernyms: 0.08013357546272079
+-------------------------------------------------------------------------------
+chicken,peas,legs,1:0
+Similarity score between chicken and legs is 0.21619217053052536
+Similarity score between peas and legs is 0.15169744879566477
+The difference between similarity scores is 0.0644947217348606
+java.lang.NullPointerException
+-------------------------------------------------------------------------------
+camel,jeep,large,0:1
+Similarity score between jeep and large is 0.010068446968909746
+Similarity score between camel and large is 0.11989093400304367
+The difference between similarity scores is 0.10982248703413391
+Pivot Hypernym: [even-toed, ungulate, artiodactyl, mammal] Comparison Hypernym: [car, auto, automobile, machine, motorcar]
+Hypernym with the highest similarity to feature: ungulate(0.11956719952533722)
+Hypernym with the highest similarity to feature: auto(0.09236973355967722)
+Difference between hypernyms: 0.02719746596566
+-------------------------------------------------------------------------------
+bench,tray,wood,0:1
+Similarity score between tray and wood is 0.13340182008350435
+Similarity score between bench and wood is 0.07875495383000124
+The difference between similarity scores is 0.05464686625350311
+Pivot Hypernym: [seat, tableland, plateau, administration, governance, governing, body, establishment, brass, organization, organisation, worktable, work, table, assembly, subgroup] Comparison Hypernym: [receptacle]
+Hypernym with the highest similarity to feature: worktable(0.31392182842966837)
+Hypernym with the highest similarity to feature: receptacle(0.18511635139058363)
+Difference between hypernyms: 0.12880547703908474
+-------------------------------------------------------------------------------
+grapefruit,celery,pink,1:0
+Similarity score between grapefruit and pink is 0.252336071729177
+Similarity score between celery and pink is 0.26015304901735453
+The difference between similarity scores is 0.00781697728817754
+Pivot Hypernym: [citrus, tree, fruit, citrous] Comparison Hypernym: [herb, herbaceous, plant, vegetable, veggie, veg]
+Hypernym with the highest similarity to feature: citrus(0.20495211375972386)
+Hypernym with the highest similarity to feature: veggie(0.2307696574458795)
+Difference between hypernyms: 0.02581754368615563
+-------------------------------------------------------------------------------
+bat,cat,wings,1:0
+Similarity score between bat and wings is 0.16634755603129775
+Similarity score between cat and wings is 0.10618173910167582
+The difference between similarity scores is 0.06016581692962193
+Pivot Hypernym: [placental, mammal, eutherian, turn, play, racket, racquet, cricket, equipment, club] Comparison Hypernym: [feline, felid, man, adult, male, gossip, gossiper, gossipmonger, rumormonger, rumourmonger, newsmonger, woman, female, stimulant, drug, excitant, whip, tracked, vehicle, X-raying, X-radiation]
+Hypernym with the highest similarity to feature: mammal(0.18078509333432408)
+Hypernym with the highest similarity to feature: whip(0.2122833236328892)
+Difference between hypernyms: 0.03149823029856513
+-------------------------------------------------------------------------------
+nightclub,biscuit,sheet,0:1
+Similarity score between nightclub and sheet is 0.028011505856009807
+Similarity score between biscuit and sheet is 0.1924763625872401
+The difference between similarity scores is 0.1644648567312303
+Pivot Hypernym: [spot] Comparison Hypernym: [quick, bread, cake]
+Hypernym with the highest similarity to feature: spot(0.1330799614046049)
+Hypernym with the highest similarity to feature: cake(0.2277517429427304)
+Difference between hypernyms: 0.0946717815381255
+-------------------------------------------------------------------------------
+banjo,harp,round,1:0
+Similarity score between banjo and round is 0.06542039709573923
+Similarity score between harp and round is -4.855017891681378E-4
+The difference between similarity scores is 0.06590589888490736
+Pivot Hypernym: [stringed, instrument] Comparison Hypernym: [chordophone, support, free-reed, instrument]
+Hypernym with the highest similarity to feature: stringed(0.14560518448027895)
+Hypernym with the highest similarity to feature: free-reed(0.12234984305034095)
+Difference between hypernyms: 0.023255341429938
+-------------------------------------------------------------------------------
+bladder,liver,urine,1:0
+Similarity score between bladder and urine is 0.4376755552013034
+Similarity score between liver and urine is 0.3757788907579329
+The difference between similarity scores is 0.0618966644433705
+Pivot Hypernym: [sac, bag] Comparison Hypernym: [internal, organ, viscus, variety, meat, organs, person, individual, someone, somebody, mortal, soul, inhabitant, habitant, dweller, denizen, indweller]
+Hypernym with the highest similarity to feature: bag(0.21543996790939302)
+Hypernym with the highest similarity to feature: meat(0.23029688735636059)
+Difference between hypernyms: 0.01485691944696757
+-------------------------------------------------------------------------------
+arm,hand,band,1:0
+Similarity score between hand and band is 0.0046041004246956995
+Similarity score between arm and band is 0.03611500739281889
+The difference between similarity scores is 0.03151090696812319
+Pivot Hypernym: [limb, projection, instrument, armrest, division, cloth, covering] Comparison Hypernym: [extremity, laborer, manual, labourer, jack, writing, ability, power, side, collection, aggregation, accumulation, assemblage, pointer, handbreadth, handsbreadth, sailor, crewman, card, player, applause, hand, clapping, forepaw, aid, assist, assistance, help]
+Hypernym with the highest similarity to feature: instrument(0.29282803268075935)
+Hypernym with the highest similarity to feature: clapping(0.2279488898474096)
+Difference between hypernyms: 0.06487914283334975
+-------------------------------------------------------------------------------
+bucket,mug,round,0:1
+Similarity score between mug and round is 0.09615338377542053
+Similarity score between bucket and round is 0.0955149743712712
+The difference between similarity scores is 6.384094041493316E-4
+Pivot Hypernym: [vessel, containerful] Comparison Hypernym: [containerful, victim, dupe, face, human, drinking, vessel]
+Hypernym with the highest similarity to feature: vessel(0.037236472115829616)
+Hypernym with the highest similarity to feature: face(0.22440216164426963)
+Difference between hypernyms: 0.18716568952844
+-------------------------------------------------------------------------------
+angle,curve,sharp,1:0
+Similarity score between angle and sharp is 0.21874778152736057
+Similarity score between curve and sharp is 0.2594381870322881
+The difference between similarity scores is 0.04069040550492753
+Pivot Hypernym: [space, point, of, view, viewpoint, stand, standpoint, European] Comparison Hypernym: [line, pitch, delivery, shape, form, configuration, contour, conformation, section, segment]
+Hypernym with the highest similarity to feature: point(0.21688432232932175)
+Hypernym with the highest similarity to feature: shape(0.18168587647026477)
+Difference between hypernyms: 0.03519844585905699
+-------------------------------------------------------------------------------
+wire,coil,metal,0:1
+Similarity score between coil and metal is 0.38267038956196453
+Similarity score between wire and metal is 0.3105337525041413
+The difference between similarity scores is 0.07213663705782325
+Pivot Hypernym: [ligament, conductor, finishing, line, finish, message] Comparison Hypernym: [structure, construction, round, shape, transformer, contraceptive, preventive, preventative, device, prophylactic, birth, control, tube, tubing, reactor]
+Hypernym with the highest similarity to feature: conductor(0.21889016858227864)
+Hypernym with the highest similarity to feature: tubing(0.33794613452798555)
+Difference between hypernyms: 0.11905596594570692
+-------------------------------------------------------------------------------
+houses,movie,rails,0:1
+Similarity score between houses and rails is 0.15077956140592447
+Similarity score between movie and rails is 0.048927069778163745
+The difference between similarity scores is 0.10185249162776072
+java.lang.NullPointerException
+-------------------------------------------------------------------------------
+novelist,author,write,0:1
+Similarity score between author and write is 0.2952086131860356
+Similarity score between novelist and write is 0.2592614231245876
+The difference between similarity scores is 0.035947190061447976
+Pivot Hypernym: [writer, author] Comparison Hypernym: [communicator, maker, shaper]
+Hypernym with the highest similarity to feature: writer(0.35933492145187895)
+Hypernym with the highest similarity to feature: communicator(0.11540951081783378)
+Difference between hypernyms: 0.24392541063404516
+-------------------------------------------------------------------------------
+prisons,jail,convict,0:1
+Similarity score between jail and convict is 0.4838310763054595
+Similarity score between prisons and convict is 0.304572017915777
+The difference between similarity scores is 0.17925905838968254
+java.lang.NullPointerException
+-------------------------------------------------------------------------------
+elephant,bear,legs,0:1
+Similarity score between bear and legs is 0.12608620364078357
+Similarity score between elephant and legs is 0.1275066335205334
+The difference between similarity scores is 0.0014204298797498294
+Pivot Hypernym: [proboscidean, proboscidian, pachyderm, emblem, allegory] Comparison Hypernym: [carnivore, investor]
+Hypernym with the highest similarity to feature: pachyderm(0.16772891058902112)
+Hypernym with the highest similarity to feature: carnivore(0.0839798302221023)
+Difference between hypernyms: 0.08374908036691882
+-------------------------------------------------------------------------------
+mammals,bird,milk,1:0
+Similarity score between mammals and milk is 0.12221259929115119
+Similarity score between bird and milk is 0.08405758341879005
+The difference between similarity scores is 0.03815501587236114
+java.lang.NullPointerException
+-------------------------------------------------------------------------------
+rocket,cannon,long,0:1
+Similarity score between cannon and long is 0.11085478924471917
+Similarity score between rocket and long is 0.11477854890138486
+The difference between similarity scores is 0.003923759656665693
+Pivot Hypernym: [vehicle, jet, engine, herb, herbaceous, plant, visual, signal, firework, pyrotechnic] Comparison Hypernym: [artillery, heavy, weapon, gun, ordnance, armor, plate, armour, plating, body, part, stroke, shot]
+Hypernym with the highest similarity to feature: signal(0.1325160422163939)
+Hypernym with the highest similarity to feature: heavy(0.24463790112197675)
+Difference between hypernyms: 0.11212185890558285
+-------------------------------------------------------------------------------
+grandmother,aunt,female,0:1
+Similarity score between aunt and female is 0.0826869322521262
+Similarity score between grandmother and female is 0.09596175926429056
+The difference between similarity scores is 0.013274827012164356
+Pivot Hypernym: [grandparent] Comparison Hypernym: [kinswoman]
+Hypernym with the highest similarity to feature: grandparent(0.13951988938267937)
+Hypernym with the highest similarity to feature: kinswoman(0.0)
+Difference between hypernyms: 0.13951988938267937
+-------------------------------------------------------------------------------
+king,prince,royal,0:1
+Similarity score between prince and royal is 0.6433807647106196
+Similarity score between king and royal is 0.5239794602008857
+The difference between similarity scores is 0.11940130450973385
+Pivot Hypernym: [sovereign, crowned, head, monarch, rival, challenger, competitor, competition, contender, businessman, man, of, affairs, eminence, distinction, preeminence, note, tennis, player, singer, vocalist, vocalizer, vocaliser, guitarist, guitar, clergyman, reverend, the, cloth, civil, rights, leader, worker, activist, checker, chequer, face, card, picture, court, chessman, chess, piece] Comparison Hypernym: [aristocrat, blue, blood, patrician]
+Hypernym with the highest similarity to feature: monarch(0.6623582163336609)
+Hypernym with the highest similarity to feature: aristocrat(0.36689325325176775)
+Difference between hypernyms: 0.29546496308189313
+-------------------------------------------------------------------------------
+aluminium,glass,windows,0:1
+Similarity score between glass and windows is 0.46284806816291796
+Similarity score between aluminium and windows is 0.0
+The difference between similarity scores is 0.46284806816291796
+Pivot Hypernym: [metallic, element, metal] Comparison Hypernym: [solid, container, containerful, refracting, telescope, amphetamine, pep, pill, upper, speed, controlled, substance, mirror, glassware, glasswork]
+Hypernym with the highest similarity to feature: metallic(0.1978974990828214)
+Hypernym with the highest similarity to feature: mirror(0.3135854225437044)
+Difference between hypernyms: 0.11568792346088302
+-------------------------------------------------------------------------------
+albums,music,picture,1:0
+Similarity score between music and picture is 0.08947607936222719
+Similarity score between albums and picture is 0.1282869212863849
+The difference between similarity scores is 0.038810841924157694
+java.lang.NullPointerException
+-------------------------------------------------------------------------------
+diplomat,politician,talk,0:1
+Similarity score between politician and talk is 0.12098426863858991
+Similarity score between diplomat and talk is 0.06856934847347519
+The difference between similarity scores is 0.05241492016511472
+Pivot Hypernym: [official, functionary, mediator, go-between, intermediator, intermediary, intercessor] Comparison Hypernym: [leader, schemer, plotter]
+Hypernym with the highest similarity to feature: go-between(0.2835282035978991)
+Hypernym with the highest similarity to feature: schemer(0.05441039783682732)
+Difference between hypernyms: 0.22911780576107177
+-------------------------------------------------------------------------------
+lion,zebra,savanna,0:1
+Similarity score between lion and savanna is 0.23507699864293422
+Similarity score between zebra and savanna is 0.3103951949036355
+The difference between similarity scores is 0.07531819626070127
+Pivot Hypernym: [big, cat, celebrity, famous, person, individual, someone, somebody, mortal, soul, sign, of, the, zodiac, star, mansion, house, planetary] Comparison Hypernym: [equine, equid]
+Hypernym with the highest similarity to feature: cat(0.24570848355068392)
+Hypernym with the highest similarity to feature: equine(0.11797695918720909)
+Difference between hypernyms: 0.12773152436347485
+-------------------------------------------------------------------------------
+mushroom,salmon,forest,1:0
+Similarity score between mushroom and forest is 0.29234177196449856
+Similarity score between salmon and forest is 0.2700985121567624
+The difference between similarity scores is 0.02224325980773617
+Pivot Hypernym: [agaric, basidiomycete, basidiomycetous, fungi, cloud, vegetable, veggie, veg] Comparison Hypernym: [salmonid, food, fish, river, chromatic, color, colour, spectral]
+Hypernym with the highest similarity to feature: fungi(0.3184312892743064)
+Hypernym with the highest similarity to feature: river(0.31269782107751365)
+Difference between hypernyms: 0.005733468196792768
+-------------------------------------------------------------------------------
+honeydew,pineapple,round,1:0
+Similarity score between honeydew and round is 0.04846903769133305
+Similarity score between pineapple and round is 0.08684838920873791
+The difference between similarity scores is 0.03837935151740486
+Pivot Hypernym: [winter, melon] Comparison Hypernym: [herb, herbaceous, plant, edible, fruit]
+Hypernym with the highest similarity to feature: winter(0.1611934160203621)
+Hypernym with the highest similarity to feature: fruit(0.15433019325375333)
+Difference between hypernyms: 0.006863222766608779
+-------------------------------------------------------------------------------
+freezer,cupboard,white,0:1
+Similarity score between freezer and white is 0.05883355605073743
+Similarity score between cupboard and white is 0.05938924850023379
+The difference between similarity scores is 5.556924494963603E-4
+Pivot Hypernym: [electric, refrigerator, fridge] Comparison Hypernym: [storage, space]
+Hypernym with the highest similarity to feature: electric(0.15986738953759005)
+Hypernym with the highest similarity to feature: space(0.07962881805877565)
+Difference between hypernyms: 0.0802385714788144
+-------------------------------------------------------------------------------
+hammer,scissors,wood,1:0
+Similarity score between hammer and wood is 0.2349942662392381
+Similarity score between scissors and wood is 0.24087892812788056
+The difference between similarity scores is 0.005884661888642451
+Pivot Hypernym: [striker, hand, tool, auditory, ossicle, drumstick, sports, equipment, power, blow] Comparison Hypernym: [edge, tool, compound, lever, wrestling, hold, gymnastic, exercise]
+Hypernym with the highest similarity to feature: drumstick(0.22939770308617036)
+Hypernym with the highest similarity to feature: compound(0.1581123460908607)
+Difference between hypernyms: 0.07128535699530966
+-------------------------------------------------------------------------------
+banana,garlic,long,1:0
+Similarity score between banana and long is 0.07099574077601302
+Similarity score between garlic and long is 0.07283400767019522
+The difference between similarity scores is 0.0018382668941822056
+Pivot Hypernym: [herb, herbaceous, plant, edible, fruit] Comparison Hypernym: [alliaceous, plant, flavorer, flavourer, flavoring, flavouring, seasoner, seasoning]
+Hypernym with the highest similarity to feature: herb(0.09108725897227073)
+Hypernym with the highest similarity to feature: plant(0.06764345526881843)
+Difference between hypernyms: 0.023443803703452296
+-------------------------------------------------------------------------------
+tobacco,cocaine,plants,0:1
+Similarity score between tobacco and plants is 0.16062987315332158
+Similarity score between cocaine and plants is 0.08849315506679745
+The difference between similarity scores is 0.07213671808652414
+Pivot Hypernym: [plant, product, drug, of, abuse, street, herb, herbaceous] Comparison Hypernym: [hard, drug]
+Hypernym with the highest similarity to feature: plant(0.8109677053734926)
+Hypernym with the highest similarity to feature: drug(0.07995310809573188)
+Difference between hypernyms: 0.7310145972777607
+-------------------------------------------------------------------------------
+donkey,rabbit,hooves,1:0
+Similarity score between donkey and hooves is 0.3937543418362763
+Similarity score between rabbit and hooves is 0.3271739161315266
+The difference between similarity scores is 0.0665804257047497
+Pivot Hypernym: [emblem, allegory, ass] Comparison Hypernym: [leporid, mammal, fur, pelt, game]
+Hypernym with the highest similarity to feature: ass(0.3015132286805389)
+Hypernym with the highest similarity to feature: fur(0.3474471869450347)
+Difference between hypernyms: 0.045933958264495756
+-------------------------------------------------------------------------------
+pickle,lemon,round,0:1
+Similarity score between lemon and round is 0.05830079966872847
+Similarity score between pickle and round is 0.1038630063092053
+The difference between similarity scores is 0.045562206640476825
+Pivot Hypernym: [relish, difficulty] Comparison Hypernym: [citrus, fruit, citrous, yellow, yellowness, tree, relish, flavor, flavour, sapidity, savor, savour, smack, nip, tang, artifact, artefact]
+Hypernym with the highest similarity to feature: relish(0.0860162046134355)
+Hypernym with the highest similarity to feature: smack(0.1981531478174365)
+Difference between hypernyms: 0.11213694320400101
+-------------------------------------------------------------------------------
+tortoise,alligator,large,0:1
+Similarity score between tortoise and large is 0.07874161414536686
+Similarity score between alligator and large is 0.0631913353143901
+The difference between similarity scores is 0.01555027883097676
+Pivot Hypernym: [turtle] Comparison Hypernym: [leather, crocodilian, reptile]
+Hypernym with the highest similarity to feature: turtle(0.09342235354551995)
+Hypernym with the highest similarity to feature: crocodilian(0.2082253797985456)
+Difference between hypernyms: 0.11480302625302566
+-------------------------------------------------------------------------------
+gun,shotgun,shoots,0:1
+Similarity score between shotgun and shoots is 0.2278656650154491
+Similarity score between gun and shoots is 0.24255862781370685
+The difference between similarity scores is 0.014692962798257742
+Pivot Hypernym: [weapon, arm, system, armament, shot, shooter, murderer, liquidator, manslayer, pump, pedal, treadle, foot, lever, discharge, firing, off] Comparison Hypernym: [firearm, piece, small-arm]
+Hypernym with the highest similarity to feature: shot(0.5253298615132684)
+Hypernym with the highest similarity to feature: firearm(0.1917754321950344)
+Difference between hypernyms: 0.33355442931823404
+-------------------------------------------------------------------------------
+coconut,garlic,round,1:0
+Similarity score between coconut and round is 0.026622566972936582
+Similarity score between garlic and round is -0.023584391933145425
+The difference between similarity scores is 0.05020695890608201
+Pivot Hypernym: [food, solid, edible, nut, palm, tree] Comparison Hypernym: [alliaceous, plant, flavorer, flavourer, flavoring, flavouring, seasoner, seasoning]
+Hypernym with the highest similarity to feature: solid(0.1555744730616058)
+Hypernym with the highest similarity to feature: plant(0.1073878743459799)
+Difference between hypernyms: 0.04818659871562589
+-------------------------------------------------------------------------------
+scripture,bible,religion,0:1
+Similarity score between scripture and religion is 0.5159401690429751
+Similarity score between bible and religion is 0.3180580204626468
+The difference between similarity scores is 0.19788214858032832
+Pivot Hypernym: [sacred, text, writing, religious] Comparison Hypernym: [sacred, text, writing, religious, handbook, enchiridion, vade, mecum]
+Hypernym with the highest similarity to feature: religious(0.722645552560595)
+Hypernym with the highest similarity to feature: religious(0.722645552560595)
+Difference between hypernyms: 0.0
+-------------------------------------------------------------------------------
+clarinet,harp,long,1:0
+Similarity score between harp and long is 0.011526125340505032
+Similarity score between clarinet and long is -0.007177482641145439
+The difference between similarity scores is 0.01870360798165047
+Pivot Hypernym: [single-reed, instrument, woodwind] Comparison Hypernym: [chordophone, support, free-reed, instrument]
+Hypernym with the highest similarity to feature: single-reed(0.0981004616066562)
+Hypernym with the highest similarity to feature: free-reed(0.12046769455719113)
+Difference between hypernyms: 0.02236723295053493
+-------------------------------------------------------------------------------
+graduates,student,human,0:1
+Similarity score between student and human is 0.1900689942418752
+Similarity score between graduates and human is 0.03206380517792774
+The difference between similarity scores is 0.15800518906394745
+java.lang.NullPointerException
+-------------------------------------------------------------------------------
+finger,elbow,joint,0:1
+Similarity score between finger and joint is 0.12429101277176151
+Similarity score between elbow and joint is 0.12335371558164449
+The difference between similarity scores is 9.37297190117023E-4
+Pivot Hypernym: [digit, dactyl, extremity, linear, unit, measure, covering] Comparison Hypernym: [hinge, joint, ginglymus, ginglymoid, bend, curve, pipe, pipage, piping, cloth, covering, articulation, articulatio]
+Hypernym with the highest similarity to feature: unit(0.17194572516818016)
+Hypernym with the highest similarity to feature: joint(0.9999999999999999)
+Difference between hypernyms: 0.8280542748318197
+-------------------------------------------------------------------------------
+boyfriend,eyebrows,bean,0:1
+Similarity score between eyebrows and bean is 0.1290482125312567
+Similarity score between boyfriend and bean is 0.0464001501183547
+The difference between similarity scores is 0.082648062412902
+java.lang.NullPointerException
+-------------------------------------------------------------------------------
+cloak,vest,long,1:0
+Similarity score between cloak and long is 0.0854142302431573
+Similarity score between vest and long is 0.0426503391336893
+The difference between similarity scores is 0.042763891109467995
+Pivot Hypernym: [covering, overgarment, outer, garment] Comparison Hypernym: [garment, undergarment, unmentionable]
+Hypernym with the highest similarity to feature: covering(0.1329925254644329)
+Hypernym with the highest similarity to feature: unmentionable(0.07102429225229186)
+Difference between hypernyms: 0.06196823321214105
+-------------------------------------------------------------------------------
+creek,river,small,1:0
+Similarity score between river and small is 0.06856691288049296
+Similarity score between creek and small is 0.07164615502554189
+The difference between similarity scores is 0.003079242145048927
+Pivot Hypernym: [stream, watercourse, Amerindian, Native, American] Comparison Hypernym: [stream, watercourse]
+Hypernym with the highest similarity to feature: Native(0.1302254546519322)
+Hypernym with the highest similarity to feature: stream(0.1027301416261863)
+Difference between hypernyms: 0.0274953130257459
+-------------------------------------------------------------------------------
+muscles,leg,sore,0:1
+Similarity score between muscles and sore is 0.2871397774253333
+Similarity score between leg and sore is 0.3980716941841648
+The difference between similarity scores is 0.11093191675883152
+java.lang.NullPointerException
+-------------------------------------------------------------------------------
+vitamin,antioxidant,healthy,0:1
+Similarity score between antioxidant and healthy is 0.24315350978553227
+Similarity score between vitamin and healthy is 0.29106882312921056
+The difference between similarity scores is 0.047915313343678295
+Pivot Hypernym: [nutriment, nourishment, nutrition, sustenance, aliment, alimentation, victuals] Comparison Hypernym: [inhibitor]
+Hypernym with the highest similarity to feature: nutrition(0.38736075159515293)
+Hypernym with the highest similarity to feature: inhibitor(0.099282081150916)
+Difference between hypernyms: 0.28807867044423696
+-------------------------------------------------------------------------------
+businessman,politician,human,0:1
+Similarity score between politician and human is 0.07668596453546687
+Similarity score between businessman and human is -0.03382592647873966
+The difference between similarity scores is 0.11051189101420653
+Pivot Hypernym: [businessperson, bourgeois] Comparison Hypernym: [leader, schemer, plotter]
+Hypernym with the highest similarity to feature: bourgeois(0.17140543737797362)
+Hypernym with the highest similarity to feature: schemer(0.09871925921367551)
+Difference between hypernyms: 0.07268617816429811
+-------------------------------------------------------------------------------
+slag,charcoal,material,0:1
+Similarity score between charcoal and material is 0.20945489316351854
+Similarity score between slag and material is 0.33996515937182487
+The difference between similarity scores is 0.13051026620830633
+Pivot Hypernym: [scum] Comparison Hypernym: [fuel, carbon, C, atomic, number, 6, writing, implement, gray, grayness, grey, greyness, drawing]
+Hypernym with the highest similarity to feature: scum(0.1334749617609183)
+Hypernym with the highest similarity to feature: fuel(0.26510293274310515)
+Difference between hypernyms: 0.13162797098218684
+-------------------------------------------------------------------------------
+dish,asparagus,round,1:0
+Similarity score between asparagus and round is 0.06295191621432535
+Similarity score between dish and round is 0.05579940643502906
+The difference between similarity scores is 0.0071525097792962886
+Pivot Hypernym: [crockery, dishware, container, nutriment, nourishment, nutrition, sustenance, aliment, alimentation, victuals, containerful, woman, adult, female, directional, antenna, activity] Comparison Hypernym: [herb, herbaceous, plant, vegetable, veggie, veg]
+Hypernym with the highest similarity to feature: woman(0.1072602653759562)
+Hypernym with the highest similarity to feature: plant(0.1073878743459799)
+Difference between hypernyms: 1.2760897002370153E-4
+-------------------------------------------------------------------------------
+pillow,jacket,white,0:1
+Similarity score between jacket and white is 0.28286875161409436
+Similarity score between pillow and white is 0.17701092362234053
+The difference between similarity scores is 0.10585782799175383
+Pivot Hypernym: [cushion] Comparison Hypernym: [coat, wrapping, wrap, wrapper, dental, appliance, peel, skin, shell, case, casing]
+Hypernym with the highest similarity to feature: cushion(0.0461676231788155)
+Hypernym with the highest similarity to feature: coat(0.3920066008771062)
+Difference between hypernyms: 0.3458389776982907
+-------------------------------------------------------------------------------
+bench,bed,legs,0:1
+Similarity score between bed and legs is 0.28005494211276427
+Similarity score between bench and legs is 0.18809700906211188
+The difference between similarity scores is 0.09195793305065239
+Pivot Hypernym: [seat, tableland, plateau, administration, governance, governing, body, establishment, brass, organization, organisation, worktable, work, table, assembly, subgroup] Comparison Hypernym: [bedroom, furniture, plot, of, land, ground, patch, natural, depression, stratum, artifact, artefact, surface, foundation, base, fundament, foot, groundwork, substructure, understructure]
+Hypernym with the highest similarity to feature: body(0.3755250886674673)
+Hypernym with the highest similarity to feature: foot(0.37852968059933645)
+Difference between hypernyms: 0.0030045919318691383
+-------------------------------------------------------------------------------
+pianist,composer,interprets,1:0
+Similarity score between pianist and interprets is 0.16449535710896898
+Similarity score between composer and interprets is 0.18073693360379864
+The difference between similarity scores is 0.016241576494829657
+Pivot Hypernym: [musician, instrumentalist, player] Comparison Hypernym: [musician]
+Hypernym with the highest similarity to feature: musician(0.16330010772138945)
+Hypernym with the highest similarity to feature: musician(0.16330010772138945)
+Difference between hypernyms: 0.0
+-------------------------------------------------------------------------------
+barrister,lawyer,court,0:1
+Similarity score between barrister and court is 0.32399318797286625
+Similarity score between lawyer and court is 0.42873251772420873
+The difference between similarity scores is 0.10473932975134248
+Pivot Hypernym: [lawyer, attorney] Comparison Hypernym: [professional, person]
+Hypernym with the highest similarity to feature: lawyer(0.42873251772420873)
+Hypernym with the highest similarity to feature: person(0.11786102396448533)
+Difference between hypernyms: 0.3108714937597234
+-------------------------------------------------------------------------------
+gate,widow,vinegar,0:1
+Similarity score between gate and vinegar is -0.020310936417694603
+Similarity score between widow and vinegar is 0.10842430832216139
+The difference between similarity scores is 0.12873524473985598
+Pivot Hypernym: [movable, barrier, computer, circuit, gross, revenue, receipts, passageway] Comparison Hypernym: [woman, adult, female]
+Hypernym with the highest similarity to feature: passageway(0.137789154736046)
+Hypernym with the highest similarity to feature: woman(0.15319758974627823)
+Difference between hypernyms: 0.01540843501023223
+-------------------------------------------------------------------------------
+men,people,talk,0:1
+Similarity score between people and talk is 0.15483852702806375
+Similarity score between men and talk is 0.04380924220273647
+The difference between similarity scores is 0.11102928482532728
+Pivot Hypernym: [force, personnel] Comparison Hypernym: [group, grouping, family, line, folk, kinfolk, kinsfolk, sept, phratry]
+Hypernym with the highest similarity to feature: force(0.055566324516200034)
+Hypernym with the highest similarity to feature: family(0.1274366870061546)
+Difference between hypernyms: 0.07187036248995457
+-------------------------------------------------------------------------------
+box,tray,wood,0:1
+Similarity score between tray and wood is 0.13340182008350435
+Similarity score between box and wood is 0.10946588823752841
+The difference between similarity scores is 0.023935931845975936
+Pivot Hypernym: [container, compartment, containerful, predicament, quandary, plight, rectangle, shrub, bush, area, seat, blow] Comparison Hypernym: [receptacle]
+Hypernym with the highest similarity to feature: shrub(0.31890799157417404)
+Hypernym with the highest similarity to feature: receptacle(0.18511635139058363)
+Difference between hypernyms: 0.1337916401835904
+-------------------------------------------------------------------------------
+tomato,asparagus,round,1:0
+Similarity score between asparagus and round is 0.06295191621432535
+Similarity score between tomato and round is 0.09271005608468291
+The difference between similarity scores is 0.029758139870357567
+Pivot Hypernym: [solanaceous, vegetable, herb, herbaceous, plant] Comparison Hypernym: [herb, herbaceous, plant, vegetable, veggie, veg]
+Hypernym with the highest similarity to feature: plant(0.1073878743459799)
+Hypernym with the highest similarity to feature: plant(0.1073878743459799)
+Difference between hypernyms: 0.0
+-------------------------------------------------------------------------------
+writer,lawyer,write,0:1
+Similarity score between writer and write is 0.35933492145187895
+Similarity score between lawyer and write is 0.07010940830912339
+The difference between similarity scores is 0.2892255131427556
+Pivot Hypernym: [communicator, literate, person] Comparison Hypernym: [professional, person]
+Hypernym with the highest similarity to feature: literate(0.2889730481987989)
+Hypernym with the highest similarity to feature: person(0.1246651804678911)
+Difference between hypernyms: 0.16430786773090778
+-------------------------------------------------------------------------------
+elbow,hip,sharp,1:0
+Similarity score between elbow and sharp is 0.19903930412547105
+Similarity score between hip and sharp is 0.15665748236962468
+The difference between similarity scores is 0.04238182175584637
+Pivot Hypernym: [hinge, joint, ginglymus, ginglymoid, bend, curve, pipe, pipage, piping, cloth, covering, articulation, articulatio] Comparison Hypernym: [body, part, girdle, ball-and-socket, joint, spheroid, cotyloid, enarthrodial, enarthrosis, articulatio, spheroidea, exterior, angle, external, fruit]
+Hypernym with the highest similarity to feature: curve(0.2594381870322881)
+Hypernym with the highest similarity to feature: angle(0.21874778152736057)
+Difference between hypernyms: 0.04069040550492753
+-------------------------------------------------------------------------------
+moose,mink,hooves,1:0
+Similarity score between mink and hooves is 0.24994479231705227
+Similarity score between moose and hooves is 0.30640396678688314
+The difference between similarity scores is 0.05645917446983087
+Pivot Hypernym: [deer, cervid] Comparison Hypernym: [fur, pelt, coat, musteline, mammal, mustelid]
+Hypernym with the highest similarity to feature: deer(0.3340511775032375)
+Hypernym with the highest similarity to feature: fur(0.3474471869450347)
+Difference between hypernyms: 0.013396009441797196
+-------------------------------------------------------------------------------
+spider,cockroach,legs,0:1
+Similarity score between spider and legs is 0.2507635317082879
+Similarity score between cockroach and legs is 0.16943222442960407
+The difference between similarity scores is 0.08133130727868385
+Pivot Hypernym: [arachnid, arachnoid, program, programme, computer, frying, pan, frypan, skillet] Comparison Hypernym: [dictyopterous, insect]
+Hypernym with the highest similarity to feature: arachnoid(0.2271078237317035)
+Hypernym with the highest similarity to feature: insect(0.10861768653264799)
+Difference between hypernyms: 0.1184901371990555
+-------------------------------------------------------------------------------
+belfry,oriole,apartment,0:1
+Similarity score between belfry and apartment is 0.23682678639773802
+Similarity score between oriole and apartment is 0.03924500185386944
+The difference between similarity scores is 0.19758178454386857
+Pivot Hypernym: [bell, tower, room] Comparison Hypernym: [oscine, bird]
+Hypernym with the highest similarity to feature: room(0.4081520475385487)
+Hypernym with the highest similarity to feature: bird(0.09367509876086325)
+Difference between hypernyms: 0.3144769487776855
+-------------------------------------------------------------------------------
+pear,avocado,white,1:0
+Similarity score between avocado and white is 0.2109101066204057
+Similarity score between pear and white is 0.19082667825397384
+The difference between similarity scores is 0.02008342836643187
+Pivot Hypernym: [edible, fruit, pome, false, tree] Comparison Hypernym: [edible, fruit, tree]
+Hypernym with the highest similarity to feature: pome(0.15881128509608317)
+Hypernym with the highest similarity to feature: edible(0.10955110047203849)
+Difference between hypernyms: 0.049260184624044676
+-------------------------------------------------------------------------------
+hip,shoulder,joints,0:1
+Similarity score between shoulder and joints is 0.28735092009139673
+Similarity score between hip and joints is 0.41039156775378516
+The difference between similarity scores is 0.12304064766238842
+Pivot Hypernym: [body, part, girdle, ball-and-socket, joint, spheroid, cotyloid, enarthrodial, enarthrosis, articulatio, spheroidea, exterior, angle, external, fruit] Comparison Hypernym: [body, part, cut, of, meat, ball-and-socket, joint, spheroid, cotyloid, enarthrodial, enarthrosis, articulatio, spheroidea, cloth, covering, edge]
+Hypernym with the highest similarity to feature: girdle(0.3578718360327096)
+Hypernym with the highest similarity to feature: ball-and-socket(0.3353470552435254)
+Difference between hypernyms: 0.022524780789184184
+-------------------------------------------------------------------------------
+basketball,soccer,ball,0:1
+Similarity score between soccer and ball is 0.2650180915160568
+Similarity score between basketball and ball is 0.28601255382727186
+The difference between similarity scores is 0.020994462311215045
+Pivot Hypernym: [court, game, ball, basketball, equipment] Comparison Hypernym: [football, game]
+Hypernym with the highest similarity to feature: ball(1.0)
+Hypernym with the highest similarity to feature: game(0.4928432670063042)
+Difference between hypernyms: 0.5071567329936958
+-------------------------------------------------------------------------------
+hygienist,orthodontist,patient,0:1
+Similarity score between hygienist and patient is 0.36916915787681887
+Similarity score between orthodontist and patient is 0.21814625718576686
+The difference between similarity scores is 0.151022900691052
+Pivot Hypernym: [specialist, medical] Comparison Hypernym: [dentist, tooth, doctor, dental, practitioner]
+Hypernym with the highest similarity to feature: medical(0.523570233992633)
+Hypernym with the highest similarity to feature: doctor(0.5283131981024157)
+Difference between hypernyms: 0.004742964109782699
+-------------------------------------------------------------------------------
+nerve,bone,anatomy,0:1
+Similarity score between bone and anatomy is 0.32698478605165343
+Similarity score between nerve and anatomy is 0.12263194388556291
+The difference between similarity scores is 0.2043528421660905
+Pivot Hypernym: [fiber, bundle, fibre, fascicle, fasciculus, courage, courageousness, bravery, braveness, aggressiveness] Comparison Hypernym: [connective, tissue, animal, material, white, whiteness]
+Hypernym with the highest similarity to feature: fasciculus(0.2685986954880405)
+Hypernym with the highest similarity to feature: tissue(0.3857606002821377)
+Difference between hypernyms: 0.11716190479409722
+-------------------------------------------------------------------------------
+cloud,rain,grey,1:0
+Similarity score between rain and grey is 0.0
+Similarity score between cloud and grey is 0.0
+The difference between similarity scores is 0.0
+Pivot Hypernym: [physical, phenomenon, atmospheric, unreality, irreality, gloom, gloominess, glumness, suspicion, group, grouping] Comparison Hypernym: [precipitation, downfall, fresh, water, freshwater, sequence, chronological, succession, successiveness]
+Hypernym with the highest similarity to feature: suspicion(0.0)
+Hypernym with the highest similarity to feature: fresh(0.0)
+Difference between hypernyms: 0.0
+-------------------------------------------------------------------------------
+skirt,jacket,long,0:1
+Similarity score between jacket and long is 0.05250379595737046
+Similarity score between skirt and long is 0.08650990094822489
+The difference between similarity scores is 0.03400610499085443
+Pivot Hypernym: [cloth, covering, garment, plant, part, structure, girl, miss, missy, young, lady, woman, fille] Comparison Hypernym: [coat, wrapping, wrap, wrapper, dental, appliance, peel, skin, shell, case, casing]
+Hypernym with the highest similarity to feature: part(0.24461982506692226)
+Hypernym with the highest similarity to feature: wrap(0.14172097630115799)
+Difference between hypernyms: 0.10289884876576427
+-------------------------------------------------------------------------------
+gun,bomb,kill,0:1
+Similarity score between gun and kill is 0.26279364831356894
+Similarity score between bomb and kill is 0.21895583980462416
+The difference between similarity scores is 0.04383780850894478
+Pivot Hypernym: [weapon, arm, system, armament, shot, shooter, murderer, liquidator, manslayer, pump, pedal, treadle, foot, lever, discharge, firing, off] Comparison Hypernym: [explosive, device, weaponry, arms, implements, of, war, weapons, system, munition, calorimeter, flop, bust, fizzle]
+Hypernym with the highest similarity to feature: murderer(0.30686009776618023)
+Hypernym with the highest similarity to feature: weapons(0.18248864786534072)
+Difference between hypernyms: 0.12437144990083951
+-------------------------------------------------------------------------------
+dove,hawk,white,1:0
+Similarity score between dove and white is 0.20164631813873427
+Similarity score between hawk and white is 0.12967253543877216
+The difference between similarity scores is 0.0719737826999621
+Pivot Hypernym: [pigeon, pacifist, pacificist, disarmer, constellation, poultry, emblem, allegory] Comparison Hypernym: [bird, of, prey, raptor, raptorial, militarist, warmonger, board]
+Hypernym with the highest similarity to feature: emblem(0.2732167248578713)
+Hypernym with the highest similarity to feature: raptorial(0.19982784180481028)
+Difference between hypernyms: 0.07338888305306102
+-------------------------------------------------------------------------------
+pig,goose,legs,0:1
+Similarity score between goose and legs is 0.13845684231610478
+Similarity score between pig and legs is 0.2082501227144247
+The difference between similarity scores is 0.06979328039831992
+Pivot Hypernym: [swine, vulgarian, selfish, person, policeman, police, officer, mold, mould, cast, ingot] Comparison Hypernym: [anseriform, bird, fool, sap, saphead, muggins, tomfool, poultry]
+Hypernym with the highest similarity to feature: mold(0.12738714867656917)
+Hypernym with the highest similarity to feature: muggins(0.22690650755457872)
+Difference between hypernyms: 0.09951935887800956
+-------------------------------------------------------------------------------
+midnight,night,dark,0:1
+Similarity score between night and dark is 0.22546574422921192
+Similarity score between midnight and dark is 0.2768356326154985
+The difference between similarity scores is 0.05136988838628656
+Pivot Hypernym: [hour, time, of, day] Comparison Hypernym: [time, period, of, unit, dark, darkness, twilight, dusk, gloaming, gloam, nightfall, evenfall, fall, crepuscule, crepuscle, Roman, deity]
+Hypernym with the highest similarity to feature: day(0.12881632693563203)
+Hypernym with the highest similarity to feature: dark(1.0000000000000002)
+Difference between hypernyms: 0.8711836730643682
+-------------------------------------------------------------------------------
+tutor,student,class,0:1
+Similarity score between tutor and class is 0.31183785827191357
+Similarity score between student and class is 0.30222120652085005
+The difference between similarity scores is 0.00961665175106352
+Pivot Hypernym: [teacher, instructor] Comparison Hypernym: [enrollee, intellectual, intellect]
+Hypernym with the highest similarity to feature: teacher(0.3120272054818069)
+Hypernym with the highest similarity to feature: intellectual(0.1867018022252764)
+Difference between hypernyms: 0.1253254032565305
+-------------------------------------------------------------------------------
+turtle,lobster,legs,0:1
+Similarity score between turtle and legs is 0.19368731535658673
+Similarity score between lobster and legs is 0.0935875379721467
+The difference between similarity scores is 0.10009977738444004
+Pivot Hypernym: [sweater, jumper, jersey, T-shirt, tee, shirt, chelonian, reptile] Comparison Hypernym: [shellfish, decapod, crustacean]
+Hypernym with the highest similarity to feature: shirt(0.22521594165652556)
+Hypernym with the highest similarity to feature: decapod(0.16707778164821632)
+Difference between hypernyms: 0.058138160008309236
+-------------------------------------------------------------------------------
+banker,raisin,wicker,0:1
+Similarity score between banker and wicker is 0.06379881247694907
+Similarity score between raisin and wicker is 0.20435269165275557
+The difference between similarity scores is 0.1405538791758065
+Pivot Hypernym: [financier, moneyman, money, handler, dealer] Comparison Hypernym: [dried, fruit]
+Hypernym with the highest similarity to feature: handler(0.09338630788792898)
+Hypernym with the highest similarity to feature: fruit(0.26226561273243093)
+Difference between hypernyms: 0.16887930484450195
+-------------------------------------------------------------------------------
+cigars,tobacco,nicotine,0:1
+Similarity score between tobacco and nicotine is 0.47060140635526165
+Similarity score between cigars and nicotine is 0.24893506212519864
+The difference between similarity scores is 0.221666344230063
+java.lang.NullPointerException
+-------------------------------------------------------------------------------
+pastries,breakfast,sweet,0:1
+Similarity score between pastries and sweet is 0.3389940022129622
+Similarity score between breakfast and sweet is 0.18502689687960722
+The difference between similarity scores is 0.153967105333355
+java.lang.NullPointerException
+-------------------------------------------------------------------------------
+lavender,flower,plant,0:1
+Similarity score between lavender and plant is 0.17193438961315863
+Similarity score between flower and plant is 0.28450524600920546
+The difference between similarity scores is 0.11257085639604683
+Pivot Hypernym: [shrub, bush, purple, purpleness] Comparison Hypernym: [angiosperm, flowering, plant, reproductive, structure, time, period, of]
+Hypernym with the highest similarity to feature: shrub(0.2986864133827015)
+Hypernym with the highest similarity to feature: plant(1.0)
+Difference between hypernyms: 0.7013135866172985
+-------------------------------------------------------------------------------
+fingers,nose,flexible,1:0
+Similarity score between nose and flexible is -0.0063831832205508395
+Similarity score between fingers and flexible is 0.03854090069643924
+The difference between similarity scores is 0.044924083916990085
+java.lang.NullPointerException
+-------------------------------------------------------------------------------
+brush,chocolate,chicken,0:1
+Similarity score between brush and chicken is 0.12236812540401913
+Similarity score between chocolate and chicken is 0.30734492241232764
+The difference between similarity scores is 0.1849767970083085
+Pivot Hypernym: [vegetation, flora, botany, implement, touch, touching, electrical, device, tail, fight, fighting, combat, scrap, dental, care, hair, haircare, hairdressing, contact] Comparison Hypernym: [beverage, drink, drinkable, potable, food, solid, brown, brownness]
+Hypernym with the highest similarity to feature: tail(0.2198010706669404)
+Hypernym with the highest similarity to feature: food(0.4278462753460863)
+Difference between hypernyms: 0.20804520467914592
+-------------------------------------------------------------------------------
+elk,bison,legs,0:1
+Similarity score between bison and legs is 0.1279360039637732
+Similarity score between elk and legs is 0.14451002727826348
+The difference between similarity scores is 0.016574023314490288
+Pivot Hypernym: [deer, cervid] Comparison Hypernym: [bovid]
+Hypernym with the highest similarity to feature: deer(0.15816774350411414)
+Hypernym with the highest similarity to feature: bovid(0.0)
+Difference between hypernyms: 0.15816774350411414
+-------------------------------------------------------------------------------
+horse,cart,legs,1:0
+Similarity score between horse and legs is 0.23318778556127248
+Similarity score between cart and legs is 0.1602076347899974
+The difference between similarity scores is 0.07298015077127509
+Pivot Hypernym: [equine, equid, gymnastic, apparatus, exerciser, military, personnel, soldiery, troops, framework, frame, chessman, chess, piece] Comparison Hypernym: [wagon, waggon, wheeled, vehicle]
+Hypernym with the highest similarity to feature: exerciser(0.27503992867176663)
+Hypernym with the highest similarity to feature: wheeled(0.2804634469335771)
+Difference between hypernyms: 0.005423518261810478
+-------------------------------------------------------------------------------
+pins,wire,metal,0:1
+Similarity score between pins and metal is 0.21693763272701705
+Similarity score between wire and metal is 0.3105337525041413
+The difference between similarity scores is 0.09359611977712423
+java.lang.NullPointerException
+-------------------------------------------------------------------------------
+courtyard,alley,outdoors,0:1
+Similarity score between alley and outdoors is 0.15820832781367625
+Similarity score between courtyard and outdoors is 0.2512696804735175
+The difference between similarity scores is 0.09306135265984125
+Pivot Hypernym: [area] Comparison Hypernym: [street, lane]
+Hypernym with the highest similarity to feature: area(0.2351254999367693)
+Hypernym with the highest similarity to feature: street(0.14652122852752933)
+Difference between hypernyms: 0.08860427140923996
+-------------------------------------------------------------------------------
+nectarine,cranberry,round,0:1
+Similarity score between cranberry and round is 0.002338196930093664
+Similarity score between nectarine and round is 0.08621945749570338
+The difference between similarity scores is 0.08388126056560971
+Pivot Hypernym: [fruit, tree, edible] Comparison Hypernym: [shrub, bush, berry]
+Hypernym with the highest similarity to feature: fruit(0.15433019325375333)
+Hypernym with the highest similarity to feature: bush(0.13668589265709255)
+Difference between hypernyms: 0.017644300596660778
+-------------------------------------------------------------------------------
+fingers,cheek,bones,1:0
+Similarity score between fingers and bones is 0.3289926994382882
+Similarity score between cheek and bones is 0.2500313591098404
+The difference between similarity scores is 0.07896134032844776
+java.lang.NullPointerException
+-------------------------------------------------------------------------------
+turnip,cucumber,white,1:0
+Similarity score between cucumber and white is 0.17172418725928432
+Similarity score between turnip and white is 0.1973025150322914
+The difference between similarity scores is 0.025578327773007087
+Pivot Hypernym: [turnip, plant, root, vegetable, cruciferous] Comparison Hypernym: [melon, vine, vegetable, veggie, veg]
+Hypernym with the highest similarity to feature: turnip(0.1973025150322914)
+Hypernym with the highest similarity to feature: melon(0.19693238854711964)
+Difference between hypernyms: 3.701264851717623E-4
+-------------------------------------------------------------------------------
+balloon,kite,round,1:0
+Similarity score between balloon and round is 0.03572927868821079
+Similarity score between kite and round is 0.06646026482705111
+The difference between similarity scores is 0.030730986138840323
+Pivot Hypernym: [lighter-than-air, craft, plaything, toy] Comparison Hypernym: [check, bank, cheque, plaything, toy, hawk]
+Hypernym with the highest similarity to feature: craft(0.08126737563327853)
+Hypernym with the highest similarity to feature: bank(0.14328802899150492)
+Difference between hypernyms: 0.06202065335822639
+-------------------------------------------------------------------------------
+wheelbarrow,tractor,wood,1:0
+Similarity score between wheelbarrow and wood is 0.1721605464129384
+Similarity score between tractor and wood is 0.22004683455131194
+The difference between similarity scores is 0.047886288138373534
+Pivot Hypernym: [handcart, pushcart, cart, go-cart] Comparison Hypernym: [self-propelled, vehicle, truck, motortruck]
+Hypernym with the highest similarity to feature: go-cart(0.18174378520913784)
+Hypernym with the highest similarity to feature: truck(0.2345336090305001)
+Difference between hypernyms: 0.05278982382136227
+-------------------------------------------------------------------------------
+musician,brother-in-law,pray,0:1
+Similarity score between brother-in-law and pray is 0.22175854266614672
+Similarity score between musician and pray is 0.11171411677237213
+The difference between similarity scores is 0.1100444258937746
+Pivot Hypernym: [performer, performing, artist, creative, person] Comparison Hypernym: [in-law, relative-in-law]
+Hypernym with the highest similarity to feature: person(0.1398995688902078)
+Hypernym with the highest similarity to feature: relative-in-law(0.18796304313925383)
+Difference between hypernyms: 0.04806347424904603
+-------------------------------------------------------------------------------
+ant,frog,legs,0:1
+Similarity score between frog and legs is 0.20048803665198592
+Similarity score between ant and legs is 0.10652940349906012
+The difference between similarity scores is 0.0939586331529258
+Pivot Hypernym: [hymenopterous, insect, hymenopteran, hymenopteron, hymenopter] Comparison Hypernym: [amphibian, Frenchman, Frenchwoman, French, person, adornment]
+Hypernym with the highest similarity to feature: insect(0.10861768653264799)
+Hypernym with the highest similarity to feature: Frenchwoman(0.15886460687790022)
+Difference between hypernyms: 0.05024692034525223
+-------------------------------------------------------------------------------
+venison,steak,cook,0:1
+Similarity score between steak and cook is 0.4480894122655444
+Similarity score between venison and cook is 0.2859346976014184
+The difference between similarity scores is 0.162154714664126
+Pivot Hypernym: [game] Comparison Hypernym: [cut, of, meat]
+Hypernym with the highest similarity to feature: game(0.0670275752852795)
+Hypernym with the highest similarity to feature: meat(0.33274698680969367)
+Difference between hypernyms: 0.26571941152441414
+-------------------------------------------------------------------------------
+coconut,tomato,white,1:0
+Similarity score between coconut and white is 0.09834469934863438
+Similarity score between tomato and white is 0.11693337085501374
+The difference between similarity scores is 0.018588671506379356
+Pivot Hypernym: [food, solid, edible, nut, palm, tree] Comparison Hypernym: [solanaceous, vegetable, herb, herbaceous, plant]
+Hypernym with the highest similarity to feature: palm(0.14995284646918347)
+Hypernym with the highest similarity to feature: herbaceous(0.20962678877633714)
+Difference between hypernyms: 0.05967394230715367
+-------------------------------------------------------------------------------
+estuary,river,water,0:1
+Similarity score between estuary and water is 0.4226757293207628
+Similarity score between river and water is 0.5768983335578924
+The difference between similarity scores is 0.15422260423712963
+Pivot Hypernym: [body, of, water] Comparison Hypernym: [stream, watercourse]
+Hypernym with the highest similarity to feature: water(1.0000000000000002)
+Hypernym with the highest similarity to feature: watercourse(0.4734248319731091)
+Difference between hypernyms: 0.5265751680268911
+-------------------------------------------------------------------------------
+uncle,hose,racks,0:1
+Similarity score between uncle and racks is -0.01352095618442607
+Similarity score between hose and racks is 0.22209652631930413
+The difference between similarity scores is 0.23561748250373019
+Pivot Hypernym: [kinsman, benefactor, helper] Comparison Hypernym: [footwear, garment, tube, tubing]
+Hypernym with the highest similarity to feature: helper(0.07480488565120247)
+Hypernym with the highest similarity to feature: tubing(0.21181946674208826)
+Difference between hypernyms: 0.1370145810908858
+-------------------------------------------------------------------------------
+viscose,polyester,polymer,0:1
+Similarity score between polyester and polymer is 0.5360680236807288
+Similarity score between viscose and polymer is 0.40718175751906965
+The difference between similarity scores is 0.12888626616165916
+Pivot Hypernym: [cellulose, ester, xanthate, rayon] Comparison Hypernym: [synthetic, resin, ester, plastic, fabric, cloth, material, textile]
+Hypernym with the highest similarity to feature: cellulose(0.5912069388575737)
+Hypernym with the highest similarity to feature: resin(0.6377034075568242)
+Difference between hypernyms: 0.046496468699250504
+-------------------------------------------------------------------------------
+arm,shoulder,extend,1:0
+Similarity score between shoulder and extend is 0.026752526624774755
+Similarity score between arm and extend is 0.0780915053589225
+The difference between similarity scores is 0.051338978734147736
+Pivot Hypernym: [limb, projection, instrument, armrest, division, cloth, covering] Comparison Hypernym: [body, part, cut, of, meat, ball-and-socket, joint, spheroid, cotyloid, enarthrodial, enarthrosis, articulatio, spheroidea, cloth, covering, edge]
+Hypernym with the highest similarity to feature: covering(0.20676318885006859)
+Hypernym with the highest similarity to feature: cut(0.2470272732101391)
+Difference between hypernyms: 0.04026408436007051
+-------------------------------------------------------------------------------
+mars,moon,rotate,0:1
+Similarity score between mars and rotate is 0.009248955755330248
+Similarity score between moon and rotate is 0.1657895364833874
+The difference between similarity scores is 0.15654058072805715
+Pivot Hypernym: [terrestrial, planet, superior, Roman, deity] Comparison Hypernym: [satellite, object, physical, month, light, visible, radiation, religious, leader]
+Hypernym with the highest similarity to feature: planet(0.108429114607958)
+Hypernym with the highest similarity to feature: object(0.19207324926059313)
+Difference between hypernyms: 0.08364413465263514
+-------------------------------------------------------------------------------
+pork,bacon,meat,0:1
+Similarity score between bacon and meat is 0.5192578806893183
+Similarity score between pork and meat is 0.7186976882795683
+The difference between similarity scores is 0.19943980759024993
+Pivot Hypernym: [meat, appropriation] Comparison Hypernym: [cut, of, pork, monk, monastic, scientist, statesman, solon, national, leader, philosopher]
+Hypernym with the highest similarity to feature: meat(1.0)
+Hypernym with the highest similarity to feature: pork(0.7186976882795683)
+Difference between hypernyms: 0.28130231172043174
+-------------------------------------------------------------------------------
+snacks,breakfast,light,0:1
+Similarity score between breakfast and light is 0.034056676835249405
+Similarity score between snacks and light is 0.1347859534185025
+The difference between similarity scores is 0.10072927658325309
+java.lang.NullPointerException
+-------------------------------------------------------------------------------
+turnip,carrot,white,1:0
+Similarity score between turnip and white is 0.1973025150322914
+Similarity score between carrot and white is 0.1314523936424067
+The difference between similarity scores is 0.06585012138988469
+Pivot Hypernym: [turnip, plant, root, vegetable, cruciferous] Comparison Hypernym: [root, herb, herbaceous, plant, vegetable, reward, reinforcement]
+Hypernym with the highest similarity to feature: turnip(0.1973025150322914)
+Hypernym with the highest similarity to feature: herbaceous(0.20962678877633714)
+Difference between hypernyms: 0.012324273744045738
+-------------------------------------------------------------------------------
+oven,fridge,racks,0:1
+Similarity score between oven and racks is 0.3163865375558687
+Similarity score between fridge and racks is 0.4089020190884597
+The difference between similarity scores is 0.09251548153259098
+Pivot Hypernym: [kitchen, appliance] Comparison Hypernym: [refrigerator, icebox]
+Hypernym with the highest similarity to feature: kitchen(0.29100574745466967)
+Hypernym with the highest similarity to feature: refrigerator(0.39433088740877253)
+Difference between hypernyms: 0.10332513995410286
+-------------------------------------------------------------------------------
+raccoon,moose,eyes,0:1
+Similarity score between moose and eyes is 0.05283265517739342
+Similarity score between raccoon and eyes is 0.14508430382791823
+The difference between similarity scores is 0.09225164865052482
+Pivot Hypernym: [fur, pelt, procyonid] Comparison Hypernym: [deer, cervid]
+Hypernym with the highest similarity to feature: fur(0.15321555563036338)
+Hypernym with the highest similarity to feature: deer(0.10011564812813421)
+Difference between hypernyms: 0.05309990750222916
+-------------------------------------------------------------------------------
+sword,knife,sheath,1:0
+Similarity score between sword and sheath is 0.36524215771509605
+Similarity score between knife and sheath is 0.3397535790691725
+The difference between similarity scores is 0.025488578645923576
+Pivot Hypernym: [weapon, arm, system] Comparison Hypernym: [edge, tool, weapon, arm, system, projection]
+Hypernym with the highest similarity to feature: arm(0.23122780967912163)
+Hypernym with the highest similarity to feature: arm(0.23122780967912163)
+Difference between hypernyms: 0.0
+-------------------------------------------------------------------------------
+sword,gun,cuts,1:0
+Similarity score between sword and cuts is 0.1016034467319457
+Similarity score between gun and cuts is 0.04595784005218242
+The difference between similarity scores is 0.05564560667976328
+Pivot Hypernym: [weapon, arm, system] Comparison Hypernym: [weapon, arm, system, armament, shot, shooter, murderer, liquidator, manslayer, pump, pedal, treadle, foot, lever, discharge, firing, off]
+Hypernym with the highest similarity to feature: system(0.10016206195069181)
+Hypernym with the highest similarity to feature: pump(0.14145328553732178)
+Difference between hypernyms: 0.04129122358662997
+-------------------------------------------------------------------------------
+motel,guesthouse,road,1:0
+Similarity score between motel and road is 0.09996387620938305
+Similarity score between guesthouse and road is 0.11203694084772317
+The difference between similarity scores is 0.012073064638340125
+Pivot Hypernym: [motor, hotel, inn, lodge, tourist, court] Comparison Hypernym: [house]
+Hypernym with the highest similarity to feature: court(0.22428690768041054)
+Hypernym with the highest similarity to feature: house(0.147628467600526)
+Difference between hypernyms: 0.07665844007988454
+-------------------------------------------------------------------------------
+prostate,kidney,urine,0:1
+Similarity score between kidney and urine is 0.3204240808846075
+Similarity score between prostate and urine is 0.28447874276541707
+The difference between similarity scores is 0.03594533811919043
+Pivot Hypernym: [endocrine, gland, ductless] Comparison Hypernym: [excretory, organ, urinary]
+Hypernym with the highest similarity to feature: endocrine(0.28898259296219475)
+Hypernym with the highest similarity to feature: urinary(0.5078270527623074)
+Difference between hypernyms: 0.2188444598001127
+-------------------------------------------------------------------------------
+tea,breakfast,consume,0:1
+Similarity score between breakfast and consume is 0.10779035800221529
+Similarity score between tea and consume is 0.111801027121082
+The difference between similarity scores is 0.0040106691188667165
+Pivot Hypernym: [beverage, drink, drinkable, potable, meal, repast, shrub, bush, reception, herb] Comparison Hypernym: [meal, repast]
+Hypernym with the highest similarity to feature: drink(0.4582883801387753)
+Hypernym with the highest similarity to feature: meal(0.2613797745766423)
+Difference between hypernyms: 0.19690860556213302
+-------------------------------------------------------------------------------
+fingers,neck,strangle,0:1
+Similarity score between fingers and strangle is 0.15674042281266753
+Similarity score between neck and strangle is 0.30825108498770126
+The difference between similarity scores is 0.15151066217503373
+java.lang.NullPointerException
+-------------------------------------------------------------------------------
+actress,wife,woman,0:1
+Similarity score between wife and woman is 0.44482370817874395
+Similarity score between actress and woman is 0.45852411355557515
+The difference between similarity scores is 0.013700405376831204
+Pivot Hypernym: [actor, histrion, player, thespian, role] Comparison Hypernym: [woman, adult, female, spouse, partner, married, person, mate, better, half]
+Hypernym with the highest similarity to feature: actor(0.3172190188019129)
+Hypernym with the highest similarity to feature: woman(0.9999999999999999)
+Difference between hypernyms: 0.682780981198087
+-------------------------------------------------------------------------------
+botanist,physician,research,0:1
+Similarity score between botanist and research is 0.2385101413906348
+Similarity score between physician and research is 0.15001858203301777
+The difference between similarity scores is 0.08849155935761704
+Pivot Hypernym: [biologist, life, scientist] Comparison Hypernym: [medical, practitioner, man]
+Hypernym with the highest similarity to feature: scientist(0.4497030908359953)
+Hypernym with the highest similarity to feature: medical(0.23503431262842622)
+Difference between hypernyms: 0.21466877820756908
+-------------------------------------------------------------------------------
+banana,onions,long,1:0
+Similarity score between banana and long is 0.07099574077601302
+Similarity score between onions and long is 0.03691013362357352
+The difference between similarity scores is 0.0340856071524395
+java.lang.NullPointerException
+-------------------------------------------------------------------------------
+child,adult,innocent,1:0
+Similarity score between adult and innocent is 0.16742667856367707
+Similarity score between child and innocent is 0.1881935923976903
+The difference between similarity scores is 0.020766913834013218
+Pivot Hypernym: [juvenile, person, offspring, progeny, issue, individual, someone, somebody, mortal, soul, descendant, descendent] Comparison Hypernym: [person, individual, someone, somebody, mortal, soul, animal, animate, being, beast, brute, creature, fauna]
+Hypernym with the highest similarity to feature: mortal(0.3066417139302906)
+Hypernym with the highest similarity to feature: mortal(0.3066417139302906)
+Difference between hypernyms: 0.0
+-------------------------------------------------------------------------------
+neck,throat,cut,0:1
+Similarity score between neck and cut is 0.19332946910590915
+Similarity score between throat and cut is 0.19787547265444289
+The difference between similarity scores is 0.004546003548533739
+Pivot Hypernym: [external, body, part, land, dry, earth, ground, solid, terra, firma, cut, of, meat, portion, opening] Comparison Hypernym: [tubular, cavity, opening, passage, external, body, part]
+Hypernym with the highest similarity to feature: cut(1.0)
+Hypernym with the highest similarity to feature: external(0.10915734443982895)
+Difference between hypernyms: 0.8908426555601711
+-------------------------------------------------------------------------------
+bone,liver,tissue,0:1
+Similarity score between liver and tissue is 0.5255877986957435
+Similarity score between bone and tissue is 0.5162275377394715
+The difference between similarity scores is 0.00936026095627196
+Pivot Hypernym: [connective, tissue, animal, material, white, whiteness] Comparison Hypernym: [internal, organ, viscus, variety, meat, organs, person, individual, someone, somebody, mortal, soul, inhabitant, habitant, dweller, denizen, indweller]
+Hypernym with the highest similarity to feature: tissue(1.0000000000000002)
+Hypernym with the highest similarity to feature: organs(0.5378563406949438)
+Difference between hypernyms: 0.4621436593050564
+-------------------------------------------------------------------------------
+wife,princess,female,0:1
+Similarity score between princess and female is 0.227790063323751
+Similarity score between wife and female is 0.10107607164339268
+The difference between similarity scores is 0.12671399168035835
+Pivot Hypernym: [woman, adult, female, spouse, partner, married, person, mate, better, half] Comparison Hypernym: [aristocrat, blue, blood, patrician]
+Hypernym with the highest similarity to feature: female(1.0)
+Hypernym with the highest similarity to feature: blue(0.12750776080606482)
+Difference between hypernyms: 0.8724922391939351
+-------------------------------------------------------------------------------
+coconut,pineapple,white,1:0
+Similarity score between coconut and white is 0.09834469934863438
+Similarity score between pineapple and white is 0.1452078390665463
+The difference between similarity scores is 0.04686313971791192
+Pivot Hypernym: [food, solid, edible, nut, palm, tree] Comparison Hypernym: [herb, herbaceous, plant, edible, fruit]
+Hypernym with the highest similarity to feature: palm(0.14995284646918347)
+Hypernym with the highest similarity to feature: herbaceous(0.20962678877633714)
+Difference between hypernyms: 0.05967394230715367
+-------------------------------------------------------------------------------
+broadsheet,newspaper,publish,0:1
+Similarity score between broadsheet and publish is 0.28465395500336077
+Similarity score between newspaper and publish is 0.30511404266825987
+The difference between similarity scores is 0.020460087664899096
+Pivot Hypernym: [ad, advertisement, advertizement, advertising, advertizing, advert] Comparison Hypernym: [press, public, publisher, publishing, house, firm, company, product, production, paper]
+Hypernym with the highest similarity to feature: advertisement(0.18604060824381705)
+Hypernym with the highest similarity to feature: publishing(0.5684158392846294)
+Difference between hypernyms: 0.3823752310408123
+-------------------------------------------------------------------------------
+niece,daughter,female,0:1
+Similarity score between niece and female is 0.18340970667885875
+Similarity score between daughter and female is 0.18027266835298872
+The difference between similarity scores is 0.003137038325870034
+Pivot Hypernym: [kinswoman] Comparison Hypernym: [female, offspring]
+Hypernym with the highest similarity to feature: kinswoman(0.0)
+Hypernym with the highest similarity to feature: female(1.0)
+Difference between hypernyms: 1.0
+-------------------------------------------------------------------------------
+knife,plate,shiny,0:1
+Similarity score between knife and shiny is 0.1145098406610603
+Similarity score between plate and shiny is 0.14150579860315562
+The difference between similarity scores is 0.02699595794209532
+Pivot Hypernym: [edge, tool, weapon, arm, system, projection] Comparison Hypernym: [base, bag, sheet, flat, solid, illustration, flatware, containerful, crust, Earth's, cut, of, beef, entree, main, course, structure, anatomical, complex, body, part, bodily, anode, structural, member, receptacle, shield, dental, appliance]
+Hypernym with the highest similarity to feature: edge(0.12456064365328813)
+Hypernym with the highest similarity to feature: flatware(0.2309338516603712)
+Difference between hypernyms: 0.10637320800708307
+-------------------------------------------------------------------------------
+actor,actress,male,1:0
+Similarity score between actor and male is 0.2060590831158589
+Similarity score between actress and male is 0.1807948110476417
+The difference between similarity scores is 0.025264272068217214
+Pivot Hypernym: [performer, performing, artist, person, individual, someone, somebody, mortal, soul] Comparison Hypernym: [actor, histrion, player, thespian, role]
+Hypernym with the highest similarity to feature: person(0.24954651850532475)
+Hypernym with the highest similarity to feature: actor(0.2060590831158589)
+Difference between hypernyms: 0.04348743538946584
+-------------------------------------------------------------------------------
+pews,aisle,parish,0:1
+Similarity score between pews and parish is 0.4054399884930283
+Similarity score between aisle and parish is 0.07795014404472451
+The difference between similarity scores is 0.3274898444483038
+java.lang.NullPointerException
+-------------------------------------------------------------------------------
+fingernail,nail,fingers,0:1
+Similarity score between fingernail and fingers is 0.512775311719794
+Similarity score between nail and fingers is 0.25897141487654995
+The difference between similarity scores is 0.253803896843244
+Pivot Hypernym: [nail] Comparison Hypernym: [horny, structure, unguis, fastener, fastening, holdfast, fixing, linear, unit, measure]
+Hypernym with the highest similarity to feature: nail(0.25897141487654995)
+Hypernym with the highest similarity to feature: holdfast(0.27453532621753163)
+Difference between hypernyms: 0.015563911340981673
+-------------------------------------------------------------------------------
+shrubs,flower,green,1:0
+Similarity score between shrubs and green is 0.21075555765400172
+Similarity score between flower and green is 0.25894788826417237
+The difference between similarity scores is 0.04819233061017064
+java.lang.NullPointerException
+-------------------------------------------------------------------------------
+naturalist,physician,observe,0:1
+Similarity score between physician and observe is 0.08318093022096996
+Similarity score between naturalist and observe is 0.1882965969242001
+The difference between similarity scores is 0.10511566670323012
+Pivot Hypernym: [philosopher, biologist, life, scientist] Comparison Hypernym: [medical, practitioner, man]
+Hypernym with the highest similarity to feature: biologist(0.12916320105825738)
+Hypernym with the highest similarity to feature: practitioner(0.13059572548616105)
+Difference between hypernyms: 0.0014325244279036753
+-------------------------------------------------------------------------------
+extremity,limb,hands,0:1
+Similarity score between limb and hands is 0.20612276966396914
+Similarity score between extremity and hands is 0.11115051027470367
+The difference between similarity scores is 0.09497225938926547
+Pivot Hypernym: [external, body, part, adversity, hardship, hard, knocks, ultimacy, ultimateness, region] Comparison Hypernym: [extremity, appendage, member, branch, edge, border, part, portion, arc, projection]
+Hypernym with the highest similarity to feature: body(0.20345459417298908)
+Hypernym with the highest similarity to feature: edge(0.20766878406528427)
+Difference between hypernyms: 0.004214189892295189
+-------------------------------------------------------------------------------
+school,college,educators,0:1
+Similarity score between college and educators is 0.27296136764545603
+Similarity score between school and educators is 0.43917852182720496
+The difference between similarity scores is 0.16621715418174893
+Pivot Hypernym: [educational, institution, building, edifice, education, body, time, period, of, animal, group] Comparison Hypernym: [body, educational, institution, building, complex]
+Hypernym with the highest similarity to feature: educational(0.567726227877865)
+Hypernym with the highest similarity to feature: educational(0.567726227877865)
+Difference between hypernyms: 0.0
+-------------------------------------------------------------------------------
+room,floor,large,1:0
+Similarity score between floor and large is 0.08916543734311104
+Similarity score between room and large is 0.14602668937682012
+The difference between similarity scores is 0.05686125203370908
+Pivot Hypernym: [area, position, spatial, relation, opportunity, chance, gathering, assemblage] Comparison Hypernym: [horizontal, surface, level, structure, construction, control, land, dry, earth, ground, solid, terra, firma, Earth's, gathering, assemblage, right, hall, room]
+Hypernym with the highest similarity to feature: area(0.21930714131037934)
+Hypernym with the highest similarity to feature: solid(0.2330052497128627)
+Difference between hypernyms: 0.013698108402483367
+-------------------------------------------------------------------------------
+aunt,wife,female,0:1
+Similarity score between aunt and female is 0.0826869322521262
+Similarity score between wife and female is 0.10107607164339268
+The difference between similarity scores is 0.018389139391266476
+Pivot Hypernym: [kinswoman] Comparison Hypernym: [woman, adult, female, spouse, partner, married, person, mate, better, half]
+Hypernym with the highest similarity to feature: kinswoman(0.0)
+Hypernym with the highest similarity to feature: female(1.0)
+Difference between hypernyms: 1.0
+-------------------------------------------------------------------------------
+frog,duck,eyes,0:1
+Similarity score between duck and eyes is 0.09460190705221132
+Similarity score between frog and eyes is 0.13518890164419953
+The difference between similarity scores is 0.04058699459198821
+Pivot Hypernym: [amphibian, Frenchman, Frenchwoman, French, person, adornment] Comparison Hypernym: [anseriform, bird, score, poultry, fabric, cloth, material, textile]
+Hypernym with the highest similarity to feature: adornment(0.08514284388924914)
+Hypernym with the highest similarity to feature: cloth(0.24498355738265384)
+Difference between hypernyms: 0.1598407134934047
+-------------------------------------------------------------------------------
+magnesium,vitamin,substance,0:1
+Similarity score between vitamin and substance is 0.34596972659449643
+Similarity score between magnesium and substance is 0.2516601135909132
+The difference between similarity scores is 0.0943096130035832
+Pivot Hypernym: [metallic, element, metal] Comparison Hypernym: [nutriment, nourishment, nutrition, sustenance, aliment, alimentation, victuals]
+Hypernym with the highest similarity to feature: element(0.3085314220223194)
+Hypernym with the highest similarity to feature: nutriment(0.24510470847718946)
+Difference between hypernyms: 0.06342671354512996
+-------------------------------------------------------------------------------
+garlic,avocado,white,1:0
+Similarity score between garlic and white is 0.16718840904573132
+Similarity score between avocado and white is 0.2109101066204057
+The difference between similarity scores is 0.043721697574674395
+Pivot Hypernym: [alliaceous, plant, flavorer, flavourer, flavoring, flavouring, seasoner, seasoning] Comparison Hypernym: [edible, fruit, tree]
+Hypernym with the highest similarity to feature: plant(0.09299472817675489)
+Hypernym with the highest similarity to feature: edible(0.10955110047203849)
+Difference between hypernyms: 0.016556372295283603
+-------------------------------------------------------------------------------
+cantaloupe,asparagus,round,1:0
+Similarity score between cantaloupe and round is 0.043997419209254804
+Similarity score between asparagus and round is 0.06295191621432535
+The difference between similarity scores is 0.018954497005070542
+Pivot Hypernym: [sweet, melon, muskmelon, vine, Cucumis, melo] Comparison Hypernym: [herb, herbaceous, plant, vegetable, veggie, veg]
+Hypernym with the highest similarity to feature: sweet(0.10354864287420053)
+Hypernym with the highest similarity to feature: plant(0.1073878743459799)
+Difference between hypernyms: 0.003839231471779378
+-------------------------------------------------------------------------------
+grooms,bride,marry,0:1
+Similarity score between grooms and marry is 0.2786679272089069
+Similarity score between bride and marry is 0.5383253070773014
+The difference between similarity scores is 0.25965737986839454
+java.lang.NullPointerException
+-------------------------------------------------------------------------------
+transept,aisle,building,0:1
+Similarity score between aisle and building is 0.08611020935960813
+Similarity score between transept and building is 0.2369389367169589
+The difference between similarity scores is 0.15082872735735076
+Pivot Hypernym: [structure, construction] Comparison Hypernym: [passage, passageway, area]
+Hypernym with the highest similarity to feature: construction(0.53314165571444)
+Hypernym with the highest similarity to feature: passageway(0.27843261380543005)
+Difference between hypernyms: 0.25470904190901
+-------------------------------------------------------------------------------
+steep,mountain,climb,0:1
+Similarity score between mountain and climb is 0.35677764034304765
+Similarity score between steep and climb is 0.45696341496390386
+The difference between similarity scores is 0.1001857746208562
+Pivot Hypernym: [descent, declivity, fall, decline, declination, declension, downslope] Comparison Hypernym: [natural, elevation, large, indefinite, quantity, amount]
+Hypernym with the highest similarity to feature: fall(0.4763329624896379)
+Hypernym with the highest similarity to feature: elevation(0.27528496320378515)
+Difference between hypernyms: 0.20104799928585276
+-------------------------------------------------------------------------------

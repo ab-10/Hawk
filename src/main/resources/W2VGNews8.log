@@ -1,0 +1,1158 @@
+Log for W2VGNews8 of discriminative attribute detection model
+logged on 30/01/2018 04:21:07
+-------------------------------------------------------------------------------
+lambs,cattle,wool,1:0
+Similarity score between cattle and wool is 0.36511527283622486
+Similarity score between lambs and wool is 0.4405668618678399
+The difference between similarity scores is 0.07545158903161503
+-------------------------------------------------------------------------------
+shrimp,spinach,pink,1:0
+Similarity score between spinach and pink is 0.18101781476874035
+Similarity score between shrimp and pink is 0.19989417737362697
+The difference between similarity scores is 0.01887636260488662
+-------------------------------------------------------------------------------
+garage,brick,large,1:0
+Similarity score between brick and large is 0.13882626887165692
+Similarity score between garage and large is 0.06285899411368108
+The difference between similarity scores is 0.07596727475797584
+-------------------------------------------------------------------------------
+spoon,potato,wood,1:0
+Similarity score between spoon and wood is 0.22467797034173387
+Similarity score between potato and wood is 0.2649048305042659
+The difference between similarity scores is 0.04022686016253202
+-------------------------------------------------------------------------------
+machete,razor,long,1:0
+Similarity score between machete and long is 0.060864868623929494
+Similarity score between razor and long is 0.09775047334022989
+The difference between similarity scores is 0.036885604716300396
+-------------------------------------------------------------------------------
+teeth,tongue,white,1:0
+Similarity score between teeth and white is 0.13214712035410164
+Similarity score between tongue and white is 0.11022254367846511
+The difference between similarity scores is 0.021924576675636534
+-------------------------------------------------------------------------------
+woman,doctor,talk,0:1
+Similarity score between woman and talk is 0.02424342703879049
+Similarity score between doctor and talk is 0.12220419469694027
+The difference between similarity scores is 0.09796076765814979
+-------------------------------------------------------------------------------
+crocodile,turtle,long,1:0
+Similarity score between crocodile and long is 0.11110181533713312
+Similarity score between turtle and long is 0.11104012971290496
+The difference between similarity scores is 6.168562422816104E-5
+-------------------------------------------------------------------------------
+adults,child,grownup,1:0
+Similarity score between child and grownup is 0.36797920994127276
+Similarity score between adults and grownup is 0.38704625721476066
+The difference between similarity scores is 0.019067047273487903
+-------------------------------------------------------------------------------
+herbs,root,green,1:0
+Similarity score between root and green is 0.1509143020487477
+Similarity score between herbs and green is 0.15372259901699797
+The difference between similarity scores is 0.0028082969682502734
+-------------------------------------------------------------------------------
+stork,dove,large,1:0
+Similarity score between dove and large is 0.08588271120474172
+Similarity score between stork and large is 0.09979224813394771
+The difference between similarity scores is 0.01390953692920599
+-------------------------------------------------------------------------------
+canyon,valley,deep,0:1
+Similarity score between canyon and deep is 0.23591841414074072
+Similarity score between valley and deep is 0.1306122047192561
+The difference between similarity scores is 0.10530620942148461
+-------------------------------------------------------------------------------
+cheetah,lion,legs,0:1
+Similarity score between cheetah and legs is 0.24459806001732493
+Similarity score between lion and legs is 0.12248961203014475
+The difference between similarity scores is 0.12210844798718018
+-------------------------------------------------------------------------------
+rum,liquor,alcohol,0:1
+Similarity score between rum and alcohol is 0.327857649068644
+Similarity score between liquor and alcohol is 0.624607938858238
+The difference between similarity scores is 0.29675028978959395
+-------------------------------------------------------------------------------
+otolaryngologist,orthodontist,nose,1:0
+Similarity score between otolaryngologist and nose is 0.13573923393770404
+Similarity score between orthodontist and nose is 0.16554908913666785
+The difference between similarity scores is 0.029809855198963814
+-------------------------------------------------------------------------------
+shoulder,leg,arm,1:0
+Similarity score between leg and arm is 0.5505544358637441
+Similarity score between shoulder and arm is 0.5259955250932896
+The difference between similarity scores is 0.024558910770454467
+-------------------------------------------------------------------------------
+train,subway,rails,0:1
+Similarity score between subway and rails is 0.3301560491273518
+Similarity score between train and rails is 0.44942893693999963
+The difference between similarity scores is 0.11927288781264783
+-------------------------------------------------------------------------------
+beaver,mink,wood,1:0
+Similarity score between beaver and wood is 0.2030099234619774
+Similarity score between mink and wood is 0.15089508178789382
+The difference between similarity scores is 0.05211484167408359
+-------------------------------------------------------------------------------
+daughters,girl,female,0:1
+Similarity score between girl and female is 0.3468012534633346
+Similarity score between daughters and female is 0.18779509818171172
+The difference between similarity scores is 0.1590061552816229
+-------------------------------------------------------------------------------
+pipe,barrel,long,1:0
+Similarity score between pipe and long is 0.11862755213322394
+Similarity score between barrel and long is 0.1268287144837091
+The difference between similarity scores is 0.008201162350485167
+-------------------------------------------------------------------------------
+cello,banjo,large,1:0
+Similarity score between cello and large is 0.08338911730209701
+Similarity score between banjo and large is 0.06286757971839614
+The difference between similarity scores is 0.020521537583700872
+-------------------------------------------------------------------------------
+fog,snow,weather,0:1
+Similarity score between snow and weather is 0.5175461496713658
+Similarity score between fog and weather is 0.41371597610389804
+The difference between similarity scores is 0.10383017356746777
+-------------------------------------------------------------------------------
+orthodontist,gynaecologist,profession,0:1
+Similarity score between orthodontist and profession is 0.1702909001897728
+Similarity score between gynaecologist and profession is 0.0
+The difference between similarity scores is 0.1702909001897728
+-------------------------------------------------------------------------------
+basket,bag,wicker,1:0
+Similarity score between basket and wicker is 0.2395293348466646
+Similarity score between bag and wicker is 0.2155466809695416
+The difference between similarity scores is 0.023982653877123006
+-------------------------------------------------------------------------------
+vine,cabbage,long,1:0
+Similarity score between cabbage and long is 0.047597380836936404
+Similarity score between vine and long is 0.10970539619072031
+The difference between similarity scores is 0.06210801535378391
+-------------------------------------------------------------------------------
+frog,snail,legs,1:0
+Similarity score between snail and legs is 0.16177179893470583
+Similarity score between frog and legs is 0.20048803665198592
+The difference between similarity scores is 0.03871623771728008
+-------------------------------------------------------------------------------
+daughters,princess,poor,1:0
+Similarity score between princess and poor is 0.0301556536634076
+Similarity score between daughters and poor is 0.059293154562249636
+The difference between similarity scores is 0.029137500898842036
+-------------------------------------------------------------------------------
+skyscraper,apartment,large,1:0
+Similarity score between skyscraper and large is 0.039380336619967364
+Similarity score between apartment and large is 0.06819025763791604
+The difference between similarity scores is 0.02880992101794868
+-------------------------------------------------------------------------------
+lacrosse,basketball,players,0:1
+Similarity score between lacrosse and players is 0.2955117043038738
+Similarity score between basketball and players is 0.37970492793170235
+The difference between similarity scores is 0.08419322362782855
+-------------------------------------------------------------------------------
+sausage,bacon,rounded,1:0
+Similarity score between bacon and rounded is 0.06879148817651383
+Similarity score between sausage and rounded is 0.07180942500995575
+The difference between similarity scores is 0.0030179368334419254
+-------------------------------------------------------------------------------
+yacht,canoe,large,1:0
+Similarity score between yacht and large is 0.07205047046278973
+Similarity score between canoe and large is 0.030708474416607262
+The difference between similarity scores is 0.041341996046182466
+-------------------------------------------------------------------------------
+eyebrow,brow,hair,1:0
+Similarity score between brow and hair is 0.42233150556327187
+Similarity score between eyebrow and hair is 0.40576339772360837
+The difference between similarity scores is 0.016568107839663504
+-------------------------------------------------------------------------------
+cotton,polyester,natural,1:0
+Similarity score between polyester and natural is 0.17736860714579178
+Similarity score between cotton and natural is 0.1446962920936995
+The difference between similarity scores is 0.03267231505209228
+-------------------------------------------------------------------------------
+jazz,music,listen,0:1
+Similarity score between jazz and listen is 0.21326090370757045
+Similarity score between music and listen is 0.35209350696648334
+The difference between similarity scores is 0.1388326032589129
+-------------------------------------------------------------------------------
+chicken,bread,legs,1:0
+Similarity score between chicken and legs is 0.21619217053052536
+Similarity score between bread and legs is 0.16944840439208148
+The difference between similarity scores is 0.04674376613844389
+-------------------------------------------------------------------------------
+mother,woman,female,0:1
+Similarity score between mother and female is 0.18754738560877895
+Similarity score between woman and female is 0.4969047285638524
+The difference between similarity scores is 0.30935734295507344
+-------------------------------------------------------------------------------
+shrimp,asparagus,swims,1:0
+Similarity score between asparagus and swims is 0.11161908478977467
+Similarity score between shrimp and swims is 0.18360412436546944
+The difference between similarity scores is 0.07198503957569477
+-------------------------------------------------------------------------------
+ox,hyena,large,1:0
+Similarity score between ox and large is 0.06312775501593035
+Similarity score between hyena and large is 0.035999451936937564
+The difference between similarity scores is 0.027128303078992784
+-------------------------------------------------------------------------------
+zucchini,tomato,green,1:0
+Similarity score between zucchini and green is 0.16122465586704507
+Similarity score between tomato and green is 0.20206310333351157
+The difference between similarity scores is 0.040838447466466504
+-------------------------------------------------------------------------------
+basket,tray,wicker,1:0
+Similarity score between tray and wicker is 0.2939198002654916
+Similarity score between basket and wicker is 0.2395293348466646
+The difference between similarity scores is 0.05439046541882697
+-------------------------------------------------------------------------------
+whip,brush,long,1:0
+Similarity score between brush and long is 0.04187319174733539
+Similarity score between whip and long is 0.0599527471267223
+The difference between similarity scores is 0.018079555379386908
+-------------------------------------------------------------------------------
+co-star,actress,movie,0:1
+Similarity score between actress and movie is 0.43471902201246293
+Similarity score between co-star and movie is 0.21243900170821486
+The difference between similarity scores is 0.22228002030424807
+-------------------------------------------------------------------------------
+politician,nationalist,politics,0:1
+Similarity score between politician and politics is 0.5695299975125239
+Similarity score between nationalist and politics is 0.3769359813433908
+The difference between similarity scores is 0.19259401616913308
+-------------------------------------------------------------------------------
+turnip,pumpkin,white,1:0
+Similarity score between pumpkin and white is 0.1373993394522739
+Similarity score between turnip and white is 0.1973025150322914
+The difference between similarity scores is 0.05990317558001751
+-------------------------------------------------------------------------------
+chest,neck,large,1:0
+Similarity score between chest and large is 0.028453304773688435
+Similarity score between neck and large is 0.056540149638236205
+The difference between similarity scores is 0.02808684486454777
+-------------------------------------------------------------------------------
+umbrella,scarf,round,1:0
+Similarity score between scarf and round is 0.06923503637458914
+Similarity score between umbrella and round is 0.07264332705509902
+The difference between similarity scores is 0.003408290680509879
+-------------------------------------------------------------------------------
+guitar,trumpet,strings,1:0
+Similarity score between guitar and strings is 0.3965145863781333
+Similarity score between trumpet and strings is 0.423699675507074
+The difference between similarity scores is 0.027185089128940687
+-------------------------------------------------------------------------------
+troops,army,armed,0:1
+Similarity score between troops and armed is 0.2729043363358355
+Similarity score between army and armed is 0.38747946235299624
+The difference between similarity scores is 0.11457512601716074
+-------------------------------------------------------------------------------
+desk,toilet,legs,1:0
+Similarity score between toilet and legs is 0.14488026498407558
+Similarity score between desk and legs is 0.17676242369520354
+The difference between similarity scores is 0.031882158711127956
+-------------------------------------------------------------------------------
+face,body,hair,0:1
+Similarity score between face and hair is 0.2174153280833692
+Similarity score between body and hair is 0.3083358686234022
+The difference between similarity scores is 0.09092054054003298
+-------------------------------------------------------------------------------
+butterfly,spider,wings,1:0
+Similarity score between butterfly and wings is 0.2813837286089872
+Similarity score between spider and wings is 0.2460039919980184
+The difference between similarity scores is 0.0353797366109688
+-------------------------------------------------------------------------------
+pelican,turtle,white,1:0
+Similarity score between pelican and white is 0.20048401773327815
+Similarity score between turtle and white is 0.12369996236497025
+The difference between similarity scores is 0.0767840553683079
+-------------------------------------------------------------------------------
+cow,chicken,large,1:0
+Similarity score between cow and large is 0.09087465445383344
+Similarity score between chicken and large is 0.120261211695878
+The difference between similarity scores is 0.02938655724204456
+-------------------------------------------------------------------------------
+maid,bride,female,0:1
+Similarity score between maid and female is 0.25602456695755427
+Similarity score between bride and female is 0.15967274170470153
+The difference between similarity scores is 0.09635182525285274
+-------------------------------------------------------------------------------
+frog,cow,jumps,1:0
+Similarity score between cow and jumps is 0.11753209012902346
+Similarity score between frog and jumps is 0.1731174370669658
+The difference between similarity scores is 0.05558534693794234
+-------------------------------------------------------------------------------
+lung,liver,transplant,0:1
+Similarity score between lung and transplant is 0.3700495389723035
+Similarity score between liver and transplant is 0.4706959586646759
+The difference between similarity scores is 0.10064641969237237
+-------------------------------------------------------------------------------
+roof,floor,top,1:0
+Similarity score between roof and top is 0.12557814670348802
+Similarity score between floor and top is 0.08668586704265789
+The difference between similarity scores is 0.03889227966083013
+-------------------------------------------------------------------------------
+chicken,cucumber,legs,1:0
+Similarity score between cucumber and legs is 0.2125619079121129
+Similarity score between chicken and legs is 0.21619217053052536
+The difference between similarity scores is 0.0036302626184124553
+-------------------------------------------------------------------------------
+osteopath,dentist,bones,1:0
+Similarity score between dentist and bones is 0.12355460353045312
+Similarity score between osteopath and bones is 0.12522871221684134
+The difference between similarity scores is 0.0016741086863882176
+-------------------------------------------------------------------------------
+beets,garlic,round,1:0
+Similarity score between beets and round is 0.02569497755542915
+Similarity score between garlic and round is -0.023584391933145425
+The difference between similarity scores is 0.04927936948857457
+-------------------------------------------------------------------------------
+father,prince,man,0:1
+Similarity score between father and man is 0.4201099119121219
+Similarity score between prince and man is 0.28102203428983075
+The difference between similarity scores is 0.13908787762229113
+-------------------------------------------------------------------------------
+arcades,alley,walk,0:1
+Similarity score between arcades and walk is 0.06746484968991366
+Similarity score between alley and walk is 0.24841898554667577
+The difference between similarity scores is 0.18095413585676212
+-------------------------------------------------------------------------------
+computers,machine,keyboard,1:0
+Similarity score between computers and keyboard is 0.2741275945223517
+Similarity score between machine and keyboard is 0.26093172162254125
+The difference between similarity scores is 0.013195872899810446
+-------------------------------------------------------------------------------
+grape,vine,round,1:0
+Similarity score between grape and round is 0.07224850514287903
+Similarity score between vine and round is 0.06340082748209606
+The difference between similarity scores is 0.008847677660782968
+-------------------------------------------------------------------------------
+cucumber,eggplant,long,0:1
+Similarity score between eggplant and long is 0.0823161644489076
+Similarity score between cucumber and long is 2.0729917797228457E-4
+The difference between similarity scores is 0.08210886527093532
+-------------------------------------------------------------------------------
+wrists,ankle,arm,1:0
+Similarity score between ankle and arm is 0.39494410777691075
+Similarity score between wrists and arm is 0.4340756835664008
+The difference between similarity scores is 0.03913157578949006
+-------------------------------------------------------------------------------
+dagger,oak,bones,0:1
+Similarity score between oak and bones is 0.18835893017031816
+Similarity score between dagger and bones is 0.10316379197246618
+The difference between similarity scores is 0.08519513819785197
+-------------------------------------------------------------------------------
+seabirds,bird,fly,0:1
+Similarity score between bird and fly is 0.27877750338425167
+Similarity score between seabirds and fly is 0.18941029005636345
+The difference between similarity scores is 0.08936721332788822
+-------------------------------------------------------------------------------
+tortoise,alligator,water,0:1
+Similarity score between tortoise and water is 0.12371455670431258
+Similarity score between alligator and water is 0.2668766698996543
+The difference between similarity scores is 0.14316211319534172
+-------------------------------------------------------------------------------
+beaver,squirrel,swims,1:0
+Similarity score between squirrel and swims is 0.12403099137230923
+Similarity score between beaver and swims is 0.1909133484563249
+The difference between similarity scores is 0.06688235708401567
+-------------------------------------------------------------------------------
+tendon,muscle,inelastic,1:0
+Similarity score between muscle and inelastic is 0.14371618752799953
+Similarity score between tendon and inelastic is 0.11064421979117106
+The difference between similarity scores is 0.03307196773682847
+-------------------------------------------------------------------------------
+tomato,broccoli,round,1:0
+Similarity score between broccoli and round is 0.013840427923836031
+Similarity score between tomato and round is 0.09271005608468291
+The difference between similarity scores is 0.07886962816084689
+-------------------------------------------------------------------------------
+moose,mink,legs,0:1
+Similarity score between moose and legs is 0.19859677674575546
+Similarity score between mink and legs is 0.07431345584921727
+The difference between similarity scores is 0.1242833208965382
+-------------------------------------------------------------------------------
+neck,finger,bones,0:1
+Similarity score between neck and bones is 0.3546251630372418
+Similarity score between finger and bones is 0.2699795236153537
+The difference between similarity scores is 0.08464563942188807
+-------------------------------------------------------------------------------
+truck,wagon,wheels,0:1
+Similarity score between wagon and wheels is 0.44057565508376206
+Similarity score between truck and wheels is 0.3429454240764102
+The difference between similarity scores is 0.09763023100735185
+-------------------------------------------------------------------------------
+marble,brick,round,1:0
+Similarity score between marble and round is 0.030335455846620257
+Similarity score between brick and round is -0.012997955423589015
+The difference between similarity scores is 0.043333411270209274
+-------------------------------------------------------------------------------
+neck,leg,spine,1:0
+Similarity score between leg and spine is 0.49593318304051476
+Similarity score between neck and spine is 0.5182882138570071
+The difference between similarity scores is 0.022355030816492316
+-------------------------------------------------------------------------------
+grapefruit,peach,large,1:0
+Similarity score between peach and large is 0.033055654113989585
+Similarity score between grapefruit and large is 0.103480636076023
+The difference between similarity scores is 0.07042498196203341
+-------------------------------------------------------------------------------
+actress,girl,female,0:1
+Similarity score between girl and female is 0.3468012534633346
+Similarity score between actress and female is 0.2425817720078394
+The difference between similarity scores is 0.10421948145549523
+-------------------------------------------------------------------------------
+groin,ankle,thigh,1:0
+Similarity score between groin and thigh is 0.7739625098355191
+Similarity score between ankle and thigh is 0.7549459655266307
+The difference between similarity scores is 0.019016544308888328
+-------------------------------------------------------------------------------
+cat,coat,eyes,1:0
+Similarity score between coat and eyes is 0.2517690080241421
+Similarity score between cat and eyes is 0.18126089460820993
+The difference between similarity scores is 0.07050811341593216
+-------------------------------------------------------------------------------
+dagger,razor,sheath,1:0
+Similarity score between razor and sheath is 0.34427292810740734
+Similarity score between dagger and sheath is 0.2908211252641444
+The difference between similarity scores is 0.05345180284326295
+-------------------------------------------------------------------------------
+ceiling,window,paint,1:0
+Similarity score between window and paint is 0.16867087683223547
+Similarity score between ceiling and paint is 0.19390798746387874
+The difference between similarity scores is 0.025237110631643273
+-------------------------------------------------------------------------------
+charcoal,chalk,write,0:1
+Similarity score between chalk and write is 0.21639533827579915
+Similarity score between charcoal and write is -0.011491185132778045
+The difference between similarity scores is 0.2278865234085772
+-------------------------------------------------------------------------------
+car,taxi,wheels,0:1
+Similarity score between car and wheels is 0.385584283327174
+Similarity score between taxi and wheels is 0.12747742785537314
+The difference between similarity scores is 0.25810685547180084
+-------------------------------------------------------------------------------
+orange,pear,round,1:0
+Similarity score between pear and round is 0.11972913304891326
+Similarity score between orange and round is 0.08671081606349977
+The difference between similarity scores is 0.03301831698541349
+-------------------------------------------------------------------------------
+giraffe,lion,legs,0:1
+Similarity score between lion and legs is 0.12248961203014475
+Similarity score between giraffe and legs is 0.34245748955552374
+The difference between similarity scores is 0.219967877525379
+-------------------------------------------------------------------------------
+foxhound,hound,hunt,0:1
+Similarity score between foxhound and hunt is 0.273003330154883
+Similarity score between hound and hunt is 0.3552354520282158
+The difference between similarity scores is 0.08223212187333284
+-------------------------------------------------------------------------------
+wife,woman,female,0:1
+Similarity score between woman and female is 0.4969047285638524
+Similarity score between wife and female is 0.10107607164339268
+The difference between similarity scores is 0.39582865692045976
+-------------------------------------------------------------------------------
+bracelet,scarf,round,1:0
+Similarity score between bracelet and round is 0.05546022720320245
+Similarity score between scarf and round is 0.06923503637458914
+The difference between similarity scores is 0.013774809171386689
+-------------------------------------------------------------------------------
+crocodile,eel,legs,1:0
+Similarity score between eel and legs is 0.12065731245396136
+Similarity score between crocodile and legs is 0.16243668089051774
+The difference between similarity scores is 0.041779368436556386
+-------------------------------------------------------------------------------
+priest,archbishop,parish,1:0
+Similarity score between archbishop and parish is 0.47053819813201814
+Similarity score between priest and parish is 0.5315438034359529
+The difference between similarity scores is 0.06100560530393473
+-------------------------------------------------------------------------------
+nostrils,mouth,hair,1:0
+Similarity score between nostrils and hair is 0.3055271962664397
+Similarity score between mouth and hair is 0.25116661617409186
+The difference between similarity scores is 0.05436058009234784
+-------------------------------------------------------------------------------
+priest,bishop,parish,1:0
+Similarity score between bishop and parish is 0.5008775654300482
+Similarity score between priest and parish is 0.5315438034359529
+The difference between similarity scores is 0.030666238005904622
+-------------------------------------------------------------------------------
+margarine,butter,vegetable,1:0
+Similarity score between butter and vegetable is 0.3324962176636036
+Similarity score between margarine and vegetable is 0.40503321105637047
+The difference between similarity scores is 0.07253699339276687
+-------------------------------------------------------------------------------
+carrot,parsley,long,1:0
+Similarity score between parsley and long is 0.04729767482559913
+Similarity score between carrot and long is 0.12362251553233916
+The difference between similarity scores is 0.07632484070674003
+-------------------------------------------------------------------------------
+governor,attorney,state,0:1
+Similarity score between governor and state is 0.49885997493187384
+Similarity score between attorney and state is 0.17336693734470637
+The difference between similarity scores is 0.32549303758716747
+-------------------------------------------------------------------------------
+drizzle,rain,light,1:0
+Similarity score between drizzle and light is 0.2197889276190108
+Similarity score between rain and light is 0.21868767212516055
+The difference between similarity scores is 0.0011012554938502617
+-------------------------------------------------------------------------------
+marble,brick,white,1:0
+Similarity score between brick and white is 0.24084660191530077
+Similarity score between marble and white is 0.25606445522126464
+The difference between similarity scores is 0.015217853305963869
+-------------------------------------------------------------------------------
+garlic,potato,white,1:0
+Similarity score between garlic and white is 0.16718840904573132
+Similarity score between potato and white is 0.116849210934119
+The difference between similarity scores is 0.05033919811161232
+-------------------------------------------------------------------------------
+banjo,tuba,wood,1:0
+Similarity score between banjo and wood is 0.2293125554649257
+Similarity score between tuba and wood is 0.18077868056433632
+The difference between similarity scores is 0.048533874900589385
+-------------------------------------------------------------------------------
+toad,owl,swims,1:0
+Similarity score between toad and swims is 0.21918695286303672
+Similarity score between owl and swims is 0.14043728097681313
+The difference between similarity scores is 0.07874967188622359
+-------------------------------------------------------------------------------
+alligator,otter,long,1:0
+Similarity score between alligator and long is 0.11611860582713508
+Similarity score between otter and long is 0.07453180999597811
+The difference between similarity scores is 0.04158679583115697
+-------------------------------------------------------------------------------
+oak,cherry,wood,0:1
+Similarity score between cherry and wood is 0.2598181053082252
+Similarity score between oak and wood is 0.5848642532766601
+The difference between similarity scores is 0.32504614796843495
+-------------------------------------------------------------------------------
+mists,cloud,light,1:0
+Similarity score between mists and light is 0.23945094671614175
+Similarity score between cloud and light is 0.24338913220413208
+The difference between similarity scores is 0.0039381854879903255
+-------------------------------------------------------------------------------
+knee,ankle,bend,1:0
+Similarity score between knee and bend is 0.17144492395230718
+Similarity score between ankle and bend is 0.16402352975837206
+The difference between similarity scores is 0.007421394193935116
+-------------------------------------------------------------------------------
+anchor,bolts,large,1:0
+Similarity score between anchor and large is 0.04158786742777445
+Similarity score between bolts and large is 0.0439223356142062
+The difference between similarity scores is 0.0023344681864317512
+-------------------------------------------------------------------------------
+tuna,cucumber,large,1:0
+Similarity score between tuna and large is 0.12553160427709129
+Similarity score between cucumber and large is 0.04792533995815237
+The difference between similarity scores is 0.07760626431893891
+-------------------------------------------------------------------------------
+cabbage,parsley,white,1:0
+Similarity score between parsley and white is 0.18726684377514163
+Similarity score between cabbage and white is 0.17304232844356254
+The difference between similarity scores is 0.01422451533157909
+-------------------------------------------------------------------------------
+honey,sugar,sweet,0:1
+Similarity score between honey and sweet is 0.40374958523708027
+Similarity score between sugar and sweet is 0.29781426239309544
+The difference between similarity scores is 0.10593532284398482
+-------------------------------------------------------------------------------
+whip,razor,long,1:0
+Similarity score between razor and long is 0.09775047334022989
+Similarity score between whip and long is 0.0599527471267223
+The difference between similarity scores is 0.03779772621350759
+-------------------------------------------------------------------------------
+giraffe,elephant,legs,0:1
+Similarity score between giraffe and legs is 0.34245748955552374
+Similarity score between elephant and legs is 0.1275066335205334
+The difference between similarity scores is 0.21495085603499034
+-------------------------------------------------------------------------------
+cockroach,snail,legs,1:0
+Similarity score between cockroach and legs is 0.16943222442960407
+Similarity score between snail and legs is 0.16177179893470583
+The difference between similarity scores is 0.007660425494898232
+-------------------------------------------------------------------------------
+chicken,peas,legs,1:0
+Similarity score between peas and legs is 0.15169744879566477
+Similarity score between chicken and legs is 0.21619217053052536
+The difference between similarity scores is 0.0644947217348606
+-------------------------------------------------------------------------------
+camel,jeep,large,0:1
+Similarity score between camel and large is 0.11989093400304367
+Similarity score between jeep and large is 0.010068446968909746
+The difference between similarity scores is 0.10982248703413391
+-------------------------------------------------------------------------------
+grapefruit,celery,pink,1:0
+Similarity score between grapefruit and pink is 0.252336071729177
+Similarity score between celery and pink is 0.26015304901735453
+The difference between similarity scores is 0.00781697728817754
+-------------------------------------------------------------------------------
+bat,cat,wings,1:0
+Similarity score between cat and wings is 0.10618173910167582
+Similarity score between bat and wings is 0.16634755603129775
+The difference between similarity scores is 0.06016581692962193
+-------------------------------------------------------------------------------
+nightclub,biscuit,sheet,0:1
+Similarity score between nightclub and sheet is 0.028011505856009807
+Similarity score between biscuit and sheet is 0.1924763625872401
+The difference between similarity scores is 0.1644648567312303
+-------------------------------------------------------------------------------
+banjo,harp,round,1:0
+Similarity score between banjo and round is 0.06542039709573923
+Similarity score between harp and round is -4.855017891681378E-4
+The difference between similarity scores is 0.06590589888490736
+-------------------------------------------------------------------------------
+bladder,liver,urine,1:0
+Similarity score between bladder and urine is 0.4376755552013034
+Similarity score between liver and urine is 0.3757788907579329
+The difference between similarity scores is 0.0618966644433705
+-------------------------------------------------------------------------------
+arm,hand,band,1:0
+Similarity score between hand and band is 0.0046041004246956995
+Similarity score between arm and band is 0.03611500739281889
+The difference between similarity scores is 0.03151090696812319
+-------------------------------------------------------------------------------
+angle,curve,sharp,1:0
+Similarity score between angle and sharp is 0.21874778152736057
+Similarity score between curve and sharp is 0.2594381870322881
+The difference between similarity scores is 0.04069040550492753
+-------------------------------------------------------------------------------
+houses,movie,rails,0:1
+Similarity score between houses and rails is 0.15077956140592447
+Similarity score between movie and rails is 0.048927069778163745
+The difference between similarity scores is 0.10185249162776072
+-------------------------------------------------------------------------------
+prisons,jail,convict,0:1
+Similarity score between jail and convict is 0.4838310763054595
+Similarity score between prisons and convict is 0.304572017915777
+The difference between similarity scores is 0.17925905838968254
+-------------------------------------------------------------------------------
+mammals,bird,milk,1:0
+Similarity score between mammals and milk is 0.12221259929115119
+Similarity score between bird and milk is 0.08405758341879005
+The difference between similarity scores is 0.03815501587236114
+-------------------------------------------------------------------------------
+king,prince,royal,0:1
+Similarity score between king and royal is 0.5239794602008857
+Similarity score between prince and royal is 0.6433807647106196
+The difference between similarity scores is 0.11940130450973385
+-------------------------------------------------------------------------------
+aluminium,glass,windows,0:1
+Similarity score between aluminium and windows is 0.0
+Similarity score between glass and windows is 0.46284806816291796
+The difference between similarity scores is 0.46284806816291796
+-------------------------------------------------------------------------------
+albums,music,picture,1:0
+Similarity score between albums and picture is 0.1282869212863849
+Similarity score between music and picture is 0.08947607936222719
+The difference between similarity scores is 0.038810841924157694
+-------------------------------------------------------------------------------
+mushroom,salmon,forest,1:0
+Similarity score between mushroom and forest is 0.29234177196449856
+Similarity score between salmon and forest is 0.2700985121567624
+The difference between similarity scores is 0.02224325980773617
+-------------------------------------------------------------------------------
+honeydew,pineapple,round,1:0
+Similarity score between honeydew and round is 0.04846903769133305
+Similarity score between pineapple and round is 0.08684838920873791
+The difference between similarity scores is 0.03837935151740486
+-------------------------------------------------------------------------------
+hammer,scissors,wood,1:0
+Similarity score between scissors and wood is 0.24087892812788056
+Similarity score between hammer and wood is 0.2349942662392381
+The difference between similarity scores is 0.005884661888642451
+-------------------------------------------------------------------------------
+banana,garlic,long,1:0
+Similarity score between banana and long is 0.07099574077601302
+Similarity score between garlic and long is 0.07283400767019522
+The difference between similarity scores is 0.0018382668941822056
+-------------------------------------------------------------------------------
+donkey,rabbit,hooves,1:0
+Similarity score between rabbit and hooves is 0.3271739161315266
+Similarity score between donkey and hooves is 0.3937543418362763
+The difference between similarity scores is 0.0665804257047497
+-------------------------------------------------------------------------------
+spear,ball,long,1:0
+Similarity score between ball and long is 0.12073837244852613
+Similarity score between spear and long is 0.11557787387827216
+The difference between similarity scores is 0.0051604985702539685
+-------------------------------------------------------------------------------
+coconut,garlic,round,1:0
+Similarity score between coconut and round is 0.026622566972936582
+Similarity score between garlic and round is -0.023584391933145425
+The difference between similarity scores is 0.05020695890608201
+-------------------------------------------------------------------------------
+scripture,bible,religion,0:1
+Similarity score between scripture and religion is 0.5159401690429751
+Similarity score between bible and religion is 0.3180580204626468
+The difference between similarity scores is 0.19788214858032832
+-------------------------------------------------------------------------------
+clarinet,harp,long,1:0
+Similarity score between clarinet and long is -0.007177482641145439
+Similarity score between harp and long is 0.011526125340505032
+The difference between similarity scores is 0.01870360798165047
+-------------------------------------------------------------------------------
+graduates,student,human,0:1
+Similarity score between graduates and human is 0.03206380517792774
+Similarity score between student and human is 0.1900689942418752
+The difference between similarity scores is 0.15800518906394745
+-------------------------------------------------------------------------------
+boyfriend,eyebrows,bean,0:1
+Similarity score between eyebrows and bean is 0.1290482125312567
+Similarity score between boyfriend and bean is 0.0464001501183547
+The difference between similarity scores is 0.082648062412902
+-------------------------------------------------------------------------------
+cloak,vest,long,1:0
+Similarity score between vest and long is 0.0426503391336893
+Similarity score between cloak and long is 0.0854142302431573
+The difference between similarity scores is 0.042763891109467995
+-------------------------------------------------------------------------------
+creek,river,small,1:0
+Similarity score between river and small is 0.06856691288049296
+Similarity score between creek and small is 0.07164615502554189
+The difference between similarity scores is 0.003079242145048927
+-------------------------------------------------------------------------------
+soya,cereal,bean,1:0
+Similarity score between cereal and bean is 0.44110436317186447
+Similarity score between soya and bean is 0.42053532226784446
+The difference between similarity scores is 0.02056904090402001
+-------------------------------------------------------------------------------
+muscles,leg,sore,0:1
+Similarity score between leg and sore is 0.3980716941841648
+Similarity score between muscles and sore is 0.2871397774253333
+The difference between similarity scores is 0.11093191675883152
+-------------------------------------------------------------------------------
+businessman,politician,human,0:1
+Similarity score between politician and human is 0.07668596453546687
+Similarity score between businessman and human is -0.03382592647873966
+The difference between similarity scores is 0.11051189101420653
+-------------------------------------------------------------------------------
+slag,charcoal,material,0:1
+Similarity score between slag and material is 0.33996515937182487
+Similarity score between charcoal and material is 0.20945489316351854
+The difference between similarity scores is 0.13051026620830633
+-------------------------------------------------------------------------------
+dish,asparagus,round,1:0
+Similarity score between dish and round is 0.05579940643502906
+Similarity score between asparagus and round is 0.06295191621432535
+The difference between similarity scores is 0.0071525097792962886
+-------------------------------------------------------------------------------
+pillow,jacket,white,0:1
+Similarity score between pillow and white is 0.17701092362234053
+Similarity score between jacket and white is 0.28286875161409436
+The difference between similarity scores is 0.10585782799175383
+-------------------------------------------------------------------------------
+bench,bed,legs,0:1
+Similarity score between bench and legs is 0.18809700906211188
+Similarity score between bed and legs is 0.28005494211276427
+The difference between similarity scores is 0.09195793305065239
+-------------------------------------------------------------------------------
+pianist,composer,interprets,1:0
+Similarity score between composer and interprets is 0.18073693360379864
+Similarity score between pianist and interprets is 0.16449535710896898
+The difference between similarity scores is 0.016241576494829657
+-------------------------------------------------------------------------------
+barrister,lawyer,court,0:1
+Similarity score between lawyer and court is 0.42873251772420873
+Similarity score between barrister and court is 0.32399318797286625
+The difference between similarity scores is 0.10473932975134248
+-------------------------------------------------------------------------------
+gate,widow,vinegar,0:1
+Similarity score between widow and vinegar is 0.10842430832216139
+Similarity score between gate and vinegar is -0.020310936417694603
+The difference between similarity scores is 0.12873524473985598
+-------------------------------------------------------------------------------
+men,people,talk,0:1
+Similarity score between people and talk is 0.15483852702806375
+Similarity score between men and talk is 0.04380924220273647
+The difference between similarity scores is 0.11102928482532728
+-------------------------------------------------------------------------------
+tomato,asparagus,round,1:0
+Similarity score between tomato and round is 0.09271005608468291
+Similarity score between asparagus and round is 0.06295191621432535
+The difference between similarity scores is 0.029758139870357567
+-------------------------------------------------------------------------------
+writer,lawyer,write,0:1
+Similarity score between writer and write is 0.35933492145187895
+Similarity score between lawyer and write is 0.07010940830912339
+The difference between similarity scores is 0.2892255131427556
+-------------------------------------------------------------------------------
+elbow,hip,sharp,1:0
+Similarity score between hip and sharp is 0.15665748236962468
+Similarity score between elbow and sharp is 0.19903930412547105
+The difference between similarity scores is 0.04238182175584637
+-------------------------------------------------------------------------------
+fridge,microwave,large,1:0
+Similarity score between fridge and large is 0.02902723490989
+Similarity score between microwave and large is 0.07073068405885298
+The difference between similarity scores is 0.041703449148962984
+-------------------------------------------------------------------------------
+moose,mink,hooves,1:0
+Similarity score between mink and hooves is 0.24994479231705227
+Similarity score between moose and hooves is 0.30640396678688314
+The difference between similarity scores is 0.05645917446983087
+-------------------------------------------------------------------------------
+spoon,pepper,wood,1:0
+Similarity score between pepper and wood is 0.20898241362331657
+Similarity score between spoon and wood is 0.22467797034173387
+The difference between similarity scores is 0.015695556718417297
+-------------------------------------------------------------------------------
+banker,lawyer,finances,1:0
+Similarity score between lawyer and finances is 0.16092822349495792
+Similarity score between banker and finances is 0.1721531136366405
+The difference between similarity scores is 0.01122489014168257
+-------------------------------------------------------------------------------
+spider,cockroach,legs,0:1
+Similarity score between cockroach and legs is 0.16943222442960407
+Similarity score between spider and legs is 0.2507635317082879
+The difference between similarity scores is 0.08133130727868385
+-------------------------------------------------------------------------------
+belfry,oriole,apartment,0:1
+Similarity score between oriole and apartment is 0.03924500185386944
+Similarity score between belfry and apartment is 0.23682678639773802
+The difference between similarity scores is 0.19758178454386857
+-------------------------------------------------------------------------------
+pear,avocado,white,1:0
+Similarity score between pear and white is 0.19082667825397384
+Similarity score between avocado and white is 0.2109101066204057
+The difference between similarity scores is 0.02008342836643187
+-------------------------------------------------------------------------------
+hip,shoulder,joints,0:1
+Similarity score between hip and joints is 0.41039156775378516
+Similarity score between shoulder and joints is 0.28735092009139673
+The difference between similarity scores is 0.12304064766238842
+-------------------------------------------------------------------------------
+album,music,photo,1:0
+Similarity score between music and photo is 0.1064187850414885
+Similarity score between album and photo is 0.1267830348136948
+The difference between similarity scores is 0.0203642497722063
+-------------------------------------------------------------------------------
+hygienist,orthodontist,patient,0:1
+Similarity score between hygienist and patient is 0.36916915787681887
+Similarity score between orthodontist and patient is 0.21814625718576686
+The difference between similarity scores is 0.151022900691052
+-------------------------------------------------------------------------------
+nerve,bone,anatomy,0:1
+Similarity score between bone and anatomy is 0.32698478605165343
+Similarity score between nerve and anatomy is 0.12263194388556291
+The difference between similarity scores is 0.2043528421660905
+-------------------------------------------------------------------------------
+cloud,rain,grey,1:0
+Similarity score between cloud and grey is 0.0
+Similarity score between rain and grey is 0.0
+The difference between similarity scores is 0.0
+-------------------------------------------------------------------------------
+dove,hawk,white,1:0
+Similarity score between dove and white is 0.20164631813873427
+Similarity score between hawk and white is 0.12967253543877216
+The difference between similarity scores is 0.0719737826999621
+-------------------------------------------------------------------------------
+starboard,deck,right,1:0
+Similarity score between starboard and right is 0.21778863004868393
+Similarity score between deck and right is 0.2624873643658443
+The difference between similarity scores is 0.04469873431716037
+-------------------------------------------------------------------------------
+turtle,lobster,legs,0:1
+Similarity score between turtle and legs is 0.19368731535658673
+Similarity score between lobster and legs is 0.0935875379721467
+The difference between similarity scores is 0.10009977738444004
+-------------------------------------------------------------------------------
+banker,raisin,wicker,0:1
+Similarity score between raisin and wicker is 0.20435269165275557
+Similarity score between banker and wicker is 0.06379881247694907
+The difference between similarity scores is 0.1405538791758065
+-------------------------------------------------------------------------------
+cigars,tobacco,nicotine,0:1
+Similarity score between cigars and nicotine is 0.24893506212519864
+Similarity score between tobacco and nicotine is 0.47060140635526165
+The difference between similarity scores is 0.221666344230063
+-------------------------------------------------------------------------------
+pastries,breakfast,sweet,0:1
+Similarity score between pastries and sweet is 0.3389940022129622
+Similarity score between breakfast and sweet is 0.18502689687960722
+The difference between similarity scores is 0.153967105333355
+-------------------------------------------------------------------------------
+lavender,flower,plant,0:1
+Similarity score between lavender and plant is 0.17193438961315863
+Similarity score between flower and plant is 0.28450524600920546
+The difference between similarity scores is 0.11257085639604683
+-------------------------------------------------------------------------------
+fingers,nose,flexible,1:0
+Similarity score between nose and flexible is -0.0063831832205508395
+Similarity score between fingers and flexible is 0.03854090069643924
+The difference between similarity scores is 0.044924083916990085
+-------------------------------------------------------------------------------
+brush,chocolate,chicken,0:1
+Similarity score between chocolate and chicken is 0.30734492241232764
+Similarity score between brush and chicken is 0.12236812540401913
+The difference between similarity scores is 0.1849767970083085
+-------------------------------------------------------------------------------
+horse,cart,legs,1:0
+Similarity score between horse and legs is 0.23318778556127248
+Similarity score between cart and legs is 0.1602076347899974
+The difference between similarity scores is 0.07298015077127509
+-------------------------------------------------------------------------------
+pins,wire,metal,0:1
+Similarity score between pins and metal is 0.21693763272701705
+Similarity score between wire and metal is 0.3105337525041413
+The difference between similarity scores is 0.09359611977712423
+-------------------------------------------------------------------------------
+courtyard,alley,outdoors,0:1
+Similarity score between alley and outdoors is 0.15820832781367625
+Similarity score between courtyard and outdoors is 0.2512696804735175
+The difference between similarity scores is 0.09306135265984125
+-------------------------------------------------------------------------------
+granddaughter,aunt,kid,1:0
+Similarity score between aunt and kid is 0.3942886501515335
+Similarity score between granddaughter and kid is 0.35159493313607326
+The difference between similarity scores is 0.042693717015460264
+-------------------------------------------------------------------------------
+nectarine,cranberry,round,0:1
+Similarity score between nectarine and round is 0.08621945749570338
+Similarity score between cranberry and round is 0.002338196930093664
+The difference between similarity scores is 0.08388126056560971
+-------------------------------------------------------------------------------
+fingers,cheek,bones,1:0
+Similarity score between fingers and bones is 0.3289926994382882
+Similarity score between cheek and bones is 0.2500313591098404
+The difference between similarity scores is 0.07896134032844776
+-------------------------------------------------------------------------------
+turnip,cucumber,white,1:0
+Similarity score between turnip and white is 0.1973025150322914
+Similarity score between cucumber and white is 0.17172418725928432
+The difference between similarity scores is 0.025578327773007087
+-------------------------------------------------------------------------------
+balloon,kite,round,1:0
+Similarity score between balloon and round is 0.03572927868821079
+Similarity score between kite and round is 0.06646026482705111
+The difference between similarity scores is 0.030730986138840323
+-------------------------------------------------------------------------------
+wheelbarrow,tractor,wood,1:0
+Similarity score between wheelbarrow and wood is 0.1721605464129384
+Similarity score between tractor and wood is 0.22004683455131194
+The difference between similarity scores is 0.047886288138373534
+-------------------------------------------------------------------------------
+basket,bouquet,wicker,1:0
+Similarity score between basket and wicker is 0.2395293348466646
+Similarity score between bouquet and wicker is 0.2114744173530322
+The difference between similarity scores is 0.028054917493632398
+-------------------------------------------------------------------------------
+musician,brother-in-law,pray,0:1
+Similarity score between brother-in-law and pray is 0.22175854266614672
+Similarity score between musician and pray is 0.11171411677237213
+The difference between similarity scores is 0.1100444258937746
+-------------------------------------------------------------------------------
+ant,frog,legs,0:1
+Similarity score between ant and legs is 0.10652940349906012
+Similarity score between frog and legs is 0.20048803665198592
+The difference between similarity scores is 0.0939586331529258
+-------------------------------------------------------------------------------
+venison,steak,cook,0:1
+Similarity score between steak and cook is 0.4480894122655444
+Similarity score between venison and cook is 0.2859346976014184
+The difference between similarity scores is 0.162154714664126
+-------------------------------------------------------------------------------
+coconut,tomato,white,1:0
+Similarity score between coconut and white is 0.09834469934863438
+Similarity score between tomato and white is 0.11693337085501374
+The difference between similarity scores is 0.018588671506379356
+-------------------------------------------------------------------------------
+estuary,river,water,0:1
+Similarity score between estuary and water is 0.4226757293207628
+Similarity score between river and water is 0.5768983335578924
+The difference between similarity scores is 0.15422260423712963
+-------------------------------------------------------------------------------
+uncle,hose,racks,0:1
+Similarity score between hose and racks is 0.22209652631930413
+Similarity score between uncle and racks is -0.01352095618442607
+The difference between similarity scores is 0.23561748250373019
+-------------------------------------------------------------------------------
+viscose,polyester,polymer,0:1
+Similarity score between polyester and polymer is 0.5360680236807288
+Similarity score between viscose and polymer is 0.40718175751906965
+The difference between similarity scores is 0.12888626616165916
+-------------------------------------------------------------------------------
+arm,shoulder,extend,1:0
+Similarity score between arm and extend is 0.0780915053589225
+Similarity score between shoulder and extend is 0.026752526624774755
+The difference between similarity scores is 0.051338978734147736
+-------------------------------------------------------------------------------
+mars,moon,rotate,0:1
+Similarity score between mars and rotate is 0.009248955755330248
+Similarity score between moon and rotate is 0.1657895364833874
+The difference between similarity scores is 0.15654058072805715
+-------------------------------------------------------------------------------
+pork,bacon,meat,0:1
+Similarity score between pork and meat is 0.7186976882795683
+Similarity score between bacon and meat is 0.5192578806893183
+The difference between similarity scores is 0.19943980759024993
+-------------------------------------------------------------------------------
+snacks,breakfast,light,0:1
+Similarity score between breakfast and light is 0.034056676835249405
+Similarity score between snacks and light is 0.1347859534185025
+The difference between similarity scores is 0.10072927658325309
+-------------------------------------------------------------------------------
+turnip,carrot,white,1:0
+Similarity score between turnip and white is 0.1973025150322914
+Similarity score between carrot and white is 0.1314523936424067
+The difference between similarity scores is 0.06585012138988469
+-------------------------------------------------------------------------------
+shore,lake,sand,1:0
+Similarity score between shore and sand is 0.298022649588409
+Similarity score between lake and sand is 0.36299690908874294
+The difference between similarity scores is 0.06497425950033392
+-------------------------------------------------------------------------------
+oven,fridge,racks,0:1
+Similarity score between oven and racks is 0.3163865375558687
+Similarity score between fridge and racks is 0.4089020190884597
+The difference between similarity scores is 0.09251548153259098
+-------------------------------------------------------------------------------
+raccoon,moose,eyes,0:1
+Similarity score between moose and eyes is 0.05283265517739342
+Similarity score between raccoon and eyes is 0.14508430382791823
+The difference between similarity scores is 0.09225164865052482
+-------------------------------------------------------------------------------
+sword,knife,sheath,1:0
+Similarity score between knife and sheath is 0.3397535790691725
+Similarity score between sword and sheath is 0.36524215771509605
+The difference between similarity scores is 0.025488578645923576
+-------------------------------------------------------------------------------
+sword,gun,cuts,1:0
+Similarity score between sword and cuts is 0.1016034467319457
+Similarity score between gun and cuts is 0.04595784005218242
+The difference between similarity scores is 0.05564560667976328
+-------------------------------------------------------------------------------
+motel,guesthouse,road,1:0
+Similarity score between guesthouse and road is 0.11203694084772317
+Similarity score between motel and road is 0.09996387620938305
+The difference between similarity scores is 0.012073064638340125
+-------------------------------------------------------------------------------
+fingers,neck,strangle,0:1
+Similarity score between fingers and strangle is 0.15674042281266753
+Similarity score between neck and strangle is 0.30825108498770126
+The difference between similarity scores is 0.15151066217503373
+-------------------------------------------------------------------------------
+botanist,physician,research,0:1
+Similarity score between physician and research is 0.15001858203301777
+Similarity score between botanist and research is 0.2385101413906348
+The difference between similarity scores is 0.08849155935761704
+-------------------------------------------------------------------------------
+banana,onions,long,1:0
+Similarity score between onions and long is 0.03691013362357352
+Similarity score between banana and long is 0.07099574077601302
+The difference between similarity scores is 0.0340856071524395
+-------------------------------------------------------------------------------
+child,adult,innocent,1:0
+Similarity score between adult and innocent is 0.16742667856367707
+Similarity score between child and innocent is 0.1881935923976903
+The difference between similarity scores is 0.020766913834013218
+-------------------------------------------------------------------------------
+neck,body,cylindrical,1:0
+Similarity score between neck and cylindrical is 0.16482576125465526
+Similarity score between body and cylindrical is 0.1409127062784649
+The difference between similarity scores is 0.023913054976190368
+-------------------------------------------------------------------------------
+wife,princess,female,0:1
+Similarity score between wife and female is 0.10107607164339268
+Similarity score between princess and female is 0.227790063323751
+The difference between similarity scores is 0.12671399168035835
+-------------------------------------------------------------------------------
+margarine,milk,oil,1:0
+Similarity score between margarine and oil is 0.2542932633601956
+Similarity score between milk and oil is 0.29161897188632946
+The difference between similarity scores is 0.03732570852613387
+-------------------------------------------------------------------------------
+coconut,pineapple,white,1:0
+Similarity score between coconut and white is 0.09834469934863438
+Similarity score between pineapple and white is 0.1452078390665463
+The difference between similarity scores is 0.04686313971791192
+-------------------------------------------------------------------------------
+froth,bubble,dense,1:0
+Similarity score between froth and dense is 0.20993670935783953
+Similarity score between bubble and dense is 0.15863948395379815
+The difference between similarity scores is 0.051297225404041386
+-------------------------------------------------------------------------------
+actor,actress,male,1:0
+Similarity score between actress and male is 0.1807948110476417
+Similarity score between actor and male is 0.2060590831158589
+The difference between similarity scores is 0.025264272068217214
+-------------------------------------------------------------------------------
+pews,aisle,parish,0:1
+Similarity score between aisle and parish is 0.07795014404472451
+Similarity score between pews and parish is 0.4054399884930283
+The difference between similarity scores is 0.3274898444483038
+-------------------------------------------------------------------------------
+nave,steeple,large,1:0
+Similarity score between nave and large is 0.12933417103470893
+Similarity score between steeple and large is 0.0570386023020915
+The difference between similarity scores is 0.07229556873261743
+-------------------------------------------------------------------------------
+fingernail,nail,fingers,0:1
+Similarity score between nail and fingers is 0.25897141487654995
+Similarity score between fingernail and fingers is 0.512775311719794
+The difference between similarity scores is 0.253803896843244
+-------------------------------------------------------------------------------
+shrubs,flower,green,1:0
+Similarity score between shrubs and green is 0.21075555765400172
+Similarity score between flower and green is 0.25894788826417237
+The difference between similarity scores is 0.04819233061017064
+-------------------------------------------------------------------------------
+naturalist,physician,observe,0:1
+Similarity score between naturalist and observe is 0.1882965969242001
+Similarity score between physician and observe is 0.08318093022096996
+The difference between similarity scores is 0.10511566670323012
+-------------------------------------------------------------------------------
+extremity,limb,hands,0:1
+Similarity score between extremity and hands is 0.11115051027470367
+Similarity score between limb and hands is 0.20612276966396914
+The difference between similarity scores is 0.09497225938926547
+-------------------------------------------------------------------------------
+school,college,educators,0:1
+Similarity score between school and educators is 0.43917852182720496
+Similarity score between college and educators is 0.27296136764545603
+The difference between similarity scores is 0.16621715418174893
+-------------------------------------------------------------------------------
+room,floor,large,1:0
+Similarity score between room and large is 0.14602668937682012
+Similarity score between floor and large is 0.08916543734311104
+The difference between similarity scores is 0.05686125203370908
+-------------------------------------------------------------------------------
+magnesium,vitamin,substance,0:1
+Similarity score between vitamin and substance is 0.34596972659449643
+Similarity score between magnesium and substance is 0.2516601135909132
+The difference between similarity scores is 0.0943096130035832
+-------------------------------------------------------------------------------
+garlic,avocado,white,1:0
+Similarity score between garlic and white is 0.16718840904573132
+Similarity score between avocado and white is 0.2109101066204057
+The difference between similarity scores is 0.043721697574674395
+-------------------------------------------------------------------------------
+stick,ball,bark,1:0
+Similarity score between stick and bark is 0.1912917339311545
+Similarity score between ball and bark is 0.1425934010457412
+The difference between similarity scores is 0.04869833288541331
+-------------------------------------------------------------------------------
+cantaloupe,asparagus,round,1:0
+Similarity score between cantaloupe and round is 0.043997419209254804
+Similarity score between asparagus and round is 0.06295191621432535
+The difference between similarity scores is 0.018954497005070542
+-------------------------------------------------------------------------------
+grooms,bride,marry,0:1
+Similarity score between grooms and marry is 0.2786679272089069
+Similarity score between bride and marry is 0.5383253070773014
+The difference between similarity scores is 0.25965737986839454
+-------------------------------------------------------------------------------
+livestock,cattle,chicken,1:0
+Similarity score between cattle and chicken is 0.38851327582873413
+Similarity score between livestock and chicken is 0.3640183068980506
+The difference between similarity scores is 0.024494968930683536
+-------------------------------------------------------------------------------
+transept,aisle,building,0:1
+Similarity score between transept and building is 0.2369389367169589
+Similarity score between aisle and building is 0.08611020935960813
+The difference between similarity scores is 0.15082872735735076
+-------------------------------------------------------------------------------
+kidney,lung,urine,1:0
+Similarity score between lung and urine is 0.2695792310633106
+Similarity score between kidney and urine is 0.3204240808846075
+The difference between similarity scores is 0.05084484982129689
+-------------------------------------------------------------------------------
+steep,mountain,climb,0:1
+Similarity score between steep and climb is 0.45696341496390386
+Similarity score between mountain and climb is 0.35677764034304765
+The difference between similarity scores is 0.1001857746208562
+-------------------------------------------------------------------------------
