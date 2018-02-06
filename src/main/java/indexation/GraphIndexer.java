@@ -51,11 +51,7 @@ public class GraphIndexer {
             }
 
             for (Property currentProperty : currentDefinition.getProperties()) {
-                currentDocument.add(new TextField("property", currentProperty.getValue(), Field.Store.YES));
-                // Subject is an empty string for properties with has_supertype role
-                if(currentProperty.getSubject() != "") {
-                    currentDocument.add(new TextField("property", currentProperty.getSubject(), Field.Store.YES));
-                }
+                currentDocument.add(new TextField("property", currentProperty.toString(), Field.Store.YES));
             }
             writer.addDocument(currentDocument);
 
