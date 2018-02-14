@@ -24,12 +24,12 @@ import java.io.IOException;
  */
 public class GraphIndexer {
     /**
-     * Creates <code>Index</code> from <code>graph</code> and writes it to <code>directory</code>.
+     * Creates <code>Index</code> from <code>graph</code> and writes it to <code>destinationDir</code>.
      *
      * @param graph Graph to index
-     * @param directory Directory where index should be stored
+     * @param destinationDir Directory where index should be stored
      */
-    public static void indexGraph(Graph graph, Directory directory) throws IOException {
+    public static void indexGraph(Graph graph, Directory destinationDir) throws IOException {
 
 
         Analyzer analyzer = new DefinitionAnalyzer();
@@ -37,7 +37,7 @@ public class GraphIndexer {
 
         IndexWriter writer;
         try {
-            writer = new IndexWriter(directory, config);
+            writer = new IndexWriter(destinationDir, config);
         } catch (IOException exception) {
             System.out.println("Invalid graph location");
             return;
