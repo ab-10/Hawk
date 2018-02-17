@@ -34,6 +34,55 @@ public class WordVec {
         }
     }
 
+    private WordVec(Double[] embedding){
+        this.embedding = embedding;
+    }
+
+    public WordVec add(WordVec addend){
+        Double[] resultEmbedding = new Double[this.embedding.length];
+        Double[] addendEmbedding = addend.getEmbedding();
+
+        for(int i = 0; i < this.embedding.length; i++){
+            resultEmbedding[i] = this.embedding[i] + addendEmbedding[i];
+        }
+
+        return new WordVec(resultEmbedding);
+    }
+
+    public WordVec sub(WordVec subtrahend){
+        Double[] resultEmbedding = new Double[this.embedding.length];
+        Double[] subtrahendEmbedding = subtrahend.getEmbedding();
+
+        for(int i = 0; i < this.embedding.length; i++){
+            resultEmbedding[i] = this.embedding[i] - subtrahendEmbedding[i];
+        }
+
+        return new WordVec(resultEmbedding);
+    }
+
+    public Double cosineSimilarity(WordVec comparison){
+        Double[] comparisonEmbedding = comparison.getEmbedding();
+
+        Double numerator = 0.0;
+        for(int i = 0; i < this.embedding.length; i++){
+            numerator += this.embedding[i] * comparisonEmbedding[i];
+        }
+
+        Double thisSqSum = 0.0;
+        Double comparisonSqSum = 0.0;
+        for(int i = 0; i < this.embedding.length; i++){
+            thisSqSum += Math.pow(this.embedding[i], 2);
+            comparisonSqSum += Math.pow(comparisonEmbedding[i], 2);
+        }
+
+        Double denominator = thisSqSum * comparisonSqSum;
+        return numerator / denominator;
+    }
+
+    public Double[] getEmbedding(){
+        return embedding;
+    }
+
 
     /**
      * Requests embedding for <code>word</code> using Indra API and generates an array for it.
