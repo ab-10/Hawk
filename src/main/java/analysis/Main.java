@@ -41,10 +41,12 @@ public class Main {
 
 
     public static void main(String[] args) throws Exception {
-        String versionName = "W2VGnewsIterationNoHyp";
+        String versionName = "LSAWikiIterationNoHyp";
         graphDirectory = FSDirectory.open(Paths.get("src", "main", "resources", "index"));
+        /*
         Graph graph = new Graph("WN_DSR_model_XML.rdf");
         indexGraph(graph, graphDirectory);
+        */
 
 
         FileWriter logWriter = new FileWriter("src/main/resources/" + versionName + ".log");
@@ -65,7 +67,7 @@ public class Main {
             // record scores with treshold set to tresh
             while (fileScanner.hasNext()) {
                 String[] currentLine = fileScanner.nextLine().split(",");
-                int currentResult = compare(currentLine[0], currentLine[1], currentLine[2], graph, tresh);
+                int currentResult = compare(currentLine[0], currentLine[1], currentLine[2], tresh);
                 resultWriter.write(currentLine[0] + "," + currentLine[1] + "," + currentLine[2]
                         + "," + currentResult
                         + lineSeparator);
@@ -91,7 +93,7 @@ public class Main {
 
     }
 
-    public static int compare(String pivot, String comparison, String feature, Graph graph, Double tresh) throws Exception {
+    public static int compare(String pivot, String comparison, String feature, Double tresh) throws Exception {
         pivot = pivot.toLowerCase();
         comparison = comparison.toLowerCase();
         feature = feature.toLowerCase();
@@ -158,7 +160,7 @@ public class Main {
     private static double getMaxSim(String feature, List<String> hypernymList, HttpClient httpclient, HttpPost httppost) throws IOException {
         String pivotParams = "{\n" +
                 "\t\"corpus\": \"googlenews300neg\",\n" +
-                "\t\"model\": \"W2V\",\n" +
+                "\t\"model\": \"LSA\",\n" +
                 "\t\"language\": \"EN\",\n" +
                 "\t\"scoreFunction\": \"COSINE\",\n" +
                 "\t\"pairs\": [";
@@ -216,7 +218,7 @@ public class Main {
 
 // Request parameters and other properties.
         String params = "{\n" +
-                "\t\"corpus\": \"googlenews300neg\",\n" +
+                "\t\"corpus\": \"wiki-2014\",\n" +
                 "\t\"model\": \"W2V\",\n" +
                 "\t\"language\": \"EN\",\n" +
                 "\t\"scoreFunction\": \"COSINE\",\n" +
