@@ -35,17 +35,13 @@ public class Main {
     private static Directory graphDirectory;
     private static String logString = "";
     private static String lineSeparator = System.getProperty("line.separator");
-    private static Dictionary dictionary;
 
     private static Hashtable<String, Boolean> resultTab = new Hashtable<>();
     private static Hashtable<String, Double> simTab = new Hashtable<>();
 
 
     public static void main(String[] args) throws Exception {
-        JWNL.initialize(new FileInputStream("src/main/resources/properties.xml"));
-        dictionary = Dictionary.getInstance();
-
-        String versionName = "W2VGnewsIterationNoAbs";
+        String versionName = "W2VGnewsIterationNoHyp";
         graphDirectory = FSDirectory.open(Paths.get("src", "main", "resources", "index"));
         Graph graph = new Graph("WN_DSR_model_XML.rdf");
         indexGraph(graph, graphDirectory);
@@ -64,7 +60,7 @@ public class Main {
 
         for (Double tresh = 0.0; tresh.compareTo(1.0) < 0; tresh += 0.01) {
             FileWriter resultWriter = new FileWriter("src/main/resources/trial/res/answer.txt");
-            Scanner fileScanner = new Scanner(new File("src/main/resources/test.txt"));
+            Scanner fileScanner = new Scanner(new File("src/main/resources/trial/ref/truth.txt"));
 
             // record scores with treshold set to tresh
             while (fileScanner.hasNext()) {
@@ -92,36 +88,6 @@ public class Main {
         logWriter.write(lineSeparator + "Best performing treshold: " + bestTresh + lineSeparator);
         logWriter.write("Best result: " + maxScore + lineSeparator);
         logWriter.close();
-
-    }
-
-    private static List<String> getHypernyms(String term) throws JWNLException {
-
-        IndexWord indexWord = dictionary.getIndexWord(POS.NOUN, term);
-        List<String> result = new ArrayList<>();
-
-        try {
-            Synset[] senses = indexWord.getSenses();
-            for (Synset sense : senses) {
-                PointerTargetNodeList hypernyms = PointerUtils.getInstance().getDirectHypernyms(sense);
-                for (Iterator itr = hypernyms.iterator(); itr.hasNext(); ) {
-                    PointerTargetNode node = (PointerTargetNode) itr.next();
-                    Synset synset = node.getSynset();
-                    for (Word compositeHypernym : synset.getWords()) {
-                        String[] hypernymArray = compositeHypernym.getLemma().split("_");
-                        for (String hypernym : hypernymArray) {
-                            if (!result.contains(hypernym)) {
-                                result.add(hypernym);
-                            }
-                        }
-                    }
-                }
-            }
-
-        } catch (JWNLException e) {
-            System.out.println(e);
-        }
-        return result;
 
     }
 
@@ -187,39 +153,6 @@ public class Main {
             return 1;
         }
         return 0;
-    }
-
-    private static double hypernymSimilarityDiff(String pivot, String comparison, String feature, Graph graph) throws IOException {
-        Double diff = similarityDiff(pivot, comparison, feature);
-
-        List<String> pivotHypernyms, comparisonHypernyms;
-        try {
-            pivotHypernyms = getHypernyms(pivot);
-            comparisonHypernyms = getHypernyms(comparison);
-        } catch (Exception e) {
-            logString += e + lineSeparator;
-            return diff;
-        }
-
-        logString += "Pivot Hypernym: " + pivotHypernyms + " Comparison Hypernym: " + comparisonHypernyms
-                + lineSeparator;
-
-        HttpClient httpclient = HttpClients.createDefault();
-        HttpPost httppost = new HttpPost("http://indra.lambda3.org/relatedness");
-        httppost.setHeader("Content-Type", "application/json");
-
-// Request parameters and other properties.
-        Double pivotHypernymSim = getMaxSim(feature, pivotHypernyms, httpclient, httppost);
-        Double comparisonHypernymSim = getMaxSim(feature, comparisonHypernyms, httpclient, httppost);
-        Double hypernymDiff = Math.abs(pivotHypernymSim - comparisonHypernymSim);
-        logString += "Difference between hypernyms: " + hypernymDiff + lineSeparator;
-
-        if (Double.compare(hypernymDiff, diff) > 0) {
-            return hypernymDiff;
-        } else {
-            return diff;
-        }
-
     }
 
     private static double getMaxSim(String feature, List<String> hypernymList, HttpClient httpclient, HttpPost httppost) throws IOException {
