@@ -41,7 +41,7 @@ public class Main {
 
 
     public static void main(String[] args) throws Exception {
-        String versionName = "LSAWikiIterationNoHyp";
+        String versionName = "GloVeWikiIterationNoHyp";
         graphDirectory = FSDirectory.open(Paths.get("src", "main", "resources", "index"));
         /*
         Graph graph = new Graph("WN_DSR_model_XML.rdf");
@@ -160,7 +160,7 @@ public class Main {
     private static double getMaxSim(String feature, List<String> hypernymList, HttpClient httpclient, HttpPost httppost) throws IOException {
         String pivotParams = "{\n" +
                 "\t\"corpus\": \"googlenews300neg\",\n" +
-                "\t\"model\": \"LSA\",\n" +
+                "\t\"model\": \"GloVe\",\n" +
                 "\t\"language\": \"EN\",\n" +
                 "\t\"scoreFunction\": \"COSINE\",\n" +
                 "\t\"pairs\": [";
