@@ -312,7 +312,7 @@ public class Main {
 
 // Request parameters and other properties.
         Double pivotHypernymSim = getMaxSim(feature, pivotHypernyms, httpclient, httppost);
-        Double comparisonHypernymSim = getMaxSim(feature, comparisonHypernyms, httpclient, httppost);
+        Double comparisonHypernymSim = getMaxSim(comparison, comparisonHypernyms, httpclient, httppost);
         Double hypernymDiff = Math.abs(pivotHypernymSim - comparisonHypernymSim);
         logString += "Difference between hypernyms: " + hypernymDiff + lineSeparator;
 
