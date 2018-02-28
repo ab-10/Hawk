@@ -189,15 +189,22 @@ public class Main {
         BooleanQuery queryPivot = builderPivot.build();
         BooleanQuery queryComparison = builderComparison.build();
 
+        DirectoryReader reader;
+        IndexSearcher searcher;
         try {
-            DirectoryReader reader = DirectoryReader.open(graphDirectory);
-            IndexSearcher searcher = new IndexSearcher(reader);
+            reader = DirectoryReader.open(graphDirectory);
+            searcher = new IndexSearcher(reader);
         } catch (IOException e){
-            throw new IllegalArgumentException("Invalid WordNet Index directory specified")
+            throw new IllegalArgumentException("Invalid WordNet Index directory specified.");
         }
 
-        ScoreDoc[] resultsComparison = searcher.search(queryComparison, 10).scoreDocs;
-        ScoreDoc[] resultsPivot = searcher.search(queryPivot, 10).scoreDocs;
+        ScoreDoc[] resultsComparison, resultsPivot;
+        try {
+            resultsComparison = searcher.search(queryComparison, 10).scoreDocs;
+            resultsPivot = searcher.search(queryPivot, 10).scoreDocs;
+        }catch (IOException e){
+            throw new RuntimeException("Failed to obtain search results for WordNet Index query.");
+        }
 
         Boolean result = resultsPivot.length != 0 && resultsComparison.length == 0;
 
@@ -227,11 +234,12 @@ public class Main {
         BooleanQuery queryVGPivot = builderVGPivot.build();
         BooleanQuery queryVGComparison = builderVGComparison.build();
 
+        ScoreDoc[] resultsVGPivot, resultsVGComparison;
         try {
-            ScoreDoc[] resultsVGPivot = searcherVG.search(queryVGPivot, 10).scoreDocs;
-            ScoreDoc[] resultsVGComparison = searcherVG.search(queryVGComparison, 10).scoreDocs;
+            resultsVGPivot = searcherVG.search(queryVGPivot, 10).scoreDocs;
+            resultsVGComparison = searcherVG.search(queryVGComparison, 10).scoreDocs;
         } catch (IOException e){
-            throw new Exception("Failed to obtain search results for WordNet Index query.");
+            throw new RuntimeException("Failed to obtain search results for Visual Genome Index query.");
         }
 
         if (resultsVGPivot.length > 0 && resultsVGComparison.length == 0) {
@@ -243,7 +251,12 @@ public class Main {
 
 
     private static int similarityComparison(String pivot, String comparison, String feature, String model, Double tresh) {
-        Double[] similarityArr = getSimilarity(pivot, comparison, feature, model);
+        Double[] similarityArr;
+        try {
+            similarityArr = getSimilarity(pivot, comparison, feature, model);
+        } catch (Exception e){
+            throw new IllegalArgumentException("Failed to calculate the cosine similarity for given arguments");
+        }
         Double similarity = similarityArr[0] - similarityArr[1];
 
         if (Double.compare(similarity, tresh) > 0) {
@@ -478,7 +491,7 @@ public class Main {
         return "";
     }
 
-    private static Double[] getSimilarity(String pivot, String comparison, String feature, String model) throws Exception {
+    private static Double[] getSimilarity(String pivot, String comparison, String feature, String model) throws Exception{
         try {
             Thread.sleep(500);
         } catch (InterruptedException e) {
