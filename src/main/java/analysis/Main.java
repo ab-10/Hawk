@@ -1,18 +1,13 @@
 package analysis;
 
 import indexation.VisualGenomeIndexer;
-import net.didion.jwnl.JWNL;
 import net.didion.jwnl.JWNLException;
 import net.didion.jwnl.data.*;
 import net.didion.jwnl.data.list.PointerTargetNode;
 import net.didion.jwnl.data.list.PointerTargetNodeList;
-import net.didion.jwnl.dictionary.*;
 import net.didion.jwnl.dictionary.Dictionary;
-import org.apache.jena.atlas.json.JsonArray;
 import org.apache.lucene.index.DirectoryReader;
-import org.apache.lucene.index.IndexableField;
 import org.apache.lucene.index.Term;
-import org.apache.lucene.queryparser.xml.builders.BooleanQueryBuilder;
 import org.apache.lucene.search.*;
 import org.apache.lucene.store.FSDirectory;
 import org.json.*;
@@ -23,13 +18,10 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.ByteArrayEntity;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.lucene.store.Directory;
-import prep.Definition;
 import prep.Graph;
 
 import java.io.*;
 import java.nio.file.Paths;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 import static indexation.GraphIndexer.indexGraph;
@@ -42,7 +34,7 @@ public class Main {
     private static Dictionary dictionary;
 
     private static Hashtable<String, Boolean> resultTab;
-    private static Hashtable<String, Double> simTab;
+    private static Hashtable<String, WordVec> storedVectors;
 
 
     public static void main(String[] args) throws Exception {
@@ -60,73 +52,94 @@ public class Main {
         File JSONFile = new File("src/main/resources/attributes.json");
         VisualGenomeIndexer.indexGenomeAttributes(JSONFile, VGDirectory);
 
-        String[] models = new String[]{"LSA", "GloVe", "W2V"};
-        // for(String model : models) {
-        String model = "W2V";
-        Double tresh = 0.03;
-            String versionName = "VGPlain";
+        resultTab = new Hashtable<>();
+        storedVectors = new Hashtable<>();
 
-            resultTab = new Hashtable<>();
-            simTab = new Hashtable<>();
-
-
-            FileWriter logWriter = new FileWriter("src/main/resources/" + versionName + ".log");
-            DateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-            logWriter.write("Log for " + versionName + " of discriminative attribute detection model"
-                    + lineSeparator);
-            logWriter.write("logged on " + sdf.format(new Date()) + lineSeparator);
-            logWriter.write("-------------------------------------------------------------------------------"
-                    + lineSeparator);
-            Double maxScore = -1.0;
-            Double bestTresh = -1.0;
-            // for(Double tresh = 0.0; tresh.compareTo(1.0) < 0; tresh += 0.01) {
-                FileWriter resultWriter = new FileWriter("src/main/resources/" + versionName + ".results");
-                Scanner fileScanner = new Scanner(new File("src/main/resources/truth.txt"));
-
-                // record scores with treshold set to tresh
-
-                while (fileScanner.hasNext()) {
-                    String[] currentLine = fileScanner.nextLine().split(",");
-                    int currentResult = compare(currentLine[0], currentLine[1], currentLine[2], graph, tresh, model);
-                    resultWriter.write(currentLine[0] + "," + currentLine[1] + "," + currentLine[2]
-                            + "," + currentResult
-                            + lineSeparator);
-                    if (currentResult != Integer.valueOf(currentLine[3])) {
-                        logWriter.write("-------------------------------" + lineSeparator);
-                        logWriter.write(currentLine[0] + "," + currentLine[1] + "," + currentLine[2]
-                                + "," + currentLine[3] + ":" + currentResult
-                                + lineSeparator);
-                        logWriter.write(logString);
-                        logWriter.write("-------------------------------" + lineSeparator);
-                    }
-                    logString = "";
-
+        // store WordVec for all unique words within the test file
+        /*
+        Scanner fileScanner = new Scanner(new File("src/main/resources/truth.txt"));
+        while (fileScanner.hasNext()) {
+            String[] nextLine = fileScanner.nextLine().split(",");
+            for (int i = 0; i < 3; i++) {
+                if (!storedVectors.containsKey(nextLine[i])) {
+                    storedVectors.put(nextLine[i], new WordVec(nextLine[i], "W2V"));
+                    Thread.sleep(500);
                 }
-                resultWriter.close();
-
-                /*
-                // evaluate the scores
-                Process eval = Runtime.getRuntime().exec("python3 src/main/resources/trial/evaluation.py src/main/resources/trial/ src/main/resources/trial/");
-                eval.waitFor();
-                Scanner scoreScanner = new Scanner(new File("src/main/resources/trial/scores.txt"));
-                Double result;
-                try {
-                    result = scoreScanner.nextDouble();
-                } catch (Exception e){
-                    result = 0.0;
-                }
-                logWriter.write("Result for " + tresh + ": " + result + lineSeparator);
-                if (Double.compare(result, maxScore) > 0) {
-                    bestTresh = tresh;
-                    maxScore = result;
-                }
-
             }
-            logWriter.write(lineSeparator + "Best performing treshold: " + bestTresh + lineSeparator);
-            logWriter.write("Best result: " + maxScore + lineSeparator);
+        }
+        */
+
+
+        /*
+        Double maxScore = -1.0;
+        Double bestTresh = -1.0;
+        FileWriter logWriter = new FileWriter("src/main/resources/completeGenomeIteration.log");
+        */
+        // for (Double tresh = 0.0; tresh.compareTo(1.0) < 0; tresh += 0.01) {
+        Double tresh = 0.03;
+        FileWriter resultWriter = new FileWriter("src/main/resources/VGWNW2V.txt");
+        Scanner taskScanner = new Scanner(new File("src/main/resources/trial/ref/truth.txt"));
+
+
+        // record scores with treshold set to tresh
+        while (taskScanner.hasNext()) {
+            String[] nextLine = taskScanner.nextLine().split(",");
+            resultWriter.write(nextLine[0] + "," + nextLine[1] + "," + nextLine[2] + ","
+                    + compare(nextLine[0], nextLine[1], nextLine[2], graph, tresh, "W2V") + "\n");
+        }
+
+        resultWriter.close();
+
+            /*
+            // evaluate the scores
+            Process eval = Runtime.getRuntime().exec("python3 src/main/resources/trial/evaluation.py src/main/resources/trial/ src/main/resources/trial/");
+            eval.waitFor();
+            Scanner scoreScanner = new Scanner(new File("src/main/resources/trial/scores.txt"));
+            Double result;
+            try {
+                result = scoreScanner.nextDouble();
+            } catch (Exception e) {
+                result = 0.0;
+            }
+            logWriter.write("Result for " + tresh + ":" + result + lineSeparator);
+            if (Double.compare(result, maxScore) > 0) {
+                bestTresh = tresh;
+                maxScore = result;
+            }
             */
-            logWriter.close();
-        //}
+
+        // }
+        /*
+        logWriter.write(lineSeparator + "Best performing treshold: " + bestTresh + lineSeparator);
+        logWriter.write("Best result: " + maxScore + lineSeparator);
+        logWriter.close();
+        */
+
+    }
+
+    private static int vectorComparison(String pivot, String comparison, String feature, Double tresh) {
+        WordVec pivotVec = storedVectors.get(pivot);
+        WordVec comparisonVec = storedVectors.get(comparison);
+        WordVec featureVec = storedVectors.get(feature);
+
+        if (pivotVec.getEmbedding().length == 0 | comparisonVec.getEmbedding().length == 0 |
+                featureVec.getEmbedding().length == 0) {
+            System.err.println("Failed to generate embedding for " + pivot + " " + comparison + " " + feature);
+            return 0;
+        }
+
+        // calculate feature's compliment to pivot and comparison
+        WordVec pivotCompliment = pivotVec.sub(featureVec);
+        WordVec comparisonCompliment = comparisonVec.sub(featureVec);
+
+        Double originalSim = pivotVec.cosineSimilarity(comparisonVec);
+        Double complimentSim = pivotCompliment.cosineSimilarity(comparisonCompliment);
+
+        if (Double.compare(complimentSim - originalSim, tresh) > 0) {
+            return 1;
+        }
+        return 0;
+
 
     }
 
@@ -160,61 +173,11 @@ public class Main {
 
     }
 
-    public static int compare(String pivot, String comparison, String feature, Graph graph, Double tresh, String model) throws Exception {
+    public static int compare(String pivot, String comparison, String feature, Graph graph, Double tresh, String model) {
         pivot = pivot.toLowerCase();
         comparison = comparison.toLowerCase();
         feature = feature.toLowerCase();
 
-        String pivotComparisonFeature = pivot + comparison + feature;
-        /*
-        if (resultTab.containsKey(pivotComparisonFeature)){
-            if (resultTab.get(pivotComparisonFeature)) {
-                return 1;
-            }
-        }else{
-            BooleanQuery.Builder builderPivot = new BooleanQuery.Builder();
-            BooleanQuery.Builder builderComparison = new BooleanQuery.Builder();
-            builderPivot.add(new TermQuery(new Term("definiendum", pivot)), BooleanClause.Occur.MUST);
-            builderPivot.add(new WildcardQuery(new Term("property", "*" + feature + "*")), BooleanClause.Occur.MUST);
-
-            builderComparison.add(new TermQuery(new Term("definiendum", comparison)), BooleanClause.Occur.MUST);
-            builderComparison.add(new WildcardQuery(new Term("property", feature + "*")), BooleanClause.Occur.MUST);
-
-            BooleanQuery queryPivot = builderPivot.build();
-            BooleanQuery queryComparison = builderComparison.build();
-
-            DirectoryReader reader = DirectoryReader.open(graphDirectory);
-            IndexSearcher searcher = new IndexSearcher(reader);
-
-            ScoreDoc[] resultsPivot = searcher.search(queryPivot, 10).scoreDocs;
-
-            ScoreDoc[] resultsComparison = searcher.search(queryComparison, 10).scoreDocs;
-
-            Boolean result = resultsPivot.length != 0 && resultsComparison.length == 0;
-            resultTab.put(pivotComparisonFeature, result);
-            if (result) {
-                return 1;
-            }
-        }
-
-        double similarity;
-        if (simTab.containsKey(pivotComparisonFeature)) {
-            similarity = simTab.get(pivotComparisonFeature);
-        } else {
-
-            Double[] similarityScores = getSimilarity(pivot, comparison, feature, model);
-            similarity = similarityScores[0] - similarityScores[1];
-            simTab.put(pivotComparisonFeature, similarity);
-        }
-        if (Double.compare(similarity, tresh) > 0) {
-            return 1;
-        }
-        return 0;
-
-        */
-
-
-        // Wordnet Queries
         BooleanQuery.Builder builderPivot = new BooleanQuery.Builder();
         BooleanQuery.Builder builderComparison = new BooleanQuery.Builder();
         builderPivot.add(new TermQuery(new Term("definiendum", pivot)), BooleanClause.Occur.MUST);
@@ -226,9 +189,25 @@ public class Main {
         BooleanQuery queryPivot = builderPivot.build();
         BooleanQuery queryComparison = builderComparison.build();
 
-        DirectoryReader reader = DirectoryReader.open(graphDirectory);
-        IndexSearcher searcher = new IndexSearcher(reader);
+        try {
+            DirectoryReader reader = DirectoryReader.open(graphDirectory);
+            IndexSearcher searcher = new IndexSearcher(reader);
+        } catch (IOException e){
+            throw new IllegalArgumentException("Invalid WordNet Index directory specified")
+        }
 
+        ScoreDoc[] resultsComparison = searcher.search(queryComparison, 10).scoreDocs;
+        ScoreDoc[] resultsPivot = searcher.search(queryPivot, 10).scoreDocs;
+
+        Boolean result = resultsPivot.length != 0 && resultsComparison.length == 0;
+
+        if (result) {
+            return 1;
+        }
+        return 0;
+    }
+
+    public static int vgComparison(String pivot, String comparison, String feature, Directory VGDirectory) {
         BooleanQuery.Builder builderVGPivot = new BooleanQuery.Builder();
         BooleanQuery.Builder builderVGComparison = new BooleanQuery.Builder();
         builderVGPivot.add(new TermQuery(new Term("name", pivot)), BooleanClause.Occur.MUST);
@@ -236,54 +215,36 @@ public class Main {
         builderVGComparison.add(new TermQuery(new Term("name", comparison)), BooleanClause.Occur.MUST);
         builderVGComparison.add(new TermQuery(new Term("attribute", feature)), BooleanClause.Occur.MUST);
 
-        BooleanQuery queryVGPivot = builderVGPivot.build();
-        BooleanQuery queryVGComparison = builderVGComparison.build();
-        DirectoryReader readerVG = DirectoryReader.open(VGDirectory);
+        DirectoryReader readerVG;
+        try {
+            readerVG = DirectoryReader.open(VGDirectory);
+        } catch (IOException e){
+            throw new IllegalArgumentException("Invalid Visual Genome Index directory specified.");
+        }
+
         IndexSearcher searcherVG = new IndexSearcher(readerVG);
 
-        ScoreDoc[] resultsVGPivot = searcherVG.search(queryVGPivot, 10).scoreDocs;
-        ScoreDoc[] resultsVGComparison = searcherVG.search(queryVGComparison, 10).scoreDocs;
+        BooleanQuery queryVGPivot = builderVGPivot.build();
+        BooleanQuery queryVGComparison = builderVGComparison.build();
 
-        if(resultsVGPivot.length > 0 && resultsVGComparison.length == 0){
+        try {
+            ScoreDoc[] resultsVGPivot = searcherVG.search(queryVGPivot, 10).scoreDocs;
+            ScoreDoc[] resultsVGComparison = searcherVG.search(queryVGComparison, 10).scoreDocs;
+        } catch (IOException e){
+            throw new Exception("Failed to obtain search results for WordNet Index query.");
+        }
+
+        if (resultsVGPivot.length > 0 && resultsVGComparison.length == 0) {
             return 1;
         }
+        return 0;
+    }
 
 
 
-        // Wordnet Queries
-        //logString += "Occurrences of " + feature + " in definition of " + pivot + " :" + lineSeparator;
-        ScoreDoc[] resultsPivot = searcher.search(queryPivot, 10).scoreDocs;
-        /*
-        for (ScoreDoc result : resultsPivot) {
-            IndexableField[] fields = searcher.doc(result.doc).getFields("property");
-            for (IndexableField field : fields) {
-                logString += field.stringValue() + " ";
-            }
-            logString += lineSeparator;
-        }
-        */
-
-        // logString += "Occurrences of " + feature + " in definition of " + comparison + " :" + lineSeparator;
-        ScoreDoc[] resultsComparison = searcher.search(queryComparison, 10).scoreDocs;
-        /*
-        for (ScoreDoc result : resultsComparison) {
-            IndexableField[] fields = searcher.doc(result.doc).getFields("property");
-            for (IndexableField field : fields) {
-                logString += field.stringValue() + " ";
-            }
-            logString += lineSeparator;
-        }
-        */
-
-        Boolean result = resultsPivot.length != 0 && resultsComparison.length == 0;
-        resultTab.put(pivotComparisonFeature, result);
-        if (result) {
-            return 1;
-        }
-
-        // double similarity = similarityDiff(pivot, comparison, feature);
+    private static int similarityComparison(String pivot, String comparison, String feature, String model, Double tresh) {
         Double[] similarityArr = getSimilarity(pivot, comparison, feature, model);
-        double similarity = similarityArr[0] - similarityArr[1];
+        Double similarity = similarityArr[0] - similarityArr[1];
 
         if (Double.compare(similarity, tresh) > 0) {
             return 1;
@@ -557,10 +518,10 @@ public class Main {
         JSONArray pairs = new JSONObject(theString).getJSONArray("pairs");
         instream.close();
         Double pivotSim, comparisonSim;
-        if(pairs.getJSONObject(0).getString("t1").equals(pivot)) {
+        if (pairs.getJSONObject(0).getString("t1").equals(pivot)) {
             pivotSim = pairs.getJSONObject(0).getDouble("score");
             comparisonSim = pairs.getJSONObject(1).getDouble("score");
-        }else {
+        } else {
             pivotSim = pairs.getJSONObject(1).getDouble("score");
             comparisonSim = pairs.getJSONObject(0).getDouble("score");
         }
