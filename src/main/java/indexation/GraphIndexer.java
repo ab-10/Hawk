@@ -51,7 +51,10 @@ public class GraphIndexer {
             }
 
             for (Property currentProperty : currentDefinition.getProperties()) {
-                currentDocument.add(new TextField("property", currentProperty.toString(), Field.Store.YES));
+                currentDocument.add(new TextField("property", currentProperty.getValue(), Field.Store.YES));
+                if(currentProperty.getSubject() != "") {
+                    currentDocument.add(new TextField("property", currentProperty.getSubject(), Field.Store.YES));
+                }
             }
             writer.addDocument(currentDocument);
 
