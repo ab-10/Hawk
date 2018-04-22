@@ -24,8 +24,6 @@ import java.io.*;
 import java.nio.file.Paths;
 import java.util.*;
 
-import static indexation.GraphIndexer.indexGraph;
-
 public class Main {
 
     private static Directory graphDirectory, VGDirectory;
@@ -33,90 +31,127 @@ public class Main {
     private static String lineSeparator = System.getProperty("line.separator");
     private static Dictionary dictionary;
 
-    private static Hashtable<String, Boolean> resultTab;
-    private static Hashtable<String, WordVec> storedVectors;
-
-
     public static void main(String[] args) throws Exception {
         /*
         JWNL.initialize(new FileInputStream("src/main/resources/properties.xml"));
         dictionary = Dictionary.getInstance();
         */
 
-        graphDirectory = FSDirectory.open(Paths.get("src", "main", "resources", "index"));
+        Directory wnHypIndexDirectory = FSDirectory.open(Paths.get("src", "main", "resources", "WNWithHyp"));
+        Directory wnNoHypIndexDirectory = FSDirectory.open(Paths.get("src", "main", "resources", "WNNoHyp"));
+        Directory vgDirectory = FSDirectory.open(Paths.get("src", "main", "resources", "VG"));
 
+        /*
         Graph graph = new Graph("WN_DSR_model_XML.rdf");
         indexGraph(graph, graphDirectory);
+        */
 
-        VGDirectory = FSDirectory.open(Paths.get("src", "main", "resources", "VGIndex"));
         File JSONFile = new File("src/main/resources/attributes.json");
-        VisualGenomeIndexer.indexGenomeAttributes(JSONFile, VGDirectory);
+        VisualGenomeIndexer.indexGenomeAttributes(JSONFile, vgDirectory);
 
-        resultTab = new Hashtable<>();
-        storedVectors = new Hashtable<>();
+        Hashtable<String, Integer> gloveResults = new Hashtable<>();
+        Hashtable<String, Integer> wnResults = new Hashtable<>();
+        Hashtable<String, Integer> vgResults = new Hashtable<>();
 
-        // store WordVec for all unique words within the test file
-        /*
-        Scanner fileScanner = new Scanner(new File("src/main/resources/truth.txt"));
-        while (fileScanner.hasNext()) {
-            String[] nextLine = fileScanner.nextLine().split(",");
-            for (int i = 0; i < 3; i++) {
-                if (!storedVectors.containsKey(nextLine[i])) {
-                    storedVectors.put(nextLine[i], new WordVec(nextLine[i], "W2V"));
-                    Thread.sleep(500);
-                }
+
+        String[] versions = new String[]{"WNwithHyp", "WNnoHyp", "LSA", "W2V", "GloVe", "VG", "GloVeWN", "GloVeWNVG"};
+
+        for (int i = 0; i < versions.length; i++) {
+            FileWriter resultWriter = new FileWriter("src/main/resources/" + versions[i] + ".results");
+            Scanner taskScanner = new Scanner(new File("src/main/resources/trial/ref/truth.txt"));
+
+            switch (i) {
+                case (0): // evaluation of WordNet model without hypernyms
+                    while (taskScanner.hasNext()) {
+                        String[] nextLine = taskScanner.nextLine().split(",");
+                        int wn = wnComparison(nextLine[0], nextLine[1], nextLine[2], wnHypIndexDirectory);
+                        resultWriter.write(nextLine[0] + "," + nextLine[1] + "," + nextLine[2] + ","
+                                + wn + "\n");
+                    }
+                    break;
+
+                case (1): // evaluation of WordNet model with hypernyms
+                    while (taskScanner.hasNext()) {
+                        String[] nextLine = taskScanner.nextLine().split(",");
+                        int wn = wnComparison(nextLine[0], nextLine[1], nextLine[2], wnNoHypIndexDirectory);
+                        wnResults.put(nextLine[0] + nextLine[1] + nextLine[2], wn);
+                        resultWriter.write(nextLine[0] + "," + nextLine[1] + "," + nextLine[2] + ","
+                                + wn + "\n");
+                    }
+                    break;
+
+                case (2): // evaluation of LSA similarity
+                    while (taskScanner.hasNext()) {
+                        String[] nextLine = taskScanner.nextLine().split(",");
+                        resultWriter.write(nextLine[0] + "," + nextLine[1] + "," + nextLine[2] + ","
+                                + similarityComparison(nextLine[0], nextLine[1], nextLine[2], "LSA", 0.13) + "\n");
+                    }
+                    break;
+
+                case (3): // evaluation of W2V similarity
+                    while (taskScanner.hasNext()) {
+                        String[] nextLine = taskScanner.nextLine().split(",");
+                        int w2v = similarityComparison(nextLine[0], nextLine[1], nextLine[2], "W2V", 0.12);
+                        resultWriter.write(nextLine[0] + "," + nextLine[1] + "," + nextLine[2] + ","
+                                + w2v + "\n");
+                    }
+                    break;
+
+                case (4): // evaluation of GloVe similarity
+                    while (taskScanner.hasNext()) {
+                        String[] nextLine = taskScanner.nextLine().split(",");
+                        int gloVe = similarityComparison(nextLine[0], nextLine[1], nextLine[2], "GloVe", 0.04);
+                        gloveResults.put(nextLine[0]+ nextLine[1] + nextLine[2], gloVe);
+                        resultWriter.write(nextLine[0] + "," + nextLine[1] + "," + nextLine[2] + ","
+                                + gloVe + "\n");
+                    }
+                    break;
+
+                case (5): // evaluation of Visual Genome
+                    while (taskScanner.hasNext()) {
+                        String[] nextLine = taskScanner.nextLine().split(",");
+                        int vg = vgComparison(nextLine[0], nextLine[1], nextLine[2], vgDirectory);
+                        vgResults.put(nextLine[0] + nextLine[1] + nextLine[2], vg);
+                        resultWriter.write(nextLine[0] + "," + nextLine[1] + "," + nextLine[2] + ","
+                                + vg + "\n");
+                    }
+                    break;
+
+                case (6): // evaluation of combined similarity of W2V and WordNet with hypernyms
+                    while (taskScanner.hasNext()) {
+                        String[] nextLine = taskScanner.nextLine().split(",");
+
+                        int result = 0;
+                        String terms = nextLine[0] + nextLine[1] + nextLine[2];
+                        if (wnResults.get(terms) == 1 | gloveResults.get(terms) == 1) {
+                            result = 1;
+                        }
+                        resultWriter.write(nextLine[0] + "," + nextLine[1] + "," + nextLine[2] + ","
+                                + result + "\n");
+                    }
+                    break;
+
+                case (7): // evaluation of combined similarity of Visual Genome, W2V and WordNet with hypernyms
+                    while (taskScanner.hasNext()) {
+                        String[] nextLine = taskScanner.nextLine().split(",");
+
+                        int result = 0;
+                        String terms = nextLine[0] + nextLine[1] + nextLine[2];
+                        if (vgResults.get(terms) == 1 | wnResults.get(terms) == 1 | gloveResults.get(terms) == 1) {
+                            result = 1;
+                        }
+                        resultWriter.write(nextLine[0] + "," + nextLine[1] + "," + nextLine[2] + ","
+                                + result + "\n");
+                    }
+                    break;
             }
+            resultWriter.close();
         }
-        */
 
-
-        /*
-        Double maxScore = -1.0;
-        Double bestTresh = -1.0;
-        FileWriter logWriter = new FileWriter("src/main/resources/completeGenomeIteration.log");
-        */
-        // for (Double tresh = 0.0; tresh.compareTo(1.0) < 0; tresh += 0.01) {
-        Double tresh = 0.03;
-        FileWriter resultWriter = new FileWriter("src/main/resources/VGWNW2V.txt");
-        Scanner taskScanner = new Scanner(new File("src/main/resources/trial/ref/truth.txt"));
-
-
-        // record scores with treshold set to tresh
-        while (taskScanner.hasNext()) {
-            String[] nextLine = taskScanner.nextLine().split(",");
-            resultWriter.write(nextLine[0] + "," + nextLine[1] + "," + nextLine[2] + ","
-                    + compare(nextLine[0], nextLine[1], nextLine[2], graph, tresh, "W2V") + "\n");
-        }
-
-        resultWriter.close();
-
-            /*
-            // evaluate the scores
-            Process eval = Runtime.getRuntime().exec("python3 src/main/resources/trial/evaluation.py src/main/resources/trial/ src/main/resources/trial/");
-            eval.waitFor();
-            Scanner scoreScanner = new Scanner(new File("src/main/resources/trial/scores.txt"));
-            Double result;
-            try {
-                result = scoreScanner.nextDouble();
-            } catch (Exception e) {
-                result = 0.0;
-            }
-            logWriter.write("Result for " + tresh + ":" + result + lineSeparator);
-            if (Double.compare(result, maxScore) > 0) {
-                bestTresh = tresh;
-                maxScore = result;
-            }
-            */
-
-        // }
-        /*
-        logWriter.write(lineSeparator + "Best performing treshold: " + bestTresh + lineSeparator);
-        logWriter.write("Best result: " + maxScore + lineSeparator);
-        logWriter.close();
-        */
 
     }
 
+    /*
     private static int vectorComparison(String pivot, String comparison, String feature, Double tresh) {
         WordVec pivotVec = storedVectors.get(pivot);
         WordVec comparisonVec = storedVectors.get(comparison);
@@ -142,6 +177,7 @@ public class Main {
 
 
     }
+    */
 
     private static List<String> getHypernyms(String term) throws JWNLException {
 
@@ -173,7 +209,8 @@ public class Main {
 
     }
 
-    public static int compare(String pivot, String comparison, String feature, Graph graph, Double tresh, String model) {
+
+    public static int wnComparison(String pivot, String comparison, String feature, Directory indexDirectory) {
         pivot = pivot.toLowerCase();
         comparison = comparison.toLowerCase();
         feature = feature.toLowerCase();
@@ -192,9 +229,9 @@ public class Main {
         DirectoryReader reader;
         IndexSearcher searcher;
         try {
-            reader = DirectoryReader.open(graphDirectory);
+            reader = DirectoryReader.open(indexDirectory);
             searcher = new IndexSearcher(reader);
-        } catch (IOException e){
+        } catch (IOException e) {
             throw new IllegalArgumentException("Invalid WordNet Index directory specified.");
         }
 
@@ -202,7 +239,7 @@ public class Main {
         try {
             resultsComparison = searcher.search(queryComparison, 10).scoreDocs;
             resultsPivot = searcher.search(queryPivot, 10).scoreDocs;
-        }catch (IOException e){
+        } catch (IOException e) {
             throw new RuntimeException("Failed to obtain search results for WordNet Index query.");
         }
 
@@ -215,30 +252,30 @@ public class Main {
     }
 
     public static int vgComparison(String pivot, String comparison, String feature, Directory VGDirectory) {
-        BooleanQuery.Builder builderVGPivot = new BooleanQuery.Builder();
-        BooleanQuery.Builder builderVGComparison = new BooleanQuery.Builder();
-        builderVGPivot.add(new TermQuery(new Term("name", pivot)), BooleanClause.Occur.MUST);
-        builderVGPivot.add(new TermQuery(new Term("attribute", feature)), BooleanClause.Occur.MUST);
-        builderVGComparison.add(new TermQuery(new Term("name", comparison)), BooleanClause.Occur.MUST);
-        builderVGComparison.add(new TermQuery(new Term("attribute", feature)), BooleanClause.Occur.MUST);
+        BooleanQuery.Builder builderPivot = new BooleanQuery.Builder();
+        BooleanQuery.Builder builderComparison = new BooleanQuery.Builder();
+        builderPivot.add(new TermQuery(new Term("name", pivot)), BooleanClause.Occur.MUST);
+        builderPivot.add(new TermQuery(new Term("attribute", feature)), BooleanClause.Occur.MUST);
+        builderComparison.add(new TermQuery(new Term("name", comparison)), BooleanClause.Occur.MUST);
+        builderComparison.add(new TermQuery(new Term("attribute", feature)), BooleanClause.Occur.MUST);
 
         DirectoryReader readerVG;
         try {
             readerVG = DirectoryReader.open(VGDirectory);
-        } catch (IOException e){
+        } catch (IOException e) {
             throw new IllegalArgumentException("Invalid Visual Genome Index directory specified.");
         }
 
-        IndexSearcher searcherVG = new IndexSearcher(readerVG);
+        IndexSearcher searcher = new IndexSearcher(readerVG);
 
-        BooleanQuery queryVGPivot = builderVGPivot.build();
-        BooleanQuery queryVGComparison = builderVGComparison.build();
+        BooleanQuery queryPivot = builderPivot.build();
+        BooleanQuery queryComparison = builderComparison.build();
 
         ScoreDoc[] resultsVGPivot, resultsVGComparison;
         try {
-            resultsVGPivot = searcherVG.search(queryVGPivot, 10).scoreDocs;
-            resultsVGComparison = searcherVG.search(queryVGComparison, 10).scoreDocs;
-        } catch (IOException e){
+            resultsVGPivot = searcher.search(queryPivot, 10).scoreDocs;
+            resultsVGComparison = searcher.search(queryComparison, 10).scoreDocs;
+        } catch (IOException e) {
             throw new RuntimeException("Failed to obtain search results for Visual Genome Index query.");
         }
 
@@ -249,12 +286,11 @@ public class Main {
     }
 
 
-
     private static int similarityComparison(String pivot, String comparison, String feature, String model, Double tresh) {
         Double[] similarityArr;
         try {
             similarityArr = getSimilarity(pivot, comparison, feature, model);
-        } catch (Exception e){
+        } catch (Exception e) {
             throw new IllegalArgumentException("Failed to calculate the cosine similarity for given arguments");
         }
         Double similarity = similarityArr[0] - similarityArr[1];
@@ -286,7 +322,7 @@ public class Main {
 
 // Request parameters and other properties.
         Double pivotHypernymSim = getMaxSim(feature, pivotHypernyms, httpclient, httppost);
-        Double comparisonHypernymSim = getMaxSim(feature, comparisonHypernyms, httpclient, httppost);
+        Double comparisonHypernymSim = getMaxSim(comparison, comparisonHypernyms, httpclient, httppost);
         Double hypernymDiff = Math.abs(pivotHypernymSim - comparisonHypernymSim);
         logString += "Difference between hypernyms: " + hypernymDiff + lineSeparator;
 
@@ -491,7 +527,7 @@ public class Main {
         return "";
     }
 
-    private static Double[] getSimilarity(String pivot, String comparison, String feature, String model) throws Exception{
+    private static Double[] getSimilarity(String pivot, String comparison, String feature, String model) throws Exception {
         try {
             Thread.sleep(500);
         } catch (InterruptedException e) {
