@@ -8,6 +8,9 @@ import org.apache.lucene.store.FSDirectory;
 import java.io.IOException;
 import java.nio.file.Paths;
 
+/** A collection of discriminativity classifiers based on dictionary models
+ *
+ */
 public class DictionaryClassifiers {
     public static int wordNetVote(String pivot, String comparison, String feature, String indexLocation) {
         if (discriminativeQuery("definiendum", "property", pivot, comparison, feature, indexLocation)) {
