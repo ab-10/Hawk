@@ -40,7 +40,7 @@ public class DictionaryClassifiers {
      * @param comparison    second element in an attribute triple
      * @param feature       third element in an attribute triple
      * @param indexLocation location of Lucene index to be queried
-     * @return
+     * @return true if the triple is discriminative, false otherwise
      */
     private static boolean discriminativeQuery(String documentLabel, String documentBody, String pivot, String comparison, String feature, String indexLocation) {
         BooleanQuery.Builder builderPivot = new BooleanQuery.Builder();
