@@ -24,10 +24,12 @@ public class Definition {
     }
 
     public void addProperty(Property propertyToAdd){
+
         properties.add(propertyToAdd);
     }
 
     public void addProperty(List<Property> propertiesToAdd){
+
         properties.addAll(propertiesToAdd);
     }
 
