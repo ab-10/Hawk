@@ -1,92 +1,89 @@
 package indexation;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonToken;
+import edu.stanford.nlp.simple.Sentence;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
-import org.apache.lucene.document.StringField;
+import org.apache.lucene.document.TextField;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.store.Directory;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Scanner;
 
 /**
  * Indexes attributes.json file, from Visual Genome
  */
 public class VisualGenomeIndexer {
-    public static void indexGenomeAttributes(File source, Directory destination){
-        Scanner jsonFileScanner;
-        try {
-            jsonFileScanner = new Scanner(source);
-        } catch (FileNotFoundException e){
-            System.err.println("Invalid JSON file location");
-            return;
-        }
-
+    public static void indexGenomeAttributes(File source, Directory destination) throws IOException {
         IndexWriter writer;
         Analyzer analyzer = new DefinitionAnalyzer();
         IndexWriterConfig config = new IndexWriterConfig(analyzer);
         try {
             writer = new IndexWriter(destination, config);
-        } catch (IOException e){
+        } catch (IOException e) {
             System.err.println("Invalid destination");
             return;
         }
 
-        // \Z matches the end of string
-        String data = jsonFileScanner.useDelimiter("\\Z").next();
-        ObjectMapper mapper = new ObjectMapper();
-        VGImage[] images;
-        try {
-            images = mapper.readValue(data, VGImage[].class);
-        } catch(IOException e){
-            System.err.println("Failed to parse data using Jackson");
-            System.err.println(e);
-            return;
-        }
+        JsonFactory jsonFactory = new JsonFactory();
+        JsonParser parser = jsonFactory.createParser(source);
+        parser.nextToken();
 
-        for(VGImage currentImage : images){
-            for(Attribute currentAttribute : currentImage.attributes){
-                if((currentAttribute.names.length > 0) && (currentAttribute.attributes.length > 0)) {
-                    Document currentDocument = new Document();
-
-                    for (String currentName : currentAttribute.names) {
-                        currentDocument.add(new StringField("name", currentName, Field.Store.YES));
-                    }
-
-                    for (String subattribute : currentAttribute.attributes) {
-                        currentDocument.add(new StringField("attribute", subattribute, Field.Store.YES));
-                    }
-
-                    try {
-                        writer.addDocument(currentDocument);
-                    } catch (IOException e) {
-                        System.err.println("Failed to index document");
-                        System.err.println(e);
+        Document currentDocument = new Document();
+        Boolean isEmpty = true;
+        while (parser.hasCurrentToken()) {
+            if (parser.getText().equals("synsets") & parser.currentToken() == JsonToken.FIELD_NAME) {
+                if (!isEmpty) {
+                    writer.addDocument(currentDocument);
+                    currentDocument = new Document();
+                    isEmpty = true;
+                }
+                parser.nextToken();
+                // Field name attributes either indicates an array of synset objects (thus the START_OBJECT check)
+                // or an array of VALUE_STRINGS indicating attributes for a particular synset, which are of interest to us
+            } else if (parser.getText().equals("attributes")) {
+                parser.nextToken();
+                if (parser.nextToken() != JsonToken.START_OBJECT) {
+                    while (parser.currentToken() != JsonToken.END_ARRAY) {
+                        if (parser.currentToken() == JsonToken.VALUE_STRING) {
+                            if (parser.getText().trim().length() > 0) {
+                                for (String lemmatizedAttribute : new Sentence(parser.getText()).lemmas()) {
+                                    currentDocument.add(new TextField("attribute", lemmatizedAttribute, Field.Store.YES));
+                                }
+                                isEmpty = false;
+                            }
+                        }
+                        parser.nextToken();
                     }
                 }
+            } else if (parser.getText().equals("names") & parser.currentToken() == JsonToken.FIELD_NAME) {
+                while (parser.nextToken() != JsonToken.END_ARRAY) {
+                    if (parser.currentToken() == JsonToken.VALUE_STRING) {
+                        if (parser.getText().trim().length() > 0) {
+                            for (String lemmatizedName : new Sentence(parser.getText()).lemmas()) {
+                                currentDocument.add(new TextField("name", lemmatizedName, Field.Store.YES));
+                            }
+                            isEmpty = false;
+                        }
+                    }
+                }
+            } else {
+                parser.nextToken();
             }
         }
+        parser.close();
 
         try {
             writer.close();
-        } catch (IOException e){
+        } catch (IOException e) {
             System.err.println("Failed to close writer");
-            System.err.println(e);
+            e.printStackTrace();
         }
 
-    }
-
-    public static void main(String[] args){
     }
 }
