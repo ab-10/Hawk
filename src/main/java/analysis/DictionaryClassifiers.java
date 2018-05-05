@@ -16,6 +16,7 @@ public class DictionaryClassifiers {
     public static int wordNetVote(String pivot, String comparison, String feature, String indexLocation) {
         pivot = new Sentence(pivot).lemma(0);
         comparison = new Sentence(comparison).lemma(0);
+        feature = new Sentence(feature).lemma(0);
         if (discriminativeQuery("definiendum", "property", pivot, comparison, feature, indexLocation)) {
             return 1;
         } else {
@@ -26,6 +27,7 @@ public class DictionaryClassifiers {
     public static int visualGenomeVote(String pivot, String comparison, String feature, String indexLocation) {
         pivot = new Sentence(pivot).lemma(0);
         comparison = new Sentence(comparison).lemma(0);
+        feature = new Sentence(feature).lemma(0);
         if (discriminativeQuery("name", "attribute", pivot, comparison, feature, indexLocation)) {
             return 1;
         } else {
