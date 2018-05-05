@@ -66,7 +66,7 @@ public class Definition {
     }
 
     public void addPropertiesFromBuffer(){
-        properties.addAll(bufferProperties);
+         properties.addAll(bufferProperties);
     }
 
     public String toString(){
