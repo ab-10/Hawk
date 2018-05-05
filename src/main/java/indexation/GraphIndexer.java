@@ -49,7 +49,7 @@ public class GraphIndexer {
 
             for(String currentDefiniendum : currentDefinition.getDefinienda()){
                 for(String lemmaDefiniendum : new Sentence(currentDefiniendum).lemmas()) {
-                    currentDocument.add(new StringField("definiendum", lemmaDefiniendum, Field.Store.YES));
+                    currentDocument.add(new TextField("definiendum", lemmaDefiniendum, Field.Store.YES));
                 }
             }
 
