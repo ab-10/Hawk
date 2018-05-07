@@ -24,7 +24,7 @@ public class Main {
         File JSONFile = new File("src/main/resources/attributes.json");
         VisualGenomeIndexer.indexGenomeAttributes(JSONFile, FSDirectory.open(Paths.get(vgDirectory)));
 
-        Hashtable<String, Integer> gloveResults = new Hashtable<>();
+        Hashtable<String, Integer> w2vResults = new Hashtable<>();
         Hashtable<String, Integer> wnResults = new Hashtable<>();
         Hashtable<String, Integer> vgResults = new Hashtable<>();
 
@@ -32,14 +32,13 @@ public class Main {
         String[] versions = new String[]{"WNwithHyp", "WNnoHyp", "LSA", "W2V", "GloVe", "VG", "GloVeWN", "GloVeWNVG"};
 
         for (int i = 0; i < versions.length; i++) {
-            FileWriter resultWriter = new FileWriter("src/main/resources/" + versions[i] + "category.results");
-            Scanner taskScanner = new Scanner(new File("src/main/resources/finalCategoryExamples.txt"));
+            FileWriter resultWriter = new FileWriter("src/main/resources/" + versions[i] + ".results");
+            Scanner taskScanner = new Scanner(new File("src/main/resources/truth.txt"));
             while (taskScanner.hasNext()) {
                 String[] nextLine = taskScanner.nextLine().split(",");
                 if (nextLine[0].charAt(0) == '-') {
                     resultWriter.write(nextLine[0] + "\n");
                 } else {
-                    System.out.println(nextLine[0]);
                     switch (i) {
                         case (0): // evaluation of WordNet model without hypernyms
                             int wn = wordNetVote(nextLine[0], nextLine[1], nextLine[2], wnNoHypIndexDirectory);
@@ -62,13 +61,13 @@ public class Main {
 
                         case (3): // evaluation of W2V similarity
                             int w2v = w2vVote(nextLine[0], nextLine[1], nextLine[2]);
+                            w2vResults.put(nextLine[0] + nextLine[1] + nextLine[2], w2v);
                             resultWriter.write(nextLine[0] + "," + nextLine[1] + "," + nextLine[2] + ","
                                     + w2v + "\n");
                             break;
 
                         case (4): // evaluation of GloVe similarity
                             int gloVe = gloVeVote(nextLine[0], nextLine[1], nextLine[2]);
-                            gloveResults.put(nextLine[0] + nextLine[1] + nextLine[2], gloVe);
                             resultWriter.write(nextLine[0] + "," + nextLine[1] + "," + nextLine[2] + ","
                                     + gloVe + "\n");
                             break;
@@ -83,7 +82,7 @@ public class Main {
                         case (6): // evaluation of combined similarity of W2V and WordNet with hypernyms
                             int result = 0;
                             String terms = nextLine[0] + nextLine[1] + nextLine[2];
-                            if (wnResults.get(terms) == 1 | gloveResults.get(terms) == 1) {
+                            if (wnResults.get(terms) == 1 | w2vResults.get(terms) == 1) {
                                 result = 1;
                             }
                             resultWriter.write(nextLine[0] + "," + nextLine[1] + "," + nextLine[2] + ","
@@ -93,7 +92,7 @@ public class Main {
                         case (7): // evaluation of combined similarity of Visual Genome, W2V and WordNet with hypernyms
                             result = 0;
                             terms = nextLine[0] + nextLine[1] + nextLine[2];
-                            if (vgResults.get(terms) == 1 | wnResults.get(terms) == 1 | gloveResults.get(terms) == 1) {
+                            if (vgResults.get(terms) == 1 | wnResults.get(terms) == 1 | w2vResults.get(terms) == 1) {
                                 result = 1;
                             }
                             resultWriter.write(nextLine[0] + "," + nextLine[1] + "," + nextLine[2] + ","

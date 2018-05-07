@@ -10,14 +10,10 @@ class DictionaryClassifiersTest {
 
     @Test
     void testWordNetVote() {
-        assertEquals(0, wordNetVote("cheek", "brow", "red",
-                "src/test/resources/WNNoHyp"), "WordNet without hypernym expansion shouldn't recognize cheek,brow,red as discriminative");
-        assertEquals(1, wordNetVote("hammer", "wheel", "handle",
-                "src/test/resources/WNNoHyp"), "Does not recognize hammer,wheel,handle as discriminative");
         assertEquals(1, wordNetVote("cheek", "brow", "red",
                 "src/test/resources/WNWithHyp"), "WordNet with hypernym expansion should recognize cheek,brow,red as discriminative");
         assertEquals(0, wordNetVote("neck", "throat", "wide",
-                "src/test/resources/WNNoHyp"), "WN shouldn't recognize neck,throat,wide as discriminative");
+                "src/test/resources/WNWithHyp"), "WN shouldn't recognize neck,throat,wide as discriminative");
     }
 
     @Test

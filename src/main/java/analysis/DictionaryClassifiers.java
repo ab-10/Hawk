@@ -1,19 +1,24 @@
 package analysis;
 
+import net.didion.jwnl.data.Exc;
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.search.*;
 import org.apache.lucene.store.FSDirectory;
+import edu.stanford.nlp.simple.Sentence;
 
 import java.io.IOException;
 import java.nio.file.Paths;
 
-/** A collection of discriminativity classifiers based on dictionary models
- *
+/**
+ * A collection of discriminativity classifiers based on dictionary models
  */
 public class DictionaryClassifiers {
     public static int wordNetVote(String pivot, String comparison, String feature, String indexLocation) {
-        if (discriminativeQuery("definiendum", "property", pivot, comparison, feature, indexLocation)) {
+        pivot = new Sentence(pivot).lemma(0);
+        comparison = new Sentence(comparison).lemma(0);
+        feature = new Sentence(feature).lemma(0);
+        if (discriminativeQuery("property", "property", pivot, comparison, feature, indexLocation)) {
             return 1;
         } else {
             return 0;
@@ -21,7 +26,21 @@ public class DictionaryClassifiers {
     }
 
     public static int visualGenomeVote(String pivot, String comparison, String feature, String indexLocation) {
-        if (discriminativeQuery("name", "attribute", pivot, comparison, feature, indexLocation)) {
+        pivot = new Sentence(pivot).lemma(0);
+        comparison = new Sentence(comparison).lemma(0);
+        feature = new Sentence(feature).lemma(0);
+        if (discriminativeQuery("attribute", "attribute", pivot, comparison, feature, indexLocation)) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
+     public static int vgRelationshipVote(String pivot, String comparison, String feature, String indexLocation) {
+        pivot = new Sentence(pivot).lemma(0);
+        comparison = new Sentence(comparison).lemma(0);
+        feature = new Sentence(feature).lemma(0);
+        if (discriminativeQuery("relationship", "relationship", pivot, comparison, feature, indexLocation)) {
             return 1;
         } else {
             return 0;
@@ -49,10 +68,10 @@ public class DictionaryClassifiers {
         BooleanQuery.Builder builderPivot = new BooleanQuery.Builder();
         BooleanQuery.Builder builderComparison = new BooleanQuery.Builder();
         builderPivot.add(new TermQuery(new Term(documentLabel, pivot)), BooleanClause.Occur.MUST);
-        builderPivot.add(new WildcardQuery(new Term(documentBody, "*" + feature + "*")), BooleanClause.Occur.MUST);
+        builderPivot.add(new WildcardQuery(new Term(documentBody, feature)), BooleanClause.Occur.MUST);
 
         builderComparison.add(new TermQuery(new Term(documentLabel, comparison)), BooleanClause.Occur.MUST);
-        builderComparison.add(new WildcardQuery(new Term(documentBody, feature + "*")), BooleanClause.Occur.MUST);
+        builderComparison.add(new WildcardQuery(new Term(documentBody, feature)), BooleanClause.Occur.MUST);
 
         BooleanQuery queryPivot = builderPivot.build();
         BooleanQuery queryComparison = builderComparison.build();
@@ -63,6 +82,7 @@ public class DictionaryClassifiers {
             reader = DirectoryReader.open(FSDirectory.open(Paths.get(indexLocation)));
             searcher = new IndexSearcher(reader);
         } catch (IOException e) {
+            e.printStackTrace();
             throw new IllegalArgumentException("Invalid WordNet Index directory specified.");
         }
 
@@ -76,9 +96,7 @@ public class DictionaryClassifiers {
 
         Boolean result = resultsPivot.length != 0 && resultsComparison.length == 0;
 
-        if (result) {
-            return true;
-        }
-        return false;
+        return result;
     }
+
 }

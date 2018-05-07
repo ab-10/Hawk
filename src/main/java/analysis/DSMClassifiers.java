@@ -1,5 +1,6 @@
 package analysis;
 
+import edu.stanford.nlp.simple.Sentence;
 import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -25,6 +26,9 @@ public class DSMClassifiers {
     public static final Double GLOVE_TRESH = 0.04;
 
     public static int w2vVote(String pivot, String comparison, String feature)throws IOException, JSONException {
+        pivot = new Sentence(pivot).lemma(0);
+        comparison = new Sentence(comparison).lemma(0);
+        feature = new Sentence(feature).lemma(0);
         if (Double.compare(getSimilarityDiff(pivot, comparison, feature, "W2V"), W2V_TRESH) > 0) {
             return 1;
         }else{

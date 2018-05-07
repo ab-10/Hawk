@@ -1,5 +1,6 @@
 package indexation;
 
+import edu.stanford.nlp.simple.Sentence;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
@@ -47,13 +48,21 @@ public class GraphIndexer {
             Document currentDocument = new Document();
 
             for(String currentDefiniendum : currentDefinition.getDefinienda()){
-                currentDocument.add(new StringField("definiendum", currentDefiniendum, Field.Store.YES));
+                for(String lemmaDefiniendum : new Sentence(currentDefiniendum).lemmas()) {
+                    currentDocument.add(new TextField("property", lemmaDefiniendum, Field.Store.YES));
+                }
             }
 
             for (Property currentProperty : currentDefinition.getProperties()) {
-                currentDocument.add(new TextField("property", currentProperty.getValue(), Field.Store.YES));
-                if(currentProperty.getSubject() != "") {
-                    currentDocument.add(new TextField("property", currentProperty.getSubject(), Field.Store.YES));
+                if(currentProperty.getValue().trim().length() > 0) {
+                    for (String lemmaValue : new Sentence(currentProperty.getValue()).lemmas()) {
+                        currentDocument.add(new TextField("property", lemmaValue, Field.Store.YES));
+                    }
+                }
+                if(currentProperty.getSubject().trim().length() > 0) {
+                    for(String lemmaProperty: new Sentence(currentProperty.getValue()).lemmas()) {
+                        currentDocument.add(new TextField("property", lemmaProperty, Field.Store.YES));
+                    }
                 }
             }
             writer.addDocument(currentDocument);
