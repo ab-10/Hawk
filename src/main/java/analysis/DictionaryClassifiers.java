@@ -25,6 +25,18 @@ public class DictionaryClassifiers {
         }
     }
 
+    public static int wikipediaVote(String pivot, String comparison, String feature, String indexLocation) {
+        pivot = new Sentence(pivot).lemma(0);
+        comparison = new Sentence(comparison).lemma(0);
+        feature = new Sentence(feature).lemma(0);
+        if (discriminativeQuery("property", "property", pivot, comparison, feature, indexLocation)) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
+
     public static int visualGenomeVote(String pivot, String comparison, String feature, String indexLocation) {
         pivot = new Sentence(pivot).lemma(0);
         comparison = new Sentence(comparison).lemma(0);
@@ -36,7 +48,7 @@ public class DictionaryClassifiers {
         }
     }
 
-     public static int vgRelationshipVote(String pivot, String comparison, String feature, String indexLocation) {
+    public static int vgRelationshipVote(String pivot, String comparison, String feature, String indexLocation) {
         pivot = new Sentence(pivot).lemma(0);
         comparison = new Sentence(comparison).lemma(0);
         feature = new Sentence(feature).lemma(0);
