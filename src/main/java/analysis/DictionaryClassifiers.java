@@ -25,6 +25,12 @@ public class DictionaryClassifiers {
         }
     }
 
+    public static boolean wordNetVote(String term, String feature, String indexLocation) {
+        term = new Sentence(term).lemma(0);
+        feature = new Sentence(feature).lemma(0);
+        return discriminativeQuery("property", "property", term, feature, indexLocation);
+    }
+
     public static int wikipediaVote(String pivot, String comparison, String feature, String indexLocation) {
         pivot = new Sentence(pivot).lemma(0);
         comparison = new Sentence(comparison).lemma(0);
@@ -36,6 +42,11 @@ public class DictionaryClassifiers {
         }
     }
 
+    public static boolean wikipediaVote(String term, String feature, String indexLocation) {
+        term = new Sentence(term).lemma(0);
+        feature = new Sentence(feature).lemma(0);
+        return discriminativeQuery("property", "property", term, feature, indexLocation);
+    }
 
     public static int visualGenomeVote(String pivot, String comparison, String feature, String indexLocation) {
         pivot = new Sentence(pivot).lemma(0);
@@ -48,6 +59,12 @@ public class DictionaryClassifiers {
         }
     }
 
+    public static boolean visualGenomeVote(String term, String feature, String indexLocation) {
+        term = new Sentence(term).lemma(0);
+        feature = new Sentence(feature).lemma(0);
+        return discriminativeQuery("attribute", "attribute", term, feature, indexLocation);
+    }
+
     public static int vgRelationshipVote(String pivot, String comparison, String feature, String indexLocation) {
         pivot = new Sentence(pivot).lemma(0);
         comparison = new Sentence(comparison).lemma(0);
@@ -57,6 +74,12 @@ public class DictionaryClassifiers {
         } else {
             return 0;
         }
+    }
+
+    public static boolean vgRelationshipVote(String term, String feature, String indexLocation) {
+        term = new Sentence(term).lemma(0);
+        feature = new Sentence(feature).lemma(0);
+        return discriminativeQuery("relationship", "relationship", term, feature, indexLocation);
     }
 
     /**
@@ -107,6 +130,36 @@ public class DictionaryClassifiers {
         }
 
         Boolean result = resultsPivot.length != 0 && resultsComparison.length == 0;
+
+        return result;
+    }
+
+    private static boolean discriminativeQuery(String documentLabel, String documentBody, String term, String feature,
+                                               String indexLocation) {
+        BooleanQuery.Builder builderPivot = new BooleanQuery.Builder();
+        builderPivot.add(new TermQuery(new Term(documentLabel, pivot)), BooleanClause.Occur.MUST);
+        builderPivot.add(new WildcardQuery(new Term(documentBody, feature)), BooleanClause.Occur.MUST);
+
+        BooleanQuery queryPivot = builderPivot.build();
+
+        DirectoryReader reader;
+        IndexSearcher searcher;
+        try {
+            reader = DirectoryReader.open(FSDirectory.open(Paths.get(indexLocation)));
+            searcher = new IndexSearcher(reader);
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new IllegalArgumentException("Invalid WordNet Index directory specified.");
+        }
+
+        ScoreDoc[] resultsComparison, resultsPivot;
+        try {
+            resultsPivot = searcher.search(queryPivot, 10).scoreDocs;
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to obtain search results for WordNet Index query.");
+        }
+
+        Boolean result = resultsPivot.length != 0;
 
         return result;
     }
