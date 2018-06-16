@@ -137,7 +137,7 @@ public class DictionaryClassifiers {
     private static boolean discriminativeQuery(String documentLabel, String documentBody, String term, String feature,
                                                String indexLocation) {
         BooleanQuery.Builder builderPivot = new BooleanQuery.Builder();
-        builderPivot.add(new TermQuery(new Term(documentLabel, pivot)), BooleanClause.Occur.MUST);
+        builderPivot.add(new TermQuery(new Term(documentLabel, term)), BooleanClause.Occur.MUST);
         builderPivot.add(new WildcardQuery(new Term(documentBody, feature)), BooleanClause.Occur.MUST);
 
         BooleanQuery queryPivot = builderPivot.build();
