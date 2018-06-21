@@ -9,7 +9,7 @@ import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.store.Directory;
 import prep.Definition;
-import prep.WNGraph;
+import prep.Graph;
 import prep.Property;
 
 import java.io.IOException;
@@ -26,10 +26,10 @@ public class GraphIndexer {
     /**
      * Creates <code>Index</code> from <code>WNGraph</code> and writes it to <code>destinationDir</code>.
      *
-     * @param WNGraph WNGraph to index
+     * @param Graph WNGraph to index
      * @param destinationDir Directory where index should be stored
      */
-    public static void indexGraph(WNGraph WNGraph, Directory destinationDir) throws IOException {
+    public static void indexGraph(Graph Graph, Directory destinationDir) throws IOException {
 
 
         Analyzer analyzer = new DefinitionAnalyzer();
@@ -43,7 +43,7 @@ public class GraphIndexer {
             return;
         }
 
-        for (Definition currentDefinition : WNGraph.getAllDefinitions()) {
+        for (Definition currentDefinition : Graph.getAllDefinitions()) {
             Document currentDocument = new Document();
 
             for(String currentDefiniendum : currentDefinition.getDefinienda()){

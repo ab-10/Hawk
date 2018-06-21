@@ -2,6 +2,7 @@ package examples;
 
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
+import prep.Graph;
 import prep.WNGraph;
 
 import java.io.File;
@@ -18,8 +19,8 @@ public class LemmatizedWordNetIndexation {
         // creates a Lucene index from lemmatized WN graph
         String indexLocation = "src/main/resources/WNWithHyp";
         Directory indexDir = FSDirectory.open(Paths.get(indexLocation));
-        WNGraph wnWNGraph = new WNGraph("WN_DSR_model_XML.rdf");
-        indexGraph(wnWNGraph, indexDir);
+        Graph wnGraph = new WNGraph("WN_DSR_model_XML.rdf");
+        indexGraph(wnGraph, indexDir);
 
         // evaluates the index against sample data
         FileWriter resultWriter = new FileWriter("src/main/resources/lemmatizedWNWithHyp.results");
