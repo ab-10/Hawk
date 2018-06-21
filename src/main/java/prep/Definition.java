@@ -19,6 +19,11 @@ public class Definition {
         this.bufferProperties = new ArrayList<>();
     }
 
+    public Definition(String definienda, String URI){
+        this.definienda = Arrays.asList(definienda.split("__"));
+        this.URI = URI;
+    }
+
     public String getURI() {
         return URI;
     }
