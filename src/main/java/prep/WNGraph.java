@@ -10,29 +10,40 @@ import java.util.List;
 public class WNGraph {
     private List<Definition> definitions;
     private Model model;
+    private String graphLocation;
+    private boolean populated;
 
     public WNGraph(String graphLocation) {
-        model = createPopulatedModel(graphLocation);
-        definitions = findAllDefinitions(model);
+        this.graphLocation = graphLocation;
+        populated = false;
+    }
+
+    public void populate(){
+        this.createModel();
+        this.findAndPopulateDefinitions();
+        populated = true;
+    }
+
+    private void findAndPopulateDefinitions(){
+        this.findAllDefinitions();
         this.populateAllDefinitions();
     }
 
-    private static Model createPopulatedModel(String modelLocation) {
-        Model modelCreated = ModelFactory.createDefaultModel();
+    private void createModel() {
+        model = ModelFactory.createDefaultModel();
 
         ClassLoader loader = Thread.currentThread().getContextClassLoader();
-        InputStream graphFile = loader.getResourceAsStream(modelLocation);
+        InputStream graphFile = loader.getResourceAsStream(graphLocation);
         // InputStream graphFile = FileManager.get().open(graphLocation);
         if (graphFile == null) {
-            throw new IllegalArgumentException("File: " + modelLocation + " not found");
+            throw new IllegalArgumentException("File: " + graphLocation + " not found");
         }
         // base URI is null because graphs are assumed to not use relative URIs
-        modelCreated.read(graphFile, null);
-        return modelCreated;
+        model.read(graphFile, null);
     }
 
-    private static List<Definition> findAllDefinitions(Model model) {
-        List<Definition> definitions = new ArrayList<>();
+    private void findAllDefinitions() {
+        definitions = new ArrayList<>();
         String queryString = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> " +
                 "SELECT DISTINCT ?definition " +
                 "WHERE{" +
@@ -49,7 +60,6 @@ public class WNGraph {
                 definitions.add(new Definition(currentDefinition.getURI()));
             }
         }
-        return definitions;
     }
 
     private void populateAllDefinitions() {
