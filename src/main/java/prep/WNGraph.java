@@ -7,11 +7,11 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Graph {
+public class WNGraph {
     private List<Definition> definitions;
     private Model model;
 
-    public Graph(String graphLocation) {
+    public WNGraph(String graphLocation) {
         model = createPopulatedModel(graphLocation);
         definitions = findAllDefinitions(model);
         this.populateAllDefinitions();

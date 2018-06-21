@@ -4,19 +4,18 @@ import edu.stanford.nlp.simple.Sentence;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
-import org.apache.lucene.document.StringField;
 import org.apache.lucene.document.TextField;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.store.Directory;
 import prep.Definition;
-import prep.Graph;
+import prep.WNGraph;
 import prep.Property;
 
 import java.io.IOException;
 
 /**
- * Functionality for creating a <code>Lucene Index</code> from <code>Graph</code> and writing it to disk.
+ * Functionality for creating a <code>Lucene Index</code> from <code>WNGraph</code> and writing it to disk.
  *
  * Note: before generating a new <code>Index</code>, that would override an existing one, the existing one
  * has to be manually deleted!
@@ -25,12 +24,12 @@ import java.io.IOException;
  */
 public class GraphIndexer {
     /**
-     * Creates <code>Index</code> from <code>graph</code> and writes it to <code>destinationDir</code>.
+     * Creates <code>Index</code> from <code>WNGraph</code> and writes it to <code>destinationDir</code>.
      *
-     * @param graph Graph to index
+     * @param WNGraph WNGraph to index
      * @param destinationDir Directory where index should be stored
      */
-    public static void indexGraph(Graph graph, Directory destinationDir) throws IOException {
+    public static void indexGraph(WNGraph WNGraph, Directory destinationDir) throws IOException {
 
 
         Analyzer analyzer = new DefinitionAnalyzer();
@@ -40,11 +39,11 @@ public class GraphIndexer {
         try {
             writer = new IndexWriter(destinationDir, config);
         } catch (IOException exception) {
-            System.out.println("Invalid graph location");
+            System.out.println("Invalid WNGraph location");
             return;
         }
 
-        for (Definition currentDefinition : graph.getAllDefinitions()) {
+        for (Definition currentDefinition : WNGraph.getAllDefinitions()) {
             Document currentDocument = new Document();
 
             for(String currentDefiniendum : currentDefinition.getDefinienda()){
