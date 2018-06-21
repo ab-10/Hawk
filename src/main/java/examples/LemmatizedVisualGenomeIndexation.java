@@ -16,13 +16,13 @@ import static indexation.VisualGenomeIndexer.indexGenomeAttributes;
 public class LemmatizedVisualGenomeIndexation{
     public static void main(String args[]) throws IOException{
         // creates a Lucene index from Visual Genome attribute dataset
-        String indexLocation = "src/main/resources/lemmatizedVG";
+        String indexLocation = "src/main/resources/VG";
         Directory indexDir = FSDirectory.open(Paths.get(indexLocation));
         File source = new File("src/main/resources/attributes.json");
         indexGenomeAttributes(source, indexDir);
 
         // evaluates the index against sample data
-        FileWriter resultWriter = new FileWriter("src/main/resources/lemmatizedVG.results");
+        FileWriter resultWriter = new FileWriter("src/main/resources/VG.results");
         Scanner taskScanner = new Scanner(new File("src/main/resources/truth.txt"));
         while (taskScanner.hasNext()) {
             String[] currentLine = taskScanner.nextLine().split(",");
