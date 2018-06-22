@@ -1,5 +1,7 @@
 package examples;
 
+import indexation.GraphIndexer;
+import indexation.UnpopulatedGraphException;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 import prep.Graph;
@@ -15,15 +17,16 @@ import static analysis.DictionaryClassifiers.wordNetVote;
 import static indexation.GraphIndexer.indexGraph;
 
 public class LemmatizedWordNetIndexation {
-    public static void main(String args[]) throws IOException{
+    public static void main(String args[]) throws IOException, UnpopulatedGraphException {
         // creates a Lucene index from lemmatized WN graph
-        String indexLocation = "src/main/resources/WNWithHyp";
+        String indexLocation = "src/main/resources/WN";
         Directory indexDir = FSDirectory.open(Paths.get(indexLocation));
         Graph wnGraph = new WNGraph("WN_DSR_model_XML.rdf");
+        wnGraph.populate();
         indexGraph(wnGraph, indexDir);
 
         // evaluates the index against sample data
-        FileWriter resultWriter = new FileWriter("src/main/resources/lemmatizedWNWithHyp.results");
+        FileWriter resultWriter = new FileWriter("src/main/resources/WN.results");
         Scanner taskScanner = new Scanner(new File("src/main/resources/truth.txt"));
         while(taskScanner.hasNext()){
             String[] currentLine = taskScanner.nextLine().split(",");
