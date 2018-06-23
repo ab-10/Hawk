@@ -1,4 +1,7 @@
 package indexation;
 
-public class UnpopulatedGraphException {
+public class UnpopulatedGraphException extends Exception{
+    public UnpopulatedGraphException(String message) {
+        super(message);
+    }
 }
