@@ -26,11 +26,14 @@ public class GraphIndexer {
     /**
      * Creates <code>Index</code> from <code>WNGraph</code> and writes it to <code>destinationDir</code>.
      *
-     * @param Graph WNGraph to index
+     * @param graph WNGraph to index
      * @param destinationDir Directory where index should be stored
      */
-    public static void indexGraph(Graph Graph, Directory destinationDir) throws IOException {
+    public static void indexGraph(Graph graph, Directory destinationDir) throws IOException, UnpopulatedGraphException {
 
+        if(! graph.isPopulated()){
+            throw new UnpopulatedGraphException("Call populate before indexing graph!");
+        }
 
         Analyzer analyzer = new DefinitionAnalyzer();
         IndexWriterConfig config = new IndexWriterConfig(analyzer);
@@ -43,7 +46,7 @@ public class GraphIndexer {
             return;
         }
 
-        for (Definition currentDefinition : Graph.getAllDefinitions()) {
+        for (Definition currentDefinition : graph.getAllDefinitions()) {
             Document currentDocument = new Document();
 
             for(String currentDefiniendum : currentDefinition.getDefinienda()){
@@ -69,4 +72,5 @@ public class GraphIndexer {
         }
         writer.close();
     }
+
 }
