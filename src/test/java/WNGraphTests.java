@@ -12,6 +12,7 @@ public class WNGraphTests {
     @BeforeAll
     public static void initialize() {
         Graph = new WNGraph("reduced_WN_model.rdf");
+        Graph.populate();
     }
 
     @Test
