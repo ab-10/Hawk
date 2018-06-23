@@ -12,28 +12,29 @@ public class Definition {
     private List<Property> properties;
     private List<Property> bufferProperties;
 
-    public Definition(String URI){
+    public Definition(String URI) {
         this.URI = URI;
         this.definienda = generateValue(this.URI);
         this.properties = new ArrayList<>();
         this.bufferProperties = new ArrayList<>();
     }
 
-    public Definition(String definienda, String URI){
-        this.definienda = Arrays.asList(definienda.split("__"));
+    public Definition(String definienda, String URI) {
         this.URI = URI;
+        this.definienda = Arrays.asList(definienda.split("__"));
+        this.properties = new ArrayList<>();
+        this.bufferProperties = new ArrayList<>();
     }
 
     public String getURI() {
         return URI;
     }
 
-    public void addProperty(Property propertyToAdd){
-
+    public void addProperty(Property propertyToAdd) {
         properties.add(propertyToAdd);
     }
 
-    public void addProperty(List<Property> propertiesToAdd){
+    public void addProperty(List<Property> propertiesToAdd) {
 
         properties.addAll(propertiesToAdd);
     }
@@ -43,15 +44,17 @@ public class Definition {
     }
 
     // todo: write tests for getPropertiesWithRole(String role)
+
     /**
      * Lists properties with the desired <code>role</code>.
+     *
      * @param role desired role.
      * @return returns a list of properties matching the <code>role</code>.
      */
-    public List<Property> getPropertiesWithRole(String role){
+    public List<Property> getPropertiesWithRole(String role) {
         List<Property> result = new ArrayList<>();
-        for(Property currentProperty : properties){
-            if(currentProperty.getRole().equals(role)){
+        for (Property currentProperty : properties) {
+            if (currentProperty.getRole().equals(role)) {
                 result.add(currentProperty);
             }
         }
@@ -62,24 +65,24 @@ public class Definition {
         return definienda;
     }
 
-    public void addBufferProperty(Property propertyToAdd){
+    public void addBufferProperty(Property propertyToAdd) {
         bufferProperties.add(propertyToAdd);
     }
 
-    public void addBufferProperty(List<Property> propertiesToAdd){
+    public void addBufferProperty(List<Property> propertiesToAdd) {
         bufferProperties.addAll(propertiesToAdd);
     }
 
-    public void addPropertiesFromBuffer(){
-         properties.addAll(bufferProperties);
+    public void addPropertiesFromBuffer() {
+        properties.addAll(bufferProperties);
     }
 
-    public String toString(){
+    public String toString() {
         String result = "Definition(";
-        for(String definiendum :definienda){
+        for (String definiendum : definienda) {
             result += definiendum + ", ";
         }
-        for(int i = 0; i < (properties.size() - 1); i++){
+        for (int i = 0; i < (properties.size() - 1); i++) {
             result += properties.get(i) + ", ";
         }
         result += properties.get(properties.size() - 1) + ")";
@@ -87,7 +90,7 @@ public class Definition {
     }
 
     // Extracts the local name from the URI, for use as the Definition's definienda
-    private static List<String> generateValue(String URI){
+    private static List<String> generateValue(String URI) {
         Pattern regExPattern = Pattern.compile("(?<=#).*");
         Matcher matcherForURI = regExPattern.matcher(URI);
         matcherForURI.find();
