@@ -66,7 +66,7 @@ public class DSMClassifiers {
 
 
         String params = "{" +
-                "\"corpus\": \"wiki-2014\"," +
+                "\"corpus\": \"wiki-2018\"," +
                 "\"model\": \"" + model + "\"," +
                 "\"language\": \"EN\"," +
                 "\"scoreFunction\": \"COSINE\"," +
