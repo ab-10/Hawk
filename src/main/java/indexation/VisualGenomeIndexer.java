@@ -53,7 +53,7 @@ public class VisualGenomeIndexer {
                         if (parser.currentToken() == JsonToken.VALUE_STRING) {
                             if (parser.getText().trim().length() > 0) {
                                 for (String lemmatizedAttribute : new Sentence(parser.getText()).lemmas()) {
-                                    currentDocument.add(new TextField("attribute", lemmatizedAttribute, Field.Store.YES));
+                                    currentDocument.add(new TextField("property", lemmatizedAttribute, Field.Store.YES));
                                 }
                                 isEmpty = false;
                             }
@@ -66,7 +66,7 @@ public class VisualGenomeIndexer {
                     if (parser.currentToken() == JsonToken.VALUE_STRING) {
                         if (parser.getText().trim().length() > 0) {
                             for (String lemmatizedName : new Sentence(parser.getText()).lemmas()) {
-                                currentDocument.add(new TextField("attribute", lemmatizedName, Field.Store.YES));
+                                currentDocument.add(new TextField("property", lemmatizedName, Field.Store.YES));
                             }
                             isEmpty = false;
                         }
@@ -119,7 +119,7 @@ public class VisualGenomeIndexer {
                 if (parser.currentToken() == JsonToken.VALUE_STRING) {
                     if (parser.getText().trim().length() > 0) {
                         for (String lemmatizedName : new Sentence(parser.getText()).lemmas()) {
-                            currentDocument.add(new TextField("relationship", lemmatizedName, Field.Store.YES));
+                            currentDocument.add(new TextField("property", lemmatizedName, Field.Store.YES));
                         }
                         isEmpty = false;
                     }
@@ -130,7 +130,7 @@ public class VisualGenomeIndexer {
                     if (parser.currentToken() == JsonToken.VALUE_STRING) {
                         if (parser.getText().trim().length() > 0) {
                             for (String lemmatizedName : new Sentence(parser.getText()).lemmas()) {
-                                currentDocument.add(new TextField("relationship", lemmatizedName, Field.Store.YES));
+                                currentDocument.add(new TextField("property", lemmatizedName, Field.Store.YES));
                             }
                             isEmpty = false;
                         }
