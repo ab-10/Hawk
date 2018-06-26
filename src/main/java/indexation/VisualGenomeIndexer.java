@@ -5,6 +5,7 @@ import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
 import edu.stanford.nlp.simple.Sentence;
 import org.apache.lucene.analysis.Analyzer;
+import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
 import org.apache.lucene.document.TextField;
@@ -21,7 +22,7 @@ import java.io.IOException;
 public class VisualGenomeIndexer {
     public static void indexGenomeAttributes(File source, Directory destination) throws IOException {
         IndexWriter writer;
-        Analyzer analyzer = new DefinitionAnalyzer();
+        Analyzer analyzer = new StandardAnalyzer();
         IndexWriterConfig config = new IndexWriterConfig(analyzer);
         try {
             writer = new IndexWriter(destination, config);
@@ -90,7 +91,7 @@ public class VisualGenomeIndexer {
 
     public static void indexGenomeRelationships(File source, Directory destination) throws IOException {
         IndexWriter writer;
-        Analyzer analyzer = new DefinitionAnalyzer();
+        Analyzer analyzer = new StandardAnalyzer();
         IndexWriterConfig config = new IndexWriterConfig(analyzer);
         try {
             writer = new IndexWriter(destination, config);
