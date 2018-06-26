@@ -50,12 +50,15 @@ public class GraphIndexer {
         for (Definition currentDefinition : graph.getAllDefinitions()) {
             Document currentDocument = new Document();
 
-            for (String currentDefiniendum : currentDefinition.getDefinienda()) {
-                currentDocument.add(new TextField("property", currentDefiniendum, Field.Store.YES));
-            }
-
             String rawGloss = "";
             String chunkedGloss = "";
+
+            for (String currentDefiniendum : currentDefinition.getDefinienda()) {
+                rawGloss += " " + currentDefiniendum;
+                chunkedGloss += " " + currentDefiniendum;
+                currentDocument.add(new TextField("definiendum", currentDefiniendum, Field.Store.YES));
+            }
+
             for (Property currentProperty : currentDefinition.getProperties()) {
                 rawGloss += " " + currentProperty.getValue();
                 chunkedGloss += " " + currentProperty.getValue().replace(" ", "_");
