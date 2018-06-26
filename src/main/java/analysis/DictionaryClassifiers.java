@@ -18,7 +18,7 @@ public class DictionaryClassifiers {
         pivot = new Sentence(pivot).lemma(0);
         comparison = new Sentence(comparison).lemma(0);
         feature = new Sentence(feature).lemma(0);
-        if (discriminativeQuery("property", "property", pivot, comparison, feature, indexLocation)) {
+        if (discriminativeQuery("rawGloss", "rawGloss", pivot, comparison, feature, indexLocation)) {
             return 1;
         } else {
             return 0;
@@ -41,7 +41,7 @@ public class DictionaryClassifiers {
         pivot = new Sentence(pivot).lemma(0);
         comparison = new Sentence(comparison).lemma(0);
         feature = new Sentence(feature).lemma(0);
-        if (discriminativeQuery("attribute", "attribute", pivot, comparison, feature, indexLocation)) {
+        if (discriminativeQuery("property", "property", pivot, comparison, feature, indexLocation)) {
             return 1;
         } else {
             return 0;
@@ -52,12 +52,13 @@ public class DictionaryClassifiers {
         pivot = new Sentence(pivot).lemma(0);
         comparison = new Sentence(comparison).lemma(0);
         feature = new Sentence(feature).lemma(0);
-        if (discriminativeQuery("relationship", "relationship", pivot, comparison, feature, indexLocation)) {
+        if (discriminativeQuery("relationship", "property", pivot, comparison, feature, indexLocation)) {
             return 1;
         } else {
             return 0;
         }
     }
+
 
     /**
      * Performs a discriminativity query and determines whether given triple is discriminative
