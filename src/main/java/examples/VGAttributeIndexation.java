@@ -13,7 +13,7 @@ import static analysis.DictionaryClassifiers.visualGenomeVote;
 import static indexation.VisualGenomeIndexer.indexGenomeAttributes;
 
 
-public class LemmatizedVisualGenomeIndexation{
+public class VGAttributeIndexation{
     public static void main(String args[]) throws IOException{
         // creates a Lucene index from Visual Genome attribute dataset
         String indexLocation = "src/main/resources/VG";
