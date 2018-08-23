@@ -7,6 +7,18 @@
     <groupId>org.hawk</groupId>
     <artifactId>hawk</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <distributionManagement>
+        <downloadUrl>https://github.com/ab-10/Hawk</downloadUrl>
+        <repository>
+            <uniqueVersion>false</uniqueVersion>
+            <id>loc</id>
+            <name>Local Repository</name>
+            <url>file://${project.build.directory}/maven-repo</url>
+            <layout>default</layout>
+        </repository>
+    </distributionManagement>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -27,6 +39,19 @@
                     <source>1.8</source>
                     <target>1.8</target>
 
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>examples.PropertyDemo</mainClass>
+                        </manifest>
+                    </archive>
                 </configuration>
             </plugin>
 
