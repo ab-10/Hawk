@@ -2,6 +2,7 @@ package indexation;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.lucene.analysis.Analyzer;
+import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
 import org.apache.lucene.document.StringField;
@@ -18,7 +19,7 @@ public class WikipediaIndexer {
     public static void indexWikipediaDefinitions(File source, Directory destination) throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(source));
 
-        Analyzer analyzer = new DefinitionAnalyzer();
+        Analyzer analyzer = new StandardAnalyzer();
         IndexWriterConfig config = new IndexWriterConfig(analyzer);
         IndexWriter writer = new IndexWriter(destination, config);
 
