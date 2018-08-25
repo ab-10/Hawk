@@ -15,6 +15,11 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
+/**
+ * Class for indexing definitions extracted using word class lattices,
+ * for indexing Wikipedia Definition Graphs, please, use the methods provided in
+ * <code>WikipediaDefinitionGraphIndexer</code>.
+ */
 public class WikipediaIndexer {
     public static void indexWikipediaDefinitions(File source, Directory destination) throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(source));
