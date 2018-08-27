@@ -47,6 +47,12 @@
         </dependency>
 
         <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-server</artifactId>
+            <version>9.3.9.v20160517</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
             <version>4.5.6</version>
@@ -168,7 +174,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>examples.PropertyDemo</mainClass>
+                            <mainClass>Demo.DemoServer</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
@@ -200,7 +206,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>examples.PropertyDemo</mainClass>
+                            <mainClass>Demo.DemoServer</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
