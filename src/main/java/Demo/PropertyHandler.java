@@ -12,11 +12,14 @@ import org.apache.lucene.search.TermQuery;
 import org.apache.lucene.store.FSDirectory;
 import org.eclipse.jetty.server.Request;
 import org.eclipse.jetty.server.handler.AbstractHandler;
+import prep.Property;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URISyntaxException;
 import java.nio.file.Paths;
 import java.util.LinkedList;
 
@@ -24,28 +27,60 @@ import java.util.LinkedList;
  * Handles a request to the <code>DemoServer</code> to display term properties.
  */
 public class PropertyHandler extends AbstractHandler {
+    // Location of the index folder relative to the location from which the program is run
+    private final String indexFolderLocation;
+
+    public PropertyHandler(String indexFolderLocation){
+        // Since directory names are appended to this path, it has to end with a slash
+        if(indexFolderLocation.charAt(indexFolderLocation.length() - 1) != '/'){
+            indexFolderLocation += '/';
+        }
+        this.indexFolderLocation = indexFolderLocation;
+    }
+
     @Override
     public void handle(String target,
                        Request baseRequest,
                        HttpServletRequest request,
                        HttpServletResponse response) throws IOException {
 
-        response.setContentType("application/json");
         response.setStatus(HttpServletResponse.SC_OK);
 
         PrintWriter out = response.getWriter();
         JsonGenerator outputGenerator = new JsonFactory().createGenerator(out);
-        String parameter = baseRequest.getParameter("properties");
 
-        String pivot = baseRequest.getParameter("pivot");
-        String comparison = baseRequest.getParameter("comparison");
+        String format = baseRequest.getAttribute("format") + "";
+        Boolean useHTML = format.equalsIgnoreCase("HTML");
+
+        String parameter, pivot, comparison;
+        try {
+            parameter = baseRequest.getParameter("properties").toLowerCase();
+
+            pivot = baseRequest.getParameter("pivot");
+            comparison = baseRequest.getParameter("comparison");
+        } catch (NullPointerException e) {
+            if (!useHTML) {
+                System.out.println("{Invalid request}");
+            }
+            return;
+        }
+
+        if (useHTML) {
+            response.setContentType("text/html");
+        } else {
+            response.setContentType("application/json");
+        }
 
         outputGenerator.writeStartObject();
         String[] indexNames = {"WKP_Graph", "WKT", "WN"};
         for (String indexName : indexNames) {
-            outputGenerator.writeArrayFieldStart(indexName);
+            if (useHTML) {
+                out.println("<h3>" + indexName + "</h3>");
+            } else {
+                outputGenerator.writeArrayFieldStart(indexName);
+            }
 
-            DirectoryReader reader = DirectoryReader.open(FSDirectory.open(Paths.get("out/indexes/" + indexName)));
+            DirectoryReader reader = DirectoryReader.open(FSDirectory.open(Paths.get(indexFolderLocation + indexName)));
             IndexSearcher searcher = new IndexSearcher(reader);
 
             ScoreDoc[] pivotDocs = searcher.search(new TermQuery(new Term("definiendum", pivot)), 10).scoreDocs;
@@ -60,11 +95,24 @@ public class PropertyHandler extends AbstractHandler {
                 }
             }
 
+            if (useHTML) {
+                out.println("<ul>");
+            }
+
             if (parameter.equals("p")) {
                 for (String property : pivotProperties) {
-                    outputGenerator.writeString(property);
+                    if (useHTML) {
+                        out.println("<li>" + property + "</li>");
+                    } else {
+                        outputGenerator.writeString(property);
+                    }
                 }
-                outputGenerator.writeEndArray();
+
+                if (useHTML) {
+                    out.println("</ul>");
+                } else {
+                    outputGenerator.writeEndArray();
+                }
                 continue;
             }
 
@@ -76,9 +124,17 @@ public class PropertyHandler extends AbstractHandler {
 
             if (parameter.equals("c")) {
                 for (String property : comparisonProperties) {
-                    outputGenerator.writeString(property);
+                    if (useHTML) {
+                        out.println("<li>" + property + "</li>");
+                    } else {
+                        outputGenerator.writeString(property);
+                    }
                 }
-                outputGenerator.writeEndArray();
+                if (useHTML) {
+                    out.println("</ul>");
+                } else {
+                    outputGenerator.writeEndArray();
+                }
                 continue;
             }
 
@@ -86,29 +142,46 @@ public class PropertyHandler extends AbstractHandler {
                 case "intersection":
                     pivotProperties.retainAll(comparisonProperties);
                     for (String property : pivotProperties) {
-                        outputGenerator.writeString(property);
+                        if (useHTML) {
+                            out.println("<li>" + property + "</li>");
+                        } else {
+                            outputGenerator.writeString(property);
+                        }
                     }
                     break;
                 case "p-c":
                     pivotProperties.removeAll(comparisonProperties);
                     for (String property : pivotProperties) {
-                        outputGenerator.writeString(property);
+                        if (useHTML) {
+                            out.println("<li>" + property + "</li>");
+                        } else {
+                            outputGenerator.writeString(property);
+                        }
                     }
                     break;
                 case "c-p":
                     comparisonProperties.removeAll(pivotProperties);
                     for (String property : comparisonProperties) {
-                        outputGenerator.writeString(property);
+                        if (useHTML) {
+                            out.println("<li>" + property + "</li>");
+                        } else {
+                            outputGenerator.writeString(property);
+                        }
                     }
                     break;
             }
 
-            outputGenerator.writeEndArray();
+            if (useHTML) {
+                out.println("</ul>");
+            } else {
+                outputGenerator.writeEndArray();
+            }
         }
 
-        outputGenerator.writeEndObject();
-        outputGenerator.close();
-
-        baseRequest.setHandled(true);
+        if (!useHTML) {
+            outputGenerator.writeEndObject();
+            outputGenerator.close();
+            baseRequest.setHandled(true);
+        }
     }
 }
