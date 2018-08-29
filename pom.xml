@@ -174,7 +174,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>Demo.DemoServer</mainClass>
+                            <mainClass>demo.DemoServer</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
@@ -206,7 +206,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>Demo.DemoServer</mainClass>
+                            <mainClass>demo.DemoServer</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
