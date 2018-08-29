@@ -11,14 +11,15 @@ import java.util.Scanner;
 /**
  * Handles the front end for the demo.
  */
-public class FrontEndHandler extends AbstractHandler {
+public class PropertyFrontEndHandler extends AbstractHandler {
     // Location of the index folder relative to the location from which the program is run
     private final String indexFolderLocation;
 
-    public FrontEndHandler(String indexFolderLocation) {
+    public PropertyFrontEndHandler(String indexFolderLocation) {
         this.indexFolderLocation = indexFolderLocation;
     }
 
+    @Override
     public void handle(String target,
                        Request baseRequest,
                        HttpServletRequest request,
@@ -27,7 +28,7 @@ public class FrontEndHandler extends AbstractHandler {
         response.setContentType("text/html");
         // Writes the html form to response
         ClassLoader classLoader = getClass().getClassLoader();
-        Boolean runningInJar = FrontEndHandler.class.getResource("FrontEndHandler.class").toString().contains("jar:");
+        Boolean runningInJar = PropertyFrontEndHandler.class.getResource("PropertyFrontEndHandler.class").toString().contains("jar:");
         InputStream indexForm = classLoader.getResourceAsStream("indexForm.html");
         out.write(new Scanner(indexForm).useDelimiter("\\A").next());
         baseRequest.setAttribute("format", "HTML");
