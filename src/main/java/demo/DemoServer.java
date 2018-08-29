@@ -1,4 +1,4 @@
-package Demo;
+package demo;
 
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
@@ -19,13 +19,19 @@ public class DemoServer {
 
         Server server = new Server(8080);
 
-        ContextHandler root = new ContextHandler("/");
-        root.setHandler(new FrontEndHandler(indexFolderLocation));
-        ContextHandler api = new ContextHandler("/api");
-        api.setHandler(new PropertyHandler(indexFolderLocation));
+        ContextHandler discriminativityFrontEnd = new ContextHandler("/");
+        discriminativityFrontEnd.setHandler(new DiscriminativityFrontEndHandler(indexFolderLocation));
+        ContextHandler discriminativityAPI = new ContextHandler("/api");
+        discriminativityAPI.setHandler(new DiscriminativityHandler(indexFolderLocation));
+
+        ContextHandler propertyFrontEnd = new ContextHandler("/properties");
+        propertyFrontEnd.setHandler(new PropertyFrontEndHandler(indexFolderLocation));
+        ContextHandler propertyAPI = new ContextHandler("/properties/api");
+        propertyAPI.setHandler(new PropertyHandler(indexFolderLocation));
 
         ContextHandlerCollection handlerCollection= new ContextHandlerCollection();
-        handlerCollection.setHandlers(new Handler[]{root, api});
+        handlerCollection.setHandlers(new Handler[]{discriminativityFrontEnd, discriminativityAPI,
+                propertyFrontEnd, propertyAPI});
 
         server.setHandler(handlerCollection);
         server.start();
