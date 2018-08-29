@@ -1,4 +1,4 @@
-package Demo;
+package demo;
 
 import org.eclipse.jetty.server.Request;
 import org.eclipse.jetty.server.handler.AbstractHandler;

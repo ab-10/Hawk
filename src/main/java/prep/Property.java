@@ -15,9 +15,6 @@ public class Property {
         subject = "";
     }
 
-    public String toString(){
-        return "Property(" + value + ", " + role + ", " + subject + ")";
-    }
 
     public String getValue(){
         return this.value;
@@ -29,5 +26,15 @@ public class Property {
 
     public String getSubject(){
         return this.subject;
+    }
+
+    @Override
+    public String toString(){
+        return "Property(" + value + ", " + role + ", " + subject + ")";
+    }
+
+    @Override
+    public int hashCode(){
+        return this.toString().hashCode();
     }
 }
