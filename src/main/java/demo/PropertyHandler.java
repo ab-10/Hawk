@@ -1,6 +1,5 @@
-package Demo;
+package demo;
 
-import com.fasterxml.jackson.core.JsonEncoding;
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonGenerator;
 import org.apache.lucene.index.DirectoryReader;
@@ -12,14 +11,11 @@ import org.apache.lucene.search.TermQuery;
 import org.apache.lucene.store.FSDirectory;
 import org.eclipse.jetty.server.Request;
 import org.eclipse.jetty.server.handler.AbstractHandler;
-import prep.Property;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.net.URISyntaxException;
 import java.nio.file.Paths;
 import java.util.LinkedList;
 
@@ -53,6 +49,8 @@ public class PropertyHandler extends AbstractHandler {
         Boolean useHTML = format.equalsIgnoreCase("HTML");
 
         String parameter, pivot, comparison;
+
+        // TODO: fix parameter check
         try {
             parameter = baseRequest.getParameter("properties").toLowerCase();
 
@@ -71,7 +69,10 @@ public class PropertyHandler extends AbstractHandler {
             response.setContentType("application/json");
         }
 
-        outputGenerator.writeStartObject();
+        if(!useHTML) {
+            outputGenerator.writeStartObject();
+        }
+
         String[] indexNames = {"WKP_Graph", "WKT", "WN"};
         for (String indexName : indexNames) {
             if (useHTML) {
