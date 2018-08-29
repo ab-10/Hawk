@@ -1,6 +1,5 @@
 package analysis;
 
-import com.fasterxml.jackson.databind.annotation.JsonAppend;
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.search.IndexSearcher;
