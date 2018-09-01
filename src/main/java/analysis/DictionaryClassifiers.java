@@ -1,6 +1,5 @@
 package analysis;
 
-import net.didion.jwnl.data.Exc;
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexableField;
 import org.apache.lucene.index.Term;
@@ -18,17 +17,10 @@ import java.util.ArrayList;
  */
 public class DictionaryClassifiers {
     public static int roleBasedVote(
-            String pivot, String comparison, String feature, String indexLocation) throws IOException{
-        BooleanQuery.Builder builderPivot = new BooleanQuery.Builder();
-        BooleanQuery.Builder builderComparison = new BooleanQuery.Builder();
-        builderPivot.add(new TermQuery(new Term("definiendum", pivot)), BooleanClause.Occur.MUST);
-        builderPivot.add(new WildcardQuery(new Term("*", feature)), BooleanClause.Occur.MUST);
+            String pivot, String comparison, String feature, String indexLocation) throws IOException {
+        TermQuery pivotQuery = new TermQuery(new Term("definiendum", pivot));
+        TermQuery comparisonQuery = new TermQuery(new Term("definiendum", comparison));
 
-        builderComparison.add(new TermQuery(new Term("definiendum", comparison)), BooleanClause.Occur.MUST);
-        builderComparison.add(new WildcardQuery(new Term("*", feature)), BooleanClause.Occur.MUST);
-
-        BooleanQuery queryPivot = builderPivot.build();
-        BooleanQuery queryComparison = builderComparison.build();
 
         DirectoryReader reader;
         IndexSearcher searcher;
@@ -40,10 +32,11 @@ public class DictionaryClassifiers {
             throw new IllegalArgumentException("Invalid Index directory specified.");
         }
 
+
         ScoreDoc[] resultsComparison, resultsPivot;
         try {
-            resultsComparison = searcher.search(queryComparison, 50).scoreDocs;
-            resultsPivot = searcher.search(queryPivot, 50).scoreDocs;
+            resultsPivot = searcher.search(pivotQuery, 50).scoreDocs;
+            resultsComparison = searcher.search(comparisonQuery, 50).scoreDocs;
         } catch (IOException e) {
             throw new RuntimeException("Failed to obtain search results for Index query.");
         }
@@ -52,26 +45,33 @@ public class DictionaryClassifiers {
         ArrayList<Property> pivotFeatureProperties = new ArrayList<>();
         ArrayList<Property> comparisonFeatureProperties = new ArrayList<>();
 
-        for(ScoreDoc pivotDoc : resultsPivot){
-            for(IndexableField field : searcher.doc(pivotDoc.doc).getFields()){
-                if(field.stringValue().equals(feature)){
-                    pivotFeatureProperties.add(new Property(field.stringValue(), field.name()));
+        for (ScoreDoc pivotDoc : resultsPivot) {
+            for (IndexableField field : searcher.doc(pivotDoc.doc).getFields()) {
+                for (String term : field.stringValue().split(" ")) {
+                    if (term.equals(feature)) {
+                        pivotFeatureProperties.add(new Property(term, field.name()));
+                    }
                 }
             }
         }
 
-        for(ScoreDoc comparisonDoc : resultsComparison){
-            for(IndexableField field : searcher.doc(comparisonDoc.doc).getFields()){
-                if(field.stringValue().equals(feature)){
-                    pivotFeatureProperties.add(new Property(field.stringValue(), field.name()));
+        for (ScoreDoc comparisonDoc : resultsComparison) {
+            for (IndexableField field : searcher.doc(comparisonDoc.doc).getFields()) {
+                for (String term : field.stringValue().split(" ")) {
+                    if (term.equals(feature)) {
+                        comparisonFeatureProperties.add(new Property(term, field.name()));
+                    }
                 }
             }
         }
 
-        pivotFeatureProperties.removeAll(comparisonFeatureProperties);
-        if(pivotFeatureProperties.size() > 1){
+
+        boolean featureIsCommon = pivotFeatureProperties.stream()
+                .anyMatch(property -> comparisonFeatureProperties.contains(property));
+
+        if (pivotFeatureProperties.size() > 0 & !featureIsCommon) {
             return 1;
-        }else {
+        } else {
             return 0;
         }
 
@@ -170,9 +170,7 @@ public class DictionaryClassifiers {
             throw new RuntimeException("Failed to obtain search results for WordNet Index query.");
         }
 
-        Boolean result = resultsPivot.length != 0 && resultsComparison.length == 0;
-
-        return result;
+        return resultsPivot.length != 0 && resultsComparison.length == 0;
     }
 
 }

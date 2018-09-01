@@ -86,21 +86,25 @@ public class DiscriminativityHandler extends AbstractHandler {
             DirectoryReader reader = DirectoryReader.open(FSDirectory.open(Paths.get(indexFolderLocation + indexName)));
             IndexSearcher searcher = new IndexSearcher(reader);
 
-            ScoreDoc[] pivotDocs = searcher.search(new TermQuery(new Term("definiendum", pivot)), 10).scoreDocs;
-            ScoreDoc[] comparisonDocs = searcher.search(new TermQuery(new Term("definiendum", comparison)), 10).scoreDocs;
+            ScoreDoc[] pivotDocs = searcher.search(new TermQuery(new Term("definiendum", pivot)), 50).scoreDocs;
+            ScoreDoc[] comparisonDocs = searcher.search(new TermQuery(new Term("definiendum", comparison)), 50).scoreDocs;
 
             ArrayList<Property> pivotProperties = new ArrayList<>();
             ArrayList<Property> comparisonProperties = new ArrayList<>();
 
             for (ScoreDoc result : pivotDocs) {
                 for (IndexableField field : searcher.doc(result.doc).getFields()) {
-                    pivotProperties.add(new Property(field.stringValue(), field.name()));
+                    for(String term : field.stringValue().split(" ")) {
+                        pivotProperties.add(new Property(term, field.name()));
+                    }
                 }
             }
 
             for (ScoreDoc result : comparisonDocs) {
                 for (IndexableField field : searcher.doc(result.doc).getFields()) {
-                    comparisonProperties.add(new Property(field.stringValue(), field.name()));
+                    for(String term : field.stringValue().split(" ")) {
+                        comparisonProperties.add(new Property(term, field.name()));
+                    }
                 }
             }
 
@@ -128,7 +132,7 @@ public class DiscriminativityHandler extends AbstractHandler {
 
 
             // Makes the discriminativity decision
-            boolean discriminative = pivotFeatureProperties.size() > intersectingFeatureProperties.size();
+            boolean discriminative = pivotFeatureProperties.size() > 0 & intersectingFeatureProperties.size() == 0;
             jointlyDiscriminative = jointlyDiscriminative | discriminative;
 
             // Generates the explanation
@@ -136,7 +140,7 @@ public class DiscriminativityHandler extends AbstractHandler {
             if (discriminative) {
                 boolean pivotHasMultipleRoles = pivotFeatureProperties.size() > 1;
                 String pivotRoles = getRoleString(pivotFeatureProperties);
-                explanation += MessageFormat.format("Because {0} contains {1} in propert{2} of {3} role{4} and "
+                explanation += MessageFormat.format("Because {0} contains {1} in propert{2} of {3} role{4} but "
                         , pivot, feature, (pivotHasMultipleRoles ? "ies" : "y")
                         , pivotRoles, (pivotHasMultipleRoles ? "s" : ""));
 
@@ -154,16 +158,9 @@ public class DiscriminativityHandler extends AbstractHandler {
             } else if (intersectingFeatureProperties.size() > 0) {
                 boolean intersectionHasMultipleProperties = intersectingFeatureProperties.size() > 1;
                 String commonRoleString = getRoleString(intersectingFeatureProperties);
-                explanation += MessageFormat.format("Because {0} and {1} contain {2} as propert{3} of {4} role{5}",
+                explanation += MessageFormat.format("Because {0} and {1} both contain {2} as propert{3} of {4} role{5}",
                         pivot, comparison, feature, (intersectionHasMultipleProperties? "ies" : "y")
                         , commonRoleString, (intersectionHasMultipleProperties? "s" : ""));
-            } else if (comparisonFeatureProperties.size() > 0) {
-                boolean comparisonHasMutlipleProperties = comparisonFeatureProperties.size() > 1;
-                String comparisonRoles = getRoleString(comparisonFeatureProperties);
-                explanation += MessageFormat.format("Because {0}''s properties don''t contain {1}," +
-                                "however {2} contains {3} as propert{4} of {5} role{5}",
-                        pivot, feature, comparison, feature, (comparisonHasMutlipleProperties? "ies":"y")
-                        , comparisonRoles, (comparisonHasMutlipleProperties ? "s" : ""));
             } else {
                 explanation += MessageFormat.format("Because {0} and {1} don''t contain {2} as a property"
                         ,pivot, comparison, feature);
