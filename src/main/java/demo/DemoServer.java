@@ -19,6 +19,7 @@ public class DemoServer {
 
         Server server = new Server(8080);
 
+
         ContextHandler discriminativityFrontEnd = new ContextHandler("/");
         discriminativityFrontEnd.setHandler(new DiscriminativityFrontEndHandler(indexFolderLocation));
         ContextHandler discriminativityAPI = new ContextHandler("/api");

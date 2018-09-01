@@ -26,9 +26,9 @@ public class PropertyHandler extends AbstractHandler {
     // Location of the index folder relative to the location from which the program is run
     private final String indexFolderLocation;
 
-    public PropertyHandler(String indexFolderLocation){
+    public PropertyHandler(String indexFolderLocation) {
         // Since directory names are appended to this path, it has to end with a slash
-        if(indexFolderLocation.charAt(indexFolderLocation.length() - 1) != '/'){
+        if (indexFolderLocation.charAt(indexFolderLocation.length() - 1) != '/') {
             indexFolderLocation += '/';
         }
         this.indexFolderLocation = indexFolderLocation;
@@ -50,13 +50,12 @@ public class PropertyHandler extends AbstractHandler {
 
         String parameter, pivot, comparison;
 
-        // TODO: fix parameter check
-        try {
-            parameter = baseRequest.getParameter("properties").toLowerCase();
+        parameter = baseRequest.getParameter("properties").toLowerCase();
+        pivot = baseRequest.getParameter("pivot");
+        comparison = baseRequest.getParameter("comparison");
 
-            pivot = baseRequest.getParameter("pivot");
-            comparison = baseRequest.getParameter("comparison");
-        } catch (NullPointerException e) {
+        // Makes sure that all parameters were specified
+        if (pivot == null | comparison == null | parameter == null) {
             if (!useHTML) {
                 System.out.println("{Invalid request}");
             }
@@ -69,7 +68,7 @@ public class PropertyHandler extends AbstractHandler {
             response.setContentType("application/json");
         }
 
-        if(!useHTML) {
+        if (!useHTML) {
             outputGenerator.writeStartObject();
         }
 
@@ -84,8 +83,8 @@ public class PropertyHandler extends AbstractHandler {
             DirectoryReader reader = DirectoryReader.open(FSDirectory.open(Paths.get(indexFolderLocation + indexName)));
             IndexSearcher searcher = new IndexSearcher(reader);
 
-            ScoreDoc[] pivotDocs = searcher.search(new TermQuery(new Term("definiendum", pivot)), 10).scoreDocs;
-            ScoreDoc[] comparisonDocs = searcher.search(new TermQuery(new Term("definiendum", comparison)), 10).scoreDocs;
+            ScoreDoc[] pivotDocs = searcher.search(new TermQuery(new Term("definiendum", pivot)), 50).scoreDocs;
+            ScoreDoc[] comparisonDocs = searcher.search(new TermQuery(new Term("definiendum", comparison)), 50).scoreDocs;
 
             LinkedList<String> pivotProperties = new LinkedList<>();
             LinkedList<String> comparisonProperties = new LinkedList<>();
