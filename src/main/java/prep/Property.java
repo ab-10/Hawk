@@ -34,6 +34,10 @@ public class Property {
     }
 
     @Override
+    public boolean equals(Object o){
+        return o.getClass() == this.getClass() & this.hashCode() == o.hashCode();
+    }
+    @Override
     public int hashCode(){
         return this.toString().hashCode();
     }
