@@ -60,8 +60,6 @@ public class GraphIndexer {
             }
 
             for (Property currentProperty : currentDefinition.getProperties()) {
-                rawGloss += " " + currentProperty.getValue();
-                chunkedGloss += " " + currentProperty.getValue().replace(" ", "_");
                 currentDocument.add(new TextField(currentProperty.getRole(), currentProperty.getValue(), Field.Store.YES));
 
                 if (currentProperty.getSubject().trim().length() > 0) {
@@ -69,8 +67,6 @@ public class GraphIndexer {
                     chunkedGloss += " " + currentProperty.getSubject().replace(" ", "_");
                 }
             }
-            currentDocument.add(new TextField("rawGloss", rawGloss, Field.Store.YES));
-            currentDocument.add(new TextField("chunkedGloss", chunkedGloss, Field.Store.YES));
             writer.addDocument(currentDocument);
 
         }
