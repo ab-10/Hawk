@@ -18,7 +18,7 @@ import static indexation.GraphIndexer.indexGraph;
 public class WiktionaryIndexation {
     public static void main(String args[]) throws IOException, UnpopulatedGraphException {
         // creates a Lucene index from lemmatized WN graph
-        String indexLocation = "src/main/resources/WKT";
+        String indexLocation = "out/indexes/WKT";
         Directory indexDir = FSDirectory.open(Paths.get(indexLocation));
         Graph wktGraph = new WKTGraph("WKT_DSR_model_XML.rdf");
         wktGraph.populate();

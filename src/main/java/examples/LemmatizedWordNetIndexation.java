@@ -19,7 +19,7 @@ import static indexation.GraphIndexer.indexGraph;
 public class LemmatizedWordNetIndexation {
     public static void main(String args[]) throws IOException, UnpopulatedGraphException {
         // creates a Lucene index from lemmatized WN graph
-        String indexLocation = "src/main/resources/WN";
+        String indexLocation = "out/indexes/WN";
         Directory indexDir = FSDirectory.open(Paths.get(indexLocation));
         Graph wnGraph = new WNGraph("WN_DSR_model_XML.rdf");
         wnGraph.populate();
