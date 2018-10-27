@@ -2,7 +2,7 @@
 
 Hawk aims to provide transparent and explainable functionality for obtaining properties of words and determining whether triples of words are _discriminative_.
 ## What does that mean?
-__Discriminative triples__ are triples of words where there's a significantly stronger relationship between the first and third word than the first and third. For example, triple _hawk,elephant,flies_ is discriminative, but _hawk,elephant,animal_ is not.
+__Discriminative triples__ are triples of words where there's a significantly stronger relationship between the first and the third word than the second and third. For example, triple _hawk,elephant,flies_ is discriminative, but _hawk,elephant,animal_ is not.
 
 ## How can I use it?
 The best way to use Hawk is through the API.
