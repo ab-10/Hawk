@@ -2,13 +2,16 @@ package analysis;
 
 import net.didion.jwnl.data.Exc;
 import org.apache.lucene.index.DirectoryReader;
+import org.apache.lucene.index.IndexableField;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.search.*;
 import org.apache.lucene.store.FSDirectory;
 import edu.stanford.nlp.simple.Sentence;
+import prep.Property;
 
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 
 /**
  * A collection of discriminativity classifiers based on dictionary models
@@ -111,5 +114,67 @@ public class DictionaryClassifiers {
 
         return result;
     }
+
+    public static int roleBasedVote(
+            String pivot, String comparison, String feature, String indexLocation) throws IOException {
+        TermQuery pivotQuery = new TermQuery(new Term("definiendum", pivot));
+        TermQuery comparisonQuery = new TermQuery(new Term("definiendum", comparison));
+
+
+        DirectoryReader reader;
+        IndexSearcher searcher;
+        try {
+            reader = DirectoryReader.open(FSDirectory.open(Paths.get(indexLocation)));
+            searcher = new IndexSearcher(reader);
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new IllegalArgumentException("Invalid Index directory specified.");
+        }
+
+
+        ScoreDoc[] resultsComparison, resultsPivot;
+        try {
+            resultsPivot = searcher.search(pivotQuery, 50).scoreDocs;
+            resultsComparison = searcher.search(comparisonQuery, 50).scoreDocs;
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to obtain search results for Index query.");
+        }
+
+        // Lists containing only pivot/comparison properties with feature as their value
+        ArrayList<Property> pivotFeatureProperties = new ArrayList<>();
+        ArrayList<Property> comparisonFeatureProperties = new ArrayList<>();
+
+        for (ScoreDoc pivotDoc : resultsPivot) {
+            for (IndexableField field : searcher.doc(pivotDoc.doc).getFields()) {
+                for (String term : field.stringValue().split(" ")) {
+                    if (term.equals(feature)) {
+                        pivotFeatureProperties.add(new Property(term, field.name()));
+                    }
+                }
+            }
+        }
+
+        for (ScoreDoc comparisonDoc : resultsComparison) {
+            for (IndexableField field : searcher.doc(comparisonDoc.doc).getFields()) {
+                for (String term : field.stringValue().split(" ")) {
+                    if (term.equals(feature)) {
+                        comparisonFeatureProperties.add(new Property(term, field.name()));
+                    }
+                }
+            }
+        }
+
+
+        boolean featureIsCommon = pivotFeatureProperties.stream()
+                .anyMatch(property -> comparisonFeatureProperties.contains(property));
+
+        if (pivotFeatureProperties.size() > 0 & !featureIsCommon) {
+            return 1;
+        } else {
+            return 0;
+        }
+
+    }
+
 
 }
