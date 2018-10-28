@@ -24,6 +24,8 @@ import java.io.IOException;
  * @author Armins Stepanjans
  */
 public class GraphIndexer {
+    public static final String BLIND_FIELD_NAME = "blind"; // Name of the universal, blind field
+
     /**
      * Creates <code>Index</code> from <code>WNGraph</code> and writes it to <code>destinationDir</code>.
      *
@@ -48,30 +50,33 @@ public class GraphIndexer {
         }
 
         for (Definition currentDefinition : graph.getAllDefinitions()) {
-            Document currentDocument = new Document();
+            Document blindDoc = new Document(); // Document used for blind vote
+            Document roleDoc = new Document();  // Document used for role based vote
 
-            String rawGloss = "";
-            String chunkedGloss = "";
 
             for (String currentDefiniendum : currentDefinition.getDefinienda()) {
-                rawGloss += " " + currentDefiniendum;
-                chunkedGloss += " " + currentDefiniendum;
-                currentDocument.add(new TextField("definiendum", currentDefiniendum, Field.Store.YES));
+                roleDoc.add(new TextField("definiendum", currentDefiniendum, Field.Store.YES));
+
+                for (String lemmaDefiniendum : new Sentence(currentDefiniendum).lemmas()) {
+                    blindDoc.add(new TextField(BLIND_FIELD_NAME, lemmaDefiniendum, Field.Store.YES));
+                }
             }
 
             for (Property currentProperty : currentDefinition.getProperties()) {
-                rawGloss += " " + currentProperty.getValue();
-                chunkedGloss += " " + currentProperty.getValue().replace(" ", "_");
-                currentDocument.add(new TextField(currentProperty.getRole(), currentProperty.getValue(), Field.Store.YES));
+                roleDoc.add(new TextField(currentProperty.getRole(), currentProperty.getValue(), Field.Store.YES));
 
+                if (currentProperty.getValue().trim().length() > 0) {
+                    for (String lemmaValue : new Sentence(currentProperty.getValue()).lemmas()) {
+                        blindDoc.add(new TextField(BLIND_FIELD_NAME, lemmaValue, Field.Store.YES));
+                    }
+                }
                 if (currentProperty.getSubject().trim().length() > 0) {
-                    rawGloss += " " + currentProperty.getSubject();
-                    chunkedGloss += " " + currentProperty.getSubject().replace(" ", "_");
+                    for (String lemmaProperty : new Sentence(currentProperty.getValue()).lemmas()) {
+                        blindDoc.add(new TextField(BLIND_FIELD_NAME, lemmaProperty, Field.Store.YES));
+                    }
                 }
             }
-            currentDocument.add(new TextField("rawGloss", rawGloss, Field.Store.YES));
-            currentDocument.add(new TextField("chunkedGloss", chunkedGloss, Field.Store.YES));
-            writer.addDocument(currentDocument);
+            writer.addDocument(roleDoc);
 
         }
         writer.close();
