@@ -24,10 +24,10 @@ import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DiscriminativityHandler extends AbstractHandler {
+public class RoleBasedVoteHandler extends AbstractHandler {
     private final String indexFolderLocation;
 
-    public DiscriminativityHandler(String indexFolderLocation) {
+    public RoleBasedVoteHandler(String indexFolderLocation) {
         // Since directory names are appended to this path, it has to end with a slash
         if (indexFolderLocation.charAt(indexFolderLocation.length() - 1) != '/') {
             indexFolderLocation += '/';

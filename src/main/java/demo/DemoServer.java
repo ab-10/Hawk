@@ -20,10 +20,10 @@ public class DemoServer {
         Server server = new Server(8080);
 
 
-        ContextHandler discriminativityFrontEnd = new ContextHandler("/roleBasedVote");
-        discriminativityFrontEnd.setHandler(new DiscriminativityFrontEndHandler(indexFolderLocation));
-        ContextHandler discriminativityAPI = new ContextHandler("/roleBasedVote/api");
-        discriminativityAPI.setHandler(new DiscriminativityHandler(indexFolderLocation));
+        ContextHandler roleBasedFrontEndContext = new ContextHandler("/roleBasedVote");
+        roleBasedFrontEndContext.setHandler(new RoleBasedVoteFrontEndHandler(indexFolderLocation));
+        ContextHandler roleBasedAPI = new ContextHandler("/roleBasedVote/api");
+        roleBasedAPI.setHandler(new RoleBasedVoteHandler(indexFolderLocation));
 
         ContextHandler propertyFrontEnd = new ContextHandler("/properties");
         propertyFrontEnd.setHandler(new PropertyFrontEndHandler(indexFolderLocation));
@@ -31,7 +31,7 @@ public class DemoServer {
         propertyAPI.setHandler(new PropertyHandler(indexFolderLocation));
 
         ContextHandlerCollection handlerCollection= new ContextHandlerCollection();
-        handlerCollection.setHandlers(new Handler[]{discriminativityFrontEnd, discriminativityAPI,
+        handlerCollection.setHandlers(new Handler[]{roleBasedFrontEndContext, roleBasedAPI,
                 propertyFrontEnd, propertyAPI});
 
         server.setHandler(handlerCollection);
