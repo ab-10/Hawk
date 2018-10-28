@@ -1,8 +1,16 @@
 # Hawk
 
 Hawk aims to provide transparent and explainable functionality for obtaining properties of words and determining whether triples of words are _discriminative_.
-## What does that mean?
-__Discriminative triples__ are triples of words where there's a significantly stronger relationship between the first and the third word than the second and third. For example, triple _hawk,elephant,flies_ is discriminative, but _hawk,elephant,animal_ is not.
+
+## What constitutes a discriminative triple?
+
+We can affirm said triple is discriminative if the feature allows to discriminate the pivot from the comparison, that is, if it applies to the pivot but not to the comparison. Here's an example:
+
+	- Pivot: Paris
+	- Comparison: Barcelona
+	- Feature: French
+
+This is a discriminative triple: French applies to Paris because Paris is a French city, but not to Barcelona, since it isn't.It is important to mention that as soon as the feature and the comparison are related, the triple is not discriminative. Therefore, a triple where the feature does not apply to the pivot but to the comparison is still not discriminative.
 
 ## How can I use it?
 The best way to use Hawk is through the API.
