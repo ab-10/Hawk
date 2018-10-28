@@ -2,6 +2,7 @@ package demo;
 
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonGenerator;
+import indexation.GraphIndexer;
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexableField;
 import org.apache.lucene.index.Term;
@@ -11,6 +12,7 @@ import org.apache.lucene.search.TermQuery;
 import org.apache.lucene.store.FSDirectory;
 import org.eclipse.jetty.server.Request;
 import org.eclipse.jetty.server.handler.AbstractHandler;
+import prep.Graph;
 import prep.Property;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,10 +24,10 @@ import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DiscriminativityHandler extends AbstractHandler {
+public class RoleBasedVoteHandler extends AbstractHandler {
     private final String indexFolderLocation;
 
-    public DiscriminativityHandler(String indexFolderLocation) {
+    public RoleBasedVoteHandler(String indexFolderLocation) {
         // Since directory names are appended to this path, it has to end with a slash
         if (indexFolderLocation.charAt(indexFolderLocation.length() - 1) != '/') {
             indexFolderLocation += '/';
@@ -94,13 +96,19 @@ public class DiscriminativityHandler extends AbstractHandler {
 
             for (ScoreDoc result : pivotDocs) {
                 for (IndexableField field : searcher.doc(result.doc).getFields()) {
-                    pivotProperties.add(new Property(field.stringValue(), field.name()));
+                    // Ignores the catch-all field
+                    if(! field.name().equals(GraphIndexer.BLIND_FIELD_NAME)) {
+                        pivotProperties.add(new Property(field.stringValue(), field.name()));
+                    }
                 }
             }
 
             for (ScoreDoc result : comparisonDocs) {
                 for (IndexableField field : searcher.doc(result.doc).getFields()) {
-                    comparisonProperties.add(new Property(field.stringValue(), field.name()));
+                    // Ignores the catch-all field
+                    if(! field.name().equals(GraphIndexer.BLIND_FIELD_NAME)) {
+                        comparisonProperties.add(new Property(field.stringValue(), field.name()));
+                    }
                 }
             }
 

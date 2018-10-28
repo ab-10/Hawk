@@ -36,14 +36,14 @@ public class WikipediaIndexer {
                 properties = currentLine.split("\t");
 
                 String target = properties[0].substring(0, properties[0].indexOf(':'));
-                currentDocument.add(new StringField("property", target, Field.Store.YES));
+                currentDocument.add(new StringField(GraphIndexer.BLIND_FIELD_NAME, target, Field.Store.YES));
 
                 // skip the entry number 1, because it's always TARGET
                 for(int i = 2; i < properties.length; i++){
                     int propertyInd = StringUtils.ordinalIndexOf(properties[i], "_", 2);
                     if(propertyInd != -1) {
                         String currentProperty = properties[i].substring(propertyInd + 1);
-                        currentDocument.add(new StringField("property", currentProperty.toLowerCase()
+                        currentDocument.add(new StringField(GraphIndexer.BLIND_FIELD_NAME, currentProperty.toLowerCase()
                                 , Field.Store.YES));
                     }
                 }

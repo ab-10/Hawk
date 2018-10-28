@@ -50,7 +50,7 @@ public class PropertyHandler extends AbstractHandler {
 
         String parameter, pivot, comparison;
 
-        parameter = baseRequest.getParameter("properties").toLowerCase();
+        parameter = baseRequest.getParameter("properties");
         pivot = baseRequest.getParameter("pivot");
         comparison = baseRequest.getParameter("comparison");
 

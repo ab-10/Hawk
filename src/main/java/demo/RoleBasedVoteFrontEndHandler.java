@@ -10,9 +10,9 @@ import java.io.InputStream;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
-public class DiscriminativityFrontEndHandler extends AbstractHandler {
+public class RoleBasedVoteFrontEndHandler extends AbstractHandler {
     private final String indexFolderLocation;
-    public DiscriminativityFrontEndHandler(String indexFolderLocation){
+    public RoleBasedVoteFrontEndHandler(String indexFolderLocation){
         this.indexFolderLocation = indexFolderLocation;
     }
 
@@ -29,7 +29,7 @@ public class DiscriminativityFrontEndHandler extends AbstractHandler {
 
 
         // If a discriminativity query has been made, writes the response
-        new DiscriminativityHandler(indexFolderLocation).handle(target, baseRequest, request, response);
+        new RoleBasedVoteHandler(indexFolderLocation).handle(target, baseRequest, request, response);
         baseRequest.setHandled(true);
 
     }
