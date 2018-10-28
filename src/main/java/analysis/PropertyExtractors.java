@@ -1,5 +1,6 @@
 package analysis;
 
+import indexation.GraphIndexer;
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.search.IndexSearcher;
@@ -182,7 +183,7 @@ public class PropertyExtractors {
 
     private static ArrayList<Property> getProperties(String term) throws IOException {
         ArrayList<Property> properties = new ArrayList<>();
-        TermQuery query = new TermQuery(new Term("property", term));
+        TermQuery query = new TermQuery(new Term(GraphIndexer.BLIND_FIELD_NAME, term));
 
         String[] sources = {"newWNWithHyp", "WKT", "VGAttributes", "VGRelationships", "wikipedia"};
 
@@ -202,7 +203,7 @@ public class PropertyExtractors {
 
             for (ScoreDoc result : results) {
                 try {
-                    String[] names = searcher.doc(result.doc).getValues("property");
+                    String[] names = searcher.doc(result.doc).getValues(GraphIndexer.BLIND_FIELD_NAME);
                     for (String name : names) {
                         Property currentProperty = new Property(name, source);
                         if (properties.contains(currentProperty)) {

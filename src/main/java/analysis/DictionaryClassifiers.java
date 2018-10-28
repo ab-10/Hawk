@@ -1,6 +1,6 @@
 package analysis;
 
-import net.didion.jwnl.data.Exc;
+import indexation.GraphIndexer;
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexableField;
 import org.apache.lucene.index.Term;
@@ -21,7 +21,7 @@ public class DictionaryClassifiers {
         pivot = new Sentence(pivot).lemma(0);
         comparison = new Sentence(comparison).lemma(0);
         feature = new Sentence(feature).lemma(0);
-        if (discriminativeQuery("rawGloss", "rawGloss", pivot, comparison, feature, indexLocation)) {
+        if (discriminativeQuery(pivot, comparison, feature, indexLocation)) {
             return 1;
         } else {
             return 0;
@@ -32,7 +32,7 @@ public class DictionaryClassifiers {
         pivot = new Sentence(pivot).lemma(0);
         comparison = new Sentence(comparison).lemma(0);
         feature = new Sentence(feature).lemma(0);
-        if (discriminativeQuery("property", "property", pivot, comparison, feature, indexLocation)) {
+        if (discriminativeQuery(pivot, comparison, feature, indexLocation)) {
             return 1;
         } else {
             return 0;
@@ -44,7 +44,7 @@ public class DictionaryClassifiers {
         pivot = new Sentence(pivot).lemma(0);
         comparison = new Sentence(comparison).lemma(0);
         feature = new Sentence(feature).lemma(0);
-        if (discriminativeQuery("property", "property", pivot, comparison, feature, indexLocation)) {
+        if (discriminativeQuery(pivot, comparison, feature, indexLocation)) {
             return 1;
         } else {
             return 0;
@@ -55,7 +55,7 @@ public class DictionaryClassifiers {
         pivot = new Sentence(pivot).lemma(0);
         comparison = new Sentence(comparison).lemma(0);
         feature = new Sentence(feature).lemma(0);
-        if (discriminativeQuery("relationship", "property", pivot, comparison, feature, indexLocation)) {
+        if (discriminativeQuery(pivot, comparison, feature, indexLocation)) {
             return 1;
         } else {
             return 0;
@@ -80,7 +80,10 @@ public class DictionaryClassifiers {
      * @param indexLocation location of Lucene index to be queried
      * @return true if the triple is discriminative, false otherwise
      */
-    private static boolean discriminativeQuery(String documentLabel, String documentBody, String pivot, String comparison, String feature, String indexLocation) {
+    private static boolean discriminativeQuery(String pivot, String comparison, String feature, String indexLocation) {
+        String documentLabel = GraphIndexer.BLIND_FIELD_NAME;
+        String documentBody = GraphIndexer.BLIND_FIELD_NAME;
+
         BooleanQuery.Builder builderPivot = new BooleanQuery.Builder();
         BooleanQuery.Builder builderComparison = new BooleanQuery.Builder();
         builderPivot.add(new TermQuery(new Term(documentLabel, pivot)), BooleanClause.Occur.MUST);
