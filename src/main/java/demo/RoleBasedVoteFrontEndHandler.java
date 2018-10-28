@@ -23,7 +23,7 @@ public class RoleBasedVoteFrontEndHandler extends AbstractHandler {
                        HttpServletResponse response) throws IOException {
         PrintWriter out = response.getWriter();
         response.setContentType("text/html");
-        InputStream form = getClass().getClassLoader().getResourceAsStream("demo/layouts/indexForm.html");
+        InputStream form = getClass().getClassLoader().getResourceAsStream("indexForm.html");
         out.write(new Scanner(form).useDelimiter("\\A").next());
         baseRequest.setAttribute("format", "HTML");
 

@@ -28,8 +28,7 @@ public class PropertyFrontEndHandler extends AbstractHandler {
         response.setContentType("text/html");
         // Writes the html form to response
         ClassLoader classLoader = getClass().getClassLoader();
-        Boolean runningInJar = PropertyFrontEndHandler.class.getResource("PropertyFrontEndHandler.class").toString().contains("jar:");
-        InputStream indexForm = classLoader.getResourceAsStream("demo/layouts/propertyForm.html");
+        InputStream indexForm = classLoader.getResourceAsStream("propertyForm.html");
         out.write(new Scanner(indexForm).useDelimiter("\\A").next());
         baseRequest.setAttribute("format", "HTML");
 
