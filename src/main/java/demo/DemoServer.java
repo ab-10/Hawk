@@ -20,9 +20,9 @@ public class DemoServer {
         Server server = new Server(8080);
 
 
-        ContextHandler discriminativityFrontEnd = new ContextHandler("/");
+        ContextHandler discriminativityFrontEnd = new ContextHandler("/roleBasedVote");
         discriminativityFrontEnd.setHandler(new DiscriminativityFrontEndHandler(indexFolderLocation));
-        ContextHandler discriminativityAPI = new ContextHandler("/api");
+        ContextHandler discriminativityAPI = new ContextHandler("/roleBasedVote/api");
         discriminativityAPI.setHandler(new DiscriminativityHandler(indexFolderLocation));
 
         ContextHandler propertyFrontEnd = new ContextHandler("/properties");
