@@ -17,11 +17,17 @@ The best way to use Hawk is through the API.
 
 ### Running a Local Server Instance
 
-We don't have a public endpoint (yet), so you'll have to run a local instance though. So:
-1. Download the .tar.gz
-2. `tar -xf` it^
-3. `java --jar theFile.jar locationToIndexesDirectory`
-4. Now you should be able to access the API on `localhost:8080/`, nois!
+0. Download the file from https://github.com/ab-10/Hawk/tree/v0.1.0
+
+1. Extract the file 
+`tar -xf hawk-0.1.0.tar.gz`
+
+2. And run the jetty server
+`java -jar hawk-0.1.0/hawk-0.1.0-jar-with-dependencies.jar hawk-0.1.0/indexes`
+
+3. Now the Hawk API can be accessed on `localhost:8080`, see [API Usage](https://github.com/ab-10/Hawk#api-usage) for more information.
+
+
 
 ### API Usage
 
