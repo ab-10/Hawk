@@ -62,6 +62,7 @@ public class RoleBasedVoteHandler extends AbstractHandler {
             if (!useHTML) {
                 out.println("{Invalid request}");
             }
+            baseRequest.setHandled(true);
             return;
         }
 
@@ -71,7 +72,7 @@ public class RoleBasedVoteHandler extends AbstractHandler {
             response.setContentType("application/json");
         }
 
-        if (useHTML) {
+        if (!useHTML) {
             outputGenerator.writeStartObject();
         }
 

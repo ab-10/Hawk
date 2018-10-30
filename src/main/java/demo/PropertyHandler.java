@@ -57,8 +57,9 @@ public class PropertyHandler extends AbstractHandler {
         // Makes sure that all parameters were specified
         if (pivot == null | comparison == null | parameter == null) {
             if (!useHTML) {
-                System.out.println("{Invalid request}");
+                out.println("{Invalid request}");
             }
+            baseRequest.setHandled(true);
             return;
         }
 
