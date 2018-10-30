@@ -14,11 +14,56 @@ This is a discriminative triple: French applies to Paris because Paris is a Fren
 
 ## How can I use it?
 The best way to use Hawk is through the API.
+
+### Running a Local Server Instance
+
 We don't have a public endpoint (yet), so you'll have to run a local instance though. So:
 1. Download the .tar.gz
 2. `tar -xf` it^
 3. `java --jar theFile.jar locationToIndexesDirectory`
 4. Now you should be able to access the API on `localhost:8080/`, nois!
+
+### API Usage
+
+Graphical front end can be accessed by pointing your browser to the address _without_ `/api`.
+E.g. to access properties front end after running the server on your machine point your browser to `localhost:8080/properties` and for a programmatic API send requests to `localhost:8080/properties/api`.
+
+#### Obtaining Properties
+
+Returns a list of properties with their roles in parenthesis, organized by source.
+For example (shortened):
+
+```
+{"WKP_Graph":["Hawk(definiendum)", "an(O)","unincorporated(B-differentia-quality)","community(B-supertype)","in(B-differentia-quality)"]
+"WKT": ["hawk(definiendum)","diurnal(has_diff_qual)","of the family Accipitridae(has_origin_loc)","predatory_bird(has_supertype)"]}
+```
+
+Accessible on `HOST_NAME/properties/api` and requires 3 parameters:
+
+1. `properties`, which properties do you want?
+Accepted values:
+`p` for `pivot`'s properties
+`c` for `comparison`'s properties
+`p-c` `pivot`'s minus `comparison`'s
+`c-p` `comparison`'s minus `pivot`'s
+`intersection` the common properties of `pivot` and `comparison`.
+
+2. `pivot` string value of pivot
+
+3. `comparison` string value of comparison
+
+#### Determining Discriminativity
+
+Returns two element lists, organized by source `[DECISION, JUSTIFICATION]`, where `DECISION` is `"true"`/`"false"` and `JUSTIFICATION` is a natural language justification for the decision.
+For example:
+
+```
+{"WKP_Graph":["false","Because hawk and eagle don't contain bird as a property"],"WKT":["false","Because hawk and eagle don't contain bird as a property"],"WN":["true","Because hawk contains bird in property of has_supertype and has_supertype role and eagle doesn't contain bird as one of its properties."]}
+```
+
+Accessible on `HOST_NAME/roleBasedVote/api` requires 3 parameters:
+`pivot`, `comparison`, `feature`
+and returns whether `pivot` and `feature` have a common property, that `comparison` doesn't have (the role of the property as well as the value is taken into account under this comparison type).
 
 ## How can I contribute?
 First of all thanks for showing interest in Hawk!
