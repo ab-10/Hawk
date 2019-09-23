@@ -17,9 +17,9 @@ import static indexation.VisualGenomeIndexer.indexGenomeRelationships;
 public class LemmatizedVGRelationships {
         public static void main(String args[]) throws IOException {
         // creates a Lucene index from lemmatized WN graph
-        String indexLocation = "src/main/resources/VGRelationships";
+        String indexLocation = "src/main/resources/explainableVGRelationships";
         Directory indexDir = FSDirectory.open(Paths.get(indexLocation));
-        File source = new File("src/main/resources/relationships.json");
+        File source = new File("src/main/resources/VGrelationships.json");
         indexGenomeRelationships(source, indexDir);
 
         // evaluates the index against sample data
