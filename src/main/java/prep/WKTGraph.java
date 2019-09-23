@@ -14,9 +14,9 @@ public class WKTGraph extends Graph {
     protected void findAllDefinitions() {
         definitions = new ArrayList<>();
         String queryString = "PREFIX rdf: <http://www.w3.org/2000/01/rdf-schema#> " +
-                "SELECT DISTINCT ?URI, ?definiendum " +
+                "SELECT DISTINCT ?URI ?definiendum " +
                 "WHERE{" +
-                "?URI rdf:label ?definiendum ." +
+                "?URI rdf:label ?definiendum" +
                 "}";
 
         Query SPARQLquery = QueryFactory.create(queryString);
@@ -26,7 +26,6 @@ public class WKTGraph extends Graph {
                 QuerySolution solution = results.nextSolution();
                 String definiendum = solution.getLiteral("definiendum").toString();
                 String uri = solution.getResource("URI").getURI();
-
                 definitions.add(new Definition(definiendum, uri));
             }
         }
