@@ -7,6 +7,7 @@ import edu.stanford.nlp.simple.Sentence;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
+import org.apache.lucene.document.StoredField;
 import org.apache.lucene.document.TextField;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
@@ -36,9 +37,54 @@ public class VisualGenomeIndexer {
 
         Document currentDocument = new Document();
         Boolean isEmpty = true;
+        int current_image_id = -1;
+        int h = -1;
+        int w = -1;
+        int y = -1;
+        int x = -1;
         while (parser.hasCurrentToken()) {
-            if (parser.getText().equals("synsets") & parser.currentToken() == JsonToken.FIELD_NAME) {
+            if (parser.getText().equals("image_id") && parser.currentToken() == JsonToken.FIELD_NAME) {
+                parser.nextToken();
+                if (parser.currentToken() == JsonToken.VALUE_NUMBER_INT) {
+                    current_image_id = parser.getIntValue();
+                }
+            } else if (parser.getText().equals("h") && parser.currentToken() == JsonToken.FIELD_NAME) {
+                parser.nextToken();
+                if (parser.currentToken() == JsonToken.VALUE_NUMBER_INT) {
+                    h = parser.getIntValue();
+                }
+            } else if (parser.getText().equals("w") && parser.currentToken() == JsonToken.FIELD_NAME) {
+                parser.nextToken();
+                if (parser.currentToken() == JsonToken.VALUE_NUMBER_INT) {
+                    w = parser.getIntValue();
+                }
+            } else if (parser.getText().equals("y") && parser.currentToken() == JsonToken.FIELD_NAME) {
+                parser.nextToken();
+                if (parser.currentToken() == JsonToken.VALUE_NUMBER_INT) {
+                    y = parser.getIntValue();
+                }
+            } else if (parser.getText().equals("x") && parser.currentToken() == JsonToken.FIELD_NAME) {
+                parser.nextToken();
+                if (parser.currentToken() == JsonToken.VALUE_NUMBER_INT) {
+                    x = parser.getIntValue();
+                }
+            } else if (parser.getText().equals("synsets") & parser.currentToken() == JsonToken.FIELD_NAME) {
                 if (!isEmpty) {
+                    if (current_image_id != -1) {
+                        currentDocument.add(new StoredField("image_id", current_image_id));
+                    }
+                    if (h != -1) {
+                        currentDocument.add(new StoredField("h", h));
+                    }
+                    if (w != -1) {
+                        currentDocument.add(new StoredField("w", w));
+                    }
+                    if (y != -1) {
+                        currentDocument.add(new StoredField("y", y));
+                    }
+                    if (x != -1) {
+                        currentDocument.add(new StoredField("x", x));
+                    }
                     writer.addDocument(currentDocument);
                     currentDocument = new Document();
                     isEmpty = true;
@@ -105,9 +151,54 @@ public class VisualGenomeIndexer {
 
         Document currentDocument = new Document();
         Boolean isEmpty = true;
+        int current_image_id = -1;
+        int h = -1;
+        int w = -1;
+        int y = -1;
+        int x = -1;
         while (parser.hasCurrentToken()) {
-            if (parser.getText().equals("predicate") & parser.currentToken() == JsonToken.FIELD_NAME) {
+            if (parser.getText().equals("image_id") && parser.currentToken() == JsonToken.FIELD_NAME) {
+                parser.nextToken();
+                if (parser.currentToken() == JsonToken.VALUE_NUMBER_INT) {
+                    current_image_id = parser.getIntValue();
+                }
+            } else if (parser.getText().equals("h") && parser.currentToken() == JsonToken.FIELD_NAME) {
+                parser.nextToken();
+                if (parser.currentToken() == JsonToken.VALUE_NUMBER_INT) {
+                    h = parser.getIntValue();
+                }
+            } else if (parser.getText().equals("w") && parser.currentToken() == JsonToken.FIELD_NAME) {
+                parser.nextToken();
+                if (parser.currentToken() == JsonToken.VALUE_NUMBER_INT) {
+                    w = parser.getIntValue();
+                }
+            } else if (parser.getText().equals("y") && parser.currentToken() == JsonToken.FIELD_NAME) {
+                parser.nextToken();
+                if (parser.currentToken() == JsonToken.VALUE_NUMBER_INT) {
+                    y = parser.getIntValue();
+                }
+            } else if (parser.getText().equals("x") && parser.currentToken() == JsonToken.FIELD_NAME) {
+                parser.nextToken();
+                if (parser.currentToken() == JsonToken.VALUE_NUMBER_INT) {
+                    x = parser.getIntValue();
+                }
+            } else if (parser.getText().equals("predicate") & parser.currentToken() == JsonToken.FIELD_NAME) {
                 if (!isEmpty) {
+                    if (current_image_id != -1) {
+                        currentDocument.add(new StoredField("image_id", current_image_id));
+                    }
+                    if (h != -1) {
+                        currentDocument.add(new StoredField("h", h));
+                    }
+                    if (w != -1) {
+                        currentDocument.add(new StoredField("w", w));
+                    }
+                    if (y != -1) {
+                        currentDocument.add(new StoredField("y", y));
+                    }
+                    if (x != -1) {
+                        currentDocument.add(new StoredField("x", x));
+                    }
                     writer.addDocument(currentDocument);
                     currentDocument = new Document();
                     isEmpty = true;
